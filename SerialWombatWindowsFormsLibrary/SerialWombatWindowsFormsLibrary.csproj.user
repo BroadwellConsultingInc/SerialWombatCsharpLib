@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="AnalogInputForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="DebounceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="PinStateMachineViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GraphicPinSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="PublicDataMonitorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="PulseTimerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="PWMForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="QuadratureEncoderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="QueueForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ResistanceInputForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SerialPortSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ServoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="TCPPortSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UltrasonicDistanceSensorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

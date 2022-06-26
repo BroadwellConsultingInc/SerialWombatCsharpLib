@@ -1,0 +1,153 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
+using System.Threading;
+using System.Windows.Forms;
+using SerialWombat;
+
+using ScottPlot;
+
+namespace SerialWombatWindowsFormsLibrary
+{
+    public partial class QuadratureEncoderForm : Form
+    {
+        public SerialWombatQuadEnc QuadratureEncoder;
+        public byte Pin { get; set; }
+        public SerialWombatChip SerialWombatChip { get; private set; }
+        public PlottableSignal signalPlot;
+        public double[] Raw16Data = new double[100000];
+        UInt16 LastPublicData = 0;
+        int datacount = 0;
+        private delegate void SafeCallDelegate();
+        public QuadratureEncoderForm(SerialWombatChip serialWombatChip, byte pin)
+        {
+            InitializeComponent();
+            Pin = pin;
+            Text = $"QuadratureEncoder Pins {Pin}, {Pin + 1} ";
+            SerialWombatChip = serialWombatChip;
+            cbAction.SelectedIndex = 4;
+            cbPullUpDown.SelectedIndex = 1;
+            tbSecondPin.Text = (Pin + 1).ToString();
+            signalPlot = formsPlot1.plt.PlotSignal(Raw16Data);
+        }
+        private void bConfigure_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                byte secondPin = Convert.ToByte(tbSecondPin.Text);
+                UInt16 lowLimit = Convert.ToUInt16(tbLowLimit.Text);
+                UInt16 highLimit = Convert.ToUInt16(tbHighLimit.Text);
+                byte pullUpDown =(byte) cbPullUpDown.SelectedIndex;
+                byte action = (byte)cbAction.SelectedIndex;
+                UInt16 debounce = Convert.ToUInt16(tbDebounce.Text);
+                UInt16 increment = Convert.ToUInt16(tbIncrement.Text);
+                QuadratureEncoder = new SerialWombatQuadEnc(SerialWombatChip);
+                QuadratureEncoder.begin(Pin, secondPin, debounce, pullUpDown > 0, (QuadEncReadModes)action);
+                SendValue();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+           
+        }
+
+        void SendValue()
+        {
+            UInt16 bufferValue = Convert.ToUInt16(tbValue.Text);
+            QuadratureEncoder.write(bufferValue);
+        }
+
+        private void bRead_Click(object sender, EventArgs e)
+        {
+                        tbValue.Text = ReadRawDataAndPlot().ToString();
+        }
+
+        private void bWrite_Click(object sender, EventArgs e)
+        {
+            SendValue();
+        }
+
+        public UInt16 ReadRawDataAndPlot()
+        {
+            try
+            {
+
+                {
+
+                    LastPublicData = QuadratureEncoder.read();
+                    Raw16Data[datacount] = LastPublicData;
+                }
+                signalPlot.maxRenderIndex = datacount;
+                if (datacount > 100)
+                {
+                    signalPlot.minRenderIndex = datacount - 100;
+                }
+                formsPlot1.plt.AxisAuto();
+                ++datacount;
+
+
+                UpdateGraph();
+                if (datacount == 99999)
+                {
+                    datacount = 0;
+                    signalPlot.minRenderIndex = 0;
+                }
+              
+            }
+            catch 
+            {
+                //Fail silently
+            }
+            return (LastPublicData);
+
+        }
+
+        public void UpdateGraph()
+        {
+            if (formsPlot1.InvokeRequired)
+            {
+                var d = new SafeCallDelegate(UpdateGraph);
+                formsPlot1.Invoke(d, new object[] { });
+            }
+            else
+            {
+                formsPlot1.plt.AxisAuto();
+                formsPlot1.Render();
+            }
+        }
+
+        private void bSample_Click(object sender, EventArgs e)
+        {
+            ReadRawDataAndPlot();
+        }
+
+
+
+        void SampleThread()
+        {
+            while (ckbAutoSample.Checked)
+            {
+                ReadRawDataAndPlot();
+                Thread.Sleep(100);
+            }
+        }
+
+        private void ckbAutoSample_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckbAutoSample.Checked)
+            {
+                Thread t = new Thread(SampleThread);
+                t.Start();
+                bRead.Enabled = false;
+            }
+            else
+            {
+                bRead.Enabled = true;
+            }
+        }
+    }
+}
