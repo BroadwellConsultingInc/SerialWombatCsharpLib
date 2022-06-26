@@ -1,0 +1,150 @@
+﻿<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="textBox1.Text" xml:space="preserve">
+    <value>Scale incoming values to a range of 0 to 65535.  
+
+This function allows configuration of an input scaling range that maps to 0-65535.  
+
+For example, if another pin or public data returns a range from 2000 to 5000, setting the minimum to 2000 and maximum to 5000 will cause values below 2000 to be 0, values above 5000 to be 65535, and values in between will be scaled accordingly.  
+
+This allows a sensor or other input device to scale to the Serial Wombat philosophy of using a 16 bit resolution number to represent the the possible range of values</value>
+  </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="textBox2.Text" xml:space="preserve">
+    <value>Configure the scaled output block into PID control mode
+
+This pin mode implements Propotional / Integral / Derivative (PID) control.  It attempts to
+drive the input to a target value based on calibration constants provided by the host.
+
+For a discussion of PID control in general, this link is suggested:
+https://www.ni.com/en-us/innovations/white-papers/06/pid-theory-explained.html  
+
+This block implements PID using the diagram shown in this link where the kP term is
+applied after the sum of the error, 1/ki * integration and kd * derivative sum.  This
+is different from the order used in some PID algorithms.  The net effect is the same but
+the values of the ki and kd are different than if the constants were all applied first and
+the sum taken afterwards.  This was done to best distribute values so that calculations could
+be done using integral math rather than floating point due to the performance cost of floating
+point on small microcontrollers.
+
+Note that kp, ki and kd are unsigned integers.  For this reason it is necessary that 
+an increase in controller output creates a positive change in the measurement of the plant.
+The writeScalingInvertedInput function can be used to invert the input if the system reacts
+negatively to a an increase in output.
+
+See the pid() function in the Serial Wombat 18AB firmware to see exactly how the math is implemented:
+https://github.com/BroadwellConsultingInc/SerialWombat/blob/main/SerialWombat18A_18B/SerialWombat18A_18B.X/outputScale.c
+</value>
+  </data>
+  <data name="textBox3.Text" xml:space="preserve">
+    <value>Controls the output based on hystersis control
+
+Calling this function places the output in hysteresis mode.  
+
+In this mode the input source is monitored and compared against a high and low threshold. 
+
+If the input source is equal or greater to highLimit then the output becomes highOutputValue.  
+
+If it is equal or less than lowLimit then lowOutputValue is output.  
+
+If the input source is between lowLimit and highLimit then no change occurs.  
+
+</value>
+  </data>
+  <data name="textBox4.Text" xml:space="preserve">
+    <value>Enable a timeout value which will cause the output to go to a default value if not updated
+
+When this function is called with a timeout value longer than 0 mS the timer becomes enabled.
+
+Internally a counter is set to 0 and increments each 1ms.  
+If the counter reaches the timeout value then the output is set to timeoutOutputValue.  
+
+Calling writeTimeout again resets the counter to 0, so it is intended to be called periodicallly to ensure that the timeout never occurs under 
+normal circumstances.  
+
+It can also be used to generate timed output which is active for some period of time then reverts to timeoutOutputValue .  
+
+The length of this pulse may vary by a few hundred microseconds because it is done in software, not hardware.</value>
+  </data>
+  <data name="textBox6.Text" xml:space="preserve">
+    <value>Controls how fast an ouput can change in counts per time
+
+This function allows configuration of how fast an output's value is allowed
+to change in counts on a 0-65535 scale.  The Rate control runs on a fixed
+period based on the Period enumerated type.  Every samplePeriod ms the target
+is reevaluated.  If the expected output would change the output by more
+than maximumChangecounts, then the output only changes by maximumChangecounts </value>
+  </data>
+  <data name="textBox5.Text" xml:space="preserve">
+    <value>Controls how fast an ouput can change based on filtering 
+
+This function allows configuration of how fast an output's value is allowed
+to change based on a first order filter.  The Rate control runs on a fixed
+period based on the Period enumerated type.  Every samplePeriod ms the target
+is reevaluated.  The requested output is combined with the current output 
+using filterConstant.  Higher values for filterConstant cause heavier filtering
+</value>
+  </data>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>60</value>
+  </metadata>
+</root>

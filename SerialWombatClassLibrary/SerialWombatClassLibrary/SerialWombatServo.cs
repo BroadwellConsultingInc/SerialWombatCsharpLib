@@ -4,16 +4,15 @@ using System.Text;
 
 namespace SerialWombat
 {
-	public class SerialWombatServo
+	public class SerialWombatServo : SerialWombatPin
 	{
-		SerialWombatChip _sw;
-		byte _pin = 255;
+		
 		UInt16 _position = 0;
 		UInt16 _min = 544;  // Default for Arduino Servo library
 		UInt16 _max = 2400; // Default for Arduino Servo Library
 		bool _reverse = false;
 
-		public SerialWombatServo(SerialWombatChip serialWombatChip)
+		public SerialWombatServo(SerialWombatChip serialWombatChip):base(serialWombatChip)
 		{
 			_sw = serialWombatChip;
 		}
@@ -85,5 +84,22 @@ namespace SerialWombat
 		}
 
 		public byte Pin { get { return _pin; } }
+	}
+
+    public class SerialWombatServo_18AB:SerialWombatServo
+    {
+		public SerialWombatAbstractScaledOutput scaledOutput;
+		public SerialWombatServo_18AB(SerialWombatChip serialWombatChip) : base(serialWombatChip)
+		{
+			scaledOutput = new SerialWombatAbstractScaledOutput(serialWombatChip);
+		}
+
+		public new void attach(byte pin, UInt16 min, UInt16 max, bool reverse)
+        {
+			_pin = pin;
+			base.attach(_pin, min, max, reverse);
+			scaledOutput.begin(_pin, _pinMode);
+        }
+
 	}
 }

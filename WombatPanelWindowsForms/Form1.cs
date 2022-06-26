@@ -359,5 +359,9 @@ namespace WombatPanelWindowsForms
             WombatList.Last().sendPacket("UUUUUUUU");
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+           
+        }
     }
 }

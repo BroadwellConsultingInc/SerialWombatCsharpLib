@@ -234,7 +234,7 @@ namespace SerialWombat
 		public UInt16 _supplyVoltagemV = 0;
 
 		/// Contains the last model retreived by queryVersion() as a zero-terminated string
-		public byte[] model = { 0,0,0 };
+		public byte[] model = { (byte)'S',(byte)'1',(byte)'8' };
 
 		/// Contains the last firmware Version retreived by queryVersion() as a zero-terminated string
 		public byte[] fwVersion = { 0,0,0};

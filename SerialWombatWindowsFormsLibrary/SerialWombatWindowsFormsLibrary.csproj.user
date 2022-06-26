@@ -1,10 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="AnalogInputForm.cs">
+    <Compile Update="Controls\AnalogInputControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\EnumDropdown.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\ProcessedInputControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\ScaledOutputControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\SerialWombatPublicDataControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\ServoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\SixteenBitSliderInput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Forms\AnalogInputForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="DebounceForm.cs">
+    <Compile Update="Forms\DebounceForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="PinStateMachineViewer.cs">
@@ -13,34 +34,37 @@
     <Compile Update="GraphicPinSelector.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="PublicDataMonitorForm.cs">
+    <Compile Update="Forms\PublicDataMonitorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="PulseTimerForm.cs">
+    <Compile Update="Forms\PulseTimerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="PWMForm.cs">
+    <Compile Update="Forms\PWMForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="QuadratureEncoderForm.cs">
+    <Compile Update="Forms\QuadratureEncoderForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="QueueForm.cs">
+    <Compile Update="Forms\QueueForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="ResistanceInputForm.cs">
+    <Compile Update="Forms\ResistanceInputForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="SerialPortSelector.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="ServoForm.cs">
+    <Compile Update="Forms\ServoForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="TCPPortSelector.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="UltrasonicDistanceSensorForm.cs">
+    <Compile Update="TestFormDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\UltrasonicDistanceSensorForm.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

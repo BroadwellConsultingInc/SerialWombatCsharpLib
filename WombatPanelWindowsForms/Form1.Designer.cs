@@ -331,26 +331,25 @@
             // portOpenSerialMenuItem
             // 
             this.portOpenSerialMenuItem.Name = "portOpenSerialMenuItem";
-            this.portOpenSerialMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.portOpenSerialMenuItem.Size = new System.Drawing.Size(160, 22);
             this.portOpenSerialMenuItem.Text = "Open&Serial";
-
             // 
             // portOpenTCPMenuItem
             // 
             this.portOpenTCPMenuItem.Name = "portOpenTCPMenuItem";
-            this.portOpenTCPMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.portOpenTCPMenuItem.Size = new System.Drawing.Size(160, 22);
             this.portOpenTCPMenuItem.Text = "Open &TCP";
             // 
             // portOpenI2CBridgeMenuItem
             // 
             this.portOpenI2CBridgeMenuItem.Name = "portOpenI2CBridgeMenuItem";
-            this.portOpenI2CBridgeMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.portOpenI2CBridgeMenuItem.Size = new System.Drawing.Size(160, 22);
             this.portOpenI2CBridgeMenuItem.Text = "Open I2C Bridge";
             // 
             // portCloseMenuItem
             // 
             this.portCloseMenuItem.Name = "portCloseMenuItem";
-            this.portCloseMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.portCloseMenuItem.Size = new System.Drawing.Size(160, 22);
             this.portCloseMenuItem.Text = "&Close";
             // 
             // tbLog
@@ -406,6 +405,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

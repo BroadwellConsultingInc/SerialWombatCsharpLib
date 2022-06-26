@@ -4,14 +4,18 @@ using System.Text;
 
 namespace SerialWombat
 {
-    class SerialWombatAbstractScaledOutput:SerialWombatPin
+    public class SerialWombatAbstractScaledOutput:SerialWombatPin
     {
 
         public SerialWombatAbstractScaledOutput(SerialWombatChip serialWombatChip) : base(serialWombatChip)
         { 
         }
 
-        public void begin(byte pin, SerialWombatPinModes mode)
+
+		
+
+
+		public void begin(byte pin, SerialWombatPinModes mode)
         {
             begin(pin, (byte)mode);
         }
@@ -99,7 +103,7 @@ namespace SerialWombat
 			return (_sw.sendPacket(tx));
 		}
 
-		public Int16 configureRateControl(byte sampleRate, UInt16 filterConstant)
+		public Int16 writeRateControl(ScaledOutputPeriod sampleRate, UInt16 filterConstant)
 		{
 			{
 				byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_OUTPUTSCALE,
@@ -120,14 +124,14 @@ namespace SerialWombat
 		_pin,
 		_pinMode,
 		7, // Set Sample Rate
-		sampleRate,
+		(byte)sampleRate,
 		0x55,0x55,0x55,
 	};
 				return (_sw.sendPacket(tx));
 			}
 		}
 
-		public Int16 configure1stOrderFiltering(byte sampleRate, UInt16 filterConstant)
+		public Int16 write1stOrderFiltering(ScaledOutputPeriod sampleRate, UInt16 filterConstant)
 		{
 			{
 				byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_OUTPUTSCALE,
@@ -148,14 +152,14 @@ namespace SerialWombat
 		_pin,
 		_pinMode,
 		7, // Set Sample Rate
-		sampleRate,
+		(byte)sampleRate,
 		0x55,0x55,0x55,
 		};
 				return (_sw.sendPacket(tx));
 			}
 		}
 
-		public Int16 configureHysteresis(UInt16 lowLimit, UInt16 lowOutputValue, UInt16 highLimit, UInt16 highOutputValue, UInt16 initialOutputValue)
+		public Int16 writeHysteresis(UInt16 lowLimit, UInt16 lowOutputValue, UInt16 highLimit, UInt16 highOutputValue, UInt16 initialOutputValue)
 		{
 			{
 				byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_OUTPUTSCALE,
@@ -191,7 +195,7 @@ namespace SerialWombat
 			return (0);
 		}
 
-		public Int16 configurePID(UInt16 kp, UInt16 ki, UInt16 kd, UInt16 target, byte sampleRate)
+		public Int16 writePID(UInt16 kp, UInt16 ki, UInt16 kd, UInt16 target, ScaledOutputPeriod sampleRate)
 		{
 			{
 				byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_OUTPUTSCALE,
@@ -219,7 +223,7 @@ namespace SerialWombat
 		_pin,
 		_pinMode,
 		7, // Set Sample Rate
-		sampleRate,
+		(byte)sampleRate,
 		0x55,0x55,0x55,
 		};
 				Int16 result = _sw.sendPacket(tx); if (result < 0) { return (result); }
@@ -240,4 +244,19 @@ namespace SerialWombat
 
 
 	}
+
+	public enum ScaledOutputPeriod
+	{
+		PERIOD_1mS = 0,
+		PERIOD_2mS = 1,
+		PERIOD_4mS = 2,
+		PERIOD_8mS = 3,
+		PERIOD_16mS = 4,
+		PERIOD_32mS = 5,
+		PERIOD_64mS = 6,
+		PERIOD_128mS = 7,
+		PERIOD_256mS = 8,
+		PERIOD_512mS = 9,
+		PERIOD_1024mS = 10,
+	};
 }

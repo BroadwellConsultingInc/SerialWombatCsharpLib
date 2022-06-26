@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SerialWombat
 {
-    class SerialWombatAbstractProcessedInput : SerialWombatPin
+    public class SerialWombatAbstractProcessedInput : SerialWombatPin
     {
         public SerialWombatAbstractProcessedInput(SerialWombatChip chip) : base(chip)
         {
@@ -53,7 +53,7 @@ namespace SerialWombat
             _pinMode = pinMode;
         }
 
-        Int16 writeProcessedInputEnable(bool enabled)
+        public Int16 writeProcessedInputEnable(bool enabled)
         {
             byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_INPUTPROCESS,
         _pin,
@@ -68,7 +68,7 @@ namespace SerialWombat
             return (result);
         }
 
-        UInt16 readMinimum(bool reset)
+        public UInt16 readMinimum(bool reset)
         {
             byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_INPUTPROCESS,
         _pin,
@@ -86,7 +86,7 @@ namespace SerialWombat
             return ((UInt16)(rx[4] + 256 * rx[5]));
         }
 
-        UInt16 readMaximum(bool reset)
+        public UInt16 readMaximum(bool reset)
         {
             byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_INPUTPROCESS,
         _pin,
@@ -104,7 +104,7 @@ namespace SerialWombat
             return ((UInt16)(rx[4] + 256 * rx[5]));
         }
 
-        UInt16 readAverage()
+        public UInt16 readAverage()
         {
             byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_INPUTPROCESS,
         _pin,
@@ -121,7 +121,7 @@ namespace SerialWombat
             return ((UInt16)(rx[4] + 256 * rx[5]));
         }
 
-        UInt16 readFiltered()
+        public UInt16 readFiltered()
         {
             byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_INPUTPROCESS,
         _pin,
@@ -138,7 +138,7 @@ namespace SerialWombat
             return ((UInt16)(rx[6] + 256 * rx[7]));
         }
 
-        Int16 writeInverted(bool inverted)
+        public Int16 writeInverted(bool inverted)
         {
             byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_INPUTPROCESS,
         _pin,
@@ -153,7 +153,7 @@ namespace SerialWombat
             return (result);
         }
 
-        Int16 writeFirstOrderFilteringConstant(UInt16 constant)
+        public Int16 writeFirstOrderFilteringConstant(UInt16 constant)
         {
             byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_INPUTPROCESS,
         _pin,
@@ -165,7 +165,7 @@ namespace SerialWombat
             return (_sw.sendPacket(tx));
         }
 
-        Int16 writeAveragingNumberOfSamples(UInt16 numberOfSamples)
+        public Int16 writeAveragingNumberOfSamples(UInt16 numberOfSamples)
         {
             byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_INPUTPROCESS,
         _pin,
@@ -180,7 +180,7 @@ namespace SerialWombat
             return (result);
         }
 
-        Int16 writeExcludeBelowAbove(UInt16 low, UInt16 high)
+        public Int16 writeExcludeBelowAbove(UInt16 low, UInt16 high)
         {
             byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_INPUTPROCESS,
         _pin,
@@ -195,7 +195,7 @@ namespace SerialWombat
             return (result);
         }
 
-        Int16 configureQueue(SerialWombatQueue queue, Period period, bool queueHighByte, bool queueLowByte)
+        public Int16 configureQueue(SerialWombatQueue queue, Period period, bool queueHighByte, bool queueLowByte)
         {
             byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_INPUTPROCESS,
         _pin,
@@ -212,7 +212,7 @@ namespace SerialWombat
             return (result);
         }
 
-        Int16 configureOutputValue(OutputValue outputValue)
+        public Int16 configureOutputValue(OutputValue outputValue)
         {
             byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_INPUTPROCESS,
         _pin,
@@ -227,7 +227,7 @@ namespace SerialWombat
             return (result);
         }
 
-        Int16 configureTransformScaleRange(UInt16 min, UInt16 max)
+        public Int16 writeTransformScaleRange(UInt16 min, UInt16 max)
         {
             byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_INPUTPROCESS,
         _pin,
@@ -242,7 +242,7 @@ namespace SerialWombat
             return (result);
         }
 
-        Int16 configureTransformLinearMXB(Int32 m, Int32 b)
+        public Int16 writeTransformLinearMXB(Int32 m, Int32 b)
         {
             UInt32 m32;
 
