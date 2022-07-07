@@ -15,16 +15,14 @@ namespace SerialWombatWindowsFormsLibrary
     {
         public byte Pin = 0;
         public SerialWombatChip SerialWombatChip;
-        public PlottableSignal signalPlot;
-        public double[] Raw16Data = new double[100000];
+      
         UInt16 LastResult = 0;
-        int datacount = 0;
+
         public PublicDataMonitorForm(SerialWombatChip serialWombatChip, byte pin)
         {
             InitializeComponent();
             SerialWombatChip = serialWombatChip;
             Pin = pin;
-            signalPlot = formsPlot1.plt.PlotSignal(Raw16Data);
             Array array = Enum.GetValues(typeof(SerialWombatDataSources));
             comboBox1.DataSource = array;
             int i = 0;
@@ -41,76 +39,15 @@ namespace SerialWombatWindowsFormsLibrary
         }
 
 
-        private delegate void SafeCallDelegate();
 
-        public void ReadRawDataAndPlot()
-        {
-            if (formsPlot1.InvokeRequired)
-            {
-                try
-                {
-                    var d = new SafeCallDelegate(ReadRawDataAndPlot);
-                    formsPlot1.Invoke(d, new object[] { });
-                }
-                catch { }
-            }
-            try
-            {
-                {
-                    
+        
 
-                    Pin = Convert.ToByte(tbDataId.Text);
-                    LastResult = SerialWombatChip.readPublicData(Pin);
-
-                }
-                Raw16Data[datacount] = LastResult;
-                signalPlot.maxRenderIndex = datacount;
-                if (datacount > 100)
-                {
-                    signalPlot.minRenderIndex = datacount - 100;
-                }
-                formsPlot1.plt.AxisAuto();
-                ++datacount;
-
-
-
-
-                UpdateGraph();
-                if (datacount == 99999)
-                {
-                    datacount = 0;
-                    signalPlot.minRenderIndex = 0;
-                }
-
-            }
-            catch
-            {
-                //Fail silently
-            }
-
-
-        }
-
-        public void UpdateGraph()
-        {
-            if (formsPlot1.InvokeRequired)
-            {
-                var d = new SafeCallDelegate(UpdateGraph);
-                formsPlot1.Invoke(d, new object[] { });
-            }
-            else
-            {
-
-                formsPlot1.Render();
-
-                formsPlot1.plt.YLabel("Counts / 65535");
-            }
-
-        }
-
+        
         private void bSample_Click(object sender, EventArgs e)
         {
-            ReadRawDataAndPlot();
+            Pin = Convert.ToByte(tbDataId.Text);
+            LastResult = SerialWombatChip.readPublicData(Pin);
+            realTimeScottPlot1.PlotData(LastResult);
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -132,7 +69,9 @@ namespace SerialWombatWindowsFormsLibrary
         {
             while (ckbAutosample.Checked)
             {
-                ReadRawDataAndPlot();
+                Pin = Convert.ToByte(tbDataId.Text);
+                LastResult = SerialWombatChip.readPublicData(Pin);
+                realTimeScottPlot1.PlotData(LastResult);
                 Thread.Sleep(100);
             }
         }

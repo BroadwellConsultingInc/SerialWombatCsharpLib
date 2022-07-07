@@ -60,6 +60,8 @@
             this.sbsiTimeoutOutputValue = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
             this.sbsiTimeout_mS = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
             this.tpFiltering = new System.Windows.Forms.TabPage();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.bConfigureMaximumRate = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.bConfigureFiltering = new System.Windows.Forms.Button();
@@ -72,8 +74,8 @@
             this.swpdsInput = new SerialWombatWindowsFormsLibrary.SerialWombatPublicDataControl();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.ckbScaledOutputEnable = new System.Windows.Forms.CheckBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.sbsiFilterTarget = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
+            this.bWriteTarget = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tpPID.SuspendLayout();
@@ -404,6 +406,8 @@
             // 
             // tpFiltering
             // 
+            this.tpFiltering.Controls.Add(this.bWriteTarget);
+            this.tpFiltering.Controls.Add(this.sbsiFilterTarget);
             this.tpFiltering.Controls.Add(this.textBox6);
             this.tpFiltering.Controls.Add(this.textBox5);
             this.tpFiltering.Controls.Add(this.bConfigureMaximumRate);
@@ -419,9 +423,31 @@
             this.tpFiltering.Text = "Filtering";
             this.tpFiltering.UseVisualStyleBackColor = true;
             // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(16, 320);
+            this.textBox6.Multiline = true;
+            this.textBox6.Name = "textBox6";
+            this.textBox6.ReadOnly = true;
+            this.textBox6.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox6.Size = new System.Drawing.Size(344, 57);
+            this.textBox6.TabIndex = 21;
+            this.textBox6.Text = resources.GetString("textBox6.Text");
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(16, 183);
+            this.textBox5.Multiline = true;
+            this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
+            this.textBox5.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox5.Size = new System.Drawing.Size(344, 57);
+            this.textBox5.TabIndex = 20;
+            this.textBox5.Text = resources.GetString("textBox5.Text");
+            // 
             // bConfigureMaximumRate
             // 
-            this.bConfigureMaximumRate.Location = new System.Drawing.Point(86, 318);
+            this.bConfigureMaximumRate.Location = new System.Drawing.Point(86, 280);
             this.bConfigureMaximumRate.Name = "bConfigureMaximumRate";
             this.bConfigureMaximumRate.Size = new System.Drawing.Size(156, 23);
             this.bConfigureMaximumRate.TabIndex = 4;
@@ -432,7 +458,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(144, 262);
+            this.label7.Location = new System.Drawing.Point(151, 253);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(23, 15);
             this.label7.TabIndex = 3;
@@ -529,27 +555,24 @@
             this.ckbScaledOutputEnable.UseVisualStyleBackColor = true;
             this.ckbScaledOutputEnable.CheckedChanged += new System.EventHandler(this.ckbScaledOutputEnable_CheckedChanged);
             // 
-            // textBox5
+            // sbsiFilterTarget
             // 
-            this.textBox5.Location = new System.Drawing.Point(16, 183);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox5.Size = new System.Drawing.Size(344, 57);
-            this.textBox5.TabIndex = 20;
-            this.textBox5.Text = resources.GetString("textBox5.Text");
+            this.sbsiFilterTarget.Location = new System.Drawing.Point(16, 383);
+            this.sbsiFilterTarget.Name = "sbsiFilterTarget";
+            this.sbsiFilterTarget.Size = new System.Drawing.Size(311, 74);
+            this.sbsiFilterTarget.TabIndex = 22;
+            this.sbsiFilterTarget.Text = "Target Value";
+            this.sbsiFilterTarget.TextBoxHint = "The value the output will attempt to control the input to";
             // 
-            // textBox6
+            // bWriteTarget
             // 
-            this.textBox6.Location = new System.Drawing.Point(16, 358);
-            this.textBox6.Multiline = true;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox6.Size = new System.Drawing.Size(344, 57);
-            this.textBox6.TabIndex = 21;
-            this.textBox6.Text = resources.GetString("textBox6.Text");
+            this.bWriteTarget.Location = new System.Drawing.Point(333, 410);
+            this.bWriteTarget.Name = "bWriteTarget";
+            this.bWriteTarget.Size = new System.Drawing.Size(54, 23);
+            this.bWriteTarget.TabIndex = 23;
+            this.bWriteTarget.Text = "Write";
+            this.bWriteTarget.UseVisualStyleBackColor = true;
+            this.bWriteTarget.Click += new System.EventHandler(this.bWriteTarget_Click);
             // 
             // ScaledOutputControl
             // 
@@ -623,5 +646,7 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Button bWriteTarget;
+        private SixteenBitSliderInput sbsiFilterTarget;
     }
 }

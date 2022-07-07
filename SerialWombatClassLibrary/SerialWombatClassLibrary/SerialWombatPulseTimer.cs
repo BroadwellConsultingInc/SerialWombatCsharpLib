@@ -23,10 +23,9 @@ namespace SerialWombat
 		DUTYCYCLE_ON_LTH_TRANSITION = 7,
 		DUTYCYCLE_ON_HTL_TRANSITION = 8,
 	}
-    public class SerialWombatPulseTimer
+    public class SerialWombatPulseTimer : SerialWombatPin
     {
-SerialWombatChip _sw;
-	byte _pin = 255;
+
 
 
 	/// \brief Count in selected units of last retreived high pulse
@@ -44,7 +43,7 @@ public UInt16 LowCounts = 0;
 public UInt16 Pulses = 0;
 public	bool MeasurementOverflowOccurred = false;
 
-public 		 SerialWombatPulseTimer(SerialWombatChip serialWombatChip)
+public 		 SerialWombatPulseTimer(SerialWombatChip serialWombatChip): base(serialWombatChip)
 		{
 			_sw = serialWombatChip;
 
@@ -113,13 +112,33 @@ public 		UInt16  readPulses()
 
 		public byte Pin { get { return _pin; } }
 
+	
+	}
+
+	public class SerialWombatPulseTimer_18AB : SerialWombatPulseTimer
+    {
+
+			public SerialWombatAbstractProcessedInput processedInput;
+
+		public SerialWombatPulseTimer_18AB(SerialWombatChip serialWombatChip) : base(serialWombatChip)
+			{ }
+
+			new public void begin(byte pin, SerialWombatPulseTimerUnits units = SerialWombatPulseTimerUnits.SW_PULSETIMER_uS, bool pullUpsEnabled = false)
+			{
+				_pin = pin;
+				_pinMode = (byte)SerialWombatPinModes.PIN_MODE_PULSETIMER;
+				base.begin(pin, units, pullUpsEnabled);
+				processedInput = new SerialWombatAbstractProcessedInput(_sw);
+				processedInput.begin(_pin, _pinMode);
+			}
 		public void configurePublicDataOutput(SerialWombatPulseTimerPublicData data)
 		{
 			byte[] tx = { 203, _pin, (byte)SerialWombatPinModes.PIN_MODE_PULSETIMER, (byte)data, 0x55, 0x55, 0x55, 0x55 };
 
-			 _sw.sendPacket(tx);
+			_sw.sendPacket(tx);
 		}
-	}
 
+
+	}
 	
 }

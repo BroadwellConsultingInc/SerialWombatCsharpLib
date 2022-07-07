@@ -29,15 +29,14 @@ namespace SerialWombatWindowsFormsLibrary
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.label6 = new System.Windows.Forms.Label();
-            this.formsPlot1 = new ScottPlot.FormsPlot();
             this.bSample = new System.Windows.Forms.Button();
             this.ckbAutosample = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.tbDataId = new System.Windows.Forms.TextBox();
+            this.realTimeScottPlot1 = new SerialWombatWindowsFormsLibrary.Controls.RealTimeScottPlot();
             this.label1 = new System.Windows.Forms.Label();
+            this.tbDataId = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,14 +49,6 @@ namespace SerialWombatWindowsFormsLibrary
             this.label6.Text = "Real time chart created with Scott Hardin\'s excellent  ScottPlot Library (https:/" +
     "/swharden.com/scottplot/)";
             this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // formsPlot1
-            // 
-            this.formsPlot1.Location = new System.Drawing.Point(19, 145);
-            this.formsPlot1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.formsPlot1.Name = "formsPlot1";
-            this.formsPlot1.Size = new System.Drawing.Size(382, 258);
-            this.formsPlot1.TabIndex = 0;
             // 
             // bSample
             // 
@@ -82,34 +73,25 @@ namespace SerialWombatWindowsFormsLibrary
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.realTimeScottPlot1);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.tbDataId);
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.ckbAutosample);
             this.groupBox1.Controls.Add(this.bSample);
-            this.groupBox1.Controls.Add(this.formsPlot1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(408, 473);
+            this.groupBox1.Size = new System.Drawing.Size(440, 473);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
-            // comboBox1
+            // realTimeScottPlot1
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(69, 75);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(274, 23);
-            this.comboBox1.TabIndex = 4;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // tbDataId
-            // 
-            this.tbDataId.Location = new System.Drawing.Point(134, 116);
-            this.tbDataId.Name = "tbDataId";
-            this.tbDataId.Size = new System.Drawing.Size(100, 23);
-            this.tbDataId.TabIndex = 5;
+            this.realTimeScottPlot1.Location = new System.Drawing.Point(0, 159);
+            this.realTimeScottPlot1.Name = "realTimeScottPlot1";
+            this.realTimeScottPlot1.Size = new System.Drawing.Size(429, 256);
+            this.realTimeScottPlot1.TabIndex = 7;
             // 
             // label1
             // 
@@ -119,6 +101,22 @@ namespace SerialWombatWindowsFormsLibrary
             this.label1.Size = new System.Drawing.Size(42, 15);
             this.label1.TabIndex = 6;
             this.label1.Text = "DataID";
+            // 
+            // tbDataId
+            // 
+            this.tbDataId.Location = new System.Drawing.Point(134, 116);
+            this.tbDataId.Name = "tbDataId";
+            this.tbDataId.Size = new System.Drawing.Size(100, 23);
+            this.tbDataId.TabIndex = 5;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(69, 75);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(274, 23);
+            this.comboBox1.TabIndex = 4;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // PublicDataMonitorForm
             // 
@@ -139,12 +137,12 @@ namespace SerialWombatWindowsFormsLibrary
         #endregion
 
         private System.Windows.Forms.Label label6;
-        private ScottPlot.FormsPlot formsPlot1;
         private System.Windows.Forms.Button bSample;
         private System.Windows.Forms.CheckBox ckbAutosample;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbDataId;
+        private Controls.RealTimeScottPlot realTimeScottPlot1;
     }
 }

@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.realTimeScottPlot1 = new SerialWombatWindowsFormsLibrary.Controls.RealTimeScottPlot();
             this.ckbVolts = new System.Windows.Forms.CheckBox();
             this.ckbAllValues = new System.Windows.Forms.CheckBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -51,7 +51,6 @@
             this.ckbAutosample = new System.Windows.Forms.CheckBox();
             this.bSample = new System.Windows.Forms.Button();
             this.bConfigure = new System.Windows.Forms.Button();
-            this.formsPlot1 = new ScottPlot.FormsPlot();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,6 +66,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.realTimeScottPlot1);
             this.groupBox1.Controls.Add(this.ckbVolts);
             this.groupBox1.Controls.Add(this.ckbAllValues);
             this.groupBox1.Controls.Add(this.comboBox1);
@@ -87,13 +87,19 @@
             this.groupBox1.Controls.Add(this.ckbAutosample);
             this.groupBox1.Controls.Add(this.bSample);
             this.groupBox1.Controls.Add(this.bConfigure);
-            this.groupBox1.Controls.Add(this.formsPlot1);
             this.groupBox1.Location = new System.Drawing.Point(0, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(530, 473);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
+            // 
+            // realTimeScottPlot1
+            // 
+            this.realTimeScottPlot1.Location = new System.Drawing.Point(29, 116);
+            this.realTimeScottPlot1.Name = "realTimeScottPlot1";
+            this.realTimeScottPlot1.Size = new System.Drawing.Size(429, 256);
+            this.realTimeScottPlot1.TabIndex = 9;
             // 
             // ckbVolts
             // 
@@ -282,22 +288,16 @@
             this.bConfigure.UseVisualStyleBackColor = true;
             this.bConfigure.Click += new System.EventHandler(this.bConfigure_Click);
             // 
-            // formsPlot1
-            // 
-            this.formsPlot1.Location = new System.Drawing.Point(19, 145);
-            this.formsPlot1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.formsPlot1.Name = "formsPlot1";
-            this.formsPlot1.Size = new System.Drawing.Size(382, 258);
-            this.formsPlot1.TabIndex = 0;
-            // 
             // AnalogInputControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.label6);
             this.Controls.Add(this.groupBox1);
             this.Name = "AnalogInputControl";
-            this.Size = new System.Drawing.Size(551, 533);
+            this.Size = new System.Drawing.Size(533, 513);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -328,6 +328,6 @@
         private System.Windows.Forms.CheckBox ckbAutosample;
         private System.Windows.Forms.Button bSample;
         private System.Windows.Forms.Button bConfigure;
-        private ScottPlot.FormsPlot formsPlot1;
+        private Controls.RealTimeScottPlot realTimeScottPlot1;
     }
 }

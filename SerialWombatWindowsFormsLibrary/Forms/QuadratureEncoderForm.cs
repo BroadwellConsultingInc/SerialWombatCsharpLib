@@ -17,10 +17,8 @@ namespace SerialWombatWindowsFormsLibrary
         public SerialWombatQuadEnc QuadratureEncoder;
         public byte Pin { get; set; }
         public SerialWombatChip SerialWombatChip { get; private set; }
-        public PlottableSignal signalPlot;
-        public double[] Raw16Data = new double[100000];
+      
         UInt16 LastPublicData = 0;
-        int datacount = 0;
         private delegate void SafeCallDelegate();
         public QuadratureEncoderForm(SerialWombatChip serialWombatChip, byte pin)
         {
@@ -31,7 +29,7 @@ namespace SerialWombatWindowsFormsLibrary
             cbAction.SelectedIndex = 4;
             cbPullUpDown.SelectedIndex = 1;
             tbSecondPin.Text = (Pin + 1).ToString();
-            signalPlot = formsPlot1.plt.PlotSignal(Raw16Data);
+
         }
         private void bConfigure_Click(object sender, EventArgs e)
         {
@@ -76,26 +74,11 @@ namespace SerialWombatWindowsFormsLibrary
             try
             {
 
-                {
+                
 
                     LastPublicData = QuadratureEncoder.read();
-                    Raw16Data[datacount] = LastPublicData;
-                }
-                signalPlot.maxRenderIndex = datacount;
-                if (datacount > 100)
-                {
-                    signalPlot.minRenderIndex = datacount - 100;
-                }
-                formsPlot1.plt.AxisAuto();
-                ++datacount;
-
-
-                UpdateGraph();
-                if (datacount == 99999)
-                {
-                    datacount = 0;
-                    signalPlot.minRenderIndex = 0;
-                }
+                realTimeScottPlot1.PlotData(LastPublicData);
+                  
               
             }
             catch 
@@ -106,19 +89,7 @@ namespace SerialWombatWindowsFormsLibrary
 
         }
 
-        public void UpdateGraph()
-        {
-            if (formsPlot1.InvokeRequired)
-            {
-                var d = new SafeCallDelegate(UpdateGraph);
-                formsPlot1.Invoke(d, new object[] { });
-            }
-            else
-            {
-                formsPlot1.plt.AxisAuto();
-                formsPlot1.Render();
-            }
-        }
+       
 
         private void bSample_Click(object sender, EventArgs e)
         {

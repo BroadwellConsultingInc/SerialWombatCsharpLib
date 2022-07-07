@@ -528,7 +528,7 @@ namespace SerialWombat
 			*/
             return (0);  // Didn't find one.
         }
-            int readUserBuffer(UInt16 index, byte[] buffer, UInt16 count)
+            public int readUserBuffer(UInt16 index, byte[] buffer, UInt16 count)
 {
                 UInt16 bytesRead = 0;
                 while (bytesRead < count)
@@ -542,6 +542,7 @@ namespace SerialWombat
                         {
                             buffer[bytesRead] = rx[i];
                             ++bytesRead;
+                        ++index;
                             if (bytesRead >= count)
                             {
                                 break;
@@ -673,7 +674,8 @@ namespace SerialWombat
                 }
                 while (count >= 7)  // Continue sending
                 {
-                    count -= 7;
+                    
+                count -= 7;
                     byte[] tx = { 0x85, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55 };
                     byte[] rx;
                     byte i;
@@ -688,7 +690,7 @@ namespace SerialWombat
                     }
                     bytesSent += 7;
                 }
-                if (count > 0)
+                while (count > 0)
                 {
                     { // Send first packet of up to 4 bytes
                         byte bytesToSend = 4;
@@ -717,11 +719,11 @@ namespace SerialWombat
                         }
                         bytesSent += bytesToSend;
                     }
-                    return ((Int16)bytesSent);
+                    
                 }
+            return ((Int16)bytesSent);
 
 
-                return (0);
 
             }
 

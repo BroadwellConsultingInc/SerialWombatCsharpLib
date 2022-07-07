@@ -14,112 +14,61 @@ namespace SerialWombatWindowsFormsLibrary
     public partial class AnalogInputControl : UserControl
     {
         public SerialWombatAnalogInput AnalogInput;
-        
+
         public byte Pin = 0;
         public SerialWombatChip SerialWombatChip;
-        public double[] Raw16Data = new double[100000];
-        int datacount = 0;
-        public PlottableSignal signalPlot;
+     
         double Vcc = 3.3;
         AnalogInputResult LastResult = new AnalogInputResult();
-
         private delegate void SafeCallDelegate();
 
 
-        public AnalogInputControl(SerialWombatChip serialWombatChip, byte pin)
+
+        public AnalogInputControl()
         {
             InitializeComponent();
-            Pin = pin;
+
+
+        }
+
+        public void begin(SerialWombatChip serialWombatChip, byte pin)
+        {
+        Pin = pin;
             SerialWombatChip = serialWombatChip;
             AnalogInputControl_Load(this,null);
-            groupBox1.Text = "";
+        groupBox1.Text = "";
             Text = $"Analog Input on pin {pin}";
 
-            signalPlot = formsPlot1.plt.PlotSignal(Raw16Data);
-
+        
         }
 
 
-
-        public UInt16 ReadRawDataAndPlot()
+        public void end()
         {
-            try
-            {
-                {
-                    LastResult.PublicData = SerialWombatChip.readPublicData(AnalogInput.Pin);
-                    LastResult.Averaged = AnalogInput.readAveragedCounts();
-                    LastResult.Filtered = AnalogInput.readFilteredCounts();
-                    LastResult.Maximum = AnalogInput.readMaximumCounts(false);
-                    LastResult.Minimum = AnalogInput.readMinimumCounts(false);
-
-
-                    if (ckbVolts.Checked)
-                    {
-                        Raw16Data[datacount] = LastResult.PublicData / 65535.0 * Vcc;
-                    }
-                    else
-                    {
-                        Raw16Data[datacount] = LastResult.PublicData;
-                    }
-                }
-                signalPlot.maxRenderIndex = datacount;
-                if (datacount > 100)
-                {
-                    signalPlot.minRenderIndex = datacount - 100;
-                }
-                formsPlot1.plt.AxisAuto();
-                ++datacount;
-
-
-
-
-                UpdateGraph();
-                if (datacount == 99999)
-                {
-                    datacount = 0;
-                    signalPlot.minRenderIndex = 0;
-                }
-                return (LastResult.PublicData);
-            }
-            catch
-            {
-                //Fail silently
-            }
-            return (0);
-
+            ckbAutosample.Checked = false;
         }
+        
 
-        public void UpdateGraph()
-        {
-            if (formsPlot1.InvokeRequired)
-            {
-                var d = new SafeCallDelegate(UpdateGraph);
-                formsPlot1.Invoke(d, new object[] { });
-            }
-            else
-            {
-                if (ckbVolts.Checked)
-                {
-                    formsPlot1.plt.Axis(y1: 0, y2: Vcc);
-                    formsPlot1.plt.AxisAutoX();
-                    formsPlot1.plt.YLabel("Volts");
-                }
-                else
-                {
-                    formsPlot1.plt.AxisAuto();
-                }
-                formsPlot1.Render();
-                tbAveraged.Text = LastResult.Averaged.ToString();
-                tbFiltered.Text = LastResult.Filtered.ToString();
-                tbMax.Text = LastResult.Maximum.ToString();
-                tbMin.Text = LastResult.Minimum.ToString();
-                formsPlot1.plt.YLabel("Counts / 65535");
-            }
-        }
+       
 
         private void bSample_Click(object sender, EventArgs e)
         {
-            ReadRawDataAndPlot();
+            LastResult.PublicData = SerialWombatChip.readPublicData(AnalogInput.Pin);
+            LastResult.Averaged = AnalogInput.readAveragedCounts();
+            LastResult.Filtered = AnalogInput.readFilteredCounts();
+            LastResult.Maximum = AnalogInput.readMaximumCounts(false);
+            LastResult.Minimum = AnalogInput.readMinimumCounts(false);
+
+            
+            if (ckbVolts.Checked)
+            {
+               realTimeScottPlot1.PlotData(  LastResult.PublicData / 65535.0 * Vcc);
+            }
+            else
+            {
+                realTimeScottPlot1.PlotData(LastResult.PublicData);
+            }
+            
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -141,11 +90,44 @@ namespace SerialWombatWindowsFormsLibrary
         {
             while (ckbAutosample.Checked)
             {
-                ReadRawDataAndPlot();
-                Thread.Sleep(100);
-            }
-        }
+            LastResult.PublicData = SerialWombatChip.readPublicData(AnalogInput.Pin);
+            LastResult.Averaged = AnalogInput.readAveragedCounts();
+            LastResult.Filtered = AnalogInput.readFilteredCounts();
+            LastResult.Maximum = AnalogInput.readMaximumCounts(false);
+            LastResult.Minimum = AnalogInput.readMinimumCounts(false);
 
+                
+            if (ckbVolts.Checked)
+            {
+                realTimeScottPlot1.PlotData( LastResult.PublicData / 65535.0 * Vcc);
+            }
+            else
+            {
+                    realTimeScottPlot1.PlotData(LastResult.PublicData);
+            }
+                Thread.Sleep(100);
+
+
+            }
+
+          
+        }
+        public void updateData()
+        {
+            if (tbAveraged.InvokeRequired)
+            {
+                var d = new SafeCallDelegate(updateData);
+                tbAveraged.Invoke(d, new object[] { });
+            }
+            else
+            {
+                tbAveraged.Text = LastResult.Averaged.ToString();
+                tbFiltered.Text = LastResult.Filtered.ToString();
+                tbMax.Text = LastResult.Maximum.ToString();
+                tbMin.Text = LastResult.Minimum.ToString();
+            }
+            
+        }
         public void AnalogInputControl_FormClosing(object sender, FormClosingEventArgs e)
         {
             ckbAutosample.Checked = false;

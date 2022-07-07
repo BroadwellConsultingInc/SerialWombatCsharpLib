@@ -118,7 +118,9 @@ namespace SerialWombat
 				{
 					return (result);
 				}
+
 			}
+			
 			{
 				byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_OUTPUTSCALE,
 		_pin,

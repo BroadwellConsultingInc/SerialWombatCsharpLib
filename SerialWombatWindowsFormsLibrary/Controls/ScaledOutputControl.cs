@@ -61,5 +61,9 @@ namespace SerialWombatWindowsFormsLibrary
             ScaledOutput.writeOutputScaling(sbsiOutputScalingMin.value, sbsiOutputScalingMax.value);
         }
 
+        private void bWriteTarget_Click(object sender, EventArgs e)
+        {
+            ScaledOutput.writeScalingTargetValue(sbsiFilterTarget.value);
+        }
     }
 }

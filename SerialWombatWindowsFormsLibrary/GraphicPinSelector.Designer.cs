@@ -45,10 +45,11 @@
             this.monitorPublicDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.queueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ultraSonicDistanceSensorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbModel = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.ultraSonicDistanceSensorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tmsiTM1637 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -76,16 +77,17 @@
             this.tsmiLow,
             this.tsmiAnalogInput,
             this.tsmiDebounce,
+            this.monitorPublicDataToolStripMenuItem,
+            this.toolStripMenuItem2,
             this.tsmiPulseTimer,
             this.tsmiPWM,
             this.tsmiQuadratureEncoder,
+            this.queueToolStripMenuItem,
             this.toolStripMenuItem1,
             this.tsmiServo,
-            this.tsmiWatchdog,
-            this.monitorPublicDataToolStripMenuItem,
-            this.toolStripMenuItem2,
-            this.queueToolStripMenuItem,
-            this.ultraSonicDistanceSensorToolStripMenuItem});
+            this.tmsiTM1637,
+            this.ultraSonicDistanceSensorToolStripMenuItem,
+            this.tsmiWatchdog});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(209, 356);
             // 
@@ -180,6 +182,13 @@
             this.queueToolStripMenuItem.Text = "Queue";
             this.queueToolStripMenuItem.Click += new System.EventHandler(this.queueToolStripMenuItem_Click);
             // 
+            // ultraSonicDistanceSensorToolStripMenuItem
+            // 
+            this.ultraSonicDistanceSensorToolStripMenuItem.Name = "ultraSonicDistanceSensorToolStripMenuItem";
+            this.ultraSonicDistanceSensorToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.ultraSonicDistanceSensorToolStripMenuItem.Text = "UltraSonicDistanceSensor";
+            this.ultraSonicDistanceSensorToolStripMenuItem.Click += new System.EventHandler(this.ultraSonicDistanceSensorToolStripMenuItem_Click);
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.cbModel);
@@ -210,12 +219,11 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "-";
             // 
-            // ultraSonicDistanceSensorToolStripMenuItem
+            // tmsiTM1637
             // 
-            this.ultraSonicDistanceSensorToolStripMenuItem.Name = "ultraSonicDistanceSensorToolStripMenuItem";
-            this.ultraSonicDistanceSensorToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
-            this.ultraSonicDistanceSensorToolStripMenuItem.Text = "UltraSonicDistanceSensor";
-            this.ultraSonicDistanceSensorToolStripMenuItem.Click += new System.EventHandler(this.ultraSonicDistanceSensorToolStripMenuItem_Click);
+            this.tmsiTM1637.Name = "tmsiTM1637";
+            this.tmsiTM1637.Size = new System.Drawing.Size(208, 22);
+            this.tmsiTM1637.Text = "TM1637";
             // 
             // GraphicPinSelector
             // 
@@ -255,5 +263,6 @@
         private System.Windows.Forms.ToolStripMenuItem queueToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem ultraSonicDistanceSensorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tmsiTM1637;
     }
 }

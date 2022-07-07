@@ -4,10 +4,34 @@
     <Compile Update="Controls\AnalogInputControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Controls\ByteEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Controls\EnumDropdown.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Controls\MemoryLineEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\MemoryPageEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Controls\ProcessedInputControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\PulseTimerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\PWMControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\QueueControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\RealTimeScottPlot.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\ResistanceInputControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Controls\ScaledOutputControl.cs">
@@ -19,13 +43,31 @@
     <Compile Update="Controls\ServoControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Controls\SevenSegmentControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Controls\SixteenBitSliderInput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\TM1637Control.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\UltrasonicDistanceSensorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\UserBufferControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Forms\AnalogInputForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\DebounceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\TM1637Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\UserBufferForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="PinStateMachineViewer.cs">
@@ -59,9 +101,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="TCPPortSelector.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="TestFormDelete.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\UltrasonicDistanceSensorForm.cs">

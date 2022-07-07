@@ -10,6 +10,8 @@ namespace SerialWombat
         {
 
         }
+
+        
         public enum Period
         {
             PERIOD_1024mS = 0,
@@ -26,12 +28,7 @@ namespace SerialWombat
 
         };
 
-        public enum OutputValue
-        {
-            RAW = 0,
-            AVERAGE = 1,
-            FIRST_ORDER_FILTERED = 2,
-        };
+       
 
         public enum Transform
         {
@@ -212,7 +209,7 @@ namespace SerialWombat
             return (result);
         }
 
-        public Int16 configureOutputValue(OutputValue outputValue)
+        public Int16 configureOutputValue(ProcessedInputOutputValue outputValue)
         {
             byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_INPUTPROCESS,
         _pin,
@@ -288,5 +285,12 @@ namespace SerialWombat
         }
 
     }
+    public enum ProcessedInputOutputValue
+    {
+        RAW = 0,
+        FIRST_ORDER_FILTERED = 1,
+        AVERAGE = 2,
+       
+    };
 }
 

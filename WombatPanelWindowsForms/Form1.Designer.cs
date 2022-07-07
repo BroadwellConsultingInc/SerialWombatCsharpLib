@@ -268,6 +268,7 @@
             this.tsmiReadRam.Name = "tsmiReadRam";
             this.tsmiReadRam.Size = new System.Drawing.Size(203, 22);
             this.tsmiReadRam.Text = "Read RAM";
+            this.tsmiReadRam.Click += new System.EventHandler(this.tsmiReadRam_Click_1);
             // 
             // tsmiCArray
             // 

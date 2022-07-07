@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lPeriod = new System.Windows.Forms.Label();
+            this.tbSW18ABPeriod = new System.Windows.Forms.TextBox();
             this.lDutyCycle = new System.Windows.Forms.Label();
             this.cbWombat4ABFreq = new System.Windows.Forms.ComboBox();
             this.ckbInvertSignal = new System.Windows.Forms.CheckBox();
@@ -39,8 +41,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbPosition = new System.Windows.Forms.TextBox();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
-            this.tbSW18ABPeriod = new System.Windows.Forms.TextBox();
-            this.lPeriod = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
@@ -65,6 +65,25 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
+            // 
+            // lPeriod
+            // 
+            this.lPeriod.AutoSize = true;
+            this.lPeriod.Location = new System.Drawing.Point(201, 171);
+            this.lPeriod.Name = "lPeriod";
+            this.lPeriod.Size = new System.Drawing.Size(65, 15);
+            this.lPeriod.TabIndex = 12;
+            this.lPeriod.Text = "Period (uS)";
+            this.lPeriod.Visible = false;
+            // 
+            // tbSW18ABPeriod
+            // 
+            this.tbSW18ABPeriod.Location = new System.Drawing.Point(76, 145);
+            this.tbSW18ABPeriod.Name = "tbSW18ABPeriod";
+            this.tbSW18ABPeriod.Size = new System.Drawing.Size(100, 23);
+            this.tbSW18ABPeriod.TabIndex = 11;
+            this.tbSW18ABPeriod.Text = "1000";
+            this.tbSW18ABPeriod.Visible = false;
             // 
             // lDutyCycle
             // 
@@ -162,25 +181,6 @@
             this.trackBar1.TickFrequency = 4096;
             this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             this.trackBar1.ValueChanged += new System.EventHandler(this.trackBar1_ValueChanged);
-            // 
-            // tbSW18ABPeriod
-            // 
-            this.tbSW18ABPeriod.Location = new System.Drawing.Point(76, 145);
-            this.tbSW18ABPeriod.Name = "tbSW18ABPeriod";
-            this.tbSW18ABPeriod.Size = new System.Drawing.Size(100, 23);
-            this.tbSW18ABPeriod.TabIndex = 11;
-            this.tbSW18ABPeriod.Text = "1000";
-            this.tbSW18ABPeriod.Visible = false;
-            // 
-            // lPeriod
-            // 
-            this.lPeriod.AutoSize = true;
-            this.lPeriod.Location = new System.Drawing.Point(182, 153);
-            this.lPeriod.Name = "lPeriod";
-            this.lPeriod.Size = new System.Drawing.Size(65, 15);
-            this.lPeriod.TabIndex = 12;
-            this.lPeriod.Text = "Period (uS)";
-            this.lPeriod.Visible = false;
             // 
             // PWMForm
             // 

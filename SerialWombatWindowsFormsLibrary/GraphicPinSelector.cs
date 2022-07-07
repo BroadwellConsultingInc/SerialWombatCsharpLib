@@ -29,6 +29,7 @@ namespace SerialWombatWindowsFormsLibrary
             tsmiQuadratureEncoder.Click += TsmiQuadratureEncoder_Click;
             tsmiPWM.Click += TsmiPWM_Click;
             tsmiWatchdog.Click += TsmiWatchdog_Click;
+            tmsiTM1637.Click += TmsiTM1637_Click;
 
 
             pictureBox1.Image = Properties.Resources.LIT00034_SW18AB_PinDiagram;
@@ -41,6 +42,12 @@ namespace SerialWombatWindowsFormsLibrary
                 cbModel.Items.Add(s);
             }
             cbModel.SelectedIndex = 2;
+        }
+
+        private void TmsiTM1637_Click(object sender, EventArgs e)
+        {
+            TM1637Form tM1637Form = new TM1637Form(SerialWombatChip, _lastClickWombatPin);
+            tM1637Form.Show();
         }
 
         private void TsmiDebounce_Click(object sender, EventArgs e)

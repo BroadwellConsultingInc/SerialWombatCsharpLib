@@ -30,6 +30,19 @@ namespace SerialWombatWindowsFormsLibrary
         public byte DataSourceValue
         {
             get { return ((byte)(SerialWombatDataSources)comboBox1.Items[comboBox1.SelectedIndex]); }
+            set
+            {
+                int i = 0;
+                foreach (SerialWombatDataSources source in comboBox1.Items)
+                {
+                    if ((byte)source == value)
+                    {
+                        comboBox1.SelectedIndex = i;
+                        return;
+                    }
+                    ++i;
+                }
+            }
         }
         [Browsable(true), EditorBrowsable(EditorBrowsableState.Always)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]

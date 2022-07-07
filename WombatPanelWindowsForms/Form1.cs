@@ -47,6 +47,7 @@ namespace WombatPanelWindowsForms
             graphicPinSelectGroupBox.Top = ManualEntryBoxes[0].Top;
             Controls.Add(graphicPinSelectGroupBox);
 
+          
         }
 
         private void TsmiCArray_Click(object sender, EventArgs e)
@@ -362,6 +363,13 @@ namespace WombatPanelWindowsForms
         private void Form1_Load(object sender, EventArgs e)
         {
            
+        }
+
+        private void tsmiReadRam_Click_1(object sender, EventArgs e)
+        {
+            UserBufferForm ubf = new UserBufferForm(WombatList.Last());
+            ubf.Show();
+
         }
     }
 }

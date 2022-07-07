@@ -12,6 +12,7 @@ namespace SerialWombatWindowsFormsLibrary
         public SerialWombatPWM Pwm;
         public byte Pin = 0;
         public SerialWombatChip serialWombatChip;
+        SerialWombatAbstractScaledOutput scaledOutput;
         public PWMForm(SerialWombatChip serialWombatChip, byte pin)
         {
             InitializeComponent();
@@ -47,17 +48,17 @@ namespace SerialWombatWindowsFormsLibrary
             {
                 lPeriod.Visible = true;
                 tbSW18ABPeriod.Visible = true;
-                lCommandPin.Visible = true;
-                tbCommandPin.Visible = true;
+                this.AutoSize = true;
+                scaledOutput = new SerialWombatAbstractScaledOutput(serialWombatChip);
+                scaledOutput.begin(pin, SerialWombatPinModes.PIN_MODE_PWM);
+                ScaledOutputControl sco = new ScaledOutputControl(scaledOutput);
+                sco.Left = groupBox1.Right + 10;
+                this.Controls.Add(sco);
+                this.Refresh();
             }
         }
 
-        public GroupBox GetFormGroupbox()
-        {
-            groupBox1.Text = $"PWM on pin {Pwm.Pin}";
-            Controls.Remove(groupBox1);
-            return (groupBox1);
-        }
+        
 
         private void bConfigure_Click(object sender, EventArgs e)
         {

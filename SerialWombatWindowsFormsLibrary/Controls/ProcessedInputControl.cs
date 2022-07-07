@@ -37,5 +37,30 @@ namespace SerialWombatWindowsFormsLibrary
         {
             ProcessedInput.writeTransformLinearMXB((Int32)(Convert.ToDouble(tbM.Text) * 256) , Convert.ToInt32(tbB.Text));
         }
+
+        private void ckbEnabled_CheckedChanged(object sender, EventArgs e)
+        {
+            ProcessedInput.configureOutputValue((ProcessedInputOutputValue) edPublicOutput.selectedItem);
+            ProcessedInput.writeProcessedInputEnable(ckbEnabled.Checked);
+        }
+
+        private void bSetAveragedSamples_Click(object sender, EventArgs e)
+        {
+            ProcessedInput.writeAveragingNumberOfSamples(sbsiAveragedSamples.value);
+        }
+
+        private void bSetFilterConstant_Click(object sender, EventArgs e)
+        {
+            ProcessedInput.writeFirstOrderFilteringConstant(sbsiFilterConstant.value);
+        }
+            
+        private void bReadMinMax_Click(object sender, EventArgs e)
+        {
+            UInt16 min = ProcessedInput.readMinimum(false);
+            UInt16 max = ProcessedInput.readMaximum(ckbResetMinMax.Checked);
+
+            lMaximum.Text = max.ToString();
+            lMinimum.Text = min.ToString();
+        }
     }
 }
