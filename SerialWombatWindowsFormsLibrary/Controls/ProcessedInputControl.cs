@@ -12,6 +12,8 @@ namespace SerialWombatWindowsFormsLibrary
     public partial class ProcessedInputControl : UserControl
     {
         SerialWombatAbstractProcessedInput ProcessedInput;
+        UInt16 lastQueueAddress = 0;
+        SerialWombatQueue queue;
         public ProcessedInputControl(SerialWombatAbstractProcessedInput processedInput)
         {
             InitializeComponent();
@@ -61,6 +63,34 @@ namespace SerialWombatWindowsFormsLibrary
 
             lMaximum.Text = max.ToString();
             lMinimum.Text = min.ToString();
+        }
+
+        private void bInitializeQueue_Click(object sender, EventArgs e)
+        {
+            UInt16 length = 0;
+            try
+            {
+                lastQueueAddress = Convert.ToUInt16(tbQueueAddress.Text);
+                length = Convert.ToUInt16(tbQueueLength.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
+            queue = new SerialWombatQueue(ProcessedInput._sw);
+            queue.begin(lastQueueAddress, length, SerialWombatQueueType.QUEUE_TYPE_RAM_BYTE);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ProcessedInput.configureQueue(queue,(SerialWombatAbstractProcessedInput.Period) edQueueingPeriod.selectedItem, ckbQueueHighByte.Checked, ckbQueueLowByte.Checked);
+        }
+
+        private void bShowQueue_Click(object sender, EventArgs e)
+        {
+            QueueForm qf = new QueueForm(queue);
+            
+            qf.Show();
         }
     }
 }

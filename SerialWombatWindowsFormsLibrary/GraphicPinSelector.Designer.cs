@@ -36,20 +36,21 @@
             this.tsmiLow = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiAnalogInput = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiDebounce = new System.Windows.Forms.ToolStripMenuItem();
+            this.monitorPublicDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiPulseTimer = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiPWM = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiQuadratureEncoder = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiServo = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiWatchdog = new System.Windows.Forms.ToolStripMenuItem();
-            this.monitorPublicDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.queueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiResistanceInput = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiServo = new System.Windows.Forms.ToolStripMenuItem();
+            this.tmsiTM1637 = new System.Windows.Forms.ToolStripMenuItem();
             this.ultraSonicDistanceSensorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiWatchdog = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbModel = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.tmsiTM1637 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiPulseOnChange = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -79,17 +80,18 @@
             this.tsmiDebounce,
             this.monitorPublicDataToolStripMenuItem,
             this.toolStripMenuItem2,
+            this.tsmiPulseOnChange,
             this.tsmiPulseTimer,
             this.tsmiPWM,
             this.tsmiQuadratureEncoder,
             this.queueToolStripMenuItem,
-            this.toolStripMenuItem1,
+            this.tsmiResistanceInput,
             this.tsmiServo,
             this.tmsiTM1637,
             this.ultraSonicDistanceSensorToolStripMenuItem,
             this.tsmiWatchdog});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(209, 356);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(209, 378);
             // 
             // tsmiInput
             // 
@@ -124,6 +126,20 @@
             this.tsmiDebounce.Size = new System.Drawing.Size(208, 22);
             this.tsmiDebounce.Text = "Debounce";
             // 
+            // monitorPublicDataToolStripMenuItem
+            // 
+            this.monitorPublicDataToolStripMenuItem.Name = "monitorPublicDataToolStripMenuItem";
+            this.monitorPublicDataToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.monitorPublicDataToolStripMenuItem.Text = "Monitor Public Data";
+            this.monitorPublicDataToolStripMenuItem.Click += new System.EventHandler(this.monitorPublicDataToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(208, 22);
+            this.toolStripMenuItem2.Text = "PinStateViewer";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            // 
             // tsmiPulseTimer
             // 
             this.tsmiPulseTimer.Name = "tsmiPulseTimer";
@@ -142,39 +158,6 @@
             this.tsmiQuadratureEncoder.Size = new System.Drawing.Size(208, 22);
             this.tsmiQuadratureEncoder.Text = "Quadrature Encoder";
             // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(208, 22);
-            this.toolStripMenuItem1.Text = "Resistance Input";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
-            // 
-            // tsmiServo
-            // 
-            this.tsmiServo.Name = "tsmiServo";
-            this.tsmiServo.Size = new System.Drawing.Size(208, 22);
-            this.tsmiServo.Text = "Servo";
-            // 
-            // tsmiWatchdog
-            // 
-            this.tsmiWatchdog.Name = "tsmiWatchdog";
-            this.tsmiWatchdog.Size = new System.Drawing.Size(208, 22);
-            this.tsmiWatchdog.Text = "Watchdog";
-            // 
-            // monitorPublicDataToolStripMenuItem
-            // 
-            this.monitorPublicDataToolStripMenuItem.Name = "monitorPublicDataToolStripMenuItem";
-            this.monitorPublicDataToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
-            this.monitorPublicDataToolStripMenuItem.Text = "Monitor Public Data";
-            this.monitorPublicDataToolStripMenuItem.Click += new System.EventHandler(this.monitorPublicDataToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(208, 22);
-            this.toolStripMenuItem2.Text = "PinStateViewer";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
-            // 
             // queueToolStripMenuItem
             // 
             this.queueToolStripMenuItem.Name = "queueToolStripMenuItem";
@@ -182,12 +165,37 @@
             this.queueToolStripMenuItem.Text = "Queue";
             this.queueToolStripMenuItem.Click += new System.EventHandler(this.queueToolStripMenuItem_Click);
             // 
+            // tsmiResistanceInput
+            // 
+            this.tsmiResistanceInput.Name = "tsmiResistanceInput";
+            this.tsmiResistanceInput.Size = new System.Drawing.Size(208, 22);
+            this.tsmiResistanceInput.Text = "Resistance Input";
+            this.tsmiResistanceInput.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // tsmiServo
+            // 
+            this.tsmiServo.Name = "tsmiServo";
+            this.tsmiServo.Size = new System.Drawing.Size(208, 22);
+            this.tsmiServo.Text = "Servo";
+            // 
+            // tmsiTM1637
+            // 
+            this.tmsiTM1637.Name = "tmsiTM1637";
+            this.tmsiTM1637.Size = new System.Drawing.Size(208, 22);
+            this.tmsiTM1637.Text = "TM1637";
+            // 
             // ultraSonicDistanceSensorToolStripMenuItem
             // 
             this.ultraSonicDistanceSensorToolStripMenuItem.Name = "ultraSonicDistanceSensorToolStripMenuItem";
             this.ultraSonicDistanceSensorToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.ultraSonicDistanceSensorToolStripMenuItem.Text = "UltraSonicDistanceSensor";
             this.ultraSonicDistanceSensorToolStripMenuItem.Click += new System.EventHandler(this.ultraSonicDistanceSensorToolStripMenuItem_Click);
+            // 
+            // tsmiWatchdog
+            // 
+            this.tsmiWatchdog.Name = "tsmiWatchdog";
+            this.tsmiWatchdog.Size = new System.Drawing.Size(208, 22);
+            this.tsmiWatchdog.Text = "Watchdog";
             // 
             // groupBox1
             // 
@@ -219,11 +227,11 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "-";
             // 
-            // tmsiTM1637
+            // tsmiPulseOnChange
             // 
-            this.tmsiTM1637.Name = "tmsiTM1637";
-            this.tmsiTM1637.Size = new System.Drawing.Size(208, 22);
-            this.tmsiTM1637.Text = "TM1637";
+            this.tsmiPulseOnChange.Name = "tsmiPulseOnChange";
+            this.tsmiPulseOnChange.Size = new System.Drawing.Size(208, 22);
+            this.tsmiPulseOnChange.Text = "Pulse On Change";
             // 
             // GraphicPinSelector
             // 
@@ -259,10 +267,11 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiWatchdog;
         private System.Windows.Forms.ToolStripMenuItem tsmiDebounce;
         private System.Windows.Forms.ToolStripMenuItem monitorPublicDataToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem tsmiResistanceInput;
         private System.Windows.Forms.ToolStripMenuItem queueToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem ultraSonicDistanceSensorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tmsiTM1637;
+        private System.Windows.Forms.ToolStripMenuItem tsmiPulseOnChange;
     }
 }

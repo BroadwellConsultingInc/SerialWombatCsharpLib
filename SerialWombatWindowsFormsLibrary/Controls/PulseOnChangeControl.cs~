@@ -1,0 +1,137 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using SerialWombat;
+
+namespace SerialWombatWindowsFormsLibrary
+{
+    public partial class PulseOnChangeControl : UserControl
+    {
+        public PulseOnChangeControl()
+        {
+            InitializeComponent();
+        }
+
+        private void edMode_SelectedEnumChanged(object sender, EventArgs e)
+        {
+            switch ((PulseOnChangeModes) edMode.selectedItem)
+            {
+                case PulseOnChangeModes.PULSE_ON_CHANGE:
+                    {
+
+                    }
+                    break;
+            case PULSE_ON_INCREASE:
+{
+
+}
+break;
+
+ 
+		case PULSE_ON_DECREASE:
+{
+
+}
+break;
+
+ 
+		case PULSE_EQUAL_VALUE:
+{
+
+}
+break;
+
+ 
+		case PULSE_BELOW_VALUE:
+{
+
+}
+break;
+
+ 
+		case PULSE_ABOVE_VALUE:
+{
+
+}
+break;
+
+ 
+		case PULSE_NOT_EQUAL_VALUE:
+{
+
+}
+break;
+
+ 
+		case PULSE_EQUAL_PIN:
+{
+
+}
+break;
+
+ 
+		case PULSE_ABOVE_PIN:
+{
+
+}
+break;
+
+ 
+		case PULSE_BELOW_PIN:
+{
+
+}
+break;
+
+ 
+		case PULSE_NOT_EQUAL_PIN:
+{
+
+}
+break;
+
+ 
+		case PULSE_CROSS_VALUE:
+{
+
+}
+break;
+
+ 
+		case PULSE_CROSS_VALUE_ASCENDING:
+{
+
+}
+break;
+
+ 
+		case PULSE_CROSS_VALUE_DESCENDING:
+{
+
+}
+break;
+
+ 
+		case PULSE_WITHIN_RANGE:
+{
+
+}
+break;
+
+ 
+		case PULSE_OUTSIDE_RANGE:
+{
+
+}
+break;
+
+ 
+        }
+    }
+}

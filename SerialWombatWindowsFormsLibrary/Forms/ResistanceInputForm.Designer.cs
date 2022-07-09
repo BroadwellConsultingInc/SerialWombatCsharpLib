@@ -57,7 +57,6 @@ namespace SerialWombatWindowsFormsLibrary
         }
 
         #endregion
-        private System.Windows.Forms.CheckBox ckbVolts;
         private Controls.ResistanceInputControl resistanceInputControl1;
     }
 }

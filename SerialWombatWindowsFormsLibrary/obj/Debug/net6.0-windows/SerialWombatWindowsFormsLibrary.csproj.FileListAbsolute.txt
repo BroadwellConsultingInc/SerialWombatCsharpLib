@@ -63,3 +63,5 @@ F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatWindowsF
 F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatWindowsFormsLibrary\obj\Debug\net6.0-windows\SerialWombatWindowsFormsLibrary.ByteEditor.resources
 F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatWindowsFormsLibrary\obj\Debug\net6.0-windows\SerialWombatWindowsFormsLibrary.MemoryLineEditor.resources
 F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatWindowsFormsLibrary\obj\Debug\net6.0-windows\SerialWombatWindowsFormsLibrary.MemoryPageEditor.resources
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatWindowsFormsLibrary\obj\Debug\net6.0-windows\SerialWombatWindowsFormsLibrary.PulseOnChangeControl.resources
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatWindowsFormsLibrary\obj\Debug\net6.0-windows\SerialWombatWindowsFormsLibrary.PulseOnChangeForm.resources

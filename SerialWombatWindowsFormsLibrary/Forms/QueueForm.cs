@@ -19,9 +19,19 @@ namespace SerialWombatWindowsFormsLibrary
         {
             InitializeComponent();
             _sw = serialWombatChip;
-
+            queueControl1.begin(_sw);
         }
+        public QueueForm(SerialWombatQueue serialWombatQueue)
+        {
+            InitializeComponent();
+            _queue = serialWombatQueue;
+            _sw = serialWombatQueue._sw;
+            _length = _queue._size;
+            _address = _queue._address;
 
+            queueControl1.begin(_queue);
+        }
+        /*
         private void bInitialize_Click(object sender, EventArgs e)
         {
             byte[] addressArray;
@@ -74,7 +84,8 @@ namespace SerialWombatWindowsFormsLibrary
         private void bRead_Click(object sender, EventArgs e)
         {
             byte[] data;
-            int count = _queue.read(_length, out data);
+            SerialWombatQueue copy = _queue.Clone(4000);
+            int count = copy.read(_length, out data);
             textBox1.Clear();
             if (count > 0)
             {
@@ -84,5 +95,6 @@ namespace SerialWombatWindowsFormsLibrary
                 }
             }
         }
+        */
     }
 }

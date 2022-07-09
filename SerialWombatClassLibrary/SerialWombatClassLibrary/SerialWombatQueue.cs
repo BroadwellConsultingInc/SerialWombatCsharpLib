@@ -13,9 +13,9 @@ namespace SerialWombat
 
     public class SerialWombatQueue
     {
-        SerialWombatChip _sw;
-        UInt16 _address;
-        UInt16 _size;
+        public SerialWombatChip _sw;
+        public UInt16 _address;
+        public UInt16 _size;
 
         public SerialWombatQueue(SerialWombatChip serialWombatChip)
         {
@@ -28,7 +28,7 @@ namespace SerialWombat
         {
             _address = address;
             _size = size;
-
+            
             byte[] tx = {(byte)SerialWombatCommands.COMMAND_BINARY_QUEUE_INITIALIZE,
             (byte) (_address & 0xFF),
             (byte) (_address >>8 ),
@@ -46,7 +46,7 @@ namespace SerialWombat
 
 
             bool bytesAvailable = true;
-            while (bytesAvailable && d.Count < count)
+            while (bytesAvailable && count > 0)
             {
                 byte request = 6;
                 if (count < request)
@@ -77,7 +77,7 @@ namespace SerialWombat
                 {
                     bytesAvailable = false;
                 }
-
+                count -= rx[1];
 
             }
 
@@ -145,6 +145,32 @@ namespace SerialWombat
            return bytesSent;
         }
 
+        public SerialWombatQueue Clone(UInt16 cloneDestinationAddress)
+        {
+            SerialWombatQueue dstQueue = new SerialWombatQueue(_sw);
+
+            dstQueue._address = cloneDestinationAddress;
+            dstQueue._size = _size;
+
+
+            byte[] tx = {(byte)SerialWombatCommands.COMMAND_BINARY_QUEUE_CLONE,
+            (byte) (cloneDestinationAddress & 0xFF),
+            (byte) (cloneDestinationAddress >>8 ),
+                (byte) (_address & 0xFF),
+            (byte) (_address >>8 ),
+           
+            0x55,
+                0x55,
+                0x55};
+
+            byte[] rx;
+            _sw.sendPacket(tx, out rx);
+           if (rx[1] == 0 ) // Success
+            {
+                return (dstQueue);
+            }
+            return (null);
+        }
         public UInt16 startIndex { get { return (_address); } }
     }
 }

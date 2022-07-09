@@ -19,6 +19,9 @@
     <Compile Update="Controls\ProcessedInputControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Controls\PulseOnChangeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Controls\PulseTimerControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -62,6 +65,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\DebounceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\PulseOnChangeForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\TM1637Form.cs">

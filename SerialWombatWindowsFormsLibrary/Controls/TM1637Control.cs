@@ -188,7 +188,6 @@ namespace SerialWombatWindowsFormsLibrary
             Regex rBegin = new Regex(@"^\s*{\s*$");
             Regex rEnd = new Regex(@"^\s*};\s*$");
             int i = 1;
-            bool beginFound = false;
             foreach (string s in tbAnimationFrames.Lines)
             {
                 Match m = rFrame.Match(s);
@@ -250,6 +249,13 @@ namespace SerialWombatWindowsFormsLibrary
                 tM1637.writeAnimation(Convert.ToUInt16(tbUserBufferIndex.Text), 250,(byte) frames.GetLength(0), frames);
                 
            
+        }
+
+        private void bAddToAnimation_Click(object sender, EventArgs e)
+        {
+            tbAnimationFrames.AppendText($"0x{sevenSegmentControl1.value:X2}, 0x{sevenSegmentControl2.value:X2}, 0x{sevenSegmentControl3.value:X2}, ");
+            tbAnimationFrames.AppendText($"0x{sevenSegmentControl4.value:X2}, 0x{sevenSegmentControl5.value:X2}, 0x{sevenSegmentControl6.value:X2}, ");
+            tbAnimationFrames.AppendText(Environment.NewLine);
         }
     }
 }

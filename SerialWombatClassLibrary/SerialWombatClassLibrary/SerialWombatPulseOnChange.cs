@@ -74,13 +74,13 @@ TODO https://youtu.be/
 
 */
 
-    class SerialWombatPulseOnChange : SerialWombatPin
+    public class SerialWombatPulseOnChange : SerialWombatPin
     {
         public SerialWombatPulseOnChange(SerialWombatChip serialWombatChip) : base(serialWombatChip)
         {
             _pinMode =(byte) SerialWombatPinModes.PIN_MODE_PULSE_ON_CHANGE;
         }
-		public Int16 begin(byte pin, SerialWombatPinStates activeMode, SerialWombatPinStates inactiveMode, UInt16 pulseOnTime, UInt16 pulseOffTime, byte orNotAnd, UInt16 PWMperiod, UInt16 PWMdutyCycle)
+		public Int16 begin(byte pin, SerialWombatPinStates activeMode, SerialWombatPinStates inactiveMode, UInt16 pulseOnTime, UInt16 pulseOffTime, bool orNotAnd, UInt16 PWMperiod, UInt16 PWMdutyCycle)
 		{
 			Int16 result;
 			_pin = pin;
@@ -91,7 +91,7 @@ TODO https://youtu.be/
 						_pinMode,
 						(byte)activeMode,
 						(byte)inactiveMode,
-						orNotAnd,
+						(byte)(orNotAnd?1:0),
 						0x55,
 						0x55
 		};
@@ -168,6 +168,18 @@ TODO https://youtu.be/
 			return setEntryMode(entryID, sourcePin, 7);
 		}
 
+		public Int16 setEntryOnPinGreaterThanPin(byte entryID, byte sourcePin, byte secondPin)
+		{
+			Int16 result = setEntryParams(entryID, secondPin, 0); if (result < 0) return result;
+			return setEntryMode(entryID, sourcePin, 8);
+		}
+
+		public Int16 setEntryOnPinLessThanPin(byte entryID, byte sourcePin, byte secondPin)
+		{
+			Int16 result = setEntryParams(entryID, secondPin, 0); if (result < 0) return result;
+			return setEntryMode(entryID, sourcePin, 9);
+		}
+
 		public Int16 setEntryOnPinsNotEqual(byte entryID, byte sourcePin, byte secondPin)
 		{
 			Int16 result = setEntryParams(entryID, secondPin, 0); if (result < 0) return result;
@@ -213,5 +225,27 @@ TODO https://youtu.be/
 
 
 
+	}
+
+	public enum PulseOnChangeModes
+    {
+		PULSE_ON_CHANGE = 0,
+		PULSE_ON_INCREASE = 1,
+		PULSE_ON_DECREASE = 2,
+		PULSE_EQUAL_VALUE = 3,
+		PULSE_BELOW_VALUE = 4,
+		PULSE_ABOVE_VALUE = 5,
+		PULSE_NOT_EQUAL_VALUE = 6,
+		PULSE_EQUAL_PIN = 7,
+		PULSE_ABOVE_PIN = 8,
+		PULSE_BELOW_PIN = 9,
+		PULSE_NOT_EQUAL_PIN = 10,
+		/*  Reserved for future version
+		PULSE_CROSS_VALUE = 11,
+		PULSE_CROSS_VALUE_ASCENDING = 12,
+		PULSE_CROSS_VALUE_DESCENDING = 13,
+		PULSE_WITHIN_RANGE = 14,
+		PULSE_OUTSIDE_RANGE = 15,
+		*/
 	}
 }

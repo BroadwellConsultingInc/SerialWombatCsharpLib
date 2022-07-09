@@ -33,21 +33,21 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.gbAnimation = new System.Windows.Forms.GroupBox();
             this.bDownloadAnimation = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.tbAnimationFrames = new System.Windows.Forms.TextBox();
+            this.tbUserBufferIndex = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.serialWombatPublicDataControl1 = new SerialWombatWindowsFormsLibrary.SerialWombatPublicDataControl();
             this.bPinDataDecimal = new System.Windows.Forms.Button();
             this.bPinDataHex = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tbDigits = new System.Windows.Forms.TextBox();
-            this.tbUserBufferIndex = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tbDigits = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.label3 = new System.Windows.Forms.Label();
             this.bConfigure = new System.Windows.Forms.Button();
-            this.bAddToAnimation = new System.Windows.Forms.Button();
+            this.bShowAnimation = new System.Windows.Forms.Button();
             this.bWriteRaw = new System.Windows.Forms.Button();
             this.sevenSegmentControl6 = new SerialWombatWindowsFormsLibrary.SevenSegmentControl();
             this.sevenSegmentControl5 = new SerialWombatWindowsFormsLibrary.SevenSegmentControl();
@@ -79,6 +79,7 @@
             this.bWriteDecimals = new System.Windows.Forms.Button();
             this.bWriteArray = new System.Windows.Forms.Button();
             this.bWriteDigitOrder = new System.Windows.Forms.Button();
+            this.bAddToAnimation = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.gbAnimation.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -109,7 +110,7 @@
             this.groupBox1.Controls.Add(this.gbAnimation);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.bAddToAnimation);
+            this.groupBox1.Controls.Add(this.bShowAnimation);
             this.groupBox1.Controls.Add(this.bWriteRaw);
             this.groupBox1.Controls.Add(this.sevenSegmentControl6);
             this.groupBox1.Controls.Add(this.sevenSegmentControl5);
@@ -152,6 +153,7 @@
             // 
             this.gbAnimation.AutoSize = true;
             this.gbAnimation.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.gbAnimation.Controls.Add(this.bAddToAnimation);
             this.gbAnimation.Controls.Add(this.bDownloadAnimation);
             this.gbAnimation.Controls.Add(this.label5);
             this.gbAnimation.Controls.Add(this.tbAnimationFrames);
@@ -166,13 +168,22 @@
             // 
             // bDownloadAnimation
             // 
-            this.bDownloadAnimation.Location = new System.Drawing.Point(56, 290);
+            this.bDownloadAnimation.Location = new System.Drawing.Point(179, 290);
             this.bDownloadAnimation.Name = "bDownloadAnimation";
             this.bDownloadAnimation.Size = new System.Drawing.Size(75, 23);
             this.bDownloadAnimation.TabIndex = 30;
             this.bDownloadAnimation.Text = "Download";
             this.bDownloadAnimation.UseVisualStyleBackColor = true;
             this.bDownloadAnimation.Click += new System.EventHandler(this.bDownloadAnimation_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(21, 244);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(100, 15);
+            this.label5.TabIndex = 26;
+            this.label5.Text = "User Buffer Index:";
             // 
             // tbAnimationFrames
             // 
@@ -182,6 +193,14 @@
             this.tbAnimationFrames.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tbAnimationFrames.Size = new System.Drawing.Size(273, 200);
             this.tbAnimationFrames.TabIndex = 0;
+            // 
+            // tbUserBufferIndex
+            // 
+            this.tbUserBufferIndex.Location = new System.Drawing.Point(154, 244);
+            this.tbUserBufferIndex.Name = "tbUserBufferIndex";
+            this.tbUserBufferIndex.Size = new System.Drawing.Size(100, 23);
+            this.tbUserBufferIndex.TabIndex = 25;
+            this.tbUserBufferIndex.Text = "0";
             // 
             // groupBox3
             // 
@@ -226,6 +245,16 @@
             this.bPinDataHex.UseVisualStyleBackColor = true;
             this.bPinDataHex.Click += new System.EventHandler(this.bPinDataHex_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(14, 32);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(93, 15);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Data Source Pin:";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
             // groupBox2
             // 
             this.groupBox2.AutoSize = true;
@@ -243,15 +272,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Initialize";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 244);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(100, 15);
-            this.label5.TabIndex = 26;
-            this.label5.Text = "User Buffer Index:";
-            // 
             // tbDigits
             // 
             this.tbDigits.Location = new System.Drawing.Point(68, 51);
@@ -259,14 +279,6 @@
             this.tbDigits.Size = new System.Drawing.Size(100, 23);
             this.tbDigits.TabIndex = 0;
             this.tbDigits.Text = "6";
-            // 
-            // tbUserBufferIndex
-            // 
-            this.tbUserBufferIndex.Location = new System.Drawing.Point(154, 244);
-            this.tbUserBufferIndex.Name = "tbUserBufferIndex";
-            this.tbUserBufferIndex.Size = new System.Drawing.Size(100, 23);
-            this.tbUserBufferIndex.TabIndex = 25;
-            this.tbUserBufferIndex.Text = "0";
             // 
             // label2
             // 
@@ -276,16 +288,6 @@
             this.label2.Size = new System.Drawing.Size(40, 15);
             this.label2.TabIndex = 1;
             this.label2.Text = "Digits:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(14, 32);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(93, 15);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Data Source Pin:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // trackBar1
             // 
@@ -314,15 +316,15 @@
             this.bConfigure.UseVisualStyleBackColor = true;
             this.bConfigure.Click += new System.EventHandler(this.bConfigure_Click);
             // 
-            // bAddToAnimation
+            // bShowAnimation
             // 
-            this.bAddToAnimation.Location = new System.Drawing.Point(104, 585);
-            this.bAddToAnimation.Name = "bAddToAnimation";
-            this.bAddToAnimation.Size = new System.Drawing.Size(113, 23);
-            this.bAddToAnimation.TabIndex = 24;
-            this.bAddToAnimation.Text = "Show Animation";
-            this.bAddToAnimation.UseVisualStyleBackColor = true;
-            this.bAddToAnimation.Click += new System.EventHandler(this.button1_Click);
+            this.bShowAnimation.Location = new System.Drawing.Point(104, 585);
+            this.bShowAnimation.Name = "bShowAnimation";
+            this.bShowAnimation.Size = new System.Drawing.Size(113, 23);
+            this.bShowAnimation.TabIndex = 24;
+            this.bShowAnimation.Text = "Show Animation";
+            this.bShowAnimation.UseVisualStyleBackColor = true;
+            this.bShowAnimation.Click += new System.EventHandler(this.button1_Click);
             // 
             // bWriteRaw
             // 
@@ -602,6 +604,16 @@
             this.bWriteDigitOrder.UseVisualStyleBackColor = true;
             this.bWriteDigitOrder.Click += new System.EventHandler(this.bWriteDigitOrder_Click);
             // 
+            // bAddToAnimation
+            // 
+            this.bAddToAnimation.Location = new System.Drawing.Point(35, 290);
+            this.bAddToAnimation.Name = "bAddToAnimation";
+            this.bAddToAnimation.Size = new System.Drawing.Size(117, 23);
+            this.bAddToAnimation.TabIndex = 31;
+            this.bAddToAnimation.Text = "Add To Animation";
+            this.bAddToAnimation.UseVisualStyleBackColor = true;
+            this.bAddToAnimation.Click += new System.EventHandler(this.bAddToAnimation_Click);
+            // 
             // TM1637Control
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -646,7 +658,7 @@
         private System.Windows.Forms.Button bWriteDigitOrder;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbUserBufferIndex;
-        private System.Windows.Forms.Button bAddToAnimation;
+        private System.Windows.Forms.Button bShowAnimation;
         private System.Windows.Forms.Button bWriteRaw;
         private SevenSegmentControl sevenSegmentControl6;
         private SevenSegmentControl sevenSegmentControl5;
@@ -678,5 +690,6 @@
         private System.Windows.Forms.GroupBox gbAnimation;
         private System.Windows.Forms.Button bDownloadAnimation;
         private System.Windows.Forms.TextBox tbAnimationFrames;
+        private System.Windows.Forms.Button bAddToAnimation;
     }
 }

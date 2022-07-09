@@ -25,6 +25,7 @@ namespace SerialWombatWindowsFormsLibrary
             tsmiLow.Click += Direct_Click;
             tsmiDebounce.Click += TsmiDebounce_Click;
             tsmiServo.Click += TsmiServo_Click;
+            tsmiPulseOnChange.Click += TsmiPulseOnChange_Click;
             tsmiPulseTimer.Click += TsmiPulseTimer_Click;
             tsmiQuadratureEncoder.Click += TsmiQuadratureEncoder_Click;
             tsmiPWM.Click += TsmiPWM_Click;
@@ -42,6 +43,12 @@ namespace SerialWombatWindowsFormsLibrary
                 cbModel.Items.Add(s);
             }
             cbModel.SelectedIndex = 2;
+        }
+
+        private void TsmiPulseOnChange_Click(object sender, EventArgs e)
+        {
+            PulseOnChangeForm pocf = new PulseOnChangeForm(SerialWombatChip, _lastClickWombatPin);
+            pocf.Show();
         }
 
         private void TmsiTM1637_Click(object sender, EventArgs e)

@@ -46,7 +46,7 @@ namespace SerialWombatWindowsFormsLibrary.Controls
                 }
                 formsPlot1.Render();
              
-                formsPlot1.plt.YLabel("Counts / 65535");
+                //TODO formsPlot1.plt.YLabel("Counts / 65535");
             }
         }
 
@@ -81,6 +81,11 @@ namespace SerialWombatWindowsFormsLibrary.Controls
             }
 
 
+        }
+
+        public void ClearData()
+        {
+            datacount = 0;
         }
     }
 }

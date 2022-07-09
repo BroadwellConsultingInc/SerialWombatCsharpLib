@@ -149,8 +149,6 @@ namespace SerialWombatWindowsFormsLibrary
         }
         private ByteEditor getByteEditorFromToolStripItem(object sender)
         {
-            int i = 0;
-            int offset = -1;
 
             ByteEditor be = null;
             ToolStripItem menuItem = sender as ToolStripItem;

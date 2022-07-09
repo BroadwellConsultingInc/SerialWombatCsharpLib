@@ -56,6 +56,7 @@
             this.sbsiInputScaleMin = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.textBox8 = new System.Windows.Forms.TextBox();
             this.ckbResetMinMax = new System.Windows.Forms.CheckBox();
             this.bReadMinMax = new System.Windows.Forms.Button();
             this.lMaximum = new System.Windows.Forms.Label();
@@ -68,12 +69,22 @@
             this.bSetAveragedSamples = new System.Windows.Forms.Button();
             this.sbsiFilterConstant = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
             this.sbsiAveragedSamples = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.bShowQueue = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.ckbQueueLowByte = new System.Windows.Forms.CheckBox();
+            this.ckbQueueHighByte = new System.Windows.Forms.CheckBox();
+            this.edQueueingPeriod = new SerialWombatWindowsFormsLibrary.EnumDropdown();
+            this.bInitializeQueue = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tbQueueLength = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tbQueueAddress = new System.Windows.Forms.TextBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.edPublicOutput = new SerialWombatWindowsFormsLibrary.EnumDropdown();
             this.label4 = new System.Windows.Forms.Label();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
             this.tabPage2.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -381,6 +392,17 @@
             this.tabPage5.Text = "Averaging";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(6, 315);
+            this.textBox8.Multiline = true;
+            this.textBox8.Name = "textBox8";
+            this.textBox8.ReadOnly = true;
+            this.textBox8.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox8.Size = new System.Drawing.Size(464, 58);
+            this.textBox8.TabIndex = 27;
+            this.textBox8.Text = resources.GetString("textBox8.Text");
+            // 
             // ckbResetMinMax
             // 
             this.ckbResetMinMax.AutoSize = true;
@@ -499,6 +521,142 @@
             this.sbsiAveragedSamples.TextBoxHint = "";
             this.sbsiAveragedSamples.value = ((ushort)(64));
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.bShowQueue);
+            this.tabPage3.Controls.Add(this.button1);
+            this.tabPage3.Controls.Add(this.ckbQueueLowByte);
+            this.tabPage3.Controls.Add(this.ckbQueueHighByte);
+            this.tabPage3.Controls.Add(this.edQueueingPeriod);
+            this.tabPage3.Controls.Add(this.bInitializeQueue);
+            this.tabPage3.Controls.Add(this.label9);
+            this.tabPage3.Controls.Add(this.label8);
+            this.tabPage3.Controls.Add(this.tbQueueLength);
+            this.tabPage3.Controls.Add(this.label6);
+            this.tabPage3.Controls.Add(this.tbQueueAddress);
+            this.tabPage3.Controls.Add(this.textBox9);
+            this.tabPage3.Location = new System.Drawing.Point(4, 24);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(476, 508);
+            this.tabPage3.TabIndex = 5;
+            this.tabPage3.Text = "Queueing";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // bShowQueue
+            // 
+            this.bShowQueue.Location = new System.Drawing.Point(304, 117);
+            this.bShowQueue.Name = "bShowQueue";
+            this.bShowQueue.Size = new System.Drawing.Size(101, 23);
+            this.bShowQueue.TabIndex = 28;
+            this.bShowQueue.Text = "ShowQueue";
+            this.bShowQueue.UseVisualStyleBackColor = true;
+            this.bShowQueue.Click += new System.EventHandler(this.bShowQueue_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(126, 215);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 27;
+            this.button1.Text = "Configure Queueing";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // ckbQueueLowByte
+            // 
+            this.ckbQueueLowByte.AutoSize = true;
+            this.ckbQueueLowByte.Location = new System.Drawing.Point(170, 190);
+            this.ckbQueueLowByte.Name = "ckbQueueLowByte";
+            this.ckbQueueLowByte.Size = new System.Drawing.Size(112, 19);
+            this.ckbQueueLowByte.TabIndex = 26;
+            this.ckbQueueLowByte.Text = "Queue Low Byte";
+            this.ckbQueueLowByte.UseVisualStyleBackColor = true;
+            // 
+            // ckbQueueHighByte
+            // 
+            this.ckbQueueHighByte.AutoSize = true;
+            this.ckbQueueHighByte.Location = new System.Drawing.Point(35, 190);
+            this.ckbQueueHighByte.Name = "ckbQueueHighByte";
+            this.ckbQueueHighByte.Size = new System.Drawing.Size(116, 19);
+            this.ckbQueueHighByte.TabIndex = 25;
+            this.ckbQueueHighByte.Text = "Queue High Byte";
+            this.ckbQueueHighByte.UseVisualStyleBackColor = true;
+            // 
+            // edQueueingPeriod
+            // 
+            this.edQueueingPeriod.DropDownToolTip = "";
+            this.edQueueingPeriod.dropdowntype = "SerialWombat.ScaledOutputPeriod";
+            this.edQueueingPeriod.Location = new System.Drawing.Point(160, 155);
+            this.edQueueingPeriod.Name = "edQueueingPeriod";
+            this.edQueueingPeriod.Size = new System.Drawing.Size(274, 35);
+            this.edQueueingPeriod.TabIndex = 24;
+            // 
+            // bInitializeQueue
+            // 
+            this.bInitializeQueue.Location = new System.Drawing.Point(304, 84);
+            this.bInitializeQueue.Name = "bInitializeQueue";
+            this.bInitializeQueue.Size = new System.Drawing.Size(101, 23);
+            this.bInitializeQueue.TabIndex = 23;
+            this.bInitializeQueue.Text = "Initialize Queue";
+            this.bInitializeQueue.UseVisualStyleBackColor = true;
+            this.bInitializeQueue.Click += new System.EventHandler(this.bInitializeQueue_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(30, 164);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(113, 15);
+            this.label9.TabIndex = 22;
+            this.label9.Text = "Queue Sample Rate:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(30, 117);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(124, 15);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "Queue Length (bytes):";
+            // 
+            // tbQueueLength
+            // 
+            this.tbQueueLength.Location = new System.Drawing.Point(160, 114);
+            this.tbQueueLength.Name = "tbQueueLength";
+            this.tbQueueLength.Size = new System.Drawing.Size(100, 23);
+            this.tbQueueLength.TabIndex = 21;
+            this.tbQueueLength.Text = "512";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(30, 79);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(90, 15);
+            this.label6.TabIndex = 22;
+            this.label6.Text = "Queue Address:";
+            // 
+            // tbQueueAddress
+            // 
+            this.tbQueueAddress.Location = new System.Drawing.Point(126, 76);
+            this.tbQueueAddress.Name = "tbQueueAddress";
+            this.tbQueueAddress.Size = new System.Drawing.Size(100, 23);
+            this.tbQueueAddress.TabIndex = 21;
+            this.tbQueueAddress.Text = "0";
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(3, 6);
+            this.textBox9.Multiline = true;
+            this.textBox9.Name = "textBox9";
+            this.textBox9.ReadOnly = true;
+            this.textBox9.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox9.Size = new System.Drawing.Size(464, 58);
+            this.textBox9.TabIndex = 20;
+            this.textBox9.Text = " Allows periodic storage of the public data value into a previously initialized q" +
+    "ueue in the user memory buffer.";
+            // 
             // edPublicOutput
             // 
             this.edPublicOutput.DropDownToolTip = "";
@@ -516,40 +674,6 @@
             this.label4.Size = new System.Drawing.Size(111, 15);
             this.label4.TabIndex = 3;
             this.label4.Text = "Public Data Output:";
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.textBox9);
-            this.tabPage3.Location = new System.Drawing.Point(4, 24);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(476, 508);
-            this.tabPage3.TabIndex = 5;
-            this.tabPage3.Text = "Queueing";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(6, 315);
-            this.textBox8.Multiline = true;
-            this.textBox8.Name = "textBox8";
-            this.textBox8.ReadOnly = true;
-            this.textBox8.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox8.Size = new System.Drawing.Size(464, 58);
-            this.textBox8.TabIndex = 27;
-            this.textBox8.Text = resources.GetString("textBox8.Text");
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(3, 6);
-            this.textBox9.Multiline = true;
-            this.textBox9.Name = "textBox9";
-            this.textBox9.ReadOnly = true;
-            this.textBox9.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox9.Size = new System.Drawing.Size(464, 58);
-            this.textBox9.TabIndex = 20;
-            this.textBox9.Text = " Allows periodic storage of the public data value into a previously initialized q" +
-    "ueue in the user memory buffer.";
             // 
             // ProcessedInputControl
             // 
@@ -626,5 +750,16 @@
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox tbQueueAddress;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox tbQueueLength;
+        private System.Windows.Forms.Button bInitializeQueue;
+        private EnumDropdown edQueueingPeriod;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.CheckBox ckbQueueLowByte;
+        private System.Windows.Forms.CheckBox ckbQueueHighByte;
+        private System.Windows.Forms.Button bShowQueue;
     }
 }

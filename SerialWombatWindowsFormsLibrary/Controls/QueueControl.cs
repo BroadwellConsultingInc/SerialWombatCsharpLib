@@ -25,8 +25,19 @@ namespace SerialWombatWindowsFormsLibrary.Controls
        public void begin(SerialWombatChip serialWombatChip)
         {
             SerialWombatChip = serialWombatChip;
+            
         }
+        public void begin(SerialWombatQueue queue)
+        {
+            _queue = queue;
+            _length = queue._size;
+            _address = queue._address;
+            SerialWombatChip = queue._sw;
+            tbAddress.Text = $"0x{_address:X4}";
+            tbLength.Text = $"0x{_length:X4}";
+            groupBox1.Text = $"Queue at 0x{_address:X4}, Length ${_length}";
 
+        }
         private void bInitialize_Click(object sender, EventArgs e)
         {
             byte[] addressArray;
@@ -61,6 +72,7 @@ namespace SerialWombatWindowsFormsLibrary.Controls
             _queue = new SerialWombatQueue(SerialWombatChip);
             _queue.begin(_address, _length, SerialWombatQueueType.QUEUE_TYPE_RAM_BYTE);
 
+            groupBox1.Text = $"Queue at 0x{_address:X4}, Length ${_length}";
         }
 
         private void bWrite_Click(object sender, EventArgs e)
@@ -79,14 +91,36 @@ namespace SerialWombatWindowsFormsLibrary.Controls
         private void bRead_Click(object sender, EventArgs e)
         {
             byte[] data;
+            int samples = 0;
+            realTimeScottPlot1.ClearData();
             int count = _queue.read(_length, out data);
             textBox1.Clear();
             if (count > 0)
             {
-                for (int i = 0; i < count; ++i)
+                if (ckb16BitReads.Checked)
                 {
-                    textBox1.AppendText($"{data[i]:X2} ");
+                    string s = "";
+                    for (int i = 0; i < count; i += 2)
+                    {
+                        UInt16 d = (UInt16)(data[i] + data[i + 1] * 256);
+                        s += $"{d :X4} ";
+                        realTimeScottPlot1.PlotData(d);
+                        ++samples;
+                    }
+                    textBox1.AppendText(s);
                 }
+                else
+                {
+                    string s = "";
+                   for (int i = 0; i < count; ++i)
+                    {
+                        s += $"{data[i]:X2} ";
+                        realTimeScottPlot1.PlotData(data[i]);
+                        ++samples;
+                    }
+                    textBox1.AppendText(s);
+                }
+                
             }
         }
     }

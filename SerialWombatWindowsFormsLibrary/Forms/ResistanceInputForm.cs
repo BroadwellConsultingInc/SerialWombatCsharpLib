@@ -32,7 +32,7 @@ namespace SerialWombatWindowsFormsLibrary
             if (serialWombatChip.isSW18())
             {
                 SerialWombatAbstractProcessedInput processedInput = new SerialWombatAbstractProcessedInput(SerialWombatChip);
-                processedInput.begin(pin, SerialWombatPinModes.PIN_MODE_ANALOGINPUT);
+                processedInput.begin(pin, SerialWombatPinModes.PIN_MODE_RESISTANCEINPUT);
                 ProcessedInputControl = new ProcessedInputControl(processedInput);
                 ProcessedInputControl.Left = resistanceInputControl1.Right + 10;
                 this.AutoSize = true;

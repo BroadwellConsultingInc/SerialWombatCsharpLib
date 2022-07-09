@@ -16,7 +16,6 @@ namespace SerialWombatWindowsFormsLibrary
         {
             InitializeComponent();
         }
-
         public object selectedItem { get { return comboBox1.SelectedItem; } }
 
         [Browsable(true), EditorBrowsable(EditorBrowsableState.Always)]
@@ -37,6 +36,11 @@ namespace SerialWombatWindowsFormsLibrary
             get { return ddtype; } 
         }
 
+        [Browsable(true)]
+        [Category("Action")]
+        [Description("Invoked when user changes selected enum")]
+        public event EventHandler SelectedEnumChanged;
+
         public string DropDownToolTip
         {
             get
@@ -47,6 +51,11 @@ namespace SerialWombatWindowsFormsLibrary
             {
                 toolTip1.SetToolTip(comboBox1, value);
             }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SelectedEnumChanged?.Invoke(this, e);
         }
     }
 }
