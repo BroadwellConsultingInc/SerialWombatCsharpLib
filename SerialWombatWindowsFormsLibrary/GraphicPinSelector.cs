@@ -31,6 +31,7 @@ namespace SerialWombatWindowsFormsLibrary
             tsmiPWM.Click += TsmiPWM_Click;
             tsmiWatchdog.Click += TsmiWatchdog_Click;
             tmsiTM1637.Click += TmsiTM1637_Click;
+            tsmiMatrixKeypad.Click += TsmiMatrixKeypad_Click;
 
 
             pictureBox1.Image = Properties.Resources.LIT00034_SW18AB_PinDiagram;
@@ -45,10 +46,21 @@ namespace SerialWombatWindowsFormsLibrary
             cbModel.SelectedIndex = 2;
         }
 
+        private void TsmiMatrixKeypad_Click(object sender, EventArgs e)
+        {
+            MatrixKeypadForm mkf = new MatrixKeypadForm(SerialWombatChip, _lastClickWombatPin);
+
+            mkf.Tag = this;
+            mkf.StartPosition = FormStartPosition.Manual;
+            mkf.Location = this.Location;
+            mkf.Show();
+        }
+
         private void TsmiPulseOnChange_Click(object sender, EventArgs e)
         {
             PulseOnChangeForm pocf = new PulseOnChangeForm(SerialWombatChip, _lastClickWombatPin);
-            pocf.Show();
+            pocf.Show(this);
+            pocf.StartPosition = FormStartPosition.CenterParent;
         }
 
         private void TmsiTM1637_Click(object sender, EventArgs e)

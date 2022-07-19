@@ -33,3 +33,9 @@ F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\WombatPanelWindowsFo
 F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\WombatPanelWindowsForms\obj\Debug\net6.0-windows\WombatPanelWindowsForms.pdb
 F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\WombatPanelWindowsForms\obj\Debug\net6.0-windows\WombatPanelWindowsForms.genruntimeconfig.cache
 F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\WombatPanelWindowsForms\obj\Debug\net6.0-windows\ref\WombatPanelWindowsForms.dll
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\WombatPanelWindowsForms\obj\Debug\net6.0-windows\WombatPanelWindowsForms.Properties.Resources.resources
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\WombatPanelWindowsForms\bin\Debug\net6.0-windows\IntelHex.dll
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\WombatPanelWindowsForms\bin\Debug\net6.0-windows\SerialWombatSW18ABBootloader.dll
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\WombatPanelWindowsForms\bin\Debug\net6.0-windows\SerialWombatSW18ABBootloader.pdb
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\WombatPanelWindowsForms\bin\Debug\net6.0-windows\IntelHex.pdb
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\WombatPanelWindowsForms\obj\Debug\net6.0-windows\WombatPanelWindowsForms.Bootload.resources

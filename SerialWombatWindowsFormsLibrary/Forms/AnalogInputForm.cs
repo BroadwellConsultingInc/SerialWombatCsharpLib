@@ -22,6 +22,7 @@ namespace SerialWombatWindowsFormsLibrary
         public AnalogInputForm(SerialWombatChip serialWombatChip, byte pin)
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterParent; 
             Pin = pin;
             SerialWombatChip = serialWombatChip;
             

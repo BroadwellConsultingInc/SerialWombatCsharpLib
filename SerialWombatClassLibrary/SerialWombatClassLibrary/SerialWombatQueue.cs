@@ -24,7 +24,7 @@ namespace SerialWombat
           
         }
 
-        public Int16 begin(UInt16 address, UInt16 size, SerialWombatQueueType queueType)
+        public Int16 begin(UInt16 address, UInt16 size, SerialWombatQueueType queueType = SerialWombatQueueType.QUEUE_TYPE_RAM_BYTE)
         {
             _address = address;
             _size = size;

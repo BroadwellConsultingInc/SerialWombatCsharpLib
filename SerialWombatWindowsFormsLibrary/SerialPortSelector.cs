@@ -14,6 +14,7 @@ namespace WombatPanelWindowsForms
         public SerialPortSelector()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterParent;
         }
         public string SelectedPort = null;
         private void SerialPortSelector_Load(object sender, EventArgs e)

@@ -160,6 +160,16 @@
           }
         }
       },
+      "IntelHex/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/IntelHex.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/IntelHex.dll": {}
+        }
+      },
       "SerialWombatClassLibrary/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -171,6 +181,20 @@
         },
         "runtime": {
           "bin/placeholder/SerialWombatClassLibrary.dll": {}
+        }
+      },
+      "SerialWombatSW18ABBootloader/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "IntelHex": "1.0.0",
+          "SerialWombatClassLibrary": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SerialWombatSW18ABBootloader.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SerialWombatSW18ABBootloader.dll": {}
         }
       },
       "SerialWombatWindowsFormsLibrary/1.0.0": {
@@ -438,10 +462,20 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "IntelHex/1.0.0": {
+      "type": "project",
+      "path": "../IntelHex/IntelHex.csproj",
+      "msbuildProject": "../IntelHex/IntelHex.csproj"
+    },
     "SerialWombatClassLibrary/1.0.0": {
       "type": "project",
       "path": "../SerialWombatClassLibrary/SerialWombatClassLibrary/SerialWombatClassLibrary.csproj",
       "msbuildProject": "../SerialWombatClassLibrary/SerialWombatClassLibrary/SerialWombatClassLibrary.csproj"
+    },
+    "SerialWombatSW18ABBootloader/1.0.0": {
+      "type": "project",
+      "path": "../SerialWombatSW18ABBootloader/SerialWombatSW18ABBootloader.csproj",
+      "msbuildProject": "../SerialWombatSW18ABBootloader/SerialWombatSW18ABBootloader.csproj"
     },
     "SerialWombatWindowsFormsLibrary/1.0.0": {
       "type": "project",
@@ -452,6 +486,7 @@
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
       "SerialWombatClassLibrary >= 1.0.0",
+      "SerialWombatSW18ABBootloader >= 1.0.0",
       "SerialWombatWindowsFormsLibrary >= 1.0.0"
     ]
   },
@@ -495,6 +530,9 @@
             "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatClassLibrary\\SerialWombatClassLibrary\\SerialWombatClassLibrary.csproj": {
               "projectPath": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatClassLibrary\\SerialWombatClassLibrary\\SerialWombatClassLibrary.csproj"
             },
+            "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatSW18ABBootloader\\SerialWombatSW18ABBootloader.csproj": {
+              "projectPath": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatSW18ABBootloader\\SerialWombatSW18ABBootloader.csproj"
+            },
             "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatWindowsFormsLibrary\\SerialWombatWindowsFormsLibrary.csproj": {
               "projectPath": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatWindowsFormsLibrary\\SerialWombatWindowsFormsLibrary.csproj"
             }
@@ -528,7 +566,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

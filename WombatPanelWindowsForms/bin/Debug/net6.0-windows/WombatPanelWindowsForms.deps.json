@@ -9,6 +9,7 @@
       "WombatPanelWindowsForms/1.0.0": {
         "dependencies": {
           "SerialWombatClassLibrary": "1.0.0",
+          "SerialWombatSW18ABBootloader": "1.0.0",
           "SerialWombatWindowsFormsLibrary": "1.0.0"
         },
         "runtime": {
@@ -129,12 +130,26 @@
           }
         }
       },
+      "IntelHex/1.0.0": {
+        "runtime": {
+          "IntelHex.dll": {}
+        }
+      },
       "SerialWombatClassLibrary/1.0.0": {
         "dependencies": {
           "System.IO.Ports": "6.0.0"
         },
         "runtime": {
           "SerialWombatClassLibrary.dll": {}
+        }
+      },
+      "SerialWombatSW18ABBootloader/1.0.0": {
+        "dependencies": {
+          "IntelHex": "1.0.0",
+          "SerialWombatClassLibrary": "1.0.0"
+        },
+        "runtime": {
+          "SerialWombatSW18ABBootloader.dll": {}
         }
       },
       "SerialWombatWindowsFormsLibrary/1.0.0": {
@@ -239,7 +254,17 @@
       "path": "system.io.ports/6.0.0",
       "hashPath": "system.io.ports.6.0.0.nupkg.sha512"
     },
+    "IntelHex/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "SerialWombatClassLibrary/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SerialWombatSW18ABBootloader/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

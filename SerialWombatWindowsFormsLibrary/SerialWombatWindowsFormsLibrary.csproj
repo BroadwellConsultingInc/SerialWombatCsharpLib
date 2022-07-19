@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
@@ -9,12 +9,15 @@
   <ItemGroup>
     <Compile Remove="DigitalStateComboBox.cs" />
     <Compile Remove="DigitalStateComboBox.Designer.cs" />
+    <Compile Remove="GraphicPinSelector.cs" />
+    <Compile Remove="GraphicPinSelector.Designer.cs" />
     <Compile Remove="WatchdogForm.cs" />
     <Compile Remove="WatchdogForm.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Remove="DigitalStateComboBox.resx" />
+    <EmbeddedResource Remove="GraphicPinSelector.resx" />
     <EmbeddedResource Remove="WatchdogForm.resx" />
   </ItemGroup>
 

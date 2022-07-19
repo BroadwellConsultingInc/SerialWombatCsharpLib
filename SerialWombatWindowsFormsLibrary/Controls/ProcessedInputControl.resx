@@ -162,7 +162,4 @@ when given a steady input.</value>
 The average is a typical average, not a moving average so the more samples comprise the averaged value
 the less often the downstream value will update.  Samples are typically taken each mS, although some modes such as SerialWombatUltrasonicDistanceSensor sample at other periods.</value>
   </data>
-  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
 </root>

@@ -10,8 +10,9 @@ using System.Threading;
 using System.Windows.Forms;
 using SerialWombat;
 using SerialWombatWindowsFormsLibrary;
-using WombatPanelWindowsForms.Bootloader;
+using SerialWombatSW18ABBootloader;
 using IntelHex;
+
 
 namespace WombatPanelWindowsForms
 {
@@ -28,7 +29,6 @@ namespace WombatPanelWindowsForms
             portOpenI2CBridgeMenuItem.Click += PortOpenI2CBridgeMenuItem_Click;
             portCloseMenuItem.Click += PortCloseMenuItem_Click;
             tsmiDownloadNewHexFile.Click += TsmiDownloadNewHexFile_Click;
-            tsmiCArray.Click += TsmiCArray_Click;
             tsmiReadRam.Click += TsmiReadRam_Click;
 
             int gbHeight = 0;
@@ -41,49 +41,19 @@ namespace WombatPanelWindowsForms
                 gbHeight = gb.Height + 2;
             }
 
-            graphicPinSelectorForm = new GraphicPinSelector();
-            graphicPinSelectGroupBox = graphicPinSelectorForm.GetGroupBox();
-            graphicPinSelectGroupBox.Left = this.Width - graphicPinSelectGroupBox.Width - 30;
-            graphicPinSelectGroupBox.Top = ManualEntryBoxes[0].Top;
-            Controls.Add(graphicPinSelectGroupBox);
-
-          
+            graphicPinSelectorControl1.codeGeneration = codeGenerationHandler;
         }
 
-        private void TsmiCArray_Click(object sender, EventArgs e)
+        private void codeGenerationHandler(CodeGeneratedEventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog();
-
-            if (ofd.ShowDialog() == DialogResult.OK)
-            {
-                HexData data = new HexData(ofd.FileName, true);
-                data.Crop(0x140 * 2, 0x1000 * 2);
-                data.Fill16(0x140 * 2, 0x1000 * 2, 0x3FFF);
-                StreamWriter sw = new StreamWriter(ofd.FileName + ".c");
-                
-                sw.WriteLine($"const uint8_t flashImage[{data.Memory.Keys.Count}] = {{");
-
-                uint lowestAddress = data.LowestAddress;
-                uint highestAddress = data.HighestAddress;
-                for (uint i = lowestAddress; i < highestAddress; i += 64 )
-                {
-                    for (uint x = 0; x < 64; ++x)
-                    {
-                        uint address = i + x;
-                        byte dataByte = (byte) data.Memory[address];
-                        sw.Write($"0x{dataByte:X2}, ");
-                    }
-                    sw.Write(Environment.NewLine);
-                }
-                sw.Write("};");
-                sw.Close();
-            }
+            tbCodeGeneration.AppendText(e.Code);
         }
+       
 
         private void PortOpenI2CBridgeMenuItem_Click(object sender, EventArgs e)
         {
             SerialPortSelector sps = new SerialPortSelector();
-            sps.ShowDialog();
+            sps.ShowDialog(FindForm());
             if (sps.SelectedPort != null)
             {
                 {
@@ -92,7 +62,7 @@ namespace WombatPanelWindowsForms
                     sw.SendDelegates.Add(LogDataDelegate);
                     //TODO sw.OpenI2CBridge(sps.SelectedPort,0x6C);  //TODO - make I2C variable
                     //TODO add check to see that there's a wombat there.
-                    WombatList.Add(sw);
+                    ChipList.Add(sw);
                 }
 
 
@@ -101,11 +71,11 @@ namespace WombatPanelWindowsForms
                     ComboBox cb = (ComboBox)gb.Controls[1];
                     int previousIndex = cb.SelectedIndex;
                     cb.Items.Clear();
-                    foreach (SerialWombatChip sw in WombatList)
+                    foreach (SerialWombatChip sw in ChipList)
                     {
                         cb.Items.Add(sw);
                     }
-                    if (WombatList.Count == 1)
+                    if (ChipList.Count == 1)
                     {
                         cb.SelectedIndex = 0;
                     }
@@ -115,9 +85,9 @@ namespace WombatPanelWindowsForms
                     }
                 }
 
-                graphicPinSelectorForm.SerialWombatChip = WombatList.Last();
-                graphicPinSelectorForm.Model = WombatList.Last().ModelEnum;
-                Text = WombatList.Last().ModelEnum.ToString() + $" On Serial Port {sps.SelectedPort}";
+                graphicPinSelectorControl1.SerialWombatChip = ChipList.Last();
+                graphicPinSelectorControl1.Model = ChipList.Last().ModelEnum;
+                Text = ChipList.Last().ModelEnum.ToString() + $" On Serial Port {sps.SelectedPort}";
 
 
             }
@@ -125,9 +95,9 @@ namespace WombatPanelWindowsForms
 
             private void PortCloseMenuItem_Click(object sender, EventArgs e)
         {
-            if (WombatList.Count > 0)
+            if (ChipList.Count > 0)
             {
-                SerialWombatChip sw = WombatList.Last();
+                SerialWombatChip sw = ChipList.Last();
                 if (sw.Serial.Port != null)
                 {
                     sw.Serial.Port.Close();
@@ -138,7 +108,7 @@ namespace WombatPanelWindowsForms
                     sw.TCPStream.Close();
                 }
                 */
-                WombatList.RemoveAt(WombatList.Count - 1);
+                ChipList.RemoveAt(ChipList.Count - 1);
             }
         }
 
@@ -219,13 +189,11 @@ namespace WombatPanelWindowsForms
             
         }
 
-        static public List<SerialWombatChip> WombatList = new List<SerialWombatChip>();
+        static public List<SerialWombatChip> ChipList = new List<SerialWombatChip>();
 
 
         private List<GroupBox> ManualEntryBoxes = new List<GroupBox>();
         private List<string> ManualEntryStrings = new List<string>();
-        private GroupBox graphicPinSelectGroupBox;
-        private GraphicPinSelector graphicPinSelectorForm = null;
 
        
         private GroupBox createManualEntryBox(int x, int y)
@@ -305,8 +273,43 @@ namespace WombatPanelWindowsForms
                     SerialWombatChip.SendDelegate LogDataDelegate = new SerialWombatChip.SendDelegate(LogData);
                     sw.SendDelegates.Add(LogDataDelegate);
                     sw.begin(sps.SelectedPort);
-                    //TODO add check to see that there's a wombat there.
-                    WombatList.Add(sw);
+                    try
+                    {
+                        byte[] b = sw.readVersion();
+                        ChipList.Add(sw);
+                        if (sw.isSW18())
+                        {
+                            if (b[6] < 0x37 || b[4] < 0x32)
+                            {
+                                MessageBox.Show($"This Serial Wombat chip is using firmware version {(char)b[4]}.{(char)b[5]}.{(char)b[6]}   .  Version 2.0.7 or later is required for all features to work correctly.  See https://youtu.be/q7ls-lMaL80 ");
+                            }
+                            string swdata = "";
+
+                            swdata += ($"Serial Wombat SW18AB on port {sps.SelectedPort} detected, firmware version {(char)b[4]}.{(char)b[5]}.{(char)b[6]} {Environment.NewLine}");
+                            {
+                                string s = "";
+                                for (int i = 0; i < sw.uniqueIdentifierLength; ++i)
+                                {
+                                    s += $"0x{sw.uniqueIdentifier[i]:X2} ";
+                                }
+                                swdata += ($"Unique Id: {s} {Environment.NewLine}");
+                            }
+                            swdata += ($"Device ID: {sw.deviceIdentifier}, Revision: {sw.deviceRevision} {Environment.NewLine}");
+                            swdata += ($"Source Voltage: {sw._supplyVoltagemV / 1000.0}{Environment.NewLine}");
+                            swdata += ($"Temperature: {sw.readTemperature_100thsDegC() / 100.0}{Environment.NewLine}");
+                            swdata += ($"Birthday: {sw.readBirthday()}{Environment.NewLine}");
+                            string brand;
+                            sw.readBrand(out brand);
+                            swdata += ($"Brand: {brand}{Environment.NewLine}");
+                            tbLog.AppendText(swdata);
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Serial Wombat Chip did not respond to a version request.");
+                    }
+
+                    
                 } 
                     
                 
@@ -315,11 +318,11 @@ namespace WombatPanelWindowsForms
                     ComboBox cb = (ComboBox)gb.Controls[1];
                     int previousIndex = cb.SelectedIndex;
                     cb.Items.Clear();
-                    foreach( SerialWombatChip sw in WombatList)
+                    foreach( SerialWombatChip sw in ChipList)
                     {
                         cb.Items.Add(sw);
                     }
-                    if (WombatList.Count == 1)
+                    if (ChipList.Count == 1)
                     {
                         cb.SelectedIndex = 0;
                     }
@@ -329,9 +332,9 @@ namespace WombatPanelWindowsForms
                     }
                 }
 
-                graphicPinSelectorForm.SerialWombatChip = WombatList.Last();
-                graphicPinSelectorForm.Model = WombatList.Last().ModelEnum;
-                Text = WombatList.Last().ModelEnum.ToString() + $" On Serial Port {sps.SelectedPort}";
+                graphicPinSelectorControl1.SerialWombatChip = ChipList.Last();
+                graphicPinSelectorControl1.Model = ChipList.Last().ModelEnum;
+                Text = ChipList.Last().ModelEnum.ToString() + $" On Serial Port {sps.SelectedPort}";
 
 
             }
@@ -339,15 +342,15 @@ namespace WombatPanelWindowsForms
 
         private void bReset_Click(object sender, EventArgs e)
         {
-            if (WombatList.Count > 0)
+            if (ChipList.Count > 0)
             {
-                WombatList.Last().hardwareReset();
+                ChipList.Last().hardwareReset();
             }
         }
 
         private void bSourceVoltage_Click(object sender, EventArgs e)
         {
-            WombatList.Last().readSupplyVoltage_mV();
+            ChipList.Last().readSupplyVoltage_mV();
         }
 
         private void tsmiCArray_Click_1(object sender, EventArgs e)
@@ -357,7 +360,7 @@ namespace WombatPanelWindowsForms
 
         private void bResync_Click(object sender, EventArgs e)
         {
-            WombatList.Last().sendPacket("UUUUUUUU");
+            ChipList.Last().sendPacket("UUUUUUUU");
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -367,9 +370,23 @@ namespace WombatPanelWindowsForms
 
         private void tsmiReadRam_Click_1(object sender, EventArgs e)
         {
-            UserBufferForm ubf = new UserBufferForm(WombatList.Last());
+            UserBufferForm ubf = new UserBufferForm(ChipList.Last());
             ubf.Show();
 
+        }
+
+        private void tsmiDownloadNewHexFile_Click_1(object sender, EventArgs e)
+        {
+            SerialWombatSW18ABBootloaderClient bl = 
+                new SerialWombatSW18ABBootloaderClient(ChipList.Last());
+            OpenFileDialog ofd = new OpenFileDialog();
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                Bootload blf = new Bootload(ofd.FileName,ChipList.Last());
+
+                
+                blf.Show();
+            }
         }
     }
 }

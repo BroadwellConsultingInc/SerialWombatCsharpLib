@@ -38,6 +38,7 @@
             this.tsmiDebounce = new System.Windows.Forms.ToolStripMenuItem();
             this.monitorPublicDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiPulseOnChange = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiPulseTimer = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiPWM = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiQuadratureEncoder = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,7 +51,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbModel = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.tsmiPulseOnChange = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiMatrixKeypad = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -78,6 +79,7 @@
             this.tsmiLow,
             this.tsmiAnalogInput,
             this.tsmiDebounce,
+            this.tsmiMatrixKeypad,
             this.monitorPublicDataToolStripMenuItem,
             this.toolStripMenuItem2,
             this.tsmiPulseOnChange,
@@ -91,7 +93,7 @@
             this.ultraSonicDistanceSensorToolStripMenuItem,
             this.tsmiWatchdog});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(209, 378);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(209, 400);
             // 
             // tsmiInput
             // 
@@ -139,6 +141,12 @@
             this.toolStripMenuItem2.Size = new System.Drawing.Size(208, 22);
             this.toolStripMenuItem2.Text = "PinStateViewer";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            // 
+            // tsmiPulseOnChange
+            // 
+            this.tsmiPulseOnChange.Name = "tsmiPulseOnChange";
+            this.tsmiPulseOnChange.Size = new System.Drawing.Size(208, 22);
+            this.tsmiPulseOnChange.Text = "Pulse On Change";
             // 
             // tsmiPulseTimer
             // 
@@ -227,11 +235,11 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "-";
             // 
-            // tsmiPulseOnChange
+            // tsmiMatrixKeypad
             // 
-            this.tsmiPulseOnChange.Name = "tsmiPulseOnChange";
-            this.tsmiPulseOnChange.Size = new System.Drawing.Size(208, 22);
-            this.tsmiPulseOnChange.Text = "Pulse On Change";
+            this.tsmiMatrixKeypad.Name = "tsmiMatrixKeypad";
+            this.tsmiMatrixKeypad.Size = new System.Drawing.Size(208, 22);
+            this.tsmiMatrixKeypad.Text = "Matrix Keypad";
             // 
             // GraphicPinSelector
             // 
@@ -273,5 +281,6 @@
         private System.Windows.Forms.ToolStripMenuItem ultraSonicDistanceSensorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tmsiTM1637;
         private System.Windows.Forms.ToolStripMenuItem tsmiPulseOnChange;
+        private System.Windows.Forms.ToolStripMenuItem tsmiMatrixKeypad;
     }
 }

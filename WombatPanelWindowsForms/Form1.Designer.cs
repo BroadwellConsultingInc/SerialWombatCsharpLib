@@ -69,6 +69,8 @@
             this.bReset = new System.Windows.Forms.Button();
             this.bSourceVoltage = new System.Windows.Forms.Button();
             this.bResync = new System.Windows.Forms.Button();
+            this.graphicPinSelectorControl1 = new SerialWombatWindowsFormsLibrary.GraphicPinSelectorControl();
+            this.tbCodeGeneration = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -262,6 +264,7 @@
             this.tsmiDownloadNewHexFile.Name = "tsmiDownloadNewHexFile";
             this.tsmiDownloadNewHexFile.Size = new System.Drawing.Size(203, 22);
             this.tsmiDownloadNewHexFile.Text = "Download New Hex File";
+            this.tsmiDownloadNewHexFile.Click += new System.EventHandler(this.tsmiDownloadNewHexFile_Click_1);
             // 
             // tsmiReadRam
             // 
@@ -332,25 +335,25 @@
             // portOpenSerialMenuItem
             // 
             this.portOpenSerialMenuItem.Name = "portOpenSerialMenuItem";
-            this.portOpenSerialMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.portOpenSerialMenuItem.Size = new System.Drawing.Size(180, 22);
             this.portOpenSerialMenuItem.Text = "Open&Serial";
             // 
             // portOpenTCPMenuItem
             // 
             this.portOpenTCPMenuItem.Name = "portOpenTCPMenuItem";
-            this.portOpenTCPMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.portOpenTCPMenuItem.Size = new System.Drawing.Size(180, 22);
             this.portOpenTCPMenuItem.Text = "Open &TCP";
             // 
             // portOpenI2CBridgeMenuItem
             // 
             this.portOpenI2CBridgeMenuItem.Name = "portOpenI2CBridgeMenuItem";
-            this.portOpenI2CBridgeMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.portOpenI2CBridgeMenuItem.Size = new System.Drawing.Size(180, 22);
             this.portOpenI2CBridgeMenuItem.Text = "Open I2C Bridge";
             // 
             // portCloseMenuItem
             // 
             this.portCloseMenuItem.Name = "portCloseMenuItem";
-            this.portCloseMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.portCloseMenuItem.Size = new System.Drawing.Size(180, 22);
             this.portCloseMenuItem.Text = "&Close";
             // 
             // tbLog
@@ -360,7 +363,7 @@
             this.tbLog.Multiline = true;
             this.tbLog.Name = "tbLog";
             this.tbLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbLog.Size = new System.Drawing.Size(731, 211);
+            this.tbLog.Size = new System.Drawing.Size(731, 104);
             this.tbLog.TabIndex = 1;
             // 
             // bReset
@@ -393,19 +396,40 @@
             this.bResync.UseVisualStyleBackColor = true;
             this.bResync.Click += new System.EventHandler(this.bResync_Click);
             // 
+            // graphicPinSelectorControl1
+            // 
+            this.graphicPinSelectorControl1.AutoSize = true;
+            this.graphicPinSelectorControl1.Location = new System.Drawing.Point(806, 47);
+            this.graphicPinSelectorControl1.Model = SerialWombat.SerialWombatModel.SerialWombat18AB;
+            this.graphicPinSelectorControl1.Name = "graphicPinSelectorControl1";
+            this.graphicPinSelectorControl1.Size = new System.Drawing.Size(276, 509);
+            this.graphicPinSelectorControl1.TabIndex = 5;
+            // 
+            // tbCodeGeneration
+            // 
+            this.tbCodeGeneration.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbCodeGeneration.Location = new System.Drawing.Point(13, 455);
+            this.tbCodeGeneration.Multiline = true;
+            this.tbCodeGeneration.Name = "tbCodeGeneration";
+            this.tbCodeGeneration.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbCodeGeneration.Size = new System.Drawing.Size(731, 104);
+            this.tbCodeGeneration.TabIndex = 1;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1163, 568);
+            this.Controls.Add(this.graphicPinSelectorControl1);
             this.Controls.Add(this.bResync);
             this.Controls.Add(this.bSourceVoltage);
             this.Controls.Add(this.bReset);
+            this.Controls.Add(this.tbCodeGeneration);
             this.Controls.Add(this.tbLog);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Wombat Panel V1.0.0   Use with SW18AB firmware 2.0.7 or higher";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -458,6 +482,8 @@
         private System.Windows.Forms.ToolStripMenuItem portOpenI2CBridgeMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tsmiCArray;
         private System.Windows.Forms.Button bResync;
+        private SerialWombatWindowsFormsLibrary.GraphicPinSelectorControl graphicPinSelectorControl1;
+        private System.Windows.Forms.TextBox tbCodeGeneration;
     }
 }
 

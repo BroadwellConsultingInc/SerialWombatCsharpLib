@@ -170,6 +170,26 @@ namespace SerialWombat
             return sendPacket(tx);
         }
 
+        public int sendPacketNoResponse(string s)
+        {
+            byte[] tx = Encoding.GetEncoding("UTF-8").GetBytes(s);
+
+            return sendPacketNoResponse(tx);
+        }
+
+        public int sendPacketNoResponse(byte[] tx)
+        {
+            if (tx.Length < 8)
+            {
+                byte[] newtx = { 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55 };
+                tx.CopyTo(newtx, 0);
+                tx = newtx; 
+            }
+            Serial.Pool.WaitOne();
+            Serial.write(tx, 8);
+            Serial.Pool.Release();
+            return (8);
+        }
         public int sendPacket(string s, out byte[] rx)
         {
             byte[] tx = Encoding.GetEncoding("UTF-8").GetBytes(s);
@@ -336,9 +356,12 @@ namespace SerialWombat
             }
         }
 
-        public void hardwareReset()
+        public void hardwareReset(bool waitForResponse = true)
         {
-            sendPacket("ReSeT!#*");
+            if (waitForResponse)
+            {
+                sendPacket("ReSeT!#*");
+            }
         }
 
         public void pinMode(byte pin, byte mode)
@@ -477,13 +500,13 @@ namespace SerialWombat
 
         public void eraseFlashPage(UInt32 address)
         {
-            byte[] tx = { 0xA4, 0, (byte)(address & 0xFF), (byte)(address >> 8), 0x55, 0x55 };
+            byte[] tx = { 0xA4, 0, (byte)(address & 0xFF), (byte)(address >> 8), (byte)((address >> 16) & 0xFF), (byte)((address >> 24) & 0xFF) };
             sendPacket(tx);
         }
 
         public void writeFlashRow(UInt32 address)
         {
-            byte[] tx = { 0xA4, 1, (byte)(address & 0xFF), (byte)(address >> 8), 0x55, 0x55 };
+            byte[] tx = { 0xA4, 1, (byte)(address & 0xFF), (byte)(address >> 8), (byte)((address >> 16) & 0xFF), (byte)((address >> 24) & 0xFF) };
             sendPacket(tx);
         }
 
@@ -805,7 +828,7 @@ namespace SerialWombat
 
       
 
-    Int16 enable2ndCommandInterface(bool enabled)
+    public Int16 enable2ndCommandInterface(bool enabled)
     {
         byte[] tx = { 0xA6, 0, 0xB2, 0xA5, 0x61, 0x73, 0xF8, 0xA2 };
         if (enabled)
@@ -815,7 +838,7 @@ namespace SerialWombat
         return sendPacket(tx);
     }
 
-    UInt16 returnErrorCode(byte[] rx)
+        public UInt16 returnErrorCode(byte[] rx)
     {
         int result = rx[1] - (byte)'0';
         result *= 10;
@@ -829,7 +852,7 @@ namespace SerialWombat
         return ((UInt16)result);
     }
 
-    Int16 echo(byte[] data, byte count)
+        public Int16 echo(byte[] data, byte count)
     {
         byte[] tx = Encoding.ASCII.GetBytes( "!UUUUUUU");
         for (int i = 0; i < 7 && i < count; ++i)
@@ -839,7 +862,7 @@ namespace SerialWombat
         return sendPacket(tx);
     }
 
-    Int16 echo(string data)
+        public Int16 echo(string data)
     {
         int length = data.Length;
         byte[] tx = Encoding.ASCII.GetBytes("!UUUUUUU");
@@ -850,7 +873,7 @@ namespace SerialWombat
         return sendPacket(tx);
     }
 
-    UInt32 readBirthday()
+        public UInt32 readBirthday()
     {
         if (isSW18())
         {
@@ -866,7 +889,7 @@ namespace SerialWombat
         return 0;
     }
 
-        Int16 readBrand(out String data)
+        public Int16 readBrand(out String data)
         {
             byte length = 0;
             data = "";
@@ -907,8 +930,134 @@ namespace SerialWombat
         {
             Thread.Sleep((int)ms);
         }
+
+        public int[] inputPins
+        {
+            get
+            {
+                if (isSW18())
+                {
+                    int[] ints = new int[20];
+                    for (int i = 0; i < 20; ++i)
+                    {
+                        ints[i] = i;
+                    }
+                    return (ints);
+                }
+                else
+                {
+                    int[] ints = new int[4];
+                    for (int i = 0; i < 4; ++i)
+                    {
+                        ints[i] = i;
+                    }
+                    return (ints);
+                }
+            }
+        }
+        public int[] outputPins
+        {
+            get
+            {
+                if (isSW18())
+                {
+                    int[] ints = new int[20];
+                    for (int i = 0; i < 20; ++i)
+                    {
+                        ints[i] = i;
+                    }
+                    return (ints);
+                }
+                else
+                {
+                    int[] ints = { 1, 2, 3 };
+                    return (ints);
+                }
+            }
+        }
+        public int[] enhancedPerformanceInputPins
+        {
+            get
+            {
+                if (isSW18())
+                {
+                    int[] ints = { 0, 1, 2, 3, 4, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 };
+                    return (ints);
+                }
+                else
+                {
+                    int[] ints = { 0, 1, 2, 3 };
+                    return (ints);
+                }
+            }
+        }
+        public int[] enhancedPerformanceOutputPins
+        {
+            get
+            {
+                if (isSW18())
+                {
+                    int[] ints = { 0, 1, 2, 3, 4, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 };
+                    return (ints);
+                }
+                else
+                {
+                    int[] ints = { 1, 2, 3 };
+                    return (ints);
+                }
+            }
+        }
+
+        public int[] AnalogPins
+        {
+            get
+            {
+                if (isSW18())
+                {
+                    int[] ints = { 0, 1, 2, 3, 4, 16, 17, 18, 19 };
+                    return (ints);
+                }
+                else
+                {
+                    int[] ints = { 1, 2, 3 };
+                    return (ints);
+                }
+            }
+        }
+
+        public int[] AvailablePins(SerialWombatPinType pinType)
+        {
+            switch (pinType)
+            {
+                case SerialWombatPinType.SerialWombatPin:
+                case SerialWombatPinType.InputPin:
+                default:
+                    return (inputPins);
+
+                case SerialWombatPinType.OutputPin:
+                    return(outputPins);
+
+                case SerialWombatPinType.EnhancedPerformanceInputPin:
+                    return (enhancedPerformanceInputPins);
+
+                         case SerialWombatPinType.EnhancedPerformanceOutputPin:
+                    return(enhancedPerformanceOutputPins);
+
+                case SerialWombatPinType.AnalogPin:
+                    return (AnalogPins);
+            }
+        }
     }
 
+    public enum SerialWombatPinType
+    {
+        SerialWombatPin,
+        InputPin,
+        OutputPin,
+        EnhancedPerformanceInputPin,
+        EnhancedPerformanceOutputPin,
+        AnalogPin
+    }
     public class ArduinoSerial
     {
         public SerialPort Port;

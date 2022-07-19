@@ -123,7 +123,7 @@ namespace SerialWombat
         public int write(byte[] buffer, int count)
         {
             int sent = 0;
-            while (sent < count - 5)
+            while (sent - count >= 5)
             {
                 byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_MODE5,
         _pin,

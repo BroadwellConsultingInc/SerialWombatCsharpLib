@@ -10,6 +10,15 @@
     <Compile Update="Controls\EnumDropdown.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Controls\GraphicPinSelectorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\LiquidCrystalControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\MatrixKeypadControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Controls\MemoryLineEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -40,6 +49,12 @@
     <Compile Update="Controls\ScaledOutputControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Controls\SerialWombatCodeGenerationControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\SerialWombatPinDropdown.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Controls\SerialWombatPublicDataControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -49,10 +64,16 @@
     <Compile Update="Controls\SevenSegmentControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Controls\SixteenBitAddressControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Controls\SixteenBitSliderInput.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Controls\TM1637Control.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\UARTControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Controls\UltrasonicDistanceSensorControl.cs">
@@ -61,10 +82,19 @@
     <Compile Update="Controls\UserBufferControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Controls\WS2812Control.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Forms\AnalogInputForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\DebounceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\LiquidCrystalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\MatrixKeypadForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\PulseOnChangeForm.cs">
@@ -73,13 +103,16 @@
     <Compile Update="Forms\TM1637Form.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\UARTForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\UserBufferForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="PinStateMachineViewer.cs">
+    <Compile Update="Forms\WS2812Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GraphicPinSelector.cs">
+    <Compile Update="PinStateMachineViewer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\PublicDataMonitorForm.cs">

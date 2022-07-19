@@ -566,6 +566,8 @@
             // ckbQueueLowByte
             // 
             this.ckbQueueLowByte.AutoSize = true;
+            this.ckbQueueLowByte.Checked = true;
+            this.ckbQueueLowByte.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ckbQueueLowByte.Location = new System.Drawing.Point(170, 190);
             this.ckbQueueLowByte.Name = "ckbQueueLowByte";
             this.ckbQueueLowByte.Size = new System.Drawing.Size(112, 19);
@@ -576,6 +578,8 @@
             // ckbQueueHighByte
             // 
             this.ckbQueueHighByte.AutoSize = true;
+            this.ckbQueueHighByte.Checked = true;
+            this.ckbQueueHighByte.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ckbQueueHighByte.Location = new System.Drawing.Point(35, 190);
             this.ckbQueueHighByte.Name = "ckbQueueHighByte";
             this.ckbQueueHighByte.Size = new System.Drawing.Size(116, 19);
