@@ -921,7 +921,7 @@ namespace SerialWombat
         // Stuff to simulate Arduino environment
         DateTime startTime = DateTime.Now;
 
-        UInt32 millis()
+        public UInt32 millis()
         {
             return ((UInt32)(DateTime.Now - startTime).TotalMilliseconds);
         }

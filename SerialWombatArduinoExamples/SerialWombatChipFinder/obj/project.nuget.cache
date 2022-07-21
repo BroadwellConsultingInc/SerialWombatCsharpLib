@@ -1,18 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "ZJUIXKTCAGVDfLob5qL41oWb1q2Py4+9GUVtKkpkS8riS4My4Bi8MzuhOi9NekPazAJ23O7EyuwVnC24lXj7rg==",
-  "success": false,
+  "dgSpecHash": "nSJN2SRyY4cf0Tadyl8yIVLkr7w8oUU53VPkYlE9jVpJT0nzj+YkOFwntJAtFIE97jJZ3k5gMhR7Uzfw4085ew==",
+  "success": true,
   "projectFilePath": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatArduinoExamples\\SerialWombatChipFinder\\SerialWombatChipFinder.csproj",
-  "expectedPackageFiles": [],
-  "logs": [
-    {
-      "code": "NU1201",
-      "level": "Error",
-      "message": "Project SerialWombatClassLibrary is not compatible with netcoreapp3.1 (.NETCoreApp,Version=v3.1). Project SerialWombatClassLibrary supports: net6.0 (.NETCoreApp,Version=v6.0)",
-      "libraryId": "SerialWombatClassLibrary",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    }
-  ]
+  "expectedPackageFiles": [
+    "C:\\Users\\JAB\\.nuget\\packages\\runtime.linux-arm.runtime.native.system.io.ports\\6.0.0\\runtime.linux-arm.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
+    "C:\\Users\\JAB\\.nuget\\packages\\runtime.linux-arm64.runtime.native.system.io.ports\\6.0.0\\runtime.linux-arm64.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
+    "C:\\Users\\JAB\\.nuget\\packages\\runtime.linux-x64.runtime.native.system.io.ports\\6.0.0\\runtime.linux-x64.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
+    "C:\\Users\\JAB\\.nuget\\packages\\runtime.native.system.io.ports\\6.0.0\\runtime.native.system.io.ports.6.0.0.nupkg.sha512",
+    "C:\\Users\\JAB\\.nuget\\packages\\runtime.osx-arm64.runtime.native.system.io.ports\\6.0.0\\runtime.osx-arm64.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
+    "C:\\Users\\JAB\\.nuget\\packages\\runtime.osx-x64.runtime.native.system.io.ports\\6.0.0\\runtime.osx-x64.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
+    "C:\\Users\\JAB\\.nuget\\packages\\system.io.ports\\6.0.0\\system.io.ports.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
 }

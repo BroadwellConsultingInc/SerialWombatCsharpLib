@@ -34,7 +34,7 @@ namespace SW_Cs_TM1637_FlashUI
         static SerialWombat18CapTouch penny = new SerialWombat18CapTouch(sw);
         static SerialWombat18CapTouch quarter = new SerialWombat18CapTouch(sw);
 
-        static SerialWombat18CapTouchCounter quarterCounter(&quarter);
+        static  SerialWombatButtonCounter quarterCounter = new SerialWombatButtonCounter(quarter);
 
 
 

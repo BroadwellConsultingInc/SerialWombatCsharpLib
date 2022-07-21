@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31515.178
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SerialWombatClassLibrary", "..\SerialWombatClassLibrary\SerialWombatClassLibrary\SerialWombatClassLibrary.csproj", "{6B761422-1D03-4980-B977-9CF12F568403}"
 EndProject
@@ -35,15 +35,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SW18AB_Cs_Ex01_AnalogInput"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SW_18AB_MatrixKeypad", "SW_18AB_MatrixKeypad", "{9F2C1041-C7EA-4CAB-9514-C22C364369BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SW18AB_Cs_MatrixKeypad_Ex01_simple", "SW18AB_Cs_MatrixKeypad_Ex01_simple\SW18AB_Cs_MatrixKeypad_Ex01_simple.csproj", "{1C352877-738F-4777-8195-DEAB4F548BA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SW18AB_Cs_MatrixKeypad_Ex01_simple", "SW18AB_Cs_MatrixKeypad_Ex01_simple\SW18AB_Cs_MatrixKeypad_Ex01_simple.csproj", "{1C352877-738F-4777-8195-DEAB4F548BA6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SW18AB_Cs_MatrixKeypad_Ex02_queueMask", "SW18AB_Cs_MatrixKeypad_Ex02_queueMask\SW18AB_Cs_MatrixKeypad_Ex02_queueMask.csproj", "{9A37E6AA-ADE2-498B-9F95-E3E0A476220D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SW18AB_Cs_MatrixKeypad_Ex02_queueMask", "SW18AB_Cs_MatrixKeypad_Ex02_queueMask\SW18AB_Cs_MatrixKeypad_Ex02_queueMask.csproj", "{9A37E6AA-ADE2-498B-9F95-E3E0A476220D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SW18AB_Cs_MatrixKeypad_Ex03_buttons", "SW18AB_Cs_MatrixKeypad_Ex03_buttons\SW18AB_Cs_MatrixKeypad_Ex03_buttons.csproj", "{84DBBCC2-090D-410A-9DBC-5D49A7D04385}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SW18AB_Cs_MatrixKeypad_Ex03_buttons", "SW18AB_Cs_MatrixKeypad_Ex03_buttons\SW18AB_Cs_MatrixKeypad_Ex03_buttons.csproj", "{84DBBCC2-090D-410A-9DBC-5D49A7D04385}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SW18AB_Cs_MatrixKeypad_Ex04_queueTM1637", "SW18AB_Cs_MatrixKeypad_Ex04_queueTM1637\SW18AB_Cs_MatrixKeypad_Ex04_queueTM1637.csproj", "{8F3C4DD4-298A-4490-BBBC-D85E5FFB4BD3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SW18AB_Cs_MatrixKeypad_Ex04_queueTM1637", "SW18AB_Cs_MatrixKeypad_Ex04_queueTM1637\SW18AB_Cs_MatrixKeypad_Ex04_queueTM1637.csproj", "{8F3C4DD4-298A-4490-BBBC-D85E5FFB4BD3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SW18AB_Cs_FirmwareUpdate_UART", "SW18AB_Cs_FirmwareUpdate_UART\SW18AB_Cs_FirmwareUpdate_UART.csproj", "{8EB4A498-33CD-4389-ACC6-41C4ECD493B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SW18AB_Cs_FirmwareUpdate_UART", "SW18AB_Cs_FirmwareUpdate_UART\SW18AB_Cs_FirmwareUpdate_UART.csproj", "{8EB4A498-33CD-4389-ACC6-41C4ECD493B0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SW_18AB_Touch", "SW_18AB_Touch", "{57DA71F4-3814-4A18-92C2-02779DE1B8B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SW_Cs_Touch_Calibration", "SW_Cs_Touch_Calibration\SW_Cs_Touch_Calibration.csproj", "{CDA65AB4-3D49-4DEA-A9E4-0B28622E0439}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -115,6 +119,10 @@ Global
 		{8EB4A498-33CD-4389-ACC6-41C4ECD493B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8EB4A498-33CD-4389-ACC6-41C4ECD493B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8EB4A498-33CD-4389-ACC6-41C4ECD493B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDA65AB4-3D49-4DEA-A9E4-0B28622E0439}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDA65AB4-3D49-4DEA-A9E4-0B28622E0439}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDA65AB4-3D49-4DEA-A9E4-0B28622E0439}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDA65AB4-3D49-4DEA-A9E4-0B28622E0439}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -138,6 +146,8 @@ Global
 		{84DBBCC2-090D-410A-9DBC-5D49A7D04385} = {9F2C1041-C7EA-4CAB-9514-C22C364369BA}
 		{8F3C4DD4-298A-4490-BBBC-D85E5FFB4BD3} = {9F2C1041-C7EA-4CAB-9514-C22C364369BA}
 		{8EB4A498-33CD-4389-ACC6-41C4ECD493B0} = {48CA9A26-CC7C-4603-98DC-029C6D43595E}
+		{57DA71F4-3814-4A18-92C2-02779DE1B8B2} = {48CA9A26-CC7C-4603-98DC-029C6D43595E}
+		{CDA65AB4-3D49-4DEA-A9E4-0B28622E0439} = {57DA71F4-3814-4A18-92C2-02779DE1B8B2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {021622F0-FA20-4A05-A6D6-BAEE90B37DC5}
