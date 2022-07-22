@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\SerialWombatClassLibrary\SerialWombatClassLibrary\SerialWombatClassLibrary.csproj" />
+    <ProjectReference Include="..\..\SerialWombatSW18ABBootloader\SerialWombatSW18ABBootloader.csproj" />
+  </ItemGroup>
+
+</Project>

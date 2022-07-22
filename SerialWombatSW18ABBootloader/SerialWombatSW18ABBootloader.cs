@@ -82,10 +82,22 @@
                 {
                     page[i] = (byte)hexData.Memory[(UInt32)(address + i)];
                 }
-                SerialWombatChip.writeUserBuffer(0, page, 512);
-                SerialWombatChip.writeFlashRow((UInt32)address);
-                Status = $"Programming address: 0x{address:X8}";
-                Thread.Sleep(4);
+                bool dirty = false;
+                for (int i = 0; i < 512; i += 4)
+                {
+                    dirty |= (page[i] != 0xFF || page[i+1] != 0xFF || page[i+2] != 0xFF);
+                }
+                if (true)//(dirty)
+                {
+                    SerialWombatChip.writeUserBuffer(0, page, 512);
+                    SerialWombatChip.writeFlashRow((UInt32)address);
+                    Status = $"Programming address: 0x{address:X8}";
+                    Thread.Sleep(4);
+                }
+                else
+                {
+                    Status = $"Skipping blank Row  0x{address:X8}";
+                }
                 PercentDone = ((double)(address - baseAddr)) / length;
             }
 
@@ -106,6 +118,7 @@
                 Thread.Sleep(1000);
                 Status = $"Bootload Finished.  Calculated CRC {rx[2] + rx[3] * 256}  Expected CRC: {rx[4] + rx[5] * 256}";
                 SerialWombatChip.hardwareReset();
+                Bootloading = false;
             }
         }
         HexData loadFile(string hexFile)

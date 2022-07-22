@@ -26,6 +26,8 @@ namespace SW_Cs_TM1637_Animation
 {
     class Program
     {
+        static string portname = "COM98";
+
         const byte SEG_A = 0x1; //TOP 
         const byte SEG_B = 0x2;// UPPER RIGHT
         const byte SEG_C = 0x4;// BOTTOM RIGHT
@@ -143,7 +145,8 @@ namespace SW_Cs_TM1637_Animation
 };
         static void setup()
         {
-            sw.begin("COM98");  //<<<<<<<<<< Put your COM port here
+            
+            sw.begin(portname);  //<<<<<<<<<< Put your COM port here
 
             myDisplay.begin(19,  //Clk Pin
   18, // Data Pin
@@ -166,6 +169,10 @@ namespace SW_Cs_TM1637_Animation
         }
         static void Main(string[] args)
         {
+            if (args.Length > 0)
+            {
+                portname = args[0];
+            }    
             setup();
 
             while (true)
