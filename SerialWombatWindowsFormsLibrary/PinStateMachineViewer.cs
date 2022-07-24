@@ -29,6 +29,7 @@ namespace SerialWombatWindowsFormsLibrary
            new VariableType { cType = "int16_t",lengthInBytes = 2,signed = true, CSharpType = typeof(Int16)},
            new VariableType { cType = "uint8_t",lengthInBytes = 1,signed = false, CSharpType = typeof(Byte)},
            new VariableType { cType = "int8_t",lengthInBytes = 1,signed = true, CSharpType = typeof(char)},
+           new VariableType { cType = "inputProcess_t",lengthInBytes = 12,signed = true, CSharpType = typeof(byte[])},
             };
             tbPin.Text = pin.ToString();
 
@@ -42,7 +43,6 @@ namespace SerialWombatWindowsFormsLibrary
             Regex arrayRegex = new Regex(@"^.*\b(\w+)\s+(\w+)\s*\[\s*(\d+)\s*\]\s*;\s*(///<(?'comment'.*))?");
             Regex scalarRegex = new Regex(@"^.*\b(\w+)\s+(\w+)\s*;\s*(///<(?'comment'.*))?");
             Regex bitmapRegex = new Regex(@"^.*\b(\w+)\s+(\w+)\s*:\s*(\d+)\s*;\s*(///<(?'comment'.*))?");
-
 
             int offset = 0;
             foreach (VariableType vt in CoreVariableTypes)
@@ -68,6 +68,11 @@ namespace SerialWombatWindowsFormsLibrary
                     continue;
                 }
 
+                if (lineVariableType.cType == "inputProcess_t")
+                {
+                    offset += lineVariableType.lengthInBytes;
+                    continue;
+                }
                 VariableType currentVariable = new VariableType(lineVariableType);
                 Match m = arrayRegex.Match(s);
                 if (m.Success)

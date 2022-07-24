@@ -302,6 +302,7 @@ namespace WombatPanelWindowsForms
                             sw.readBrand(out brand);
                             swdata += ($"Brand: {brand}{Environment.NewLine}");
                             tbLog.AppendText(swdata);
+                            graphicPinSelectorControl1.Enabled = true;
                         }
                     }
                     catch
@@ -388,5 +389,7 @@ namespace WombatPanelWindowsForms
                 blf.Show();
             }
         }
+
+
     }
 }

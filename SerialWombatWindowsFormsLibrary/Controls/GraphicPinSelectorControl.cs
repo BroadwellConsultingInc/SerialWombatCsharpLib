@@ -24,6 +24,7 @@ namespace SerialWombatWindowsFormsLibrary
             tsmiLow.Click += Direct_Click;
             tsmiMatrixKeypad.Click += TsmiMatrixKeypad_Click;
             monitorPublicDataToolStripMenuItem.Click += monitorPublicDataToolStripMenuItem_Click;
+            tsmiPinStateViewer.Click += TsmiPinStateViewer_Click;
             tsmiPulseOnChange.Click += TsmiPulseOnChange_Click;
             tsmiPulseTimer.Click += TsmiPulseTimer_Click;
             tsmiPWM.Click += TsmiPWM_Click;
@@ -31,8 +32,11 @@ namespace SerialWombatWindowsFormsLibrary
             tsmiServo.Click += TsmiServo_Click;
             tmsiTM1637.Click += TmsiTM1637_Click;
             tsmiUART.Click += TsmiUART_Click;
+            tsmiUltrasonicDistanceSensor.Click += TsmiUltrasonicDistanceSensor_Click;
             tsmiWS2812.Click += TsmiWS2812_Click;
             tsmiWatchdog.Click += TsmiWatchdog_Click;
+            
+           
 
             pictureBox1.Image = Properties.Resources.LIT00034_SW18AB_PinDiagram;
 
@@ -46,7 +50,17 @@ namespace SerialWombatWindowsFormsLibrary
             cbModel.SelectedIndex = 2;
         }
 
+        private void TsmiPinStateViewer_Click(object sender, EventArgs e)
+        {
+            PinStateMachineViewer psmv = new PinStateMachineViewer(SerialWombatChip, _lastClickWombatPin);
+            psmv.Show(FindForm());
+        }
 
+        private void TsmiUltrasonicDistanceSensor_Click(object sender, EventArgs e)
+        {
+            UltrasonicDistanceSensorForm udsf = new UltrasonicDistanceSensorForm(SerialWombatChip, _lastClickWombatPin);
+            udsf.Show(FindForm());
+        }
 
         public CodeGenerationDelegate codeGeneration = null;
         private void TsmiLiquidCrystal_Click(object sender, EventArgs e)

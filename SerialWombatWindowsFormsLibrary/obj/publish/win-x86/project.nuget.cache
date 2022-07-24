@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "dgSpecHash": "1mJR0D8gLr6LjuWcHKbaQY9ZxYkDUoif9DZ6AvpAMROJ8TKs6gUtql0FSe+u74Ytr8ANRnE8J8/j6MEBH+YITg==",
+  "success": true,
+  "projectFilePath": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatWindowsFormsLibrary\\SerialWombatWindowsFormsLibrary.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\JAB\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+    "C:\\Users\\JAB\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\JAB\\.nuget\\packages\\runtime.linux-arm.runtime.native.system.io.ports\\6.0.0\\runtime.linux-arm.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
+    "C:\\Users\\JAB\\.nuget\\packages\\runtime.linux-arm64.runtime.native.system.io.ports\\6.0.0\\runtime.linux-arm64.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
+    "C:\\Users\\JAB\\.nuget\\packages\\runtime.linux-x64.runtime.native.system.io.ports\\6.0.0\\runtime.linux-x64.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
+    "C:\\Users\\JAB\\.nuget\\packages\\runtime.native.system.io.ports\\6.0.0\\runtime.native.system.io.ports.6.0.0.nupkg.sha512",
+    "C:\\Users\\JAB\\.nuget\\packages\\runtime.osx-arm64.runtime.native.system.io.ports\\6.0.0\\runtime.osx-arm64.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
+    "C:\\Users\\JAB\\.nuget\\packages\\runtime.osx-x64.runtime.native.system.io.ports\\6.0.0\\runtime.osx-x64.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
+    "C:\\Users\\JAB\\.nuget\\packages\\scottplot\\4.0.45\\scottplot.4.0.45.nupkg.sha512",
+    "C:\\Users\\JAB\\.nuget\\packages\\scottplot.winforms\\4.0.45\\scottplot.winforms.4.0.45.nupkg.sha512",
+    "C:\\Users\\JAB\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512",
+    "C:\\Users\\JAB\\.nuget\\packages\\system.io.ports\\6.0.0\\system.io.ports.6.0.0.nupkg.sha512",
+    "C:\\Users\\JAB\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x86\\6.0.7\\microsoft.netcore.app.runtime.win-x86.6.0.7.nupkg.sha512",
+    "C:\\Users\\JAB\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x86\\6.0.7\\microsoft.windowsdesktop.app.runtime.win-x86.6.0.7.nupkg.sha512",
+    "C:\\Users\\JAB\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x86\\6.0.7\\microsoft.aspnetcore.app.runtime.win-x86.6.0.7.nupkg.sha512"
+  ],
+  "logs": []
+}

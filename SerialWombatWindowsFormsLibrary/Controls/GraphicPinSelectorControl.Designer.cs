@@ -38,9 +38,10 @@
             this.tsmiLow = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiAnalogInput = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiDebounce = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiLiquidCrystal = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiMatrixKeypad = new System.Windows.Forms.ToolStripMenuItem();
             this.monitorPublicDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiPinStateViewer = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiPulseOnChange = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiPulseTimer = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiPWM = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,11 +51,10 @@
             this.tsmiServo = new System.Windows.Forms.ToolStripMenuItem();
             this.tmsiTM1637 = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiUART = new System.Windows.Forms.ToolStripMenuItem();
-            this.ultraSonicDistanceSensorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiUltrasonicDistanceSensor = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiWatchdog = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiWS2812 = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
-            this.tsmiLiquidCrystal = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -104,7 +104,7 @@
             this.tsmiLiquidCrystal,
             this.tsmiMatrixKeypad,
             this.monitorPublicDataToolStripMenuItem,
-            this.toolStripMenuItem2,
+            this.tsmiPinStateViewer,
             this.tsmiPulseOnChange,
             this.tsmiPulseTimer,
             this.tsmiPWM,
@@ -114,11 +114,11 @@
             this.tsmiServo,
             this.tmsiTM1637,
             this.tsmiUART,
-            this.ultraSonicDistanceSensorToolStripMenuItem,
+            this.tsmiUltrasonicDistanceSensor,
             this.tsmiWatchdog,
             this.tsmiWS2812});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(209, 488);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(209, 466);
             // 
             // tsmiInput
             // 
@@ -150,6 +150,12 @@
             this.tsmiDebounce.Size = new System.Drawing.Size(208, 22);
             this.tsmiDebounce.Text = "Debounce";
             // 
+            // tsmiLiquidCrystal
+            // 
+            this.tsmiLiquidCrystal.Name = "tsmiLiquidCrystal";
+            this.tsmiLiquidCrystal.Size = new System.Drawing.Size(208, 22);
+            this.tsmiLiquidCrystal.Text = "LiquidCrystal";
+            // 
             // tsmiMatrixKeypad
             // 
             this.tsmiMatrixKeypad.Name = "tsmiMatrixKeypad";
@@ -162,11 +168,11 @@
             this.monitorPublicDataToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.monitorPublicDataToolStripMenuItem.Text = "Monitor Public Data";
             // 
-            // toolStripMenuItem2
+            // tsmiPinStateViewer
             // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(208, 22);
-            this.toolStripMenuItem2.Text = "PinStateViewer";
+            this.tsmiPinStateViewer.Name = "tsmiPinStateViewer";
+            this.tsmiPinStateViewer.Size = new System.Drawing.Size(208, 22);
+            this.tsmiPinStateViewer.Text = "PinStateViewer";
             // 
             // tsmiPulseOnChange
             // 
@@ -222,11 +228,11 @@
             this.tsmiUART.Size = new System.Drawing.Size(208, 22);
             this.tsmiUART.Text = "UART";
             // 
-            // ultraSonicDistanceSensorToolStripMenuItem
+            // tsmiUltrasonicDistanceSensor
             // 
-            this.ultraSonicDistanceSensorToolStripMenuItem.Name = "ultraSonicDistanceSensorToolStripMenuItem";
-            this.ultraSonicDistanceSensorToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
-            this.ultraSonicDistanceSensorToolStripMenuItem.Text = "UltraSonicDistanceSensor";
+            this.tsmiUltrasonicDistanceSensor.Name = "tsmiUltrasonicDistanceSensor";
+            this.tsmiUltrasonicDistanceSensor.Size = new System.Drawing.Size(208, 22);
+            this.tsmiUltrasonicDistanceSensor.Text = "UltraSonicDistanceSensor";
             // 
             // tsmiWatchdog
             // 
@@ -248,12 +254,6 @@
             this.label1.Size = new System.Drawing.Size(12, 15);
             this.label1.TabIndex = 1;
             this.label1.Text = "-";
-            // 
-            // tsmiLiquidCrystal
-            // 
-            this.tsmiLiquidCrystal.Name = "tsmiLiquidCrystal";
-            this.tsmiLiquidCrystal.Size = new System.Drawing.Size(208, 22);
-            this.tsmiLiquidCrystal.Text = "LiquidCrystal";
             // 
             // GraphicPinSelectorControl
             // 
@@ -285,7 +285,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiDebounce;
         private System.Windows.Forms.ToolStripMenuItem tsmiMatrixKeypad;
         private System.Windows.Forms.ToolStripMenuItem monitorPublicDataToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem tsmiPinStateViewer;
         private System.Windows.Forms.ToolStripMenuItem tsmiPulseOnChange;
         private System.Windows.Forms.ToolStripMenuItem tsmiPulseTimer;
         private System.Windows.Forms.ToolStripMenuItem tsmiPWM;
@@ -294,7 +294,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiResistanceInput;
         private System.Windows.Forms.ToolStripMenuItem tsmiServo;
         private System.Windows.Forms.ToolStripMenuItem tmsiTM1637;
-        private System.Windows.Forms.ToolStripMenuItem ultraSonicDistanceSensorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmiUltrasonicDistanceSensor;
         private System.Windows.Forms.ToolStripMenuItem tsmiWatchdog;
         private System.Windows.Forms.ToolStripMenuItem tsmiWS2812;
         private System.Windows.Forms.ToolStripMenuItem tsmiUART;

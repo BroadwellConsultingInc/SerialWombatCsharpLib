@@ -1,0 +1,8 @@
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatWindowsFormsLibrary\bin\Release\net6.0-windows\publish\SerialWombatWindowsFormsLibrary.pdb
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatWindowsFormsLibrary\bin\Release\net6.0-windows\publish\D3DCompiler_47_cor3.dll
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatWindowsFormsLibrary\bin\Release\net6.0-windows\publish\PenImc_cor3.dll
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatWindowsFormsLibrary\bin\Release\net6.0-windows\publish\PresentationNative_cor3.dll
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatWindowsFormsLibrary\bin\Release\net6.0-windows\publish\vcruntime140_cor3.dll
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatWindowsFormsLibrary\bin\Release\net6.0-windows\publish\wpfgfx_cor3.dll
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatWindowsFormsLibrary\bin\Release\net6.0-windows\publish\SerialWombatClassLibrary.pdb
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatWindowsFormsLibrary\bin\Release\net6.0-windows\publish\SerialWombatWindowsFormsLibrary.exe

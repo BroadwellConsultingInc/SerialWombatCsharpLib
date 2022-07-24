@@ -399,6 +399,7 @@
             // graphicPinSelectorControl1
             // 
             this.graphicPinSelectorControl1.AutoSize = true;
+            this.graphicPinSelectorControl1.Enabled = false;
             this.graphicPinSelectorControl1.Location = new System.Drawing.Point(806, 47);
             this.graphicPinSelectorControl1.Model = SerialWombat.SerialWombatModel.SerialWombat18AB;
             this.graphicPinSelectorControl1.Name = "graphicPinSelectorControl1";
