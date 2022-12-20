@@ -60,6 +60,8 @@
             this.sbsiTimeoutOutputValue = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
             this.sbsiTimeout_mS = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
             this.tpFiltering = new System.Windows.Forms.TabPage();
+            this.bWriteTarget = new System.Windows.Forms.Button();
+            this.sbsiFilterTarget = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.bConfigureMaximumRate = new System.Windows.Forms.Button();
@@ -74,8 +76,6 @@
             this.swpdsInput = new SerialWombatWindowsFormsLibrary.SerialWombatPublicDataControl();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.ckbScaledOutputEnable = new System.Windows.Forms.CheckBox();
-            this.sbsiFilterTarget = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
-            this.bWriteTarget = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tpPID.SuspendLayout();
@@ -134,6 +134,7 @@
             this.sbsiInputMax.Text = "inputMax";
             this.sbsiInputMax.TextBoxHint = "The maximum value of the input range.  Input values greater or equal to that will" +
     " be scaled to 65535";
+            this.sbsiInputMax.value = ((ushort)(65535));
             // 
             // sbsiInputMin
             // 
@@ -144,6 +145,7 @@
             this.sbsiInputMin.Text = "inputMin";
             this.sbsiInputMin.TextBoxHint = "The minimum value of the input range.  Input values less than or equal to that wi" +
     "ll be scaled to 0";
+            this.sbsiInputMin.value = ((ushort)(0));
             // 
             // bConfigureInputScaling
             // 
@@ -166,6 +168,7 @@
             this.toolTip1.SetToolTip(this.ckbInvert, "inverted False - input value isn\'t changed.  True- input value is subtracted from" +
         " 65535");
             this.ckbInvert.UseVisualStyleBackColor = true;
+            this.ckbInvert.CheckedChanged += new System.EventHandler(this.ckbInvert_CheckedChanged);
             // 
             // tpPID
             // 
@@ -205,6 +208,7 @@
             this.sbsiKd.Text = "kD";
             this.sbsiKd.TextBoxHint = "The derivative contant applied to the derivative.  This value is scaled to 1/1638" +
     "4. ";
+            this.sbsiKd.value = ((ushort)(0));
             // 
             // sbsiKi
             // 
@@ -215,6 +219,7 @@
             this.sbsiKi.Text = "kI";
             this.sbsiKi.TextBoxHint = "The integral constant applied to the integral.  Scaled to 1/16384ths, as typicall" +
     "y you want this value to be less than 1.0";
+            this.sbsiKi.value = ((ushort)(0));
             // 
             // edPIDPeriod
             // 
@@ -255,6 +260,7 @@
             this.sbsiKp.Text = "kP";
             this.sbsiKp.TextBoxHint = "The proportional constant applied to the sum of the error, 1/ki * error sum, and " +
     "kd * derivative.  Scaled to 1/256ths";
+            this.sbsiKp.value = ((ushort)(0));
             // 
             // sbsiPIDTarget
             // 
@@ -264,6 +270,7 @@
             this.sbsiPIDTarget.TabIndex = 11;
             this.sbsiPIDTarget.Text = "Target Value";
             this.sbsiPIDTarget.TextBoxHint = "The value the output will attempt to control the input to";
+            this.sbsiPIDTarget.value = ((ushort)(0));
             // 
             // tpHysteresis
             // 
@@ -312,6 +319,7 @@
             this.sbsiHysLowOutput.Text = "lowOutputValue";
             this.sbsiHysLowOutput.TextBoxHint = "if the input source is at or below lowLimit then this value becomes the output";
             this.toolTip1.SetToolTip(this.sbsiHysLowOutput, "if the input source is at or below lowLimit then this value becomes the output");
+            this.sbsiHysLowOutput.value = ((ushort)(0));
             // 
             // sbsiHysInitialOutputValue
             // 
@@ -322,6 +330,7 @@
             this.sbsiHysInitialOutputValue.Text = "initialOutputValue";
             this.sbsiHysInitialOutputValue.TextBoxHint = "if the input source is between lowLimit and highLimit at initialization then this" +
     " value is output";
+            this.sbsiHysInitialOutputValue.value = ((ushort)(0));
             // 
             // sbsiHysHighOutputValue
             // 
@@ -331,6 +340,7 @@
             this.sbsiHysHighOutputValue.TabIndex = 0;
             this.sbsiHysHighOutputValue.Text = "highOutputValue";
             this.sbsiHysHighOutputValue.TextBoxHint = "if the input source is at or above highLimit then this value becomes the output";
+            this.sbsiHysHighOutputValue.value = ((ushort)(0));
             // 
             // sbsiHysHighLimit
             // 
@@ -341,6 +351,7 @@
             this.sbsiHysHighLimit.Text = "highLimit";
             this.sbsiHysHighLimit.TextBoxHint = "if the input source is at or above this level then the output value is highOutput" +
     "Value";
+            this.sbsiHysHighLimit.value = ((ushort)(0));
             // 
             // sbsiHysLowLimit
             // 
@@ -350,6 +361,7 @@
             this.sbsiHysLowLimit.TabIndex = 0;
             this.sbsiHysLowLimit.Text = "lowLimit";
             this.sbsiHysLowLimit.TextBoxHint = "If the input source is at or below this level the output value is lowOutputValue";
+            this.sbsiHysLowLimit.value = ((ushort)(0));
             // 
             // tpTimeout
             // 
@@ -394,6 +406,7 @@
             this.sbsiTimeoutOutputValue.TabIndex = 1;
             this.sbsiTimeoutOutputValue.Text = "timeoutOutputValue";
             this.sbsiTimeoutOutputValue.TextBoxHint = "The 16 bit value that should be output if a timeout occurs";
+            this.sbsiTimeoutOutputValue.value = ((ushort)(0));
             // 
             // sbsiTimeout_mS
             // 
@@ -403,6 +416,7 @@
             this.sbsiTimeout_mS.TabIndex = 0;
             this.sbsiTimeout_mS.Text = "timeout_mS";
             this.sbsiTimeout_mS.TextBoxHint = "How long in mS before the timeout occurs.  Set to zero to disable the timeout";
+            this.sbsiTimeout_mS.value = ((ushort)(0));
             // 
             // tpFiltering
             // 
@@ -422,6 +436,26 @@
             this.tpFiltering.TabIndex = 4;
             this.tpFiltering.Text = "Filtering";
             this.tpFiltering.UseVisualStyleBackColor = true;
+            // 
+            // bWriteTarget
+            // 
+            this.bWriteTarget.Location = new System.Drawing.Point(333, 410);
+            this.bWriteTarget.Name = "bWriteTarget";
+            this.bWriteTarget.Size = new System.Drawing.Size(54, 23);
+            this.bWriteTarget.TabIndex = 23;
+            this.bWriteTarget.Text = "Write";
+            this.bWriteTarget.UseVisualStyleBackColor = true;
+            this.bWriteTarget.Click += new System.EventHandler(this.bWriteTarget_Click);
+            // 
+            // sbsiFilterTarget
+            // 
+            this.sbsiFilterTarget.Location = new System.Drawing.Point(16, 383);
+            this.sbsiFilterTarget.Name = "sbsiFilterTarget";
+            this.sbsiFilterTarget.Size = new System.Drawing.Size(311, 74);
+            this.sbsiFilterTarget.TabIndex = 22;
+            this.sbsiFilterTarget.Text = "Target Value";
+            this.sbsiFilterTarget.TextBoxHint = "The value the output will attempt to control the input to";
+            this.sbsiFilterTarget.value = ((ushort)(0));
             // 
             // textBox6
             // 
@@ -491,6 +525,7 @@
             this.sbsiFilterConstant.TabIndex = 0;
             this.sbsiFilterConstant.Text = "filterConstant/maximumChangeCounts";
             this.sbsiFilterConstant.TextBoxHint = "";
+            this.sbsiFilterConstant.value = ((ushort)(0));
             // 
             // tpOutputScaling
             // 
@@ -523,6 +558,7 @@
             this.sbsiOutputScalingMax.TabIndex = 15;
             this.sbsiOutputScalingMax.Text = "outputMax";
             this.sbsiOutputScalingMax.TextBoxHint = "";
+            this.sbsiOutputScalingMax.value = ((ushort)(65535));
             // 
             // sbsiOutputScalingMin
             // 
@@ -532,9 +568,11 @@
             this.sbsiOutputScalingMin.TabIndex = 14;
             this.sbsiOutputScalingMin.Text = "outputMin";
             this.sbsiOutputScalingMin.TextBoxHint = "";
+            this.sbsiOutputScalingMin.value = ((ushort)(0));
             // 
             // swpdsInput
             // 
+            this.swpdsInput.DataSourceValue = ((byte)(0));
             this.swpdsInput.DropDownToolTip = "The pin or public data id that should be read to drive the output value.  Only us" +
     "ed when enabled is set to true";
             this.swpdsInput.Location = new System.Drawing.Point(84, 516);
@@ -554,25 +592,6 @@
         "ue is used as the setting for the output");
             this.ckbScaledOutputEnable.UseVisualStyleBackColor = true;
             this.ckbScaledOutputEnable.CheckedChanged += new System.EventHandler(this.ckbScaledOutputEnable_CheckedChanged);
-            // 
-            // sbsiFilterTarget
-            // 
-            this.sbsiFilterTarget.Location = new System.Drawing.Point(16, 383);
-            this.sbsiFilterTarget.Name = "sbsiFilterTarget";
-            this.sbsiFilterTarget.Size = new System.Drawing.Size(311, 74);
-            this.sbsiFilterTarget.TabIndex = 22;
-            this.sbsiFilterTarget.Text = "Target Value";
-            this.sbsiFilterTarget.TextBoxHint = "The value the output will attempt to control the input to";
-            // 
-            // bWriteTarget
-            // 
-            this.bWriteTarget.Location = new System.Drawing.Point(333, 410);
-            this.bWriteTarget.Name = "bWriteTarget";
-            this.bWriteTarget.Size = new System.Drawing.Size(54, 23);
-            this.bWriteTarget.TabIndex = 23;
-            this.bWriteTarget.Text = "Write";
-            this.bWriteTarget.UseVisualStyleBackColor = true;
-            this.bWriteTarget.Click += new System.EventHandler(this.bWriteTarget_Click);
             // 
             // ScaledOutputControl
             // 

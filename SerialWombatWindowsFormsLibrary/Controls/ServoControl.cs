@@ -25,8 +25,22 @@ namespace SerialWombatWindowsFormsLibrary
                 this.Text = $"Servo on pin {pin} on Serial Wombat Chip on {serialWombatChip.Serial.Port.PortName}";
             
         }
+        public ServoControl()
+        {
+            InitializeComponent();     
 
-        private void bConfigure_Click(object sender, EventArgs e)
+        }
+
+        public void begin(SerialWombatChip serialWombatChip, byte pin)
+        {
+            Pin = pin;
+            SerialWombatChip = serialWombatChip;
+            Servo = new SerialWombatServo_18AB(serialWombatChip);
+            groupBox1.Text = "";
+
+            this.Text = $"Servo on pin {pin} on Serial Wombat Chip on {serialWombatChip.Serial.Port.PortName}";
+        }
+        public void bConfigure_Click(object sender, EventArgs e)
         {
             try
             {
@@ -63,5 +77,21 @@ namespace SerialWombatWindowsFormsLibrary
             tbPosition.Text = trackBar1.Value.ToString();
             bSetPosition_Click(null, null);
         }
+
+        [Browsable(true), EditorBrowsable(EditorBrowsableState.Always)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        public new string Text { get { return groupBox1.Text; } set { groupBox1.Text = value; } }
+
+        [Browsable(true), EditorBrowsable(EditorBrowsableState.Always)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+
+        public bool ShowConfigure { get { return gbConfigure.Visible; } set { gbConfigure.Visible = value; } }
+
+        public UInt16 Value { get { 
+                return Servo.readPublicData(); } set { 
+                trackBar1.Value = value;
+                Servo.writePublicData(value);
+            } }
+
     }
 }

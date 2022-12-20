@@ -55,6 +55,7 @@
             this.tsmiWatchdog = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiWS2812 = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
+            this.sW18ABCapTouchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -112,31 +113,35 @@
             this.queueToolStripMenuItem,
             this.tsmiResistanceInput,
             this.tsmiServo,
+            this.sW18ABCapTouchToolStripMenuItem,
             this.tmsiTM1637,
             this.tsmiUART,
             this.tsmiUltrasonicDistanceSensor,
             this.tsmiWatchdog,
             this.tsmiWS2812});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(209, 466);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(209, 510);
             // 
             // tsmiInput
             // 
             this.tsmiInput.Name = "tsmiInput";
             this.tsmiInput.Size = new System.Drawing.Size(208, 22);
             this.tsmiInput.Text = "Input";
+            this.tsmiInput.Click += new System.EventHandler(this.tsmiInput_Click);
             // 
             // tsmiHigh
             // 
             this.tsmiHigh.Name = "tsmiHigh";
             this.tsmiHigh.Size = new System.Drawing.Size(208, 22);
             this.tsmiHigh.Text = "High";
+            this.tsmiHigh.Click += new System.EventHandler(this.tsmiHigh_Click);
             // 
             // tsmiLow
             // 
             this.tsmiLow.Name = "tsmiLow";
             this.tsmiLow.Size = new System.Drawing.Size(208, 22);
             this.tsmiLow.Text = "Low";
+            this.tsmiLow.Click += new System.EventHandler(this.tsmiLow_Click);
             // 
             // tsmiAnalogInput
             // 
@@ -255,6 +260,13 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "-";
             // 
+            // sW18ABCapTouchToolStripMenuItem
+            // 
+            this.sW18ABCapTouchToolStripMenuItem.Name = "sW18ABCapTouchToolStripMenuItem";
+            this.sW18ABCapTouchToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.sW18ABCapTouchToolStripMenuItem.Text = "SW18ABCapTouch";
+            this.sW18ABCapTouchToolStripMenuItem.Click += new System.EventHandler(this.sW18ABCapTouchToolStripMenuItem_Click);
+            // 
             // GraphicPinSelectorControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -299,5 +311,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiWS2812;
         private System.Windows.Forms.ToolStripMenuItem tsmiUART;
         private System.Windows.Forms.ToolStripMenuItem tsmiLiquidCrystal;
+        private System.Windows.Forms.ToolStripMenuItem sW18ABCapTouchToolStripMenuItem;
     }
 }

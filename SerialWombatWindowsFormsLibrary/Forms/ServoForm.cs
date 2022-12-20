@@ -17,6 +17,8 @@ namespace SerialWombatWindowsFormsLibrary
         public SerialWombatServo Servo;
         public byte Pin = 0;
         public SerialWombatChip SerialWombatChip;
+        public SerialWombatAbstractScaledOutput scaledOutput;
+        public ScaledOutputControl scaledOutputControl;
         public ServoForm(SerialWombatChip serialWombatChip, byte pin)
         {
             InitializeComponent();
@@ -24,7 +26,21 @@ namespace SerialWombatWindowsFormsLibrary
             SerialWombatChip = serialWombatChip;
             groupBox1.Text = "";
             this.Text = $"Servo on pin {pin} on Serial Wombat Chip on {serialWombatChip.Serial.Port.PortName}";
-           
+
+
+            if (serialWombatChip.ModelEnum == SerialWombatModel.SerialWombat18AB)
+            {
+             
+                this.AutoSize = true;
+                scaledOutput = new SerialWombatAbstractScaledOutput(serialWombatChip);
+                scaledOutput.begin(pin, SerialWombatPinModes.PIN_MODE_SERVO);
+                scaledOutputControl = new ScaledOutputControl(scaledOutput);
+                scaledOutputControl.Left = groupBox1.Right + 10;
+                this.Controls.Add(scaledOutputControl);
+                ckbOutputScalingVisible.Visible = true;
+                ckbOutputScalingVisible.Checked = true;
+                this.Refresh();
+            }
         }
 
         public GroupBox GetFormGroupbox()
@@ -82,6 +98,12 @@ namespace SerialWombatWindowsFormsLibrary
         private void ServoForm_Shown(object sender, EventArgs e)
         {
 
+        }
+
+        private void ckbOutputScalingVisible_CheckedChanged(object sender, EventArgs e)
+        {
+            scaledOutputControl.Visible = ckbOutputScalingVisible.Checked;
+            this.Refresh();
         }
     }
 

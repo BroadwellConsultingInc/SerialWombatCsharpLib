@@ -65,6 +65,7 @@
             this.portOpenTCPMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.portOpenI2CBridgeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.portCloseMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiResetSWCOnOpen = new System.Windows.Forms.ToolStripMenuItem();
             this.tbLog = new System.Windows.Forms.TextBox();
             this.bReset = new System.Windows.Forms.Button();
             this.bSourceVoltage = new System.Windows.Forms.Button();
@@ -327,7 +328,8 @@
             this.portOpenSerialMenuItem,
             this.portOpenTCPMenuItem,
             this.portOpenI2CBridgeMenuItem,
-            this.portCloseMenuItem});
+            this.portCloseMenuItem,
+            this.tsmiResetSWCOnOpen});
             this.portStripMenuItem.Name = "portStripMenuItem";
             this.portStripMenuItem.Size = new System.Drawing.Size(41, 20);
             this.portStripMenuItem.Text = "&Port";
@@ -355,6 +357,15 @@
             this.portCloseMenuItem.Name = "portCloseMenuItem";
             this.portCloseMenuItem.Size = new System.Drawing.Size(180, 22);
             this.portCloseMenuItem.Text = "&Close";
+            // 
+            // tsmiResetSWCOnOpen
+            // 
+            this.tsmiResetSWCOnOpen.Checked = true;
+            this.tsmiResetSWCOnOpen.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.tsmiResetSWCOnOpen.Name = "tsmiResetSWCOnOpen";
+            this.tsmiResetSWCOnOpen.Size = new System.Drawing.Size(180, 22);
+            this.tsmiResetSWCOnOpen.Text = "Reset SWC on Open";
+            this.tsmiResetSWCOnOpen.Click += new System.EventHandler(this.tsmiResetSWCOnOpen_Click);
             // 
             // tbLog
             // 
@@ -485,6 +496,7 @@
         private System.Windows.Forms.Button bResync;
         private SerialWombatWindowsFormsLibrary.GraphicPinSelectorControl graphicPinSelectorControl1;
         private System.Windows.Forms.TextBox tbCodeGeneration;
+        private System.Windows.Forms.ToolStripMenuItem tsmiResetSWCOnOpen;
     }
 }
 

@@ -12,8 +12,8 @@
         public SerialWombatChip SerialWombatChip;
         public double PercentDone = 0;
         public bool Bootloading = false;
-        public string Status = "Not started";
-        public string Result = "Not completed";
+        public string status = "Not started";
+        public string result = "Not completed";
 
         uint baseAddr = 0x4000 * 2;
         uint length = (0x20000 - 0x4000) * 2;
@@ -27,10 +27,10 @@
         {           
             Bootloading = true;
             PercentDone = 0;
-            Status = "Not started";
-            Result = "Not completed";
+            status = "Not started";
+            result = "Not completed";
 
-            Status = "Parsing Hex File";
+            status = "Parsing Hex File";
 
              hexData = loadFile(hexFile);
 
@@ -42,10 +42,10 @@
         void threadfunc()
         {
             Bootloading = true;
-            Status = "Erasing Programmed Marker";
+            status = "Erasing Programmed Marker";
             SerialWombatChip.eraseFlashPage((UInt32)(0x1F800 * 2)); // Datasheet worst case is 40.
             Thread.Sleep(50);
-            Status = "EnteringBootMode";
+            status = "EnteringBootMode";
             //SerialWombatChip.sendPacketNoResponse("ReSeT!#*");
             byte[] res = Encoding.ASCII.GetBytes("UUUUUUUUReSeT!#*UUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUU");
             SerialWombatChip.Serial.write(res, res.Length);
@@ -58,17 +58,17 @@
             if (SerialWombatChip.model[0] != (byte)'B')
             {
                 Bootloading = false;
-                Result = "Failed to enter Boot Mode";
+                result = "Failed to enter Boot Mode";
                 return;
             }
-            Status = "In Boot Mode";
-            Status = "Erasing";
+            status = "In Boot Mode";
+            status = "Erasing";
             int address;
 
             for (address = 0x4000 * 2; address <= (0x1F800 * 2); address += 0x800 * 2)
             {
 
-                Status = $"Erasing Block address: 0x{address:X8}";
+                status = $"Erasing Block address: 0x{address:X8}";
                 SerialWombatChip.eraseFlashPage((UInt32)address); // Datasheet worst case is 40.
                 Thread.Sleep(50);
                 PercentDone = ((double)address - baseAddr) / length;
@@ -87,16 +87,16 @@
                 {
                     dirty |= (page[i] != 0xFF || page[i+1] != 0xFF || page[i+2] != 0xFF);
                 }
-                if (true)//(dirty)
+                if (dirty)
                 {
                     SerialWombatChip.writeUserBuffer(0, page, 512);
                     SerialWombatChip.writeFlashRow((UInt32)address);
-                    Status = $"Programming address: 0x{address:X8}";
+                    status = $"Programming address: 0x{address:X8}";
                     Thread.Sleep(4);
                 }
                 else
                 {
-                    Status = $"Skipping blank Row  0x{address:X8}";
+                    status = $"Skipping blank Row  0x{address:X8}";
                 }
                 PercentDone = ((double)(address - baseAddr)) / length;
             }
@@ -105,7 +105,7 @@
             {
                 byte[] tx = { 0xA4, 2, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55 };
                 SerialWombatChip.sendPacket(tx);
-                Status = $"Writing Finished.  Calculating CRC.  This will take about 15 seconds.";
+                status = $"Writing Finished.  Calculating CRC.  This will take about 15 seconds.";
                 Thread.Sleep(15000);
                 byte[] tx3 = { 0xA4, 3, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55 };
                 byte[] rx;
@@ -116,7 +116,7 @@
                 // Serial.println(rx[4] + rx[5] * 256);
                 //Serial.println();
                 Thread.Sleep(1000);
-                Status = $"Bootload Finished.  Calculated CRC {rx[2] + rx[3] * 256}  Expected CRC: {rx[4] + rx[5] * 256}";
+                status = $"Bootload Finished.  Calculated CRC {rx[2] + rx[3] * 256}  Expected CRC: {rx[4] + rx[5] * 256}";
                 SerialWombatChip.hardwareReset();
                 Bootloading = false;
             }
@@ -139,5 +139,11 @@
             m.Crop(baseAddr, baseAddr + length);
             return m;
         }
+            
+        public string Status
+        {
+            get { return status; }
+        }
+      
     }
 }

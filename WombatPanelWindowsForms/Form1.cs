@@ -272,7 +272,7 @@ namespace WombatPanelWindowsForms
                     SerialWombatChip sw = new SerialWombatChip();
                     SerialWombatChip.SendDelegate LogDataDelegate = new SerialWombatChip.SendDelegate(LogData);
                     sw.SendDelegates.Add(LogDataDelegate);
-                    sw.begin(sps.SelectedPort);
+                    sw.begin(sps.SelectedPort,tsmiResetSWCOnOpen.Checked);
                     try
                     {
                         byte[] b = sw.readVersion();
@@ -390,6 +390,9 @@ namespace WombatPanelWindowsForms
             }
         }
 
-
+        private void tsmiResetSWCOnOpen_Click(object sender, EventArgs e)
+        {
+            tsmiResetSWCOnOpen.Checked = !tsmiResetSWCOnOpen.Checked;
+        }
     }
 }

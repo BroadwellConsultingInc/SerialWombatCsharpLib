@@ -18,6 +18,7 @@ namespace SerialWombatWindowsFormsLibrary
         {
             InitializeComponent();
             ScaledOutput = scaledOutput;
+            swpdsInput.DataSourceValue = scaledOutput.pin;
         }
 
         private void ckbScaledOutputEnable_CheckedChanged(object sender, EventArgs e)
@@ -64,6 +65,11 @@ namespace SerialWombatWindowsFormsLibrary
         private void bWriteTarget_Click(object sender, EventArgs e)
         {
             ScaledOutput.writeScalingTargetValue(sbsiFilterTarget.value);
+        }
+
+        private void ckbInvert_CheckedChanged(object sender, EventArgs e)
+        {
+            ScaledOutput.writeScalingInvertedInput(ckbInvert.Checked);
         }
     }
 }

@@ -41,8 +41,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tbVariableTime = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbConfigure = new System.Windows.Forms.GroupBox();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.groupBox1.SuspendLayout();
+            this.gbConfigure.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,7 +67,7 @@
             // 
             // tbSignalPeriod
             // 
-            this.tbSignalPeriod.Location = new System.Drawing.Point(129, 150);
+            this.tbSignalPeriod.Location = new System.Drawing.Point(119, 58);
             this.tbSignalPeriod.Name = "tbSignalPeriod";
             this.tbSignalPeriod.Size = new System.Drawing.Size(40, 23);
             this.tbSignalPeriod.TabIndex = 1;
@@ -74,7 +76,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(10, 153);
+            this.label5.Location = new System.Drawing.Point(0, 61);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(106, 15);
             this.label5.TabIndex = 2;
@@ -82,7 +84,7 @@
             // 
             // bConfigure
             // 
-            this.bConfigure.Location = new System.Drawing.Point(10, 191);
+            this.bConfigure.Location = new System.Drawing.Point(0, 99);
             this.bConfigure.Name = "bConfigure";
             this.bConfigure.Size = new System.Drawing.Size(75, 23);
             this.bConfigure.TabIndex = 3;
@@ -93,7 +95,7 @@
             // bSetPosition
             // 
             this.bSetPosition.Enabled = false;
-            this.bSetPosition.Location = new System.Drawing.Point(91, 191);
+            this.bSetPosition.Location = new System.Drawing.Point(194, 21);
             this.bSetPosition.Name = "bSetPosition";
             this.bSetPosition.Size = new System.Drawing.Size(85, 23);
             this.bSetPosition.TabIndex = 4;
@@ -104,7 +106,7 @@
             // ckbReverse
             // 
             this.ckbReverse.AutoSize = true;
-            this.ckbReverse.Location = new System.Drawing.Point(19, 121);
+            this.ckbReverse.Location = new System.Drawing.Point(9, 29);
             this.ckbReverse.Name = "ckbReverse";
             this.ckbReverse.Size = new System.Drawing.Size(66, 19);
             this.ckbReverse.TabIndex = 5;
@@ -114,7 +116,7 @@
             // ckbInvertSignal
             // 
             this.ckbInvertSignal.AutoSize = true;
-            this.ckbInvertSignal.Location = new System.Drawing.Point(93, 120);
+            this.ckbInvertSignal.Location = new System.Drawing.Point(83, 28);
             this.ckbInvertSignal.Name = "ckbInvertSignal";
             this.ckbInvertSignal.Size = new System.Drawing.Size(91, 19);
             this.ckbInvertSignal.TabIndex = 6;
@@ -123,7 +125,7 @@
             // 
             // tbFixedTime
             // 
-            this.tbFixedTime.Location = new System.Drawing.Point(210, 116);
+            this.tbFixedTime.Location = new System.Drawing.Point(180, 53);
             this.tbFixedTime.Name = "tbFixedTime";
             this.tbFixedTime.Size = new System.Drawing.Size(66, 23);
             this.tbFixedTime.TabIndex = 7;
@@ -132,7 +134,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(210, 91);
+            this.label3.Location = new System.Drawing.Point(178, 30);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 15);
             this.label3.TabIndex = 8;
@@ -141,7 +143,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(194, 153);
+            this.label4.Location = new System.Drawing.Point(178, 81);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(100, 15);
             this.label4.TabIndex = 8;
@@ -149,7 +151,7 @@
             // 
             // tbVariableTime
             // 
-            this.tbVariableTime.Location = new System.Drawing.Point(210, 182);
+            this.tbVariableTime.Location = new System.Drawing.Point(184, 99);
             this.tbVariableTime.Name = "tbVariableTime";
             this.tbVariableTime.Size = new System.Drawing.Size(66, 23);
             this.tbVariableTime.TabIndex = 9;
@@ -157,25 +159,37 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.tbVariableTime);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.tbFixedTime);
-            this.groupBox1.Controls.Add(this.ckbInvertSignal);
-            this.groupBox1.Controls.Add(this.ckbReverse);
-            this.groupBox1.Controls.Add(this.bSetPosition);
-            this.groupBox1.Controls.Add(this.bConfigure);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.tbSignalPeriod);
+            this.groupBox1.AutoSize = true;
+            this.groupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox1.Controls.Add(this.gbConfigure);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.tbPosition);
             this.groupBox1.Controls.Add(this.trackBar1);
+            this.groupBox1.Controls.Add(this.bSetPosition);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(300, 220);
+            this.groupBox1.Size = new System.Drawing.Size(300, 236);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
+            // 
+            // gbConfigure
+            // 
+            this.gbConfigure.Controls.Add(this.label5);
+            this.gbConfigure.Controls.Add(this.tbVariableTime);
+            this.gbConfigure.Controls.Add(this.tbSignalPeriod);
+            this.gbConfigure.Controls.Add(this.label4);
+            this.gbConfigure.Controls.Add(this.bConfigure);
+            this.gbConfigure.Controls.Add(this.label3);
+            this.gbConfigure.Controls.Add(this.tbFixedTime);
+            this.gbConfigure.Controls.Add(this.ckbReverse);
+            this.gbConfigure.Controls.Add(this.ckbInvertSignal);
+            this.gbConfigure.Location = new System.Drawing.Point(10, 85);
+            this.gbConfigure.Name = "gbConfigure";
+            this.gbConfigure.Size = new System.Drawing.Size(284, 129);
+            this.gbConfigure.TabIndex = 10;
+            this.gbConfigure.TabStop = false;
+            this.gbConfigure.Text = "Configure";
             // 
             // trackBar1
             // 
@@ -192,13 +206,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.groupBox1);
             this.Name = "ServoControl";
-            this.Size = new System.Drawing.Size(313, 230);
+            this.Size = new System.Drawing.Size(306, 242);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.gbConfigure.ResumeLayout(false);
+            this.gbConfigure.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -218,5 +237,6 @@
         private System.Windows.Forms.TextBox tbVariableTime;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.GroupBox gbConfigure;
     }
 }

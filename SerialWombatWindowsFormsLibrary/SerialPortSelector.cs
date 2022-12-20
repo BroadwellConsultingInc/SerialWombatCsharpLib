@@ -7,7 +7,7 @@ using System.IO.Ports;
 using System.Text;
 using System.Windows.Forms;
 
-namespace WombatPanelWindowsForms
+namespace SerialWombatWindowsFormsLibrary
 {
     public partial class SerialPortSelector : Form
     {

@@ -1,4 +1,4 @@
-﻿namespace WombatPanelWindowsForms
+﻿namespace SerialWombatWindowsFormsLibrary
 {
     partial class SerialPortSelector
     {

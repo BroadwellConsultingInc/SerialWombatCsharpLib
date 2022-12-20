@@ -39,9 +39,10 @@ namespace WombatPanelWindowsForms
 
         void statusUpdate()
         {
-            if (lStatus.InvokeRequired)
+            if (InvokeRequired)
             {
-                lStatus.Invoke(statusUpdate);
+                this.Invoke(new MethodInvoker(statusUpdate));
+                return;
             }
             else
             {

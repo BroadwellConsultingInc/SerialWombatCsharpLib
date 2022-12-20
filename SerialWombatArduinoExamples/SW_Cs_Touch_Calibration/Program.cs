@@ -28,7 +28,7 @@ namespace SW_Cs_Touch_Calibration
     {
         static SerialWombatChip sw = new SerialWombatChip();
         static SerialWombat18CapTouch capTouch = new SerialWombat18CapTouch(sw);
-        const byte TOUCH_PIN = 17;  // <<<<<<<<<   Set this to the Serial Wombat pin connected to the touch pad
+        const byte TOUCH_PIN = 19;  // <<<<<<<<<   Set this to the Serial Wombat pin connected to the touch pad
         static UInt16 lastDigitalRead = 2;
         static void setup()
         {

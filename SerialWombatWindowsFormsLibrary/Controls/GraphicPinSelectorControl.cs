@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SerialWombat;
+using SerialWombatWindowsFormsLibrary.Forms;
 
 namespace SerialWombatWindowsFormsLibrary
 {
@@ -29,6 +30,7 @@ namespace SerialWombatWindowsFormsLibrary
             tsmiPulseTimer.Click += TsmiPulseTimer_Click;
             tsmiPWM.Click += TsmiPWM_Click;
             tsmiQuadratureEncoder.Click += TsmiQuadratureEncoder_Click;
+            tsmiResistanceInput.Click += TsmiResistanceInput_Click;
             tsmiServo.Click += TsmiServo_Click;
             tmsiTM1637.Click += TmsiTM1637_Click;
             tsmiUART.Click += TsmiUART_Click;
@@ -48,6 +50,12 @@ namespace SerialWombatWindowsFormsLibrary
                 cbModel.Items.Add(s);
             }
             cbModel.SelectedIndex = 2;
+        }
+
+        private void TsmiResistanceInput_Click(object sender, EventArgs e)
+        {
+            ResistanceInputForm rif = new ResistanceInputForm(SerialWombatChip, _lastClickWombatPin);
+            rif.Show(FindForm());
         }
 
         private void TsmiPinStateViewer_Click(object sender, EventArgs e)
@@ -867,5 +875,10 @@ namespace SerialWombatWindowsFormsLibrary
             sensorForm.Show(FindForm());
         }
 
+        private void sW18ABCapTouchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SW18ABCapTouchForm ctf = new SW18ABCapTouchForm(SerialWombatChip, _lastClickWombatPin);
+            ctf.Show(FindForm());
+        }
     }
 }

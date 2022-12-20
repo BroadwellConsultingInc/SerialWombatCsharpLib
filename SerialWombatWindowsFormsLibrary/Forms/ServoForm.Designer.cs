@@ -44,6 +44,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbPosition = new System.Windows.Forms.TextBox();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.ckbOutputScalingVisible = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
@@ -209,12 +210,28 @@
             this.trackBar1.TickFrequency = 4096;
             this.trackBar1.ValueChanged += new System.EventHandler(this.trackBar1_ValueChanged);
             // 
+            // ckbOutputScalingVisible
+            // 
+            this.ckbOutputScalingVisible.AutoSize = true;
+            this.ckbOutputScalingVisible.Checked = true;
+            this.ckbOutputScalingVisible.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckbOutputScalingVisible.Location = new System.Drawing.Point(8, 238);
+            this.ckbOutputScalingVisible.Name = "ckbOutputScalingVisible";
+            this.ckbOutputScalingVisible.Size = new System.Drawing.Size(182, 19);
+            this.ckbOutputScalingVisible.TabIndex = 1;
+            this.ckbOutputScalingVisible.Text = "Show Output Scaling Options";
+            this.ckbOutputScalingVisible.UseVisualStyleBackColor = true;
+            this.ckbOutputScalingVisible.Visible = false;
+            this.ckbOutputScalingVisible.CheckedChanged += new System.EventHandler(this.ckbOutputScalingVisible_CheckedChanged);
+            // 
             // ServoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(304, 234);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(872, 543);
+            this.Controls.Add(this.ckbOutputScalingVisible);
             this.Controls.Add(this.groupBox1);
             this.Name = "ServoForm";
             this.Text = "Form1";
@@ -223,6 +240,7 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -244,6 +262,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbSignalPeriod;
+        private System.Windows.Forms.CheckBox ckbOutputScalingVisible;
     }
 }
 

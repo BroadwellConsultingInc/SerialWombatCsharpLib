@@ -73,6 +73,9 @@
     <Compile Update="Controls\SixteenBitSliderInput.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Controls\SW18ABCapTouchControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Controls\TM1637Control.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -101,6 +104,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\PulseOnChangeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\SW18ABCapTouchForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\TM1637Form.cs">

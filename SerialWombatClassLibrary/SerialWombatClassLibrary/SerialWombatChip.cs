@@ -1065,6 +1065,7 @@ namespace SerialWombat
         public void begin(string portName)
         {
             Port = new SerialPort(portName, 115200, Parity.None, 8, StopBits.One);
+            Port.DtrEnable = true; // Added for compatibility with Seeeduino Xiao
             Port.Open();
             Port.ReadTimeout = 20;
             Pool.Release(1);

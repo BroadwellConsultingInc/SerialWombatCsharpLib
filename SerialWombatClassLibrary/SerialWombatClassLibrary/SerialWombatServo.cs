@@ -15,6 +15,7 @@ namespace SerialWombat
 		public SerialWombatServo(SerialWombatChip serialWombatChip):base(serialWombatChip)
 		{
 			_sw = serialWombatChip;
+			_pinMode = (byte)SerialWombatPinModes.PIN_MODE_SERVO;
 		}
 
 		public void attach(byte pin)
