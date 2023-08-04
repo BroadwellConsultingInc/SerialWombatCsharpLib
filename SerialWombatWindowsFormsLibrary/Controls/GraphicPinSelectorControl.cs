@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SerialWombat;
+using SerialWombatWindowsFormsLibrary.Controls;
 using SerialWombatWindowsFormsLibrary.Forms;
 
 namespace SerialWombatWindowsFormsLibrary
@@ -55,39 +56,50 @@ namespace SerialWombatWindowsFormsLibrary
         private void TsmiResistanceInput_Click(object sender, EventArgs e)
         {
             ResistanceInputForm rif = new ResistanceInputForm(SerialWombatChip, _lastClickWombatPin);
-            rif.Show(FindForm());
+            rif.Show();
+            rif.Top = FindForm().Top + 50;
+            rif.Left = FindForm().Left + 50;
         }
 
         private void TsmiPinStateViewer_Click(object sender, EventArgs e)
         {
             PinStateMachineViewer psmv = new PinStateMachineViewer(SerialWombatChip, _lastClickWombatPin);
-            psmv.Show(FindForm());
+            psmv.Show();
+            psmv.Top = FindForm().Top + 50;
+            psmv.Left = FindForm().Left + 50;
         }
 
         private void TsmiUltrasonicDistanceSensor_Click(object sender, EventArgs e)
         {
             UltrasonicDistanceSensorForm udsf = new UltrasonicDistanceSensorForm(SerialWombatChip, _lastClickWombatPin);
-            udsf.Show(FindForm());
+            udsf.Show();
+            udsf.Top = FindForm().Top + 50;
+            udsf.Left = FindForm().Left + 50;
         }
 
         public CodeGenerationDelegate codeGeneration = null;
         private void TsmiLiquidCrystal_Click(object sender, EventArgs e)
         {
             LiquidCrystalForm lcf = new LiquidCrystalForm(SerialWombatChip, _lastClickWombatPin, codeGeneration);
-            lcf.Show(FindForm());
+            lcf.Show();
+            lcf.Top = FindForm().Top + 50;
+            lcf.Left = FindForm().Left + 50;
         }
 
         private void TsmiUART_Click(object sender, EventArgs e)
         {
             UARTForm uf = new UARTForm(SerialWombatChip,_lastClickWombatPin);
-            uf.Show(FindForm());
-            
+            uf.Show();
+            uf.Top = FindForm().Top + 50;
+            uf.Left = FindForm().Left + 50;
         }
 
         private void TsmiWS2812_Click(object sender, EventArgs e)
         {
             WS2812Form wS2812 = new WS2812Form(SerialWombatChip, _lastClickWombatPin, codeGeneration);
-            wS2812.Show(FindForm());
+            wS2812.Show();
+            wS2812.Top = FindForm().Top + 50;
+            wS2812.Left = FindForm().Left + 50;
         }
 
         private SerialWombatModel _model = SerialWombatModel.SerialWombat18AB;
@@ -101,26 +113,34 @@ namespace SerialWombatWindowsFormsLibrary
         private void TsmiMatrixKeypad_Click(object sender, EventArgs e)
         {
             MatrixKeypadForm mkf = new MatrixKeypadForm(SerialWombatChip, _lastClickWombatPin, codeGeneration);
-            mkf.Show(FindForm());
+            mkf.Show();
+            mkf.Top = FindForm().Top + 50;
+            mkf.Left = FindForm().Left + 50;
         }
 
         private void TsmiPulseOnChange_Click(object sender, EventArgs e)
         {
             PulseOnChangeForm pocf = new PulseOnChangeForm(SerialWombatChip, _lastClickWombatPin);
-            pocf.Show(this);
-            pocf.StartPosition = FormStartPosition.CenterParent;
+            pocf.Show();
+           pocf.Top  = FindForm().Top + 50;
+            pocf.Left = FindForm().Left + 50;
+
         }
 
         private void TmsiTM1637_Click(object sender, EventArgs e)
         {
             TM1637Form tM1637Form = new TM1637Form(SerialWombatChip, _lastClickWombatPin, codeGeneration);
-            tM1637Form.Show(FindForm());
+            tM1637Form.Show();
+            tM1637Form.Top = FindForm().Top + 50;
+            tM1637Form.Left = FindForm().Left + 50;
         }
 
         private void TsmiDebounce_Click(object sender, EventArgs e)
         {
             DebounceForm df = new DebounceForm(SerialWombatChip, _lastClickWombatPin);
-            df.Show(FindForm());
+            df.Show();
+            df.Top = FindForm().Top + 50;
+            df.Left = FindForm().Left + 50;
         }
 
         private void TsmiWatchdog_Click(object sender, EventArgs e)
@@ -132,25 +152,33 @@ namespace SerialWombatWindowsFormsLibrary
         private void TsmiPulseTimer_Click(object sender, EventArgs e)
         {
             PulseTimerForm ptf = new PulseTimerForm(SerialWombatChip, _lastClickWombatPin);
-            ptf.Show(FindForm());
+            ptf.Show();
+            ptf.Top = FindForm().Top + 50;
+            ptf.Left = FindForm().Left + 50;
         }
 
         private void TsmiPWM_Click(object sender, EventArgs e)
         {
             PWMForm pWMForm = new PWMForm(SerialWombatChip, _lastClickWombatPin);
-            pWMForm.Show(FindForm());
+            pWMForm.Show();
+            pWMForm.Top = FindForm().Top + 50;
+            pWMForm.Left = FindForm().Left + 50;
         }
 
         private void TsmiQuadratureEncoder_Click(object sender, EventArgs e)
         {
             QuadratureEncoderForm qef = new QuadratureEncoderForm(SerialWombatChip, _lastClickWombatPin);
-            qef.Show(FindForm());
+            qef.Show();
+            qef.Top = FindForm().Top + 50;
+            qef.Left = FindForm().Left + 50;
         }
 
         private void TsmiServo_Click(object sender, EventArgs e)
         {
             ServoForm sf = new ServoForm(SerialWombatChip, _lastClickWombatPin);
-            sf.Show(FindForm());
+            sf.Show();
+            sf.Top = FindForm().Top + 50;
+            sf.Left = FindForm().Left + 50;
         }
 
         void clearLastClick()
@@ -829,13 +857,17 @@ namespace SerialWombatWindowsFormsLibrary
         private void monitorPublicDataToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PublicDataMonitorForm pdMonitorForm = new PublicDataMonitorForm(SerialWombatChip, _lastClickWombatPin);
-            pdMonitorForm.Show(FindForm());
+            pdMonitorForm.Show();
+            pdMonitorForm.Top = FindForm().Top + 50;
+            pdMonitorForm.Left = FindForm().Left + 50;
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             ResistanceInputForm resistanceInputForm = new ResistanceInputForm(SerialWombatChip, _lastClickWombatPin);
-            resistanceInputForm.Show(FindForm());
+            resistanceInputForm.Show();
+            resistanceInputForm.Top = FindForm().Top + 50;
+            resistanceInputForm.Left = FindForm().Left + 50;
         }
 
         private void queueToolStripMenuItem_Click(object sender, EventArgs e)
@@ -872,13 +904,51 @@ namespace SerialWombatWindowsFormsLibrary
         private void ultraSonicDistanceSensorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UltrasonicDistanceSensorForm sensorForm = new UltrasonicDistanceSensorForm(SerialWombatChip, _lastClickWombatPin);
-            sensorForm.Show(FindForm());
+            sensorForm.Show();
+            sensorForm.Top = FindForm().Top + 50;
+            sensorForm.Left = FindForm().Left + 50;
         }
 
         private void sW18ABCapTouchToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SW18ABCapTouchForm ctf = new SW18ABCapTouchForm(SerialWombatChip, _lastClickWombatPin);
-            ctf.Show(FindForm());
+            ctf.Show();
+            ctf.Top = FindForm().Top + 50;
+            ctf.Left = FindForm().Left + 50;
+        }
+
+        private void highSpeedClockToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            HSClockForm HSCF = new HSClockForm(SerialWombatChip, _lastClickWombatPin);
+            HSCF.Show();
+            HSCF.Top = FindForm().Top + 50;
+            HSCF.Left = FindForm().Left + 50;
+            
+        }
+
+        private void highSpeedCounterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HSCounterForm HSCF = new HSCounterForm(SerialWombatChip, _lastClickWombatPin);
+            HSCF.Show();
+            HSCF.Top = FindForm().Top + 50;
+            HSCF.Left = FindForm().Left + 50;
+        }
+
+        private void queueToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            QueueForm qf = new QueueForm(SerialWombatChip);
+            qf.Show();
+            qf.Top = FindForm().Top + 50;
+            qf.Left = FindForm().Left + 50;
+        }
+
+        private void tsmiThroughputConsumer_Click(object sender, EventArgs e)
+        {
+            ThroughputConsumerForm tpcf = new ThroughputConsumerForm(SerialWombatChip, _lastClickWombatPin);
+            tpcf.Show();
+            tpcf.Top = FindForm().Top + 50;
+            tpcf.Left = FindForm().Left + 50;
         }
     }
 }

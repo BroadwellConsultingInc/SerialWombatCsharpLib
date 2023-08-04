@@ -163,7 +163,7 @@ namespace SerialWombatWindowsFormsLibrary.Controls
         {
             try
             {
-                PulseTimer.begin(PulseTimer.Pin, SerialWombatPulseTimerUnits.SW_PULSETIMER_uS, false);
+                PulseTimer.begin(PulseTimer.Pin, SerialWombatPulseTimerUnits.SW_PULSETIMER_uS, ckbPullUp.Checked);
                 if (SerialWombatChip.isSW18())
                 {
                     ((SerialWombatPulseTimer_18AB)PulseTimer).configurePublicDataOutput((SerialWombatPulseTimerPublicData)enumDropdown1.selectedItem);

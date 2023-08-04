@@ -39,6 +39,7 @@ F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\WombatPanelWindowsFo
 F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\WombatPanelWindowsForms\obj\Release\net6.0-windows\WombatPanelWindowsForms.pdb
 F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\WombatPanelWindowsForms\obj\Release\net6.0-windows\WombatPanelWindowsForms.genruntimeconfig.cache
 F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\WombatPanelWindowsForms\obj\Release\net6.0-windows\ref\WombatPanelWindowsForms.dll
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\WombatPanelWindowsForms\obj\Release\net6.0-windows\WombatPanelWindowsForms.StartupCommandsViewer.resources
 F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\WombatPanelWindowsForms\bin\Release\net6.0-windows\WombatPanelWindowsForms.dll.manifest
 F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\WombatPanelWindowsForms\bin\Release\net6.0-windows\WombatPanelWindowsForms.application
 F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\WombatPanelWindowsForms\obj\Release\net6.0-windows\WombatPanelWindowsForms.dll.manifest

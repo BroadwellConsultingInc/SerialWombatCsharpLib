@@ -114,7 +114,14 @@ namespace SerialWombatWindowsFormsLibrary.Controls
                     string s = "";
                    for (int i = 0; i < count; ++i)
                     {
-                        s += $"{data[i]:X2} ";
+                        if (cbAscii.Checked && data[i] >= 0x20 && data[i] <= 0x7F)
+                        {
+                            s += Convert.ToChar(data[i]);
+                        }
+                        else
+                        {
+                            s += $"{data[i]:X2} ";
+                        }
                         realTimeScottPlot1.PlotData(data[i]);
                         ++samples;
                     }

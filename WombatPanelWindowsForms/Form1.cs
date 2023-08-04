@@ -279,9 +279,10 @@ namespace WombatPanelWindowsForms
                         ChipList.Add(sw);
                         if (sw.isSW18())
                         {
-                            if (b[6] < 0x37 || b[4] < 0x32)
+                            int ver = (b[4] - 0x30) * 100 + (b[5] - 0x30) * 10 + b[6] - 0x30;
+                            if (ver < 208)
                             {
-                                MessageBox.Show($"This Serial Wombat chip is using firmware version {(char)b[4]}.{(char)b[5]}.{(char)b[6]}   .  Version 2.0.7 or later is required for all features to work correctly.  See https://youtu.be/q7ls-lMaL80 ");
+                                MessageBox.Show($"This Serial Wombat chip is using firmware version {(char)b[4]}.{(char)b[5]}.{(char)b[6]}   .  Version 2.1.0 or later is required for all features to work correctly.  See https://youtu.be/q7ls-lMaL80 ");
                             }
                             string swdata = "";
 
@@ -393,6 +394,29 @@ namespace WombatPanelWindowsForms
         private void tsmiResetSWCOnOpen_Click(object sender, EventArgs e)
         {
             tsmiResetSWCOnOpen.Checked = !tsmiResetSWCOnOpen.Checked;
+        }
+
+        private void startToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChipList.Last().StartCommandCapture();
+        }
+
+        private void cancelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChipList.Last().StartCommandCapture();
+            ChipList.Last().StopCommandCapture();
+        }
+
+        private void stopAndStoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChipList.Last().StopCommandCapture();
+            ChipList.Last().StoreCommandCapture();
+        }
+
+        private void readToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StartupCommandsViewer scv = new StartupCommandsViewer(ChipList.Last());
+            scv.Show();
         }
     }
 }

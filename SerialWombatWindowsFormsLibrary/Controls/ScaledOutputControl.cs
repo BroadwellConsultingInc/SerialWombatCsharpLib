@@ -53,7 +53,7 @@ namespace SerialWombatWindowsFormsLibrary
 
         private void bConfigureMaximumRate_Click(object sender, EventArgs e)
         {
-            ScaledOutput.writeRateControl((ScaledOutputPeriod)edFilteringPeriod.selectedItem, sbsiFilterConstant.value);
+            ScaledOutput.writeRateControl((ScaledOutputPeriod)edFilteringPeriod.selectedItem, sbsiFilterConstant.value, sbsiFilterConstant2.value);
 
         }
 
@@ -70,6 +70,11 @@ namespace SerialWombatWindowsFormsLibrary
         private void ckbInvert_CheckedChanged(object sender, EventArgs e)
         {
             ScaledOutput.writeScalingInvertedInput(ckbInvert.Checked);
+        }
+
+        private void sbsiFilterTarget_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

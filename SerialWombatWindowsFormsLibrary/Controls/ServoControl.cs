@@ -61,6 +61,7 @@ namespace SerialWombatWindowsFormsLibrary
 
         private void bSetPosition_Click(object sender, EventArgs e)
         {
+            if (Servo == null) return;
             try
             {
 
@@ -90,7 +91,14 @@ namespace SerialWombatWindowsFormsLibrary
         public UInt16 Value { get { 
                 return Servo.readPublicData(); } set { 
                 trackBar1.Value = value;
-                Servo.writePublicData(value);
+                try
+                {
+                    if (Servo != null)
+                    {
+                        Servo.writePublicData(value);
+                    }
+                }
+                catch { }
             } }
 
     }

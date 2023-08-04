@@ -287,11 +287,7 @@
             "0",
             "1",
             "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7"});
+            "3"});
             this.cbEntry.Location = new System.Drawing.Point(418, 31);
             this.cbEntry.Name = "cbEntry";
             this.cbEntry.Size = new System.Drawing.Size(121, 23);

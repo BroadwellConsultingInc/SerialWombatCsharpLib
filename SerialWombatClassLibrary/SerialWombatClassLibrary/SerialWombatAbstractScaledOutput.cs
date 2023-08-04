@@ -103,7 +103,7 @@ namespace SerialWombat
 			return (_sw.sendPacket(tx));
 		}
 
-		public Int16 writeRateControl(ScaledOutputPeriod sampleRate, UInt16 filterConstant)
+		public Int16 writeRateControl(ScaledOutputPeriod sampleRate, UInt16 filterConstantIncreasing, UInt16 filterConstantDecreasing)
 		{
 			{
 				byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_OUTPUTSCALE,
@@ -111,15 +111,25 @@ namespace SerialWombat
 			_pinMode,
 			4, // Set filter mode
 			1, // Filter mode rate control
-			(byte)(filterConstant & 0xFF), ((byte)(filterConstant >>8)),0x55,
+			(byte)(filterConstantIncreasing & 0xFF), ((byte)(filterConstantIncreasing >>8)),0x55,
 		};
 				Int16 result = _sw.sendPacket(tx);
 				if (result < 0)
 				{
 					return (result);
 				}
-
-			}
+                byte[] tx2 = { (byte)SerialWombatCommands.CONFIGURE_PIN_OUTPUTSCALE,
+            _pin,
+            _pinMode,
+            8, // Set filter mode
+			(byte)(filterConstantDecreasing & 0xFF), ((byte)(filterConstantDecreasing >>8)),0x55,0x55
+        };
+                 result = _sw.sendPacket(tx);
+                if (result < 0)
+                {
+                    return (result);
+                }
+            }
 			
 			{
 				byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_OUTPUTSCALE,

@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "F+B9Nb1iaRs7iOenPifddE+mqp1/dFZW2/TZl9kx/6bOA1RH0+Xt5kqcaLkSu/ZJC18Q0vaKjO8dhTxEmFfYUg==",
+  "success": true,
+  "projectFilePath": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatArduinoExamples\\SW_Cs_TM1637_FlashUI\\SW_Cs_TM1637_FlashUI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\JAB\\.nuget\\packages\\runtime.linux-arm.runtime.native.system.io.ports\\6.0.0\\runtime.linux-arm.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
+    "C:\\Users\\JAB\\.nuget\\packages\\runtime.linux-arm64.runtime.native.system.io.ports\\6.0.0\\runtime.linux-arm64.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
+    "C:\\Users\\JAB\\.nuget\\packages\\runtime.linux-x64.runtime.native.system.io.ports\\6.0.0\\runtime.linux-x64.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
+    "C:\\Users\\JAB\\.nuget\\packages\\runtime.native.system.io.ports\\6.0.0\\runtime.native.system.io.ports.6.0.0.nupkg.sha512",
+    "C:\\Users\\JAB\\.nuget\\packages\\runtime.osx-arm64.runtime.native.system.io.ports\\6.0.0\\runtime.osx-arm64.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
+    "C:\\Users\\JAB\\.nuget\\packages\\runtime.osx-x64.runtime.native.system.io.ports\\6.0.0\\runtime.osx-x64.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
+    "C:\\Users\\JAB\\.nuget\\packages\\system.io.ports\\6.0.0\\system.io.ports.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

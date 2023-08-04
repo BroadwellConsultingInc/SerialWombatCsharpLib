@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.realTimeScottPlot1 = new SerialWombatWindowsFormsLibrary.Controls.RealTimeScottPlot();
             this.ckb16BitReads = new System.Windows.Forms.CheckBox();
             this.tbCopyReadAddress = new System.Windows.Forms.TextBox();
             this.bCopyAndRead = new System.Windows.Forms.Button();
@@ -40,7 +41,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbLength = new System.Windows.Forms.TextBox();
             this.tbAddress = new System.Windows.Forms.TextBox();
-            this.realTimeScottPlot1 = new SerialWombatWindowsFormsLibrary.Controls.RealTimeScottPlot();
+            this.cbAscii = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,6 +49,7 @@
             // 
             this.groupBox1.AutoSize = true;
             this.groupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox1.Controls.Add(this.cbAscii);
             this.groupBox1.Controls.Add(this.realTimeScottPlot1);
             this.groupBox1.Controls.Add(this.ckb16BitReads);
             this.groupBox1.Controls.Add(this.tbCopyReadAddress);
@@ -66,6 +68,13 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
+            // 
+            // realTimeScottPlot1
+            // 
+            this.realTimeScottPlot1.Location = new System.Drawing.Point(439, 53);
+            this.realTimeScottPlot1.Name = "realTimeScottPlot1";
+            this.realTimeScottPlot1.Size = new System.Drawing.Size(429, 256);
+            this.realTimeScottPlot1.TabIndex = 9;
             // 
             // ckb16BitReads
             // 
@@ -167,12 +176,15 @@
             this.tbAddress.TabIndex = 0;
             this.tbAddress.Text = "0x0000";
             // 
-            // realTimeScottPlot1
+            // cbAscii
             // 
-            this.realTimeScottPlot1.Location = new System.Drawing.Point(439, 53);
-            this.realTimeScottPlot1.Name = "realTimeScottPlot1";
-            this.realTimeScottPlot1.Size = new System.Drawing.Size(429, 256);
-            this.realTimeScottPlot1.TabIndex = 9;
+            this.cbAscii.AutoSize = true;
+            this.cbAscii.Location = new System.Drawing.Point(222, 262);
+            this.cbAscii.Name = "cbAscii";
+            this.cbAscii.Size = new System.Drawing.Size(51, 19);
+            this.cbAscii.TabIndex = 10;
+            this.cbAscii.Text = "Ascii";
+            this.cbAscii.UseVisualStyleBackColor = true;
             // 
             // QueueControl
             // 
@@ -205,5 +217,6 @@
         private System.Windows.Forms.Button bCopyAndRead;
         private System.Windows.Forms.CheckBox ckb16BitReads;
         private RealTimeScottPlot realTimeScottPlot1;
+        private System.Windows.Forms.CheckBox cbAscii;
     }
 }

@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "cOdVWeiDA22+aO8UA6Du/tsGxOvzAVs82Oz2RGRJb2QSqh1hP9zIo1uoKH48bcrmUpdHsrp3bb6JA5FwYpcy+w==",
+  "success": true,
+  "projectFilePath": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatArduinoExamples\\SW18AB_Cs_LQ_Ex01_Test\\SW18AB_Cs_LQ_Ex01_Test.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\JAB\\.nuget\\packages\\runtime.linux-arm.runtime.native.system.io.ports\\6.0.0\\runtime.linux-arm.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
+    "C:\\Users\\JAB\\.nuget\\packages\\runtime.linux-arm64.runtime.native.system.io.ports\\6.0.0\\runtime.linux-arm64.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
+    "C:\\Users\\JAB\\.nuget\\packages\\runtime.linux-x64.runtime.native.system.io.ports\\6.0.0\\runtime.linux-x64.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
+    "C:\\Users\\JAB\\.nuget\\packages\\runtime.native.system.io.ports\\6.0.0\\runtime.native.system.io.ports.6.0.0.nupkg.sha512",
+    "C:\\Users\\JAB\\.nuget\\packages\\runtime.osx-arm64.runtime.native.system.io.ports\\6.0.0\\runtime.osx-arm64.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
+    "C:\\Users\\JAB\\.nuget\\packages\\runtime.osx-x64.runtime.native.system.io.ports\\6.0.0\\runtime.osx-x64.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
+    "C:\\Users\\JAB\\.nuget\\packages\\system.io.ports\\6.0.0\\system.io.ports.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -52,5 +52,59 @@ namespace SerialWombatWindowsFormsLibrary
                 toolTip1.SetToolTip(groupBox1, value);
             }
         }
+        [Browsable(true), EditorBrowsable(EditorBrowsableState.Always), Bindable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        public int Minimum
+        {
+            get
+            {
+                return trackBar1.Minimum;
+            }
+            set
+            {
+                if (value < 0 )
+                {
+                    return;
+                }
+                if (value > Maximum)
+                {
+                    return;
+                }
+
+                if (this.value < value)
+                {
+                    this.value = (UInt16)value;
+                }
+                trackBar1.Minimum = value;
+                trackBar1.TickFrequency = (trackBar1.Maximum - trackBar1.Minimum) / 50;
+            }
+        }
+
+        [Browsable(true), EditorBrowsable(EditorBrowsableState.Always), Bindable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        public int Maximum
+        {
+            get
+            {
+                return trackBar1.Maximum;
+            }
+            set
+            {
+                if (value >65535)
+                {
+                    value = 65535;
+                }
+                if (value < Minimum)
+                {
+                    return;
+                }
+                if (this.value > value)
+                {
+                    this.value = (UInt16)value;
+                }
+                trackBar1.Maximum = value;
+                trackBar1.TickFrequency = (trackBar1.Maximum - trackBar1.Minimum) / 50;
+            }
+        }
     }
 }

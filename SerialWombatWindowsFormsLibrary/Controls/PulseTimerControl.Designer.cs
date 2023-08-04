@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.enumDropdown1 = new SerialWombatWindowsFormsLibrary.EnumDropdown();
+            this.realTimeScottPlot1 = new SerialWombatWindowsFormsLibrary.Controls.RealTimeScottPlot();
             this.label4 = new System.Windows.Forms.Label();
             this.lDutyCycle = new System.Windows.Forms.Label();
             this.lFrequency = new System.Windows.Forms.Label();
@@ -41,13 +43,13 @@
             this.ckbAutosample = new System.Windows.Forms.CheckBox();
             this.bSample = new System.Windows.Forms.Button();
             this.bConfigure = new System.Windows.Forms.Button();
-            this.realTimeScottPlot1 = new SerialWombatWindowsFormsLibrary.Controls.RealTimeScottPlot();
-            this.enumDropdown1 = new SerialWombatWindowsFormsLibrary.EnumDropdown();
+            this.ckbPullUp = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.ckbPullUp);
             this.groupBox1.Controls.Add(this.enumDropdown1);
             this.groupBox1.Controls.Add(this.realTimeScottPlot1);
             this.groupBox1.Controls.Add(this.label4);
@@ -68,6 +70,22 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
+            // 
+            // enumDropdown1
+            // 
+            this.enumDropdown1.DropDownToolTip = "";
+            this.enumDropdown1.dropdowntype = "SerialWombat.SerialWombatPulseTimerPublicData";
+            this.enumDropdown1.Location = new System.Drawing.Point(22, 436);
+            this.enumDropdown1.Name = "enumDropdown1";
+            this.enumDropdown1.Size = new System.Drawing.Size(274, 35);
+            this.enumDropdown1.TabIndex = 12;
+            // 
+            // realTimeScottPlot1
+            // 
+            this.realTimeScottPlot1.Location = new System.Drawing.Point(6, 64);
+            this.realTimeScottPlot1.Name = "realTimeScottPlot1";
+            this.realTimeScottPlot1.Size = new System.Drawing.Size(429, 256);
+            this.realTimeScottPlot1.TabIndex = 11;
             // 
             // label4
             // 
@@ -174,21 +192,15 @@
             this.bConfigure.UseVisualStyleBackColor = true;
             this.bConfigure.Click += new System.EventHandler(this.bConfigure_Click_1);
             // 
-            // realTimeScottPlot1
+            // ckbPullUp
             // 
-            this.realTimeScottPlot1.Location = new System.Drawing.Point(6, 64);
-            this.realTimeScottPlot1.Name = "realTimeScottPlot1";
-            this.realTimeScottPlot1.Size = new System.Drawing.Size(429, 256);
-            this.realTimeScottPlot1.TabIndex = 11;
-            // 
-            // enumDropdown1
-            // 
-            this.enumDropdown1.DropDownToolTip = "";
-            this.enumDropdown1.dropdowntype = "SerialWombat.SerialWombatPulseTimerPublicData";
-            this.enumDropdown1.Location = new System.Drawing.Point(22, 436);
-            this.enumDropdown1.Name = "enumDropdown1";
-            this.enumDropdown1.Size = new System.Drawing.Size(274, 35);
-            this.enumDropdown1.TabIndex = 12;
+            this.ckbPullUp.AutoSize = true;
+            this.ckbPullUp.Location = new System.Drawing.Point(34, 472);
+            this.ckbPullUp.Name = "ckbPullUp";
+            this.ckbPullUp.Size = new System.Drawing.Size(64, 19);
+            this.ckbPullUp.TabIndex = 13;
+            this.ckbPullUp.Text = "Pull Up";
+            this.ckbPullUp.UseVisualStyleBackColor = true;
             // 
             // PulseTimerControl
             // 
@@ -221,5 +233,6 @@
         private System.Windows.Forms.Button bSample;
         private System.Windows.Forms.Button bConfigure;
         private EnumDropdown enumDropdown1;
+        private System.Windows.Forms.CheckBox ckbPullUp;
     }
 }

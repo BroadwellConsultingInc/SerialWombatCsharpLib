@@ -10,12 +10,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SerialWombat;
 using SerialWombatSW18ABBootloader;
+using static System.Net.Mime.MediaTypeNames;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WombatPanelWindowsForms
 {
     public partial class Bootload : Form
     {
         SerialWombatSW18ABBootloaderClient bl;
+        private delegate void SafeCallDelegate();
         public Bootload(string filename, SerialWombatChip serialWombatChip)
         {
             InitializeComponent();
@@ -27,36 +30,57 @@ namespace WombatPanelWindowsForms
             t.Start();
 
         }
+        private String status = "";
+        double pctDone = 0;
 
         void updateThread()
         {
             while (bl.Bootloading)
             {
+                status = bl.Status;
+                pctDone = bl.PercentDone;
+
                 statusUpdate();
+                progressUpdate();
                 Thread.Sleep(200);
             }
         }
 
         void statusUpdate()
         {
-            if (InvokeRequired)
+            if (lStatus.InvokeRequired)
             {
-                this.Invoke(new MethodInvoker(statusUpdate));
+                var d = new SafeCallDelegate(statusUpdate);
+                lStatus.Invoke(d, new object[] { });
                 return;
             }
             else
             {
-                lStatus.Text = bl.Status;
-                int pctDone = (int)(bl.PercentDone * 10000);
-                if (pctDone > progressBar1.Maximum)
+                lStatus.Text = status;
+            }
+        }
+
+        void progressUpdate()
+        {
+            if (progressBar1.InvokeRequired)
+            {
+                var d = new SafeCallDelegate(statusUpdate);
+                progressBar1.Invoke(d, new object[] { });
+                return;
+            }
+            else
+            {
+               
+                int pctDonei = (int)(pctDone * 10000);
+                if (pctDonei > progressBar1.Maximum)
                 {
-                    pctDone = progressBar1.Maximum;
+                    pctDonei = progressBar1.Maximum;
                 }
-                if (pctDone < progressBar1.Minimum)
+                if (pctDonei < progressBar1.Minimum)
                 {
-                    pctDone = progressBar1.Minimum;
+                    pctDonei = progressBar1.Minimum;
                 }
-                progressBar1.Value = pctDone;
+                progressBar1.Value = pctDonei;
             }
         }
     }

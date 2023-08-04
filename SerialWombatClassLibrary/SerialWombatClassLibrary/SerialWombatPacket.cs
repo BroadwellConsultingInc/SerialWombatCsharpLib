@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace SerialWombat
 {
@@ -41,6 +43,114 @@ namespace SerialWombat
         };
 
         private bool ParseMsg(string s)
+        {
+
+            
+
+            Regex str = new Regex("(.*)\"([^'].*?)\"(.*)");
+
+            Match m = str.Match(s);
+            while (m.Success)
+            {
+
+                string pre = m.Groups[1].Value;
+                string post = m.Groups[3].Value;
+                string mid = "";
+                foreach (char c in m.Groups[2].Value)
+                {
+                    mid += $" 0x{(int)c:X2} ";
+                }
+                s = $"{pre} {mid} {post}";
+                m = str.Match(s);
+            }
+
+            Regex quote = new Regex("(.*)'(.)'(.*)");
+            m = quote.Match(s);
+            while (m.Success)
+            {
+
+                string pre = m.Groups[1].Value;
+                string post = m.Groups[3].Value;
+                string mid = "";
+                mid += $" 0x{(int)m.Groups[2].Value[0]:X2} ";
+                s = $"{pre} {mid} {post}";
+                m = quote.Match(s);
+            }
+
+            Regex rS = new Regex(@"(.*)\s(\d+)s\b(.*)");
+            m = rS.Match(s);
+            while (m.Success)
+            {
+
+                string pre = m.Groups[1].Value;
+                string post = m.Groups[3].Value;
+                int val = Convert.ToUInt16(m.Groups[2].Value);
+                string mid = $"0x{val:X4}";
+                s = $"{pre} {mid} {post}";
+                m = rS.Match(s);
+            }
+
+            Regex rl = new Regex(@"(.*)\s(\d+)[lL]\b(.*)");
+            m = rl.Match(s);
+            while (m.Success)
+            {
+
+                string pre = m.Groups[1].Value;
+                string post = m.Groups[3].Value;
+                UInt32 val = Convert.ToUInt32(m.Groups[2].Value);
+                string mid = $"0x{val:X8}";
+                s = $"{pre} {mid} {post}";
+                m = rl.Match(s);
+            }
+           
+
+            Regex number = new Regex(@"(.*)\b(\d+)\b(.*)");
+            m = number.Match(s);
+            while (m.Success)
+            {
+
+                string pre = m.Groups[1].Value;
+                string post = m.Groups[3].Value;
+                byte val = Convert.ToByte(m.Groups[2].Value);
+                string mid = $"0x{val:X2}";
+                s = $"{pre} {mid} {post}";
+                m = number.Match(s);
+            }
+
+            Regex comment = new Regex("(.*);[^\"'].*");
+            m = comment.Match(s);
+            if (m.Success)
+            {
+                s = m.Groups[1].Value;
+            }
+            string prior = "";
+            while (prior != s)
+            {
+                prior = s;
+                s = Regex.Replace(s, "0[xX]([A-Fa-f0-9][A-Fa-f0-9])([A-Fa-f0-9]+)", "0x$2 0x$1");
+            }
+
+            prior = "";
+            while (prior != s)
+            {
+                prior = s;
+                s = Regex.Replace(s, @"\s\s", " ");
+            }
+            s = s.Trim();
+
+            string[] hexbytes = s.Split(" ");
+
+
+            for (int i = 0; i < 8 && i < hexbytes.Count(); ++i)
+            {
+                _data[i] = Convert.ToByte(hexbytes[i], 16);
+            }
+            return (true);
+
+        }
+
+
+        private bool ParseMsgOld(string s)
         {
             // This function parses a user string into bytes.  
             // Bytes may be expressed in a number of different ways

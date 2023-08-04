@@ -750,8 +750,26 @@ namespace SerialWombat
 
             }
 
+        public Int16 StartCommandCapture()
+        {
+            byte[] tx = { (byte)SerialWombatCommands.COMMAND_CAPTURE_STARTUP_SEQUENCE, 0,(byte)'C',(byte)'A',
+            (byte)'P',(byte)'T',(byte)'U', (byte)'R'};
+            return sendPacket(tx);
+        }
 
+        public Int16 StopCommandCapture()
+        {
+            byte[] tx = { (byte)SerialWombatCommands.COMMAND_CAPTURE_STARTUP_SEQUENCE, 1,(byte)'C',(byte)'A',
+            (byte)'P',(byte)'T',(byte)'U', (byte)'R'};
+            return sendPacket(tx);
+        }
 
+        public Int16 StoreCommandCapture()
+        {
+            byte[] tx = { (byte)SerialWombatCommands.COMMAND_CAPTURE_STARTUP_SEQUENCE, 2,(byte)'C',(byte)'A',
+            (byte)'P',(byte)'T',(byte)'U', (byte)'R'};
+            return sendPacket(tx);
+        }
 
 
 

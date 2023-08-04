@@ -16,6 +16,12 @@
     <Compile Update="Controls\GraphicPinSelectorControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Controls\HSClockControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\HSCounterControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Controls\LiquidCrystalControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -76,6 +82,9 @@
     <Compile Update="Controls\SW18ABCapTouchControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Controls\ThroughputConsumerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Controls\TM1637Control.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -88,6 +97,9 @@
     <Compile Update="Controls\UserBufferControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Controls\VGA18ABControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Controls\WS2812Control.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -95,6 +107,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\DebounceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\HSClockForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\LiquidCrystalForm.cs">
@@ -109,6 +124,9 @@
     <Compile Update="Forms\SW18ABCapTouchForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\ThroughputConsumerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\TM1637Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +137,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\WS2812Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\HSCounterForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="PinStateMachineViewer.cs">

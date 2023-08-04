@@ -11,11 +11,11 @@ using SerialWombat;
 
 namespace SerialWombatWindowsFormsLibrary
 {
+
     public partial class WS2812Control : SerialWombatCodeGenerationControl
     {
         Label[] labelArray;
         int labelArrayLength = 128;
-        Label lBGoffRGB, lBGonRGB;
         SerialWombatChip SerialWombatChip;
         Byte Pin;
         SerialWombatWS2812 Ws2812;

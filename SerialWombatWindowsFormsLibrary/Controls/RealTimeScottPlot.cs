@@ -54,7 +54,15 @@ namespace SerialWombatWindowsFormsLibrary.Controls
         {
             try
             {
-
+                if (ckbPct.Checked)
+                {
+                    data /= 655.36;
+                }
+                else
+                {
+                    try { data = data * Convert.ToDouble(tbM.Text) + Convert.ToDouble(tbB.Text); } 
+                    catch { }
+                }
                 Raw16Data[datacount] = data;
                 signalPlot.maxRenderIndex = datacount;
                 if (datacount > 100)

@@ -76,6 +76,7 @@
             this.swpdsInput = new SerialWombatWindowsFormsLibrary.SerialWombatPublicDataControl();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.ckbScaledOutputEnable = new System.Windows.Forms.CheckBox();
+            this.sbsiFilterConstant2 = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tpPID.SuspendLayout();
@@ -128,6 +129,8 @@
             // sbsiInputMax
             // 
             this.sbsiInputMax.Location = new System.Drawing.Point(25, 75);
+            this.sbsiInputMax.Maximum = 65535;
+            this.sbsiInputMax.Minimum = 0;
             this.sbsiInputMax.Name = "sbsiInputMax";
             this.sbsiInputMax.Size = new System.Drawing.Size(328, 76);
             this.sbsiInputMax.TabIndex = 13;
@@ -139,6 +142,8 @@
             // sbsiInputMin
             // 
             this.sbsiInputMin.Location = new System.Drawing.Point(22, 6);
+            this.sbsiInputMin.Maximum = 65535;
+            this.sbsiInputMin.Minimum = 0;
             this.sbsiInputMin.Name = "sbsiInputMin";
             this.sbsiInputMin.Size = new System.Drawing.Size(328, 76);
             this.sbsiInputMin.TabIndex = 12;
@@ -202,6 +207,8 @@
             // sbsiKd
             // 
             this.sbsiKd.Location = new System.Drawing.Point(23, 134);
+            this.sbsiKd.Maximum = 65535;
+            this.sbsiKd.Minimum = 0;
             this.sbsiKd.Name = "sbsiKd";
             this.sbsiKd.Size = new System.Drawing.Size(311, 74);
             this.sbsiKd.TabIndex = 17;
@@ -213,6 +220,8 @@
             // sbsiKi
             // 
             this.sbsiKi.Location = new System.Drawing.Point(23, 63);
+            this.sbsiKi.Maximum = 65535;
+            this.sbsiKi.Minimum = 0;
             this.sbsiKi.Name = "sbsiKi";
             this.sbsiKi.Size = new System.Drawing.Size(311, 74);
             this.sbsiKi.TabIndex = 16;
@@ -254,6 +263,8 @@
             // sbsiKp
             // 
             this.sbsiKp.Location = new System.Drawing.Point(23, 6);
+            this.sbsiKp.Maximum = 65535;
+            this.sbsiKp.Minimum = 0;
             this.sbsiKp.Name = "sbsiKp";
             this.sbsiKp.Size = new System.Drawing.Size(311, 74);
             this.sbsiKp.TabIndex = 11;
@@ -265,6 +276,8 @@
             // sbsiPIDTarget
             // 
             this.sbsiPIDTarget.Location = new System.Drawing.Point(23, 214);
+            this.sbsiPIDTarget.Maximum = 65535;
+            this.sbsiPIDTarget.Minimum = 0;
             this.sbsiPIDTarget.Name = "sbsiPIDTarget";
             this.sbsiPIDTarget.Size = new System.Drawing.Size(311, 74);
             this.sbsiPIDTarget.TabIndex = 11;
@@ -313,6 +326,8 @@
             // sbsiHysLowOutput
             // 
             this.sbsiHysLowOutput.Location = new System.Drawing.Point(6, 76);
+            this.sbsiHysLowOutput.Maximum = 65535;
+            this.sbsiHysLowOutput.Minimum = 0;
             this.sbsiHysLowOutput.Name = "sbsiHysLowOutput";
             this.sbsiHysLowOutput.Size = new System.Drawing.Size(328, 84);
             this.sbsiHysLowOutput.TabIndex = 1;
@@ -324,6 +339,8 @@
             // sbsiHysInitialOutputValue
             // 
             this.sbsiHysInitialOutputValue.Location = new System.Drawing.Point(3, 298);
+            this.sbsiHysInitialOutputValue.Maximum = 65535;
+            this.sbsiHysInitialOutputValue.Minimum = 0;
             this.sbsiHysInitialOutputValue.Name = "sbsiHysInitialOutputValue";
             this.sbsiHysInitialOutputValue.Size = new System.Drawing.Size(328, 74);
             this.sbsiHysInitialOutputValue.TabIndex = 0;
@@ -335,6 +352,8 @@
             // sbsiHysHighOutputValue
             // 
             this.sbsiHysHighOutputValue.Location = new System.Drawing.Point(6, 229);
+            this.sbsiHysHighOutputValue.Maximum = 65535;
+            this.sbsiHysHighOutputValue.Minimum = 0;
             this.sbsiHysHighOutputValue.Name = "sbsiHysHighOutputValue";
             this.sbsiHysHighOutputValue.Size = new System.Drawing.Size(328, 74);
             this.sbsiHysHighOutputValue.TabIndex = 0;
@@ -345,6 +364,8 @@
             // sbsiHysHighLimit
             // 
             this.sbsiHysHighLimit.Location = new System.Drawing.Point(6, 156);
+            this.sbsiHysHighLimit.Maximum = 65535;
+            this.sbsiHysHighLimit.Minimum = 0;
             this.sbsiHysHighLimit.Name = "sbsiHysHighLimit";
             this.sbsiHysHighLimit.Size = new System.Drawing.Size(328, 67);
             this.sbsiHysHighLimit.TabIndex = 0;
@@ -356,6 +377,8 @@
             // sbsiHysLowLimit
             // 
             this.sbsiHysLowLimit.Location = new System.Drawing.Point(6, 6);
+            this.sbsiHysLowLimit.Maximum = 65535;
+            this.sbsiHysLowLimit.Minimum = 0;
             this.sbsiHysLowLimit.Name = "sbsiHysLowLimit";
             this.sbsiHysLowLimit.Size = new System.Drawing.Size(328, 78);
             this.sbsiHysLowLimit.TabIndex = 0;
@@ -401,6 +424,8 @@
             // sbsiTimeoutOutputValue
             // 
             this.sbsiTimeoutOutputValue.Location = new System.Drawing.Point(6, 98);
+            this.sbsiTimeoutOutputValue.Maximum = 65535;
+            this.sbsiTimeoutOutputValue.Minimum = 0;
             this.sbsiTimeoutOutputValue.Name = "sbsiTimeoutOutputValue";
             this.sbsiTimeoutOutputValue.Size = new System.Drawing.Size(328, 76);
             this.sbsiTimeoutOutputValue.TabIndex = 1;
@@ -411,6 +436,8 @@
             // sbsiTimeout_mS
             // 
             this.sbsiTimeout_mS.Location = new System.Drawing.Point(6, 16);
+            this.sbsiTimeout_mS.Maximum = 65535;
+            this.sbsiTimeout_mS.Minimum = 0;
             this.sbsiTimeout_mS.Name = "sbsiTimeout_mS";
             this.sbsiTimeout_mS.Size = new System.Drawing.Size(328, 76);
             this.sbsiTimeout_mS.TabIndex = 0;
@@ -428,6 +455,7 @@
             this.tpFiltering.Controls.Add(this.label7);
             this.tpFiltering.Controls.Add(this.bConfigureFiltering);
             this.tpFiltering.Controls.Add(this.edFilteringPeriod);
+            this.tpFiltering.Controls.Add(this.sbsiFilterConstant2);
             this.tpFiltering.Controls.Add(this.sbsiFilterConstant);
             this.tpFiltering.Location = new System.Drawing.Point(4, 24);
             this.tpFiltering.Name = "tpFiltering";
@@ -439,7 +467,7 @@
             // 
             // bWriteTarget
             // 
-            this.bWriteTarget.Location = new System.Drawing.Point(333, 410);
+            this.bWriteTarget.Location = new System.Drawing.Point(333, 431);
             this.bWriteTarget.Name = "bWriteTarget";
             this.bWriteTarget.Size = new System.Drawing.Size(54, 23);
             this.bWriteTarget.TabIndex = 23;
@@ -449,17 +477,20 @@
             // 
             // sbsiFilterTarget
             // 
-            this.sbsiFilterTarget.Location = new System.Drawing.Point(16, 383);
+            this.sbsiFilterTarget.Location = new System.Drawing.Point(16, 403);
+            this.sbsiFilterTarget.Maximum = 65535;
+            this.sbsiFilterTarget.Minimum = 0;
             this.sbsiFilterTarget.Name = "sbsiFilterTarget";
             this.sbsiFilterTarget.Size = new System.Drawing.Size(311, 74);
             this.sbsiFilterTarget.TabIndex = 22;
             this.sbsiFilterTarget.Text = "Target Value";
             this.sbsiFilterTarget.TextBoxHint = "The value the output will attempt to control the input to";
             this.sbsiFilterTarget.value = ((ushort)(0));
+            this.sbsiFilterTarget.Load += new System.EventHandler(this.sbsiFilterTarget_Load);
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(16, 320);
+            this.textBox6.Location = new System.Drawing.Point(16, 340);
             this.textBox6.Multiline = true;
             this.textBox6.Name = "textBox6";
             this.textBox6.ReadOnly = true;
@@ -470,7 +501,7 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(16, 183);
+            this.textBox5.Location = new System.Drawing.Point(16, 157);
             this.textBox5.Multiline = true;
             this.textBox5.Name = "textBox5";
             this.textBox5.ReadOnly = true;
@@ -481,7 +512,7 @@
             // 
             // bConfigureMaximumRate
             // 
-            this.bConfigureMaximumRate.Location = new System.Drawing.Point(86, 280);
+            this.bConfigureMaximumRate.Location = new System.Drawing.Point(86, 311);
             this.bConfigureMaximumRate.Name = "bConfigureMaximumRate";
             this.bConfigureMaximumRate.Size = new System.Drawing.Size(156, 23);
             this.bConfigureMaximumRate.TabIndex = 4;
@@ -492,7 +523,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(151, 253);
+            this.label7.Location = new System.Drawing.Point(154, 217);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(23, 15);
             this.label7.TabIndex = 3;
@@ -500,7 +531,7 @@
             // 
             // bConfigureFiltering
             // 
-            this.bConfigureFiltering.Location = new System.Drawing.Point(86, 154);
+            this.bConfigureFiltering.Location = new System.Drawing.Point(86, 128);
             this.bConfigureFiltering.Name = "bConfigureFiltering";
             this.bConfigureFiltering.Size = new System.Drawing.Size(156, 23);
             this.bConfigureFiltering.TabIndex = 2;
@@ -520,10 +551,12 @@
             // sbsiFilterConstant
             // 
             this.sbsiFilterConstant.Location = new System.Drawing.Point(6, 15);
+            this.sbsiFilterConstant.Maximum = 65535;
+            this.sbsiFilterConstant.Minimum = 0;
             this.sbsiFilterConstant.Name = "sbsiFilterConstant";
             this.sbsiFilterConstant.Size = new System.Drawing.Size(328, 76);
             this.sbsiFilterConstant.TabIndex = 0;
-            this.sbsiFilterConstant.Text = "filterConstant/maximumChangeCounts";
+            this.sbsiFilterConstant.Text = "filterConstant/maximumChangeCounts Up";
             this.sbsiFilterConstant.TextBoxHint = "";
             this.sbsiFilterConstant.value = ((ushort)(0));
             // 
@@ -553,6 +586,8 @@
             // sbsiOutputScalingMax
             // 
             this.sbsiOutputScalingMax.Location = new System.Drawing.Point(9, 84);
+            this.sbsiOutputScalingMax.Maximum = 65535;
+            this.sbsiOutputScalingMax.Minimum = 0;
             this.sbsiOutputScalingMax.Name = "sbsiOutputScalingMax";
             this.sbsiOutputScalingMax.Size = new System.Drawing.Size(328, 76);
             this.sbsiOutputScalingMax.TabIndex = 15;
@@ -563,6 +598,8 @@
             // sbsiOutputScalingMin
             // 
             this.sbsiOutputScalingMin.Location = new System.Drawing.Point(6, 15);
+            this.sbsiOutputScalingMin.Maximum = 65535;
+            this.sbsiOutputScalingMin.Minimum = 0;
             this.sbsiOutputScalingMin.Name = "sbsiOutputScalingMin";
             this.sbsiOutputScalingMin.Size = new System.Drawing.Size(328, 76);
             this.sbsiOutputScalingMin.TabIndex = 14;
@@ -592,6 +629,18 @@
         "ue is used as the setting for the output");
             this.ckbScaledOutputEnable.UseVisualStyleBackColor = true;
             this.ckbScaledOutputEnable.CheckedChanged += new System.EventHandler(this.ckbScaledOutputEnable_CheckedChanged);
+            // 
+            // sbsiFilterConstant2
+            // 
+            this.sbsiFilterConstant2.Location = new System.Drawing.Point(16, 235);
+            this.sbsiFilterConstant2.Maximum = 65535;
+            this.sbsiFilterConstant2.Minimum = 0;
+            this.sbsiFilterConstant2.Name = "sbsiFilterConstant2";
+            this.sbsiFilterConstant2.Size = new System.Drawing.Size(328, 76);
+            this.sbsiFilterConstant2.TabIndex = 0;
+            this.sbsiFilterConstant2.Text = "maximumChangeCountsDown";
+            this.sbsiFilterConstant2.TextBoxHint = "";
+            this.sbsiFilterConstant2.value = ((ushort)(0));
             // 
             // ScaledOutputControl
             // 
@@ -667,5 +716,6 @@
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Button bWriteTarget;
         private SixteenBitSliderInput sbsiFilterTarget;
+        private SixteenBitSliderInput sbsiFilterConstant2;
     }
 }
