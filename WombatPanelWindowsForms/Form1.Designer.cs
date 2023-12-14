@@ -486,7 +486,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Wombat Panel V1.2.0   Use with SW18AB firmware 2.1.0 or higher";
+            this.Text = "Wombat Panel V1.2.1   Use with SW18AB firmware 2.1.0 or higher";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

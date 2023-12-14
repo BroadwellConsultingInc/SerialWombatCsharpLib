@@ -291,8 +291,7 @@ namespace SerialWombat
         /// \param onRGB The color to use for LEDs lit by the bargraph
         /// \param min The public data value (or below) to be treated as the beginning of the bargraph
         /// \param max The public data value (or above) to be treated as the end of the bargraph
-
-        public Int16 barGraph(byte sourcePin, System.Drawing.Color offRGB, System.Drawing.Color onRGB, UInt16 min, UInt16 max)
+        public Int16 barGraph(byte sourcePin, UInt32 offRGB, UInt32 onRGB, UInt16 min, UInt16 max)
         {
             byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_MODE6, _pin, _pinMode, 3, sourcePin, 0x55, 0x55, 0x55 };
             Int16 result = 0;
@@ -304,5 +303,12 @@ namespace SerialWombat
             return _sw.sendPacket(minMax);
         }
 
+        public Int16 barGraph(byte sourcePin, System.Drawing.Color offRGB, System.Drawing.Color onRGB, UInt16 min, UInt16 max)
+        {
+            return barGraph(sourcePin, (UInt32)offRGB.ToArgb(), (UInt32)onRGB.ToArgb(), min, max);
+        }
     }
+
+      
+
 }

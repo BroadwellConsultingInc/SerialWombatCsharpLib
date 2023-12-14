@@ -1,4 +1,0 @@
-F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatArduinoExamples\SW_Cs_TM1637_FlashUI\obj\Debug\netcoreapp3.1\SW_Cs_TM1637_FlashUI.csproj.AssemblyReference.cache
-F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatArduinoExamples\SW_Cs_TM1637_FlashUI\obj\Debug\netcoreapp3.1\SW_Cs_TM1637_FlashUI.AssemblyInfoInputs.cache
-F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatArduinoExamples\SW_Cs_TM1637_FlashUI\obj\Debug\netcoreapp3.1\SW_Cs_TM1637_FlashUI.AssemblyInfo.cs
-F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatArduinoExamples\SW_Cs_TM1637_FlashUI\obj\Debug\netcoreapp3.1\SW_Cs_TM1637_FlashUI.csproj.CoreCompileInputs.cache
