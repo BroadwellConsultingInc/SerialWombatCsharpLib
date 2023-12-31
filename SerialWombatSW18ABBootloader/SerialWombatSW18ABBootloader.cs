@@ -14,6 +14,7 @@
         public bool Bootloading = false;
         public string status = "Not started";
         public string result = "Not completed";
+        public bool reset = true;
 
         uint baseAddr = 0x4000 * 2;
         uint length = (0x20000 - 0x4000) * 2;
@@ -23,9 +24,10 @@
             this.SerialWombatChip = serialWombatChip;
         }
 
-        public void bootload(string hexFile)
+        public void bootload(string hexFile, bool resetToBootloader = true)
         {           
             Bootloading = true;
+            reset = resetToBootloader;
             PercentDone = 0;
             status = "Not started";
             result = "Not completed";
@@ -42,23 +44,43 @@
         void threadfunc()
         {
             Bootloading = true;
-            status = "Erasing Programmed Marker";
-            SerialWombatChip.eraseFlashPage((UInt32)(0x1F800 * 2)); // Datasheet worst case is 40.
-            Thread.Sleep(50);
-            status = "EnteringBootMode";
-            //SerialWombatChip.sendPacketNoResponse("ReSeT!#*");
-            byte[] res = Encoding.ASCII.GetBytes("UUUUUUUUReSeT!#*UUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUU");
-            SerialWombatChip.Serial.write(res, res.Length);
-            //Thread.Sleep(0);
+            if (reset)
+            {
+                status = "Erasing Programmed Marker";
+                SerialWombatChip.eraseFlashPage((UInt32)(0x1F800 * 2)); // Datasheet worst case is 40.
+                Thread.Sleep(50);
+                status = "EnteringBootMode";
+                //SerialWombatChip.sendPacketNoResponse("ReSeT!#*");
+                byte[] res = Encoding.ASCII.GetBytes("UUUUUUUUReSeT!#*UUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUUBoOtLoAdUUUUUUUU");
+                SerialWombatChip.Serial.write(res, res.Length);
+                Thread.Sleep(500);
+            }
+            else
+            {
+                status = "Skipping reset...";
+            }
             DateTime dateTime = DateTime.Now;
                       Thread.Sleep(100);
             while (SerialWombatChip.Serial.read() >= 0) ;
+            bool inboot = false;
+            for (int i = 0; i < 10 && inboot == false; ++i)
+            {
+                SerialWombatChip.queryVersion();
 
-            SerialWombatChip.queryVersion();
-            if (SerialWombatChip.model[0] != (byte)'B')
+                if (SerialWombatChip.model[0] == (byte)'B')
+                {
+                    inboot = true;
+                }
+                else
+                {
+                    Thread.Sleep(100);
+                }
+            }
+            if (inboot == false)
             {
                 Bootloading = false;
                 result = "Failed to enter Boot Mode";
+                Thread.Sleep(1000);
                 return;
             }
             status = "In Boot Mode";

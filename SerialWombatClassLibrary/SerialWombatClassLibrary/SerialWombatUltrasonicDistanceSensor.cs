@@ -2,6 +2,7 @@
 using SerialWombat;
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 /*
 Copyright 2020-2023 Broadwell Consulting Inc.
 
@@ -53,8 +54,9 @@ namespace SerialWombat
     */
     public class SerialWombatUltrasonicDistanceSensor :  SerialWombatAbstractProcessedInput
     {
-        
 
+        private UInt16 servoMemoryIndex;
+        private UInt16 servoPositions;
         public SerialWombatUltrasonicDistanceSensor(SerialWombatChip serialWombatChip):base(serialWombatChip)
         {
             _pinMode = (byte)SerialWombatPinModes.PIN_MODE_ULTRASONIC_DISTANCE;
@@ -98,14 +100,64 @@ namespace SerialWombat
         ///
         /// Use this interface to trigger a reading if begin was called with autoTrigger = false
         /// \return 0 or higher if successful, negative error code if not successful.
-        Int16 manualTrigger()
+        public Int16 manualTrigger()
         {
             byte[] tx = { 201, _pin, _pinMode, 1, 0x55, 0x55, 0x55, 0x55 };
 
             return _sw.sendPacket(tx);
         }
 
+        /// \brief Configure a Servo sweep of Ultrasonic Distance Sensor
+        
+        public Int16 configureServoSweep(byte servoPin,UInt16 memoryIndex,UInt16 servoPositions,UInt16 servoIncrement, bool reverse = false,  UInt16 servoMoveDelay = 100, UInt16 servoReturnDelay = 1000)
+        {
+            {
+                byte[] tx = { 203, _pin, _pinMode, servoPin, (byte)(memoryIndex & 0xFF), (byte)(memoryIndex >>8),
+                (byte)(servoPositions & 0xFF),(byte)(servoPositions >>8)};
+                Int16 result = _sw.sendPacket(tx);
+                if (result < 0) { return result; }
+            }
+            {
+                byte[] tx = { 204, _pin, _pinMode,  (byte)(servoIncrement & 0xFF), (byte)(servoIncrement >>8),
+                0x55,0x55, (byte)(reverse?1:0)};
+                Int16 result = _sw.sendPacket(tx);
+                if (result < 0) { return result; }
+            }
+            {
+                byte[] tx = { 205, _pin, _pinMode,  (byte)(servoMoveDelay & 0xFF), (byte)(servoMoveDelay >>8),
+                (byte)(servoReturnDelay & 0xFF),(byte)(servoReturnDelay >>8), 0x55};
+                Int16 result = _sw.sendPacket(tx);
+                if (result < 0) { return result; }
+            }
+            servoMemoryIndex = memoryIndex;
+            this.servoPositions = servoPositions;
+            return 0;
+        }
+        public Int16 enableServoSweep(bool enable)
+        {
+            byte[] tx = { 206, _pin, _pinMode,  (byte)(enable?1:0),0x55,0x55,0x55, 0x55};
+           return _sw.sendPacket(tx);
+        }
 
+        public UInt16 readServoSweepEntry(UInt16 servoSweepEntry)
+        {
+            byte[] b = new byte[2];
+            _sw.readUserBuffer((UInt16)(servoMemoryIndex + 2 * servoSweepEntry), b, 2);
+            return ((UInt16)(b[0] + 256 * b[1]));
+        }
+
+        public UInt16[] readServoSweepEntries()
+        {
+            byte[] b = new byte[servoPositions * 2];
+            _sw.readUserBuffer(servoMemoryIndex, b,(UInt16)( 2 * servoPositions));
+            UInt16[] data = new UInt16[servoPositions];
+            for (int i = 0; i < data.Length; i++)
+            {
+                data[i] = (UInt16)(b[i * 2] + 256 * b[i * 2 + 1]);
+            }
+
+            return data;
+        }
     }
 
 

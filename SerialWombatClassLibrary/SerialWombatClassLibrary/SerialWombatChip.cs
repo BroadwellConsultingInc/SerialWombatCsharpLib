@@ -37,6 +37,8 @@ namespace SerialWombat
 
         public Int16 lastErrorCode = 0;
 
+
+
         public SerialWombatChip()
         {
             Serial = new ArduinoSerial();
@@ -321,6 +323,7 @@ namespace SerialWombat
 
             model = rx.Skip(1).Take(3).ToArray();
             fwVersion = rx.Skip(5).Take(3).ToArray();
+            inBoot = rx[1] == 'B';
             return (version);
         }
 

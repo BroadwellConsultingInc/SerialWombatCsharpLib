@@ -46,7 +46,7 @@ namespace SerialWombat
         {
 
             
-
+            // Replace any strings
             Regex str = new Regex("(.*)\"([^'].*?)\"(.*)");
 
             Match m = str.Match(s);
@@ -64,6 +64,7 @@ namespace SerialWombat
                 m = str.Match(s);
             }
 
+            // Replace any Single quotes
             Regex quote = new Regex("(.*)'(.)'(.*)");
             m = quote.Match(s);
             while (m.Success)

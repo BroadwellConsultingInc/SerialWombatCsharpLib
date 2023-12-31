@@ -52,8 +52,10 @@
             this.selectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiDownloadNewHexFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.bLDownloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiReadRam = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiCArray = new System.Windows.Forms.ToolStripMenuItem();
+            this.sendStayInBootToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.indexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,8 +77,8 @@
             this.bReset = new System.Windows.Forms.Button();
             this.bSourceVoltage = new System.Windows.Forms.Button();
             this.bResync = new System.Windows.Forms.Button();
-            this.graphicPinSelectorControl1 = new SerialWombatWindowsFormsLibrary.GraphicPinSelectorControl();
             this.tbCodeGeneration = new System.Windows.Forms.TextBox();
+            this.graphicPinSelectorControl1 = new SerialWombatWindowsFormsLibrary.GraphicPinSelectorControl();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -260,8 +262,10 @@
             // 
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiDownloadNewHexFile,
+            this.bLDownloadToolStripMenuItem,
             this.tsmiReadRam,
-            this.tsmiCArray});
+            this.tsmiCArray,
+            this.sendStayInBootToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.toolsToolStripMenuItem.Text = "&Tools";
@@ -272,6 +276,13 @@
             this.tsmiDownloadNewHexFile.Size = new System.Drawing.Size(203, 22);
             this.tsmiDownloadNewHexFile.Text = "Download New Hex File";
             this.tsmiDownloadNewHexFile.Click += new System.EventHandler(this.tsmiDownloadNewHexFile_Click_1);
+            // 
+            // bLDownloadToolStripMenuItem
+            // 
+            this.bLDownloadToolStripMenuItem.Name = "bLDownloadToolStripMenuItem";
+            this.bLDownloadToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.bLDownloadToolStripMenuItem.Text = "BL Download";
+            this.bLDownloadToolStripMenuItem.Click += new System.EventHandler(this.bLDownloadToolStripMenuItem_Click);
             // 
             // tsmiReadRam
             // 
@@ -286,6 +297,13 @@
             this.tsmiCArray.Size = new System.Drawing.Size(203, 22);
             this.tsmiCArray.Text = "Create C Array from Hex";
             this.tsmiCArray.Click += new System.EventHandler(this.tsmiCArray_Click_1);
+            // 
+            // sendStayInBootToolStripMenuItem
+            // 
+            this.sendStayInBootToolStripMenuItem.Name = "sendStayInBootToolStripMenuItem";
+            this.sendStayInBootToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.sendStayInBootToolStripMenuItem.Text = "Send Stay In Boot";
+            this.sendStayInBootToolStripMenuItem.Click += new System.EventHandler(this.sendStayInBootToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -452,16 +470,6 @@
             this.bResync.UseVisualStyleBackColor = true;
             this.bResync.Click += new System.EventHandler(this.bResync_Click);
             // 
-            // graphicPinSelectorControl1
-            // 
-            this.graphicPinSelectorControl1.AutoSize = true;
-            this.graphicPinSelectorControl1.Enabled = false;
-            this.graphicPinSelectorControl1.Location = new System.Drawing.Point(806, 47);
-            this.graphicPinSelectorControl1.Model = SerialWombat.SerialWombatModel.SerialWombat18AB;
-            this.graphicPinSelectorControl1.Name = "graphicPinSelectorControl1";
-            this.graphicPinSelectorControl1.Size = new System.Drawing.Size(276, 509);
-            this.graphicPinSelectorControl1.TabIndex = 5;
-            // 
             // tbCodeGeneration
             // 
             this.tbCodeGeneration.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -471,6 +479,15 @@
             this.tbCodeGeneration.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tbCodeGeneration.Size = new System.Drawing.Size(731, 104);
             this.tbCodeGeneration.TabIndex = 1;
+            // 
+            // graphicPinSelectorControl1
+            // 
+            this.graphicPinSelectorControl1.AutoSize = true;
+            this.graphicPinSelectorControl1.Location = new System.Drawing.Point(777, 27);
+            this.graphicPinSelectorControl1.Model = SerialWombat.SerialWombatModel.SerialWombat18AB;
+            this.graphicPinSelectorControl1.Name = "graphicPinSelectorControl1";
+            this.graphicPinSelectorControl1.Size = new System.Drawing.Size(208, 444);
+            this.graphicPinSelectorControl1.TabIndex = 5;
             // 
             // Form1
             // 
@@ -486,7 +503,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Wombat Panel V1.2.1   Use with SW18AB firmware 2.1.0 or higher";
+            this.Text = "Wombat Panel V1.2.2";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -539,7 +556,6 @@
         private System.Windows.Forms.ToolStripMenuItem portOpenI2CBridgeMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tsmiCArray;
         private System.Windows.Forms.Button bResync;
-        private SerialWombatWindowsFormsLibrary.GraphicPinSelectorControl graphicPinSelectorControl1;
         private System.Windows.Forms.TextBox tbCodeGeneration;
         private System.Windows.Forms.ToolStripMenuItem tsmiResetSWCOnOpen;
         private System.Windows.Forms.ToolStripMenuItem commandCaptureToolStripMenuItem;
@@ -547,6 +563,9 @@
         private System.Windows.Forms.ToolStripMenuItem cancelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stopAndStoreToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem readToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sendStayInBootToolStripMenuItem;
+        private SerialWombatWindowsFormsLibrary.GraphicPinSelectorControl graphicPinSelectorControl1;
+        private System.Windows.Forms.ToolStripMenuItem bLDownloadToolStripMenuItem;
     }
 }
 

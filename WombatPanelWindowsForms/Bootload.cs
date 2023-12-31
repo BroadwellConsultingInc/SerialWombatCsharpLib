@@ -19,15 +19,16 @@ namespace WombatPanelWindowsForms
     {
         SerialWombatSW18ABBootloaderClient bl;
         private delegate void SafeCallDelegate();
-        public Bootload(string filename, SerialWombatChip serialWombatChip)
+
+        public bool alreadyInBoot = false;
+        public Bootload(string filename, SerialWombatChip serialWombatChip, bool resetBeforeLoading = true)
         {
             InitializeComponent();
             Text = $"Bootload {filename}";
 
             bl = new SerialWombatSW18ABBootloaderClient(serialWombatChip); 
-            bl.bootload(filename);
-            Thread t = new Thread(updateThread);
-            t.Start();
+            bl.bootload(filename, resetBeforeLoading);
+           
 
         }
         private String status = "";
@@ -82,6 +83,12 @@ namespace WombatPanelWindowsForms
                 }
                 progressBar1.Value = pctDonei;
             }
+        }
+
+        private void Bootload_Load(object sender, EventArgs e)
+        {
+            Thread t = new Thread(updateThread);
+            t.Start();
         }
     }
 }

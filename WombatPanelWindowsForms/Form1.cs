@@ -41,7 +41,7 @@ namespace WombatPanelWindowsForms
                 gbHeight = gb.Height + 2;
             }
 
-            graphicPinSelectorControl1.codeGeneration = codeGenerationHandler;
+            
         }
 
         private void codeGenerationHandler(CodeGeneratedEventArgs e)
@@ -280,7 +280,13 @@ namespace WombatPanelWindowsForms
                         if (sw.isSW18())
                         {
                             int ver = (b[4] - 0x30) * 100 + (b[5] - 0x30) * 10 + b[6] - 0x30;
-                            if (ver < 208)
+
+                            if (sw.inBoot)
+                            {
+                                MessageBox.Show($"This Serial Wombat chip is in bootloader mode.  Upload a hex file through the tools menu.  Most Wombat Panel operations will not work.");
+                            }
+                            
+                            else if (ver < 208)
                             {
                                 MessageBox.Show($"This Serial Wombat chip is using firmware version {(char)b[4]}.{(char)b[5]}.{(char)b[6]}   .  Version 2.1.0 or later is required for all features to work correctly.  See https://youtu.be/q7ls-lMaL80 ");
                             }
@@ -367,7 +373,7 @@ namespace WombatPanelWindowsForms
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           
+            graphicPinSelectorControl1.codeGeneration = codeGenerationHandler;
         }
 
         private void tsmiReadRam_Click_1(object sender, EventArgs e)
@@ -385,7 +391,7 @@ namespace WombatPanelWindowsForms
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 Bootload blf = new Bootload(ofd.FileName,ChipList.Last());
-
+                blf.alreadyInBoot = false;
                 
                 blf.Show();
             }
@@ -417,6 +423,29 @@ namespace WombatPanelWindowsForms
         {
             StartupCommandsViewer scv = new StartupCommandsViewer(ChipList.Last());
             scv.Show();
+        }
+
+        private void sendStayInBootToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < 1000; ++i)
+            {
+                ChipList.Last().sendPacketNoResponse("UUUUUUUU");
+                ChipList.Last().sendPacketNoResponse("BoOtLoAd");
+                Thread.Sleep(5);
+            }
+        }
+
+        private void bLDownloadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SerialWombatSW18ABBootloaderClient bl =
+               new SerialWombatSW18ABBootloaderClient(ChipList.Last());
+            OpenFileDialog ofd = new OpenFileDialog();
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                Bootload blf = new Bootload(ofd.FileName, ChipList.Last(), false);
+
+                blf.Show();
+            }
         }
     }
 }

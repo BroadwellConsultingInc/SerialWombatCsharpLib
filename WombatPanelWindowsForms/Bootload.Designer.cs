@@ -58,6 +58,7 @@
             this.Controls.Add(this.progressBar1);
             this.Name = "Bootload";
             this.Text = "Bootload";
+            this.Load += new System.EventHandler(this.Bootload_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
