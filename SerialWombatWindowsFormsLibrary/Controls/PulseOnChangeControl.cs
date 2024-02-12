@@ -14,7 +14,7 @@ namespace SerialWombatWindowsFormsLibrary
     public partial class PulseOnChangeControl : UserControl
     {
         SerialWombatChip SerialWombatChip;
-        byte Pin;
+        public byte Pin;
         SerialWombatPulseOnChange PulseOnChange;
         public PulseOnChangeControl()
         {
@@ -105,7 +105,7 @@ namespace SerialWombatWindowsFormsLibrary
 
                 case PulseOnChangeModes.PULSE_BELOW_PIN:
                     {
-                        sbsiParam2.Enabled = false; 
+                        sbsiParam2.Enabled = false;
                         swpdcSecondSource.Enabled = true;
                     }
                     break;
@@ -282,5 +282,158 @@ namespace SerialWombatWindowsFormsLibrary
 
             }
         }
+
+        private void bGenCode_Click(object sender, EventArgs e)
+        {
+            string s =
+@$"
+                //Put this line before setup()
+                SerialWombatPulseOnChange {Name}(sw); // Your serial wombat chip may be named something else than sw
+                //Add this line to  setup():
+                {Name}.begin({Pin}, 
+                  {(SerialWombatPinStates)edActive.selectedItem},
+                  {(SerialWombatPinStates)edInactive.selectedItem},
+                {sbsiActiveTime.value},
+                 {sbsiInactiveTime.value},
+                 {rbLogicalOr.Checked},
+                {sbsiPWMPeriod.value},
+                 {sbsiDutyCycle.value});
+";
+            s = s.Replace("True", "true");
+            s = s.Replace("False", "false");
+            Clipboard.SetText(s);
+        }
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string s =
+@$"
+
+                //Add this line to  setup():
+";
+              switch ((PulseOnChangeModes)edMode.selectedItem)
+            {
+                case PulseOnChangeModes.PULSE_ON_CHANGE:
+                    {
+                        s += $"{Name}.setEntryOnChange({(byte)cbEntry.SelectedIndex}, {swpdcFirstSource.DataSourceValue});";
+                    }
+                    break;
+                case PulseOnChangeModes.PULSE_ON_INCREASE:
+                    {
+                        s += $"{Name}.setEntryOnIncrease({(byte)cbEntry.SelectedIndex},{swpdcFirstSource.DataSourceValue});";
+                    }
+                    break;
+
+
+                case PulseOnChangeModes.PULSE_ON_DECREASE:
+                    {
+                        s += $"{Name}.setEntryOnDecrease({(byte)cbEntry.SelectedIndex}, {swpdcFirstSource.DataSourceValue});";
+                    }
+                    break;
+
+
+                case PulseOnChangeModes.PULSE_EQUAL_VALUE:
+                    {
+                        s += $"{Name}.setEntryOnEqualValue({(byte)cbEntry.SelectedIndex}, {swpdcFirstSource.DataSourceValue}, {sbsiParam1.value});";
+                    }
+                    break;
+
+
+                case PulseOnChangeModes.PULSE_BELOW_VALUE:
+                    {
+                        s += $"{Name}.setEntryOnLessThanValue({(byte)cbEntry.SelectedIndex}, {swpdcFirstSource.DataSourceValue}, {sbsiParam1.value});";
+                    }
+                    break;
+
+
+                case PulseOnChangeModes.PULSE_ABOVE_VALUE:
+                    {
+                        s += $"{Name}.setEntryOnGreaterThanValue({(byte)cbEntry.SelectedIndex}, {swpdcFirstSource.DataSourceValue}, {sbsiParam1.value});";
+                    }
+                    break;
+
+
+                case PulseOnChangeModes.PULSE_NOT_EQUAL_VALUE:
+                    {
+                        s += $"{Name}.setEntryOnNotEqualValue({(byte)cbEntry.SelectedIndex},{ swpdcFirstSource.DataSourceValue}, {sbsiParam1.value});";
+                    }
+                    break;
+
+
+                case PulseOnChangeModes.PULSE_EQUAL_PIN:
+                    {
+                        s += $"{Name}.setEntryOnPinsEqual({(byte)cbEntry.SelectedIndex}, {swpdcFirstSource.DataSourceValue}, {swpdcSecondSource.DataSourceValue});";
+                    }
+                    break;
+
+
+                case PulseOnChangeModes.PULSE_ABOVE_PIN:
+                    {
+                        s += $"{Name}.setEntryOnPinGreaterThanPin({(byte)cbEntry.SelectedIndex}, {swpdcFirstSource.DataSourceValue}, {swpdcSecondSource.DataSourceValue});";
+
+                    }
+                    break;
+
+
+                case PulseOnChangeModes.PULSE_BELOW_PIN:
+                    {
+                        s += $"{Name}.setEntryOnPinLessThanPin({(byte)cbEntry.SelectedIndex}, {swpdcFirstSource.DataSourceValue}, {swpdcSecondSource.DataSourceValue});";
+                    }
+                    break;
+
+
+                case PulseOnChangeModes.PULSE_NOT_EQUAL_PIN:
+                    {
+                        s += $"{Name}.setEntryOnPinsNotEqual({(byte)cbEntry.SelectedIndex}, {swpdcFirstSource.DataSourceValue}, {swpdcSecondSource.DataSourceValue});";
+                    }
+                    break;
+
+                    /*
+                case PulseOnChangeModes.PULSE_CROSS_VALUE:
+                    {
+
+                    }
+                    break;
+
+
+                case PulseOnChangeModes.PULSE_CROSS_VALUE_ASCENDING:
+                    {
+
+                    }
+                    break;
+
+
+                case PulseOnChangeModes.PULSE_CROSS_VALUE_DESCENDING:
+                    {
+
+                    }
+                    break;
+
+
+                case PulseOnChangeModes.PULSE_WITHIN_RANGE:
+                    {
+
+                    }
+                    break;
+
+
+                case PulseOnChangeModes.PULSE_OUTSIDE_RANGE:
+                    {
+
+                    }
+                    break;
+                    */
+
+                  
+                }
+            s += Environment.NewLine;
+            if (Clipboard.ContainsText())
+            {
+                s = Clipboard.GetText() + s;
+            }
+            Clipboard.SetText(s);
+        }
+
     }
 }

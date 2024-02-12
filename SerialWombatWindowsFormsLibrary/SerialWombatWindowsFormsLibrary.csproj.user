@@ -16,6 +16,9 @@
     <Compile Update="Controls\GraphicPinSelectorControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Controls\HBridgeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Controls\HSClockControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -32,6 +35,9 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Controls\MemoryPageEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\PIDControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Controls\ProcessedInputControl.cs">
@@ -109,6 +115,9 @@
     <Compile Update="Forms\DebounceForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\HBridgeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\HSClockForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,7 +127,13 @@
     <Compile Update="Forms\MatrixKeypadForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\PIDForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\PulseOnChangeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\SingleLineTextEntryForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\SW18ABCapTouchForm.cs">

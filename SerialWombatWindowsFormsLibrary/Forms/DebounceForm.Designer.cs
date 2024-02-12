@@ -39,6 +39,7 @@
             this.ckbAuto = new System.Windows.Forms.CheckBox();
             this.ckbInvert = new System.Windows.Forms.CheckBox();
             this.ckbPullUp = new System.Windows.Forms.CheckBox();
+            this.bRename = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -156,11 +157,22 @@
             this.ckbPullUp.Text = "Pull Up Enabled";
             this.ckbPullUp.UseVisualStyleBackColor = true;
             // 
+            // bRename
+            // 
+            this.bRename.Location = new System.Drawing.Point(14, 218);
+            this.bRename.Name = "bRename";
+            this.bRename.Size = new System.Drawing.Size(75, 23);
+            this.bRename.TabIndex = 1;
+            this.bRename.Text = "Rename";
+            this.bRename.UseVisualStyleBackColor = true;
+            this.bRename.Click += new System.EventHandler(this.bRename_Click);
+            // 
             // DebounceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(231, 217);
+            this.ClientSize = new System.Drawing.Size(231, 255);
+            this.Controls.Add(this.bRename);
             this.Controls.Add(this.groupBox1);
             this.Name = "DebounceForm";
             this.Text = "DebounceForm";
@@ -184,5 +196,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button bConfigure;
+        private System.Windows.Forms.Button bRename;
     }
 }

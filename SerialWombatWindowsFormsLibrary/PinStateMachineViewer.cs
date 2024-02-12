@@ -167,7 +167,7 @@ namespace SerialWombatWindowsFormsLibrary
         {
             byte[] data;
 
-            data = _sw.readPinStateMachineBytes(Convert.ToByte(tbPin.Text), 64);
+            data = _sw.readPinStateMachineBytes(Convert.ToByte(tbPin.Text), 96);
        
 
             foreach (var vc in VariableControls)

@@ -46,6 +46,7 @@
             this.Controls.Add(this.comboBox1);
             this.Name = "SerialWombatPublicDataControl";
             this.Size = new System.Drawing.Size(286, 35);
+            this.Resize += new System.EventHandler(this.SerialWombatPublicDataControl_Resize);
             this.ResumeLayout(false);
 
         }

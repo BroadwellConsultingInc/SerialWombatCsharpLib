@@ -120,5 +120,15 @@ namespace SerialWombatWindowsFormsLibrary
                 bRead.Enabled = true;
             }
         }
+
+        private void bRename_Click(object sender, EventArgs e)
+        {
+            SingleLineTextEntryForm sltef = new SingleLineTextEntryForm("Name Form", "Add a name for this form:");
+            sltef.ShowDialog();
+            if (sltef.Success)
+            {
+                this.Text = $"{sltef.outputString} Quad Enc on pins {QuadratureEncoder.Pin}, {QuadratureEncoder.SecondPin}";
+            }
+        }
     }
 }

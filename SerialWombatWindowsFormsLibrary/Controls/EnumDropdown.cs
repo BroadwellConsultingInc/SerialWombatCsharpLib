@@ -57,5 +57,10 @@ namespace SerialWombatWindowsFormsLibrary
         {
             SelectedEnumChanged?.Invoke(this, e);
         }
+
+        private void EnumDropdown_Resize(object sender, EventArgs e)
+        {
+            comboBox1.Width = Width - Margin.Right;
+        }
     }
 }

@@ -24,6 +24,7 @@ namespace SerialWombatWindowsFormsLibrary
 
                 this.Text = $"Servo on pin {pin} on Serial Wombat Chip on {serialWombatChip.Serial.Port.PortName}";
             
+            
         }
         public ServoControl()
         {
@@ -39,6 +40,7 @@ namespace SerialWombatWindowsFormsLibrary
             groupBox1.Text = "";
 
             this.Text = $"Servo on pin {pin} on Serial Wombat Chip on {serialWombatChip.Serial.Port.PortName}";
+            Name = $"Pin{Pin}Servo";
         }
         public void bConfigure_Click(object sender, EventArgs e)
         {
@@ -100,6 +102,28 @@ namespace SerialWombatWindowsFormsLibrary
                 }
                 catch { }
             } }
+        
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string servoType = "SerialWombatServo";
+            if (Servo._sw.isSW18())
+            {
+                servoType = "SerialWombatServo_18AB";
+            }
+            string s =
+            @$"
+                //Put this line before setup()
+                {servoType} {Name}(sw); // Your serial wombat chip may be named something else than sw
+                //Add this line to  setup():
+                  {Name}.attach({Pin},//Pin
+                {Convert.ToUInt16(tbFixedTime.Text)}, //Minimum Pulse Time
+     {(UInt16)(Convert.ToUInt16(tbVariableTime.Text) + Convert.ToUInt16(tbFixedTime.Text))}, //MaximumPulse time
+        {ckbReverse.Checked});  //Reverse";
+            s = s.Replace("True", "true");
+            s = s.Replace("False", "false");
+            Clipboard.SetText(s);
 
+
+        }
     }
 }

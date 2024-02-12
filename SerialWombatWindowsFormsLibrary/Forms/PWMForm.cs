@@ -117,6 +117,16 @@ namespace SerialWombatWindowsFormsLibrary
         {
             lDutyCycle.Text = $"{ (double)trackBar1.Value / 65536} %";
         }
+
+        private void bRename_Click(object sender, EventArgs e)
+        {
+            SingleLineTextEntryForm sltef = new SingleLineTextEntryForm("Name Form", "Add a name for this form:");
+            sltef.ShowDialog();
+            if (sltef.Success)
+            {
+                this.Text = $"{sltef.outputString} PWM on pin {Pwm.Pin}";
+            }
+        }
     }
 
 

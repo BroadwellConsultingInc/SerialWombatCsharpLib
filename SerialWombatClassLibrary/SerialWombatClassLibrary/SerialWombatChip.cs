@@ -1089,6 +1089,14 @@ namespace SerialWombat
             Port.DtrEnable = true; // Added for compatibility with Seeeduino Xiao
             Port.Open();
             Port.ReadTimeout = 20;
+            Port.Write("UUUUUUUU");
+            int bytesToRead = Port.BytesToRead;
+            while (bytesToRead > 0)
+            {
+                byte[] bytes = new byte[bytesToRead];
+                Port.Read(bytes, 0, bytesToRead);
+                bytesToRead = Port.BytesToRead;
+            }
             Pool.Release(1);
         }
 

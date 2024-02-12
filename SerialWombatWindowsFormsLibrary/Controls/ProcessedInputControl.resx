@@ -57,6 +57,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <data name="textBox2.Text" xml:space="preserve">
     <value>Sets input value ranges which are discarded rather than processed
 
@@ -111,6 +114,17 @@ then call writeProcessedInputEnable(true) to enable processing.</value>
   <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="textBox4.Text" xml:space="preserve">
+    <value>Scale incoming values to a range of 0 to 65535
+
+This function allows configuration of an input scaling range that maps to 0-65535.  
+For example, if a sensor returns a range from 2000 to 5000, setting the minimum to 2000 and
+maximum to 5000 will cause values below 2000 to be 0, values above 5000 to be 65535, and values
+in between will be scaled accordingly.  This allows a sensor or other input device to scale to the
+Serial Wombat philosophy of using a 16 bit resolution number to represent the the possible range of values
+
+Calling this feature disables writeTransformLinearMXB until the pin is reinitialized with begin().</value>
+  </data>
   <data name="textBox5.Text" xml:space="preserve">
     <value>Scale incoming values based on an mx+b linear equation
 
@@ -125,19 +139,34 @@ Calling this feature disables writeTransformScaleRange until the pin is reinitia
 \param b A value between -65535 and 65535 to add to the result of the multiplication
 \return returns 0 or higher if success, or a negative error code</value>
   </data>
-  <data name="textBox4.Text" xml:space="preserve">
-    <value>Scale incoming values to a range of 0 to 65535
+  <data name="textBox10.Text" xml:space="preserve">
+    <value>Scale incoming values based on an mx+b linear equation
 
-This function allows configuration of an input scaling range that maps to 0-65535.  
-For example, if a sensor returns a range from 2000 to 5000, setting the minimum to 2000 and
-maximum to 5000 will cause values below 2000 to be 0, values above 5000 to be 65535, and values
-in between will be scaled accordingly.  This allows a sensor or other input device to scale to the
-Serial Wombat philosophy of using a 16 bit resolution number to represent the the possible range of values
+Allows positive or negative integration of an input value on a scaled basis.
 
-Calling this feature disables writeTransformLinearMXB until the pin is reinitialized with begin().</value>
+This function is designed to allow a variable input such as a potentiometer to provide a number which can be incremented or decremented by the user, for instance a joystick.
+
+The function is designed to provide 5 regions of operation:  
+- negative fast itnegration (lowest input values)
+- negative slow integration
+- dead zone that does not modify the output
+- positive slow integration
+- positive fast integration
+
+Calibration constants allow the user to specify what input values fall into what regions.  
+The slow and fast integration values are also specified.
+Between the dead zone range and slow integration range the slow integration value is linearly scaled from 0 to the slow integration value
+Between slow integration range and maximum high integration range the high integration value is linearly scaled from the slow integration value to the high integration value.
+Outside of the maximum integration range the high integration value is used.
+
+Integration occurs every 64mS.</value>
   </data>
-  <data name="textBox8.Text" xml:space="preserve">
-    <value>When ProcessedInput is enabled the ProcessedInputModule keeps track of the minimum and maximum values of the public output.  These values can be read by the host.  They can optionally be reset after reading.</value>
+  <data name="textBox6.Text" xml:space="preserve">
+    <value>Set a number of samples to average for each update of the downstream signal
+
+The average is a typical average, not a moving average so the more samples comprise the averaged value
+the less often the downstream value will update.  Samples are typically taken each mS, although some modes such as SerialWombatUltrasonicDistanceSensor or Pulse Measurement 
+sample at other periods.</value>
   </data>
   <data name="textBox7.Text" xml:space="preserve">
     <value>Set a first order filtering constant to be applied to the signal  Higher is heavier filtering
@@ -156,10 +185,7 @@ Some filter cut-off (3dB down) frequency and constant values:
 Filtering adds lag.  The higher the filter constant value, the longer it takes for the filter to settle 
 when given a steady input.</value>
   </data>
-  <data name="textBox6.Text" xml:space="preserve">
-    <value>Set a number of samples to average for each update of the downstream signal
-
-The average is a typical average, not a moving average so the more samples comprise the averaged value
-the less often the downstream value will update.  Samples are typically taken each mS, although some modes such as SerialWombatUltrasonicDistanceSensor sample at other periods.</value>
+  <data name="textBox8.Text" xml:space="preserve">
+    <value>When ProcessedInput is enabled the ProcessedInputModule keeps track of the minimum and maximum values of the public output.  These values can be read by the host.  They can optionally be reset after reading.</value>
   </data>
 </root>

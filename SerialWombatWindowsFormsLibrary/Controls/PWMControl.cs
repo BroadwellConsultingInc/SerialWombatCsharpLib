@@ -101,5 +101,7 @@ namespace SerialWombatWindowsFormsLibrary.Controls
         
             bSetDutyCycle_Click(null, null);
         }
+
+
     }
 }

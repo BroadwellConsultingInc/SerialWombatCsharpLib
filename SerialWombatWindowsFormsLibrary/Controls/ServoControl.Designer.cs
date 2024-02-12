@@ -42,6 +42,7 @@
             this.tbVariableTime = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.gbConfigure = new System.Windows.Forms.GroupBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.groupBox1.SuspendLayout();
             this.gbConfigure.SuspendLayout();
@@ -168,13 +169,14 @@
             this.groupBox1.Controls.Add(this.bSetPosition);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(300, 236);
+            this.groupBox1.Size = new System.Drawing.Size(300, 258);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
             // gbConfigure
             // 
+            this.gbConfigure.Controls.Add(this.button4);
             this.gbConfigure.Controls.Add(this.label5);
             this.gbConfigure.Controls.Add(this.tbVariableTime);
             this.gbConfigure.Controls.Add(this.tbSignalPeriod);
@@ -186,10 +188,21 @@
             this.gbConfigure.Controls.Add(this.ckbInvertSignal);
             this.gbConfigure.Location = new System.Drawing.Point(10, 85);
             this.gbConfigure.Name = "gbConfigure";
-            this.gbConfigure.Size = new System.Drawing.Size(284, 129);
+            this.gbConfigure.Size = new System.Drawing.Size(284, 151);
             this.gbConfigure.TabIndex = 10;
             this.gbConfigure.TabStop = false;
             this.gbConfigure.Text = "Configure";
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.MediumPurple;
+            this.button4.Location = new System.Drawing.Point(105, 98);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(45, 47);
+            this.button4.TabIndex = 29;
+            this.button4.Text = "Gen Code";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // trackBar1
             // 
@@ -210,7 +223,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.groupBox1);
             this.Name = "ServoControl";
-            this.Size = new System.Drawing.Size(306, 242);
+            this.Size = new System.Drawing.Size(306, 264);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.gbConfigure.ResumeLayout(false);
@@ -238,5 +251,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.GroupBox gbConfigure;
+        private System.Windows.Forms.Button button4;
     }
 }

@@ -39,19 +39,22 @@
             // 
             // tbValue
             // 
-            this.tbValue.Location = new System.Drawing.Point(22, 20);
+            this.tbValue.Location = new System.Drawing.Point(6, 14);
             this.tbValue.Name = "tbValue";
-            this.tbValue.Size = new System.Drawing.Size(100, 23);
+            this.tbValue.Size = new System.Drawing.Size(77, 23);
             this.tbValue.TabIndex = 4;
             this.tbValue.Text = "0";
+            this.tbValue.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbValue_KeyDown);
+            this.tbValue.Leave += new System.EventHandler(this.tbValue_Leave);
             // 
             // trackBar1
             // 
-            this.trackBar1.Location = new System.Drawing.Point(128, 14);
+            this.trackBar1.Location = new System.Drawing.Point(89, 14);
             this.trackBar1.Maximum = 65535;
             this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(182, 45);
+            this.trackBar1.Size = new System.Drawing.Size(221, 45);
             this.trackBar1.TabIndex = 3;
+            this.trackBar1.TabStop = false;
             this.trackBar1.TickFrequency = 4096;
             this.trackBar1.ValueChanged += new System.EventHandler(this.trackBar1_ValueChanged);
             // 
@@ -73,6 +76,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "SixteenBitSliderInput";
             this.Size = new System.Drawing.Size(328, 76);
+            this.Resize += new System.EventHandler(this.SixteenBitSliderInput_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -16,7 +16,6 @@ namespace SerialWombatWindowsFormsLibrary
         SerialWombatChip SerialWombatChip;
         byte Pin;
 
-        CodeGenerationDelegate CodeGenerationDelegate;
         public MatrixKeypadForm(SerialWombatChip serialWombatChip, byte pin, CodeGenerationDelegate codeGenerationDelegate)
         {
             InitializeComponent();
@@ -25,21 +24,27 @@ namespace SerialWombatWindowsFormsLibrary
             Pin = pin;
             matrixKeypadControl1.begin(serialWombatChip, pin);
             Text = $"Pin {pin} Matrix Keypad";
-            CodeGenerationDelegate = codeGenerationDelegate;
-            matrixKeypadControl1.CodeGeneration += MatrixKeypadControl1_CodeGeneration;
+
+            matrixKeypadControl1.Name = $"Pin{pin}Keypad";
         }
 
-        private void MatrixKeypadControl1_CodeGeneration(object sender, EventArgs e)
-        {
-            if (CodeGenerationDelegate != null)
-            {
-                CodeGenerationDelegate((CodeGeneratedEventArgs) e);
-            }
-        }
+  
 
         private void MatrixKeypadForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             matrixKeypadControl1.end();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SingleLineTextEntryForm sltef = new SingleLineTextEntryForm("Name Form", "Add a name for this form:");
+            sltef.ShowDialog();
+            if (sltef.Success)
+            {
+                this.Text = $"{sltef.outputString} Analog Measurement on pin {matrixKeypadControl1.Pin}";
+                matrixKeypadControl1.Name = sltef.outputString;
+               
+            }
         }
     }
 }

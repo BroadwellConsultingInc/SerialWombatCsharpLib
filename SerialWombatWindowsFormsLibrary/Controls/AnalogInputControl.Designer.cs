@@ -30,6 +30,7 @@
         {
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.realTimeScottPlot1 = new SerialWombatWindowsFormsLibrary.Controls.RealTimeScottPlot();
             this.ckbVolts = new System.Windows.Forms.CheckBox();
             this.ckbAllValues = new System.Windows.Forms.CheckBox();
@@ -66,6 +67,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.realTimeScottPlot1);
             this.groupBox1.Controls.Add(this.ckbVolts);
             this.groupBox1.Controls.Add(this.ckbAllValues);
@@ -93,6 +95,17 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.MediumPurple;
+            this.button4.Location = new System.Drawing.Point(216, 11);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(45, 47);
+            this.button4.TabIndex = 30;
+            this.button4.Text = "Gen Code";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // realTimeScottPlot1
             // 
@@ -137,6 +150,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 23);
             this.comboBox1.TabIndex = 6;
+            this.comboBox1.Tag = "";
             // 
             // tbFilterConstant
             // 
@@ -144,7 +158,7 @@
             this.tbFilterConstant.Name = "tbFilterConstant";
             this.tbFilterConstant.Size = new System.Drawing.Size(100, 23);
             this.tbFilterConstant.TabIndex = 5;
-            this.tbFilterConstant.Text = "0";
+            this.tbFilterConstant.Text = "65408";
             // 
             // tbMax
             // 
@@ -219,7 +233,7 @@
             this.tbAverage.Name = "tbAverage";
             this.tbAverage.Size = new System.Drawing.Size(100, 23);
             this.tbAverage.TabIndex = 5;
-            this.tbAverage.Text = "0";
+            this.tbAverage.Text = "64";
             // 
             // label5
             // 
@@ -329,5 +343,6 @@
         private System.Windows.Forms.Button bSample;
         private System.Windows.Forms.Button bConfigure;
         private Controls.RealTimeScottPlot realTimeScottPlot1;
+        private System.Windows.Forms.Button button4;
     }
 }

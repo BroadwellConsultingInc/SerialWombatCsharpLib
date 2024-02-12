@@ -125,15 +125,6 @@ It can also be used to generate timed output which is active for some period of 
 
 The length of this pulse may vary by a few hundred microseconds because it is done in software, not hardware.</value>
   </data>
-  <data name="textBox6.Text" xml:space="preserve">
-    <value>Controls how fast an ouput can change in counts per time
-
-This function allows configuration of how fast an output's value is allowed
-to change in counts on a 0-65535 scale.  The Rate control runs on a fixed
-period based on the Period enumerated type.  Every samplePeriod ms the target
-is reevaluated.  If the expected output would change the output by more
-than maximumChangecounts, then the output only changes by maximumChangecounts </value>
-  </data>
   <data name="textBox5.Text" xml:space="preserve">
     <value>Controls how fast an ouput can change based on filtering 
 
@@ -144,9 +135,15 @@ is reevaluated.  The requested output is combined with the current output
 using filterConstant.  Higher values for filterConstant cause heavier filtering
 </value>
   </data>
-  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
+  <data name="textBox6.Text" xml:space="preserve">
+    <value>Controls how fast an ouput can change in counts per time
+
+This function allows configuration of how fast an output's value is allowed
+to change in counts on a 0-65535 scale.  The Rate control runs on a fixed
+period based on the Period enumerated type.  Every samplePeriod ms the target
+is reevaluated.  If the expected output would change the output by more
+than maximumChangecounts, then the output only changes by maximumChangecounts </value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>42</value>
   </metadata>

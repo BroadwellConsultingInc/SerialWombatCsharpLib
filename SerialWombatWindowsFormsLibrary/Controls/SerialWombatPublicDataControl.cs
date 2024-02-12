@@ -57,5 +57,10 @@ namespace SerialWombatWindowsFormsLibrary
                 toolTip1.SetToolTip(comboBox1, value);
             }
         }
+
+        private void SerialWombatPublicDataControl_Resize(object sender, EventArgs e)
+        {
+            comboBox1.Width = this.Width - Margin.Right;
+        }
     }
 }

@@ -9,6 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SerialWombat;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace SerialWombatWindowsFormsLibrary.Controls
@@ -126,6 +127,22 @@ namespace SerialWombatWindowsFormsLibrary.Controls
             hscounter.disable();
         }
 
+        private void bGenCode_Click(object sender, EventArgs e)
+        {
+            
+            string s =
+            @$"
+                //Put this line before setup()
+                SerialWombatHSCounter {Name}(sw); // Your serial wombat chip may be named something else than sw
+                //Add this line to  setup():
+                                {Name}.begin({Pin}, //Pin Number
+                                SerialWombatHSCounter::publicDataOutput::{(SerialWombatHSCounterPublicData)enumDropdown1.selectedItem}, //Public Data Output
+                                {sbsiFramesBetweenUpdates.value}, //Frames Between Updates
+                                {sbsiPublicDataDivisor.value});//Public data divisor";
+
+
+            Clipboard.SetText(s);
+        }
     }
 }
 

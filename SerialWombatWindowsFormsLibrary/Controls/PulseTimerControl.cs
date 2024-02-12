@@ -179,5 +179,32 @@ namespace SerialWombatWindowsFormsLibrary.Controls
         {
             ckbAutosample.Checked = false;
         }
+
+        private void bGenCode_Click(object sender, EventArgs e)
+        {
+            string pt = "SerialWombatPulseTimer";
+            if (SerialWombatChip.isSW18())
+            {
+
+                pt = "SerialWombatPulseTimer_18AB";
+            }
+            string s = @$"
+                //Put this line before setup()
+                {pt} {Name}(sw); // Your serial wombat chip may be named something else than sw
+                //Add this line to  setup():
+                 {Name}.begin({PulseTimer.Pin},  //Pin
+                            SerialWombatPulseTimerUnits.SW_PULSETIMER_uS, //Units
+                            {ckbPullUp.Checked}); // Pull Up enabled
+";
+                if (SerialWombatChip.isSW18())
+                {
+                s += @$"{Name}.configurePublicDataOutput(SerialWombatPulseTimer_18AB::publicDataOutput::{(SerialWombatPulseTimerPublicData)enumDropdown1.selectedItem});
+";
+                }
+
+            s = s.Replace("True", "true");
+            s = s.Replace("False", "false");
+            Clipboard.SetText(s);
+        }
     }
 }

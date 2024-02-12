@@ -52,13 +52,14 @@
             this.tsmiResistanceInput = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiServo = new System.Windows.Forms.ToolStripMenuItem();
             this.sW18ABCapTouchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiThroughputConsumer = new System.Windows.Forms.ToolStripMenuItem();
             this.tmsiTM1637 = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiUART = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiUltrasonicDistanceSensor = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiWatchdog = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiWS2812 = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
-            this.tsmiThroughputConsumer = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiHBridge = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -104,6 +105,7 @@
             this.tsmiHigh,
             this.tsmiLow,
             this.tsmiAnalogInput,
+            this.tsmiHBridge,
             this.highSpeedClockToolStripMenuItem,
             this.highSpeedCounterToolStripMenuItem,
             this.tsmiDebounce,
@@ -126,7 +128,7 @@
             this.tsmiWatchdog,
             this.tsmiWS2812});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(209, 576);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(209, 598);
             // 
             // tsmiInput
             // 
@@ -249,6 +251,13 @@
             this.sW18ABCapTouchToolStripMenuItem.Text = "SW18ABCapTouch";
             this.sW18ABCapTouchToolStripMenuItem.Click += new System.EventHandler(this.sW18ABCapTouchToolStripMenuItem_Click);
             // 
+            // tsmiThroughputConsumer
+            // 
+            this.tsmiThroughputConsumer.Name = "tsmiThroughputConsumer";
+            this.tsmiThroughputConsumer.Size = new System.Drawing.Size(208, 22);
+            this.tsmiThroughputConsumer.Text = "ThroughputConsumer";
+            this.tsmiThroughputConsumer.Click += new System.EventHandler(this.tsmiThroughputConsumer_Click);
+            // 
             // tmsiTM1637
             // 
             this.tmsiTM1637.Name = "tmsiTM1637";
@@ -288,12 +297,11 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "-";
             // 
-            // tsmiThroughputConsumer
+            // tsmiHBridge
             // 
-            this.tsmiThroughputConsumer.Name = "tsmiThroughputConsumer";
-            this.tsmiThroughputConsumer.Size = new System.Drawing.Size(208, 22);
-            this.tsmiThroughputConsumer.Text = "ThroughputConsumer";
-            this.tsmiThroughputConsumer.Click += new System.EventHandler(this.tsmiThroughputConsumer_Click);
+            this.tsmiHBridge.Name = "tsmiHBridge";
+            this.tsmiHBridge.Size = new System.Drawing.Size(208, 22);
+            this.tsmiHBridge.Text = "H Bridge";
             // 
             // GraphicPinSelectorControl
             // 
@@ -343,5 +351,6 @@
         private System.Windows.Forms.ToolStripMenuItem highSpeedClockToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem highSpeedCounterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tsmiThroughputConsumer;
+        private System.Windows.Forms.ToolStripMenuItem tsmiHBridge;
     }
 }

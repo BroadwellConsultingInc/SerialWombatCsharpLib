@@ -117,6 +117,7 @@ namespace SerialWombatWindowsFormsLibrary.Controls
             {
                 ResistanceInput = new SerialWombatResistanceInput(SerialWombatChip);
                 ResistanceInput.begin(Pin, Convert.ToUInt16(tbAverage.Text), Convert.ToUInt16(tbFilterConstant.Text), (ResistanceInputPublicDataOutput)comboBox1.SelectedIndex);
+                ckbAutosample.Enabled = true;
             }
             catch (Exception ex)
             {

@@ -107,5 +107,15 @@ namespace SerialWombatWindowsFormsLibrary
         {
             ckbAuto.Checked = false;
         }
+
+        private void bRename_Click(object sender, EventArgs e)
+        {
+            SingleLineTextEntryForm sltef = new SingleLineTextEntryForm("Name Form", "Add a name for this form:");
+            sltef.ShowDialog();
+            if (sltef.Success)
+            {
+                this.Text = $"{sltef.outputString} Debounced Input on pin {DebouncedInput.pin}";
+            }
+        }
     }
 }

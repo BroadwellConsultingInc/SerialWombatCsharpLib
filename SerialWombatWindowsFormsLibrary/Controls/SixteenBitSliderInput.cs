@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SerialWombatWindowsFormsLibrary
 {
@@ -16,6 +18,7 @@ namespace SerialWombatWindowsFormsLibrary
         public SixteenBitSliderInput()
         {
             InitializeComponent();
+
         }
 
         private void trackBar1_ValueChanged(object sender, EventArgs e)
@@ -27,7 +30,26 @@ namespace SerialWombatWindowsFormsLibrary
             }
         }
 
-        public UInt16 value { get { return (Convert.ToUInt16(tbValue.Text)); }
+       private UInt16 textBoxLastValue = 0;
+        UInt16 getValueFromTextBox()
+        {
+            try
+            {
+
+                if (tbValue.Text.Contains("0x") || tbValue.Text.Contains("0X"))
+                {
+                    textBoxLastValue = Convert.ToUInt16(tbValue.Text, 16);
+                }
+                else
+                {
+                    textBoxLastValue = Convert.ToUInt16(tbValue.Text);
+                }
+            }
+            catch
+            { }
+            return textBoxLastValue;
+        }
+        public UInt16 value { get { return (getValueFromTextBox()); }
             set { tbValue.Text = value.ToString();
                 trackBar1.Value = value;
             }
@@ -104,6 +126,43 @@ namespace SerialWombatWindowsFormsLibrary
                 }
                 trackBar1.Maximum = value;
                 trackBar1.TickFrequency = (trackBar1.Maximum - trackBar1.Minimum) / 50;
+            }
+        }
+
+        private void tbValue_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+
+                trackBar1.Value = getValueFromTextBox();
+                foreach (trackBarValueChangedDelegate trackBarValueChangedDelegate in trackBarValueChangedDelegates)
+                {
+                    trackBarValueChangedDelegate(trackBar1,null);
+                }
+            }
+        }
+
+        public void ValueChangeEvent()
+        {
+            foreach (trackBarValueChangedDelegate trackBarValueChangedDelegate in trackBarValueChangedDelegates)
+            {
+                trackBarValueChangedDelegate(trackBar1, null);
+            }
+        }
+
+        private void SixteenBitSliderInput_Resize(object sender, EventArgs e)
+        {
+            groupBox1.Width = this.Width - Margin.Horizontal;
+            trackBar1.Width = groupBox1.Width - Margin.Horizontal - trackBar1.Left;
+           
+        }
+
+        private void tbValue_Leave(object sender, EventArgs e)
+        {
+            trackBar1.Value = getValueFromTextBox();
+            foreach (trackBarValueChangedDelegate trackBarValueChangedDelegate in trackBarValueChangedDelegates)
+            {
+                trackBarValueChangedDelegate(trackBar1, null);
             }
         }
     }

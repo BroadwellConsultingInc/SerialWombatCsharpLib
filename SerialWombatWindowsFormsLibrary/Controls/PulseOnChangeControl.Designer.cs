@@ -34,6 +34,7 @@
             this.swpdcSecondSource = new SerialWombatWindowsFormsLibrary.SerialWombatPublicDataControl();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.bGenCode = new System.Windows.Forms.Button();
             this.bConfigure = new System.Windows.Forms.Button();
             this.sbsiDutyCycle = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
             this.sbsiPWMPeriod = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
@@ -53,6 +54,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.swpdcFirstSource = new SerialWombatWindowsFormsLibrary.SerialWombatPublicDataControl();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -61,6 +63,7 @@
             // groupBox1
             // 
             this.groupBox1.AutoSize = true;
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.bConfigureEntry);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.swpdcSecondSource);
@@ -76,7 +79,7 @@
             this.groupBox1.Controls.Add(this.swpdcFirstSource);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(973, 654);
+            this.groupBox1.Size = new System.Drawing.Size(973, 670);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
@@ -122,6 +125,7 @@
             // groupBox2
             // 
             this.groupBox2.AutoSize = true;
+            this.groupBox2.Controls.Add(this.bGenCode);
             this.groupBox2.Controls.Add(this.bConfigure);
             this.groupBox2.Controls.Add(this.sbsiDutyCycle);
             this.groupBox2.Controls.Add(this.sbsiPWMPeriod);
@@ -133,10 +137,21 @@
             this.groupBox2.Controls.Add(this.sbsiActiveTime);
             this.groupBox2.Location = new System.Drawing.Point(10, 22);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(340, 610);
+            this.groupBox2.Size = new System.Drawing.Size(340, 626);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Mode Configuration";
+            // 
+            // bGenCode
+            // 
+            this.bGenCode.BackColor = System.Drawing.Color.MediumPurple;
+            this.bGenCode.Location = new System.Drawing.Point(216, 557);
+            this.bGenCode.Name = "bGenCode";
+            this.bGenCode.Size = new System.Drawing.Size(45, 47);
+            this.bGenCode.TabIndex = 32;
+            this.bGenCode.Text = "Gen Code";
+            this.bGenCode.UseVisualStyleBackColor = false;
+            this.bGenCode.Click += new System.EventHandler(this.bGenCode_Click);
             // 
             // bConfigure
             // 
@@ -151,6 +166,8 @@
             // sbsiDutyCycle
             // 
             this.sbsiDutyCycle.Location = new System.Drawing.Point(0, 483);
+            this.sbsiDutyCycle.Maximum = 65535;
+            this.sbsiDutyCycle.Minimum = 0;
             this.sbsiDutyCycle.Name = "sbsiDutyCycle";
             this.sbsiDutyCycle.Size = new System.Drawing.Size(328, 76);
             this.sbsiDutyCycle.TabIndex = 7;
@@ -161,6 +178,8 @@
             // sbsiPWMPeriod
             // 
             this.sbsiPWMPeriod.Location = new System.Drawing.Point(6, 401);
+            this.sbsiPWMPeriod.Maximum = 65535;
+            this.sbsiPWMPeriod.Minimum = 0;
             this.sbsiPWMPeriod.Name = "sbsiPWMPeriod";
             this.sbsiPWMPeriod.Size = new System.Drawing.Size(328, 76);
             this.sbsiPWMPeriod.TabIndex = 7;
@@ -222,6 +241,8 @@
             // sbsiInactiveTime
             // 
             this.sbsiInactiveTime.Location = new System.Drawing.Point(0, 223);
+            this.sbsiInactiveTime.Maximum = 65535;
+            this.sbsiInactiveTime.Minimum = 0;
             this.sbsiInactiveTime.Name = "sbsiInactiveTime";
             this.sbsiInactiveTime.Size = new System.Drawing.Size(328, 76);
             this.sbsiInactiveTime.TabIndex = 5;
@@ -241,6 +262,8 @@
             // sbsiActiveTime
             // 
             this.sbsiActiveTime.Location = new System.Drawing.Point(0, 141);
+            this.sbsiActiveTime.Maximum = 65535;
+            this.sbsiActiveTime.Minimum = 0;
             this.sbsiActiveTime.Name = "sbsiActiveTime";
             this.sbsiActiveTime.Size = new System.Drawing.Size(328, 76);
             this.sbsiActiveTime.TabIndex = 5;
@@ -252,6 +275,8 @@
             // 
             this.sbsiParam2.Enabled = false;
             this.sbsiParam2.Location = new System.Drawing.Point(374, 336);
+            this.sbsiParam2.Maximum = 65535;
+            this.sbsiParam2.Minimum = 0;
             this.sbsiParam2.Name = "sbsiParam2";
             this.sbsiParam2.Size = new System.Drawing.Size(328, 76);
             this.sbsiParam2.TabIndex = 5;
@@ -263,6 +288,8 @@
             // 
             this.sbsiParam1.Enabled = false;
             this.sbsiParam1.Location = new System.Drawing.Point(374, 254);
+            this.sbsiParam1.Maximum = 65535;
+            this.sbsiParam1.Minimum = 0;
             this.sbsiParam1.Name = "sbsiParam1";
             this.sbsiParam1.Size = new System.Drawing.Size(328, 76);
             this.sbsiParam1.TabIndex = 5;
@@ -329,6 +356,17 @@
             this.swpdcFirstSource.Size = new System.Drawing.Size(286, 35);
             this.swpdcFirstSource.TabIndex = 0;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.MediumPurple;
+            this.button1.Location = new System.Drawing.Point(615, 418);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(45, 47);
+            this.button1.TabIndex = 33;
+            this.button1.Text = "Gen Code";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // PulseOnChangeControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -336,7 +374,7 @@
             this.AutoSize = true;
             this.Controls.Add(this.groupBox1);
             this.Name = "PulseOnChangeControl";
-            this.Size = new System.Drawing.Size(979, 660);
+            this.Size = new System.Drawing.Size(979, 676);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -375,5 +413,7 @@
         private System.Windows.Forms.Label label6;
         private SerialWombatPublicDataControl swpdcSecondSource;
         private System.Windows.Forms.Button bConfigureEntry;
+        private System.Windows.Forms.Button bGenCode;
+        private System.Windows.Forms.Button button1;
     }
 }

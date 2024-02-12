@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.realTimeScottPlot1 = new SerialWombatWindowsFormsLibrary.Controls.RealTimeScottPlot();
             this.ckbAutoSample = new System.Windows.Forms.CheckBox();
             this.bConfigure = new System.Windows.Forms.Button();
             this.bRead = new System.Windows.Forms.Button();
@@ -51,7 +52,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.realTimeScottPlot1 = new SerialWombatWindowsFormsLibrary.Controls.RealTimeScottPlot();
+            this.bRename = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,6 +86,13 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
+            // 
+            // realTimeScottPlot1
+            // 
+            this.realTimeScottPlot1.Location = new System.Drawing.Point(6, 220);
+            this.realTimeScottPlot1.Name = "realTimeScottPlot1";
+            this.realTimeScottPlot1.Size = new System.Drawing.Size(429, 256);
+            this.realTimeScottPlot1.TabIndex = 9;
             // 
             // ckbAutoSample
             // 
@@ -290,19 +298,23 @@
             this.label6.TabIndex = 5;
             this.label6.Text = "Low Limit:";
             // 
-            // realTimeScottPlot1
+            // bRename
             // 
-            this.realTimeScottPlot1.Location = new System.Drawing.Point(6, 220);
-            this.realTimeScottPlot1.Name = "realTimeScottPlot1";
-            this.realTimeScottPlot1.Size = new System.Drawing.Size(429, 256);
-            this.realTimeScottPlot1.TabIndex = 9;
+            this.bRename.Location = new System.Drawing.Point(7, 505);
+            this.bRename.Name = "bRename";
+            this.bRename.Size = new System.Drawing.Size(75, 23);
+            this.bRename.TabIndex = 1;
+            this.bRename.Text = "Rename";
+            this.bRename.UseVisualStyleBackColor = true;
+            this.bRename.Click += new System.EventHandler(this.bRename_Click);
             // 
             // QuadratureEncoderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(481, 484);
+            this.ClientSize = new System.Drawing.Size(481, 548);
+            this.Controls.Add(this.bRename);
             this.Controls.Add(this.groupBox1);
             this.Name = "QuadratureEncoderForm";
             this.Text = "QuadratureEncoderForm";
@@ -339,5 +351,6 @@
         private System.Windows.Forms.TextBox tbLowLimit;
         private System.Windows.Forms.CheckBox ckbAutoSample;
         private Controls.RealTimeScottPlot realTimeScottPlot1;
+        private System.Windows.Forms.Button bRename;
     }
 }

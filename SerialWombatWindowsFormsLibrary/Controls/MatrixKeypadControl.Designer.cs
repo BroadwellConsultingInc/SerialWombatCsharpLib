@@ -30,6 +30,8 @@
         {
             this.tbRow0 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.bGenCodeConfigure = new System.Windows.Forms.Button();
             this.lD = new System.Windows.Forms.Label();
             this.lB = new System.Windows.Forms.Label();
             this.lC = new System.Windows.Forms.Label();
@@ -82,6 +84,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.bGenCodeConfigure);
             this.groupBox1.Controls.Add(this.lD);
             this.groupBox1.Controls.Add(this.lB);
             this.groupBox1.Controls.Add(this.lC);
@@ -121,6 +125,28 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.MediumPurple;
+            this.button1.Location = new System.Drawing.Point(363, 384);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(45, 47);
+            this.button1.TabIndex = 32;
+            this.button1.Text = "Gen Code";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // bGenCodeConfigure
+            // 
+            this.bGenCodeConfigure.BackColor = System.Drawing.Color.MediumPurple;
+            this.bGenCodeConfigure.Location = new System.Drawing.Point(95, 342);
+            this.bGenCodeConfigure.Name = "bGenCodeConfigure";
+            this.bGenCodeConfigure.Size = new System.Drawing.Size(45, 47);
+            this.bGenCodeConfigure.TabIndex = 31;
+            this.bGenCodeConfigure.Text = "Gen Code";
+            this.bGenCodeConfigure.UseVisualStyleBackColor = false;
+            this.bGenCodeConfigure.Click += new System.EventHandler(this.bGenCodeConfigure_Click);
             // 
             // lD
             // 
@@ -427,7 +453,7 @@
             // 
             // bConfigure
             // 
-            this.bConfigure.Location = new System.Drawing.Point(134, 355);
+            this.bConfigure.Location = new System.Drawing.Point(6, 356);
             this.bConfigure.Name = "bConfigure";
             this.bConfigure.Size = new System.Drawing.Size(75, 23);
             this.bConfigure.TabIndex = 1;
@@ -544,5 +570,7 @@
         private System.Windows.Forms.Label l1;
         private System.Windows.Forms.Button bClear;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button bGenCodeConfigure;
     }
 }

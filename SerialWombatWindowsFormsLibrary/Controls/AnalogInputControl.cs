@@ -90,21 +90,29 @@ namespace SerialWombatWindowsFormsLibrary
         {
             while (ckbAutosample.Checked)
             {
-            LastResult.PublicData = SerialWombatChip.readPublicData(AnalogInput.Pin);
-            LastResult.Averaged = AnalogInput.readAveragedCounts();
-            LastResult.Filtered = AnalogInput.readFilteredCounts();
-            LastResult.Maximum = AnalogInput.readMaximumCounts(false);
-            LastResult.Minimum = AnalogInput.readMinimumCounts(false);
+                try
+                {
 
-                
-            if (ckbVolts.Checked)
-            {
-                realTimeScottPlot1.PlotData( LastResult.PublicData / 65535.0 * Vcc);
-            }
-            else
-            {
-                    realTimeScottPlot1.PlotData(LastResult.PublicData);
-            }
+                    if (AnalogInput != null)
+                    {
+                        LastResult.PublicData = SerialWombatChip.readPublicData(AnalogInput.Pin);
+                        LastResult.Averaged = AnalogInput.readAveragedCounts();
+                        LastResult.Filtered = AnalogInput.readFilteredCounts();
+                        LastResult.Maximum = AnalogInput.readMaximumCounts(false);
+                        LastResult.Minimum = AnalogInput.readMinimumCounts(false);
+
+
+                        if (ckbVolts.Checked)
+                        {
+                            realTimeScottPlot1.PlotData(LastResult.PublicData / 65535.0 * Vcc);
+                        }
+                        else
+                        {
+                            realTimeScottPlot1.PlotData(LastResult.PublicData);
+                        }
+                    }
+                }
+                catch { }
                 Thread.Sleep(100);
 
 
@@ -177,6 +185,29 @@ namespace SerialWombatWindowsFormsLibrary
             }
         */
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+            string analogType = "SerialWombatAnalogInput";
+            if (AnalogInput._sw.isSW18())
+            {
+                analogType = "SerialWombatAnalogInput_18AB";
+            }
+            string s =
+            @$"
+                //Put this line before setup()
+                {analogType} {Name}(sw); // Your serial wombat chip may be named something else than sw
+                //Add this line to  setup():
+                                {Name}.begin({Pin}, //Pin Number
+                                {Convert.ToUInt16(tbAverage.Text)},  // Samples per Average
+                                {Convert.ToUInt16(tbFilterConstant.Text)},//Filter Constant 
+                                AnalogInputPublicDataOutput::AnalogInputPublicDataOutput_{(AnalogInputPublicDataOutput)comboBox1.SelectedIndex}); //Public data output
+";
+
+
+            Clipboard.SetText(s);
         }
     }
 

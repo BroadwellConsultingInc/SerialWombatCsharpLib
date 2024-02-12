@@ -22,6 +22,19 @@ namespace SerialWombatWindowsFormsLibrary
             InitializeComponent();
             Text = $"Pin {pin} Pulse On Change";
             pulseOnChangeControl1.begin(serialWombatChip, pin);
+            pulseOnChangeControl1.Name = $"Pin{pin}_PulseOnChange";
+        }
+
+        private void bRename_Click(object sender, EventArgs e)
+        {
+            SingleLineTextEntryForm sltef = new SingleLineTextEntryForm("Name Form", "Add a name for this form:");
+            sltef.ShowDialog();
+            if (sltef.Success)
+            {
+                this.Text = $"{sltef.outputString} Pulse On Change on pin {pulseOnChangeControl1.Pin}";
+                pulseOnChangeControl1.Name = sltef.outputString;
+               
+            }
         }
 
     }

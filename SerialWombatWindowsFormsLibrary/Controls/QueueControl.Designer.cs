@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbAscii = new System.Windows.Forms.CheckBox();
             this.realTimeScottPlot1 = new SerialWombatWindowsFormsLibrary.Controls.RealTimeScottPlot();
             this.ckb16BitReads = new System.Windows.Forms.CheckBox();
             this.tbCopyReadAddress = new System.Windows.Forms.TextBox();
@@ -41,7 +42,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbLength = new System.Windows.Forms.TextBox();
             this.tbAddress = new System.Windows.Forms.TextBox();
-            this.cbAscii = new System.Windows.Forms.CheckBox();
+            this.ckbDecimal = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +50,7 @@
             // 
             this.groupBox1.AutoSize = true;
             this.groupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox1.Controls.Add(this.ckbDecimal);
             this.groupBox1.Controls.Add(this.cbAscii);
             this.groupBox1.Controls.Add(this.realTimeScottPlot1);
             this.groupBox1.Controls.Add(this.ckb16BitReads);
@@ -68,6 +70,16 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
+            // 
+            // cbAscii
+            // 
+            this.cbAscii.AutoSize = true;
+            this.cbAscii.Location = new System.Drawing.Point(222, 262);
+            this.cbAscii.Name = "cbAscii";
+            this.cbAscii.Size = new System.Drawing.Size(51, 19);
+            this.cbAscii.TabIndex = 10;
+            this.cbAscii.Text = "Ascii";
+            this.cbAscii.UseVisualStyleBackColor = true;
             // 
             // realTimeScottPlot1
             // 
@@ -176,15 +188,15 @@
             this.tbAddress.TabIndex = 0;
             this.tbAddress.Text = "0x0000";
             // 
-            // cbAscii
+            // ckbDecimal
             // 
-            this.cbAscii.AutoSize = true;
-            this.cbAscii.Location = new System.Drawing.Point(222, 262);
-            this.cbAscii.Name = "cbAscii";
-            this.cbAscii.Size = new System.Drawing.Size(51, 19);
-            this.cbAscii.TabIndex = 10;
-            this.cbAscii.Text = "Ascii";
-            this.cbAscii.UseVisualStyleBackColor = true;
+            this.ckbDecimal.AutoSize = true;
+            this.ckbDecimal.Location = new System.Drawing.Point(222, 290);
+            this.ckbDecimal.Name = "ckbDecimal";
+            this.ckbDecimal.Size = new System.Drawing.Size(69, 19);
+            this.ckbDecimal.TabIndex = 11;
+            this.ckbDecimal.Text = "Decimal";
+            this.ckbDecimal.UseVisualStyleBackColor = true;
             // 
             // QueueControl
             // 
@@ -218,5 +230,6 @@
         private System.Windows.Forms.CheckBox ckb16BitReads;
         private RealTimeScottPlot realTimeScottPlot1;
         private System.Windows.Forms.CheckBox cbAscii;
+        private System.Windows.Forms.CheckBox ckbDecimal;
     }
 }

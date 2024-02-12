@@ -59,11 +59,14 @@
             // 
             this.sbsiDutyCycle.Enabled = false;
             this.sbsiDutyCycle.Location = new System.Drawing.Point(10, 22);
+            this.sbsiDutyCycle.Maximum = 65535;
+            this.sbsiDutyCycle.Minimum = 0;
             this.sbsiDutyCycle.Name = "sbsiDutyCycle";
             this.sbsiDutyCycle.Size = new System.Drawing.Size(328, 76);
             this.sbsiDutyCycle.TabIndex = 13;
             this.sbsiDutyCycle.Text = "Duty Cycle (0-65535)";
             this.sbsiDutyCycle.TextBoxHint = "";
+            this.sbsiDutyCycle.value = ((ushort)(0));
             // 
             // lPeriod
             // 

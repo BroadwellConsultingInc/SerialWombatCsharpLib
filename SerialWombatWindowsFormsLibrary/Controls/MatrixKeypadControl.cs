@@ -15,7 +15,7 @@ namespace SerialWombatWindowsFormsLibrary
     public partial class MatrixKeypadControl : SerialWombatCodeGenerationControl
     {
     SerialWombatChip SerialWombatChip;
-    byte Pin;
+    public byte Pin;
         SerialWombatMatrixKeypad keypad;
 
 
@@ -79,31 +79,15 @@ namespace SerialWombatWindowsFormsLibrary
                     PublicDataMode,
                     QueueMode);
 
-            CodeGenerated(CodeGenerationPlatform.CSharp, $@"
-            
-             SerialWombatMatrixKeypad keypad = new SerialWombatMatrixKeypad(SerialWombatChip);
-                keypad.begin(
-                {Pin},  // State Machine Pin
-                {Convert.ToByte(tbRow0.Text)},//Row 0 Pin
-                {Convert.ToByte(tbRow1.Text)},//Row 1 Pin
-                {Convert.ToByte(tbRow2.Text)},//Row 2 Pin
-                {Convert.ToByte(tbRow3.Text)},//Row 3 Pin
-                {Convert.ToByte(tbCol0.Text)},//Column 0 Pin
-                {Convert.ToByte(tbCol1.Text)},//Column 1 Pin
-                {Convert.ToByte(tbCol2.Text)},//Column 2 Pin
-                {Convert.ToByte(tbCol3.Text)},//Column 3 Pin
-                    {PublicDataMode}, // Public data mode
-                    {QueueMode});  // Queue mode
-    ");
+           
 
 }
 
         private void bSetQueueMask_Click(object sender, EventArgs e)
         {
             keypad.writeQueueMask(Convert.ToUInt16(tbMask.Text, 16));
-            CodeGenerated(CodeGenerationPlatform.CSharp, $@"
-            keypad.writeQueueMask(0x{Convert.ToUInt16(tbMask.Text, 16):X4});
-");
+           
+            
             }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -187,6 +171,62 @@ void SampleThread()
             }
 
 
+        }
+
+        private void bGenCodeConfigure_Click(object sender, EventArgs e)
+        {
+            byte PublicDataMode = 0;
+
+
+            if (rbCurrentKey.Checked)
+            {
+                PublicDataMode = 1;
+            }
+            if (rbLastKey.Checked)
+            {
+                PublicDataMode = 2;
+            }
+            if (rbAscii.Checked)
+            {
+                PublicDataMode = 3;
+            }
+
+
+            byte QueueMode = 0;
+            if (rbQueueASCII.Checked)
+            {
+                QueueMode = 1;
+            }
+
+
+            string s =
+            @$"
+                //Put this line before setup()
+                SerialWombatMatrixKeypad {Name}(sw); // Your serial wombat chip may be named something else than sw
+                //Add this line to  setup():
+                                {Name}.begin({Pin}, //Control pin
+                {Convert.ToByte(tbRow0.Text)}, //Row 0 pin
+                {Convert.ToByte(tbRow1.Text)}, // Row 1 pin
+                {Convert.ToByte(tbRow2.Text)}, // Row 2 pin
+                {Convert.ToByte(tbRow3.Text)}, // Row 3 pin
+                {Convert.ToByte(tbCol0.Text)}, // Col 0 pin
+                {Convert.ToByte(tbCol1.Text)}, // Col 1 pin
+                {Convert.ToByte(tbCol2.Text)}, // Col 2 pin
+                    {Convert.ToByte(tbCol3.Text)}, // Col 3 pin
+                    {PublicDataMode},  //Public data mode
+                    {QueueMode}); //Queue Mode
+";
+            Clipboard.SetText(s);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string s =
+            @$"
+                //Add this line to  setup():
+                {Name}.writeQueueMask(0x{Convert.ToUInt16(tbMask.Text, 16):X4});
+";
+            Clipboard.SetText(s);
         }
     }
 }

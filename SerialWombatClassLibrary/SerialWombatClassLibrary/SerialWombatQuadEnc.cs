@@ -71,16 +71,16 @@ this may result pin mode malfunction.
     {
 
 		SerialWombatChip _sw;
-		byte _pin = 255;
-		byte _secondPin;
+		public byte Pin = 255;
+		public byte SecondPin;
 
 		/// \brief Constructor for the SerialWombatQuadEnc class
 		/// \param serialWombatChip The Serial Wombat running the quadrature encoder
 		public SerialWombatQuadEnc(SerialWombatChip serialWombatChip) 
 		{
 			_sw = serialWombatChip;
-			_pin = 255;
-			_secondPin = 255;
+			Pin = 255;
+			SecondPin = 255;
 		}
 
 		/// \brief Simple initialization for SerialWombatQuadEnc
@@ -102,26 +102,26 @@ public 		void  begin(byte pin, byte secondPin, UInt16 debounce_mS, bool pullUpsE
 
 public 		Int16  begin(byte pin, byte secondPin, UInt16 debounce_mS, bool pullUpsEnabled, QuadEncReadModes readState)
 		{
-			_pin = pin;
-			_secondPin = secondPin;
-			byte[] tx = { 200, _pin, (byte)SerialWombatPinModes.PIN_MODE_QUADRATUREENCODER, (byte)(debounce_mS & 0xFF), (byte)((debounce_mS >> 8) & 0xFF), _secondPin, (byte)readState, pullUpsEnabled?(byte)1:(byte)0 };
+			Pin = pin;
+			SecondPin = secondPin;
+			byte[] tx = { 200, Pin, (byte)SerialWombatPinModes.PIN_MODE_QUADRATUREENCODER, (byte)(debounce_mS & 0xFF), (byte)((debounce_mS >> 8) & 0xFF), SecondPin, (byte)readState, pullUpsEnabled?(byte)1:(byte)0 };
 			byte[] rx;
 			return _sw.sendPacket(tx, out rx);
 		}
 
 public 		UInt16  read()
 		{
-			return _sw.readPublicData(_pin);
+			return _sw.readPublicData(Pin);
 		}
 
 public 		UInt16  read(UInt16 replacementValue)
 		{
-			return _sw.writePublicData(_pin, replacementValue);
+			return _sw.writePublicData(Pin, replacementValue);
 		}
 
 public 		void  write(UInt16 value)
 		{
-			_sw.writePublicData(_pin, value);
+			_sw.writePublicData(Pin, value);
 		}
 	}
 }

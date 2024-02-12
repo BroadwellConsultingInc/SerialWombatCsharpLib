@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProcessedInputControl));
             this.ckbEnabled = new System.Windows.Forms.CheckBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.bGenOutlierCode = new System.Windows.Forms.Button();
             this.bRemoveBelowAbove = new System.Windows.Forms.Button();
             this.sbsiExcludeAbove = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
             this.sbsiExcludeBelow = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
@@ -40,22 +41,52 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpInversion = new System.Windows.Forms.TabPage();
+            this.bGenInversionCode = new System.Windows.Forms.Button();
             this.ckbInverted = new System.Windows.Forms.CheckBox();
             this.bConfigureInverted = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.bConfigureMXB = new System.Windows.Forms.Button();
-            this.tbB = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tbM = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.bConfigure = new System.Windows.Forms.Button();
-            this.sbsiInputScaleMax = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
-            this.sbsiInputScaleMin = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
+            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.button4 = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
+            this.sbsiInputScaleMin = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
+            this.sbsiInputScaleMax = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
+            this.bConfigure = new System.Windows.Forms.Button();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.button3 = new System.Windows.Forms.Button();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.bConfigureMXB = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tbB = new System.Windows.Forms.TextBox();
+            this.tbM = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.bIntegratorGenArduino = new System.Windows.Forms.Button();
+            this.bIntegratorConfigure = new System.Windows.Forms.Button();
+            this.sbsiPosDeadZone = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
+            this.sbsiNegDeadZone = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
+            this.sbsiMaxIncrement = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
+            this.sbsiPosMaxIndex = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
+            this.sbsiIntegratorInitialValue = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
+            this.sbsiMidIncrement = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
+            this.sbsiPosMidIndex = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
+            this.sbsiNegMidIndex = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
+            this.sbsiIntegratorNegMaxIndex = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
+            this.textBox10 = new System.Windows.Forms.TextBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.tabControl3 = new System.Windows.Forms.TabControl();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.sbsiAveragedSamples = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
+            this.bSetAveragedSamples = new System.Windows.Forms.Button();
+            this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.bFilteringGenCode = new System.Windows.Forms.Button();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.sbsiFilterConstant = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
+            this.bSetFilterConstant = new System.Windows.Forms.Button();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.ckbResetMinMax = new System.Windows.Forms.CheckBox();
             this.bReadMinMax = new System.Windows.Forms.Button();
@@ -63,12 +94,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.lMinimum = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.bSetFilterConstant = new System.Windows.Forms.Button();
-            this.bSetAveragedSamples = new System.Windows.Forms.Button();
-            this.sbsiFilterConstant = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
-            this.sbsiAveragedSamples = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.bShowQueue = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -83,21 +108,30 @@
             this.tbQueueAddress = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.button5 = new System.Windows.Forms.Button();
             this.edPublicOutput = new SerialWombatWindowsFormsLibrary.EnumDropdown();
             this.label4 = new System.Windows.Forms.Label();
+            this.bGenQueueCode = new System.Windows.Forms.Button();
             this.tabPage2.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tpInversion.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            this.tabControl2.SuspendLayout();
+            this.tabPage6.SuspendLayout();
+            this.tabPage7.SuspendLayout();
+            this.tabPage8.SuspendLayout();
             this.tabPage5.SuspendLayout();
+            this.tabControl3.SuspendLayout();
+            this.tabPage9.SuspendLayout();
+            this.tabPage10.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // ckbEnabled
             // 
             this.ckbEnabled.AutoSize = true;
-            this.ckbEnabled.Location = new System.Drawing.Point(409, 548);
+            this.ckbEnabled.Location = new System.Drawing.Point(319, 551);
             this.ckbEnabled.Name = "ckbEnabled";
             this.ckbEnabled.Size = new System.Drawing.Size(68, 19);
             this.ckbEnabled.TabIndex = 1;
@@ -107,6 +141,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.bGenOutlierCode);
             this.tabPage2.Controls.Add(this.bRemoveBelowAbove);
             this.tabPage2.Controls.Add(this.sbsiExcludeAbove);
             this.tabPage2.Controls.Add(this.sbsiExcludeBelow);
@@ -118,6 +153,18 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "OutlierRemoval";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // bGenOutlierCode
+            // 
+            this.bGenOutlierCode.BackColor = System.Drawing.Color.MediumPurple;
+            this.bGenOutlierCode.Location = new System.Drawing.Point(354, 305);
+            this.bGenOutlierCode.Name = "bGenOutlierCode";
+            this.bGenOutlierCode.Size = new System.Drawing.Size(81, 47);
+            this.bGenOutlierCode.TabIndex = 30;
+            this.bGenOutlierCode.Text = "Gen Outlier Code";
+            this.toolTip1.SetToolTip(this.bGenOutlierCode, "Generate code that matches what is sent when configure is pressed.");
+            this.bGenOutlierCode.UseVisualStyleBackColor = false;
+            this.bGenOutlierCode.Click += new System.EventHandler(this.bGenOutlierCode_Click);
             // 
             // bRemoveBelowAbove
             // 
@@ -132,6 +179,8 @@
             // sbsiExcludeAbove
             // 
             this.sbsiExcludeAbove.Location = new System.Drawing.Point(15, 220);
+            this.sbsiExcludeAbove.Maximum = 65535;
+            this.sbsiExcludeAbove.Minimum = 0;
             this.sbsiExcludeAbove.Name = "sbsiExcludeAbove";
             this.sbsiExcludeAbove.Size = new System.Drawing.Size(328, 76);
             this.sbsiExcludeAbove.TabIndex = 18;
@@ -142,6 +191,8 @@
             // sbsiExcludeBelow
             // 
             this.sbsiExcludeBelow.Location = new System.Drawing.Point(15, 138);
+            this.sbsiExcludeBelow.Maximum = 65535;
+            this.sbsiExcludeBelow.Minimum = 0;
             this.sbsiExcludeBelow.Name = "sbsiExcludeBelow";
             this.sbsiExcludeBelow.Size = new System.Drawing.Size(328, 76);
             this.sbsiExcludeBelow.TabIndex = 17;
@@ -198,6 +249,7 @@
             // 
             // tpInversion
             // 
+            this.tpInversion.Controls.Add(this.bGenInversionCode);
             this.tpInversion.Controls.Add(this.ckbInverted);
             this.tpInversion.Controls.Add(this.bConfigureInverted);
             this.tpInversion.Controls.Add(this.textBox3);
@@ -208,6 +260,18 @@
             this.tpInversion.TabIndex = 2;
             this.tpInversion.Text = "Inversion";
             this.tpInversion.UseVisualStyleBackColor = true;
+            // 
+            // bGenInversionCode
+            // 
+            this.bGenInversionCode.BackColor = System.Drawing.Color.MediumPurple;
+            this.bGenInversionCode.Location = new System.Drawing.Point(327, 149);
+            this.bGenInversionCode.Name = "bGenInversionCode";
+            this.bGenInversionCode.Size = new System.Drawing.Size(81, 59);
+            this.bGenInversionCode.TabIndex = 31;
+            this.bGenInversionCode.Text = "Gen Inversion Code";
+            this.toolTip1.SetToolTip(this.bGenInversionCode, "Generate code that matches what is sent when configure is pressed.");
+            this.bGenInversionCode.UseVisualStyleBackColor = false;
+            this.bGenInversionCode.Click += new System.EventHandler(this.bGenInversionCode_Click);
             // 
             // ckbInverted
             // 
@@ -244,17 +308,8 @@
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.bConfigureMXB);
-            this.tabPage4.Controls.Add(this.tbB);
-            this.tabPage4.Controls.Add(this.label3);
-            this.tabPage4.Controls.Add(this.tbM);
-            this.tabPage4.Controls.Add(this.label2);
             this.tabPage4.Controls.Add(this.label1);
-            this.tabPage4.Controls.Add(this.textBox5);
-            this.tabPage4.Controls.Add(this.bConfigure);
-            this.tabPage4.Controls.Add(this.sbsiInputScaleMax);
-            this.tabPage4.Controls.Add(this.sbsiInputScaleMin);
-            this.tabPage4.Controls.Add(this.textBox4);
+            this.tabPage4.Controls.Add(this.tabControl2);
             this.tabPage4.Location = new System.Drawing.Point(4, 24);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
@@ -263,94 +318,69 @@
             this.tabPage4.Text = "Transform";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // bConfigureMXB
-            // 
-            this.bConfigureMXB.Location = new System.Drawing.Point(166, 412);
-            this.bConfigureMXB.Name = "bConfigureMXB";
-            this.bConfigureMXB.Size = new System.Drawing.Size(138, 23);
-            this.bConfigureMXB.TabIndex = 26;
-            this.bConfigureMXB.Text = "Configure MXB";
-            this.bConfigureMXB.UseVisualStyleBackColor = true;
-            this.bConfigureMXB.Click += new System.EventHandler(this.bConfigureMXB_Click);
-            // 
-            // tbB
-            // 
-            this.tbB.Location = new System.Drawing.Point(284, 365);
-            this.tbB.Name = "tbB";
-            this.tbB.Size = new System.Drawing.Size(100, 23);
-            this.tbB.TabIndex = 25;
-            this.toolTip1.SetToolTip(this.tbB, "A value between -65535 and 65535 to add to the result of the multiplication");
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(114, 368);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(150, 15);
-            this.label3.TabIndex = 24;
-            this.label3.Text = "Intercept (-65535 to 65535):";
-            // 
-            // tbM
-            // 
-            this.tbM.Location = new System.Drawing.Point(284, 336);
-            this.tbM.Name = "tbM";
-            this.tbM.Size = new System.Drawing.Size(100, 23);
-            this.tbM.TabIndex = 25;
-            this.toolTip1.SetToolTip(this.tbM, "A float that will be made a value between -16777215 and +1677215 representing the" +
-        " number of 256th by which to multiply the input ");
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 339);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(239, 15);
-            this.label2.TabIndex = 24;
-            this.label2.Text = "Slope (Float between 6551.62 and - 6551.62):";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(196, 244);
+            this.label1.Location = new System.Drawing.Point(19, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(23, 15);
-            this.label1.TabIndex = 23;
-            this.label1.Text = "OR";
+            this.label1.Size = new System.Drawing.Size(238, 15);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "Up to one transform can be active at a time:";
             // 
-            // textBox5
+            // tabControl2
             // 
-            this.textBox5.Location = new System.Drawing.Point(9, 262);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox5.Size = new System.Drawing.Size(464, 55);
-            this.textBox5.TabIndex = 22;
-            this.textBox5.Text = resources.GetString("textBox5.Text");
+            this.tabControl2.Controls.Add(this.tabPage6);
+            this.tabControl2.Controls.Add(this.tabPage7);
+            this.tabControl2.Controls.Add(this.tabPage8);
+            this.tabControl2.Location = new System.Drawing.Point(6, 44);
+            this.tabControl2.Name = "tabControl2";
+            this.tabControl2.SelectedIndex = 0;
+            this.tabControl2.Size = new System.Drawing.Size(461, 458);
+            this.tabControl2.TabIndex = 27;
             // 
-            // bConfigure
+            // tabPage6
             // 
-            this.bConfigure.Location = new System.Drawing.Point(340, 138);
-            this.bConfigure.Name = "bConfigure";
-            this.bConfigure.Size = new System.Drawing.Size(75, 65);
-            this.bConfigure.TabIndex = 21;
-            this.bConfigure.Text = "Configure Input Scaling";
-            this.bConfigure.UseVisualStyleBackColor = true;
-            this.bConfigure.Click += new System.EventHandler(this.bConfigure_Click);
+            this.tabPage6.Controls.Add(this.button4);
+            this.tabPage6.Controls.Add(this.textBox4);
+            this.tabPage6.Controls.Add(this.sbsiInputScaleMin);
+            this.tabPage6.Controls.Add(this.sbsiInputScaleMax);
+            this.tabPage6.Controls.Add(this.bConfigure);
+            this.tabPage6.Location = new System.Drawing.Point(4, 24);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(453, 430);
+            this.tabPage6.TabIndex = 0;
+            this.tabPage6.Text = "Scale Input";
+            this.tabPage6.UseVisualStyleBackColor = true;
             // 
-            // sbsiInputScaleMax
+            // button4
             // 
-            this.sbsiInputScaleMax.Location = new System.Drawing.Point(6, 152);
-            this.sbsiInputScaleMax.Name = "sbsiInputScaleMax";
-            this.sbsiInputScaleMax.Size = new System.Drawing.Size(328, 76);
-            this.sbsiInputScaleMax.TabIndex = 20;
-            this.sbsiInputScaleMax.Text = "Max";
-            this.sbsiInputScaleMax.TextBoxHint = "";
-            this.sbsiInputScaleMax.value = ((ushort)(0));
+            this.button4.BackColor = System.Drawing.Color.MediumPurple;
+            this.button4.Location = new System.Drawing.Point(123, 240);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(45, 47);
+            this.button4.TabIndex = 28;
+            this.button4.Text = "Gen Code";
+            this.toolTip1.SetToolTip(this.button4, "Generate code that matches what is sent when configure is pressed.");
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(1, 3);
+            this.textBox4.Multiline = true;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
+            this.textBox4.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox4.Size = new System.Drawing.Size(446, 58);
+            this.textBox4.TabIndex = 18;
+            this.textBox4.Text = resources.GetString("textBox4.Text");
             // 
             // sbsiInputScaleMin
             // 
-            this.sbsiInputScaleMin.Location = new System.Drawing.Point(6, 70);
+            this.sbsiInputScaleMin.Location = new System.Drawing.Point(9, 67);
+            this.sbsiInputScaleMin.Maximum = 65535;
+            this.sbsiInputScaleMin.Minimum = 0;
             this.sbsiInputScaleMin.Name = "sbsiInputScaleMin";
             this.sbsiInputScaleMin.Size = new System.Drawing.Size(328, 76);
             this.sbsiInputScaleMin.TabIndex = 19;
@@ -358,19 +388,306 @@
             this.sbsiInputScaleMin.TextBoxHint = "";
             this.sbsiInputScaleMin.value = ((ushort)(0));
             // 
-            // textBox4
+            // sbsiInputScaleMax
             // 
-            this.textBox4.Location = new System.Drawing.Point(3, 6);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox4.Size = new System.Drawing.Size(464, 58);
-            this.textBox4.TabIndex = 18;
-            this.textBox4.Text = resources.GetString("textBox4.Text");
+            this.sbsiInputScaleMax.Location = new System.Drawing.Point(9, 149);
+            this.sbsiInputScaleMax.Maximum = 65535;
+            this.sbsiInputScaleMax.Minimum = 0;
+            this.sbsiInputScaleMax.Name = "sbsiInputScaleMax";
+            this.sbsiInputScaleMax.Size = new System.Drawing.Size(328, 76);
+            this.sbsiInputScaleMax.TabIndex = 20;
+            this.sbsiInputScaleMax.Text = "Max";
+            this.sbsiInputScaleMax.TextBoxHint = "";
+            this.sbsiInputScaleMax.value = ((ushort)(0));
+            // 
+            // bConfigure
+            // 
+            this.bConfigure.Location = new System.Drawing.Point(9, 231);
+            this.bConfigure.Name = "bConfigure";
+            this.bConfigure.Size = new System.Drawing.Size(75, 65);
+            this.bConfigure.TabIndex = 21;
+            this.bConfigure.Text = "Configure Input Scaling";
+            this.bConfigure.UseVisualStyleBackColor = true;
+            this.bConfigure.Click += new System.EventHandler(this.bConfigure_Click);
+            // 
+            // tabPage7
+            // 
+            this.tabPage7.Controls.Add(this.button3);
+            this.tabPage7.Controls.Add(this.textBox5);
+            this.tabPage7.Controls.Add(this.bConfigureMXB);
+            this.tabPage7.Controls.Add(this.label2);
+            this.tabPage7.Controls.Add(this.tbB);
+            this.tabPage7.Controls.Add(this.tbM);
+            this.tabPage7.Controls.Add(this.label3);
+            this.tabPage7.Location = new System.Drawing.Point(4, 24);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage7.Size = new System.Drawing.Size(453, 430);
+            this.tabPage7.TabIndex = 1;
+            this.tabPage7.Text = "mx+b";
+            this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.MediumPurple;
+            this.button3.Location = new System.Drawing.Point(392, 156);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(45, 47);
+            this.button3.TabIndex = 27;
+            this.button3.Text = "Gen Code";
+            this.toolTip1.SetToolTip(this.button3, "Generate code that matches what is sent when configure is pressed.");
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(6, 6);
+            this.textBox5.Multiline = true;
+            this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
+            this.textBox5.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox5.Size = new System.Drawing.Size(431, 55);
+            this.textBox5.TabIndex = 22;
+            this.textBox5.Text = resources.GetString("textBox5.Text");
+            // 
+            // bConfigureMXB
+            // 
+            this.bConfigureMXB.Location = new System.Drawing.Point(163, 156);
+            this.bConfigureMXB.Name = "bConfigureMXB";
+            this.bConfigureMXB.Size = new System.Drawing.Size(138, 23);
+            this.bConfigureMXB.TabIndex = 26;
+            this.bConfigureMXB.Text = "Configure MXB";
+            this.bConfigureMXB.UseVisualStyleBackColor = true;
+            this.bConfigureMXB.Click += new System.EventHandler(this.bConfigureMXB_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(22, 83);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(239, 15);
+            this.label2.TabIndex = 24;
+            this.label2.Text = "Slope (Float between 6551.62 and - 6551.62):";
+            // 
+            // tbB
+            // 
+            this.tbB.Location = new System.Drawing.Point(281, 109);
+            this.tbB.Name = "tbB";
+            this.tbB.Size = new System.Drawing.Size(100, 23);
+            this.tbB.TabIndex = 25;
+            this.toolTip1.SetToolTip(this.tbB, "A value between -65535 and 65535 to add to the result of the multiplication");
+            // 
+            // tbM
+            // 
+            this.tbM.Location = new System.Drawing.Point(281, 80);
+            this.tbM.Name = "tbM";
+            this.tbM.Size = new System.Drawing.Size(100, 23);
+            this.tbM.TabIndex = 25;
+            this.toolTip1.SetToolTip(this.tbM, "A float that will be made a value between -16777215 and +1677215 representing the" +
+        " number of 256th by which to multiply the input ");
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(111, 112);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(150, 15);
+            this.label3.TabIndex = 24;
+            this.label3.Text = "Intercept (-65535 to 65535):";
+            // 
+            // tabPage8
+            // 
+            this.tabPage8.Controls.Add(this.bIntegratorGenArduino);
+            this.tabPage8.Controls.Add(this.bIntegratorConfigure);
+            this.tabPage8.Controls.Add(this.sbsiPosDeadZone);
+            this.tabPage8.Controls.Add(this.sbsiNegDeadZone);
+            this.tabPage8.Controls.Add(this.sbsiMaxIncrement);
+            this.tabPage8.Controls.Add(this.sbsiPosMaxIndex);
+            this.tabPage8.Controls.Add(this.sbsiIntegratorInitialValue);
+            this.tabPage8.Controls.Add(this.sbsiMidIncrement);
+            this.tabPage8.Controls.Add(this.sbsiPosMidIndex);
+            this.tabPage8.Controls.Add(this.sbsiNegMidIndex);
+            this.tabPage8.Controls.Add(this.sbsiIntegratorNegMaxIndex);
+            this.tabPage8.Controls.Add(this.textBox10);
+            this.tabPage8.Location = new System.Drawing.Point(4, 24);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage8.Size = new System.Drawing.Size(453, 430);
+            this.tabPage8.TabIndex = 2;
+            this.tabPage8.Text = "Integrator";
+            this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // bIntegratorGenArduino
+            // 
+            this.bIntegratorGenArduino.BackColor = System.Drawing.Color.MediumPurple;
+            this.bIntegratorGenArduino.Location = new System.Drawing.Point(392, 377);
+            this.bIntegratorGenArduino.Name = "bIntegratorGenArduino";
+            this.bIntegratorGenArduino.Size = new System.Drawing.Size(45, 47);
+            this.bIntegratorGenArduino.TabIndex = 26;
+            this.bIntegratorGenArduino.Text = "Gen Code";
+            this.toolTip1.SetToolTip(this.bIntegratorGenArduino, "Generate code that matches what is sent when configure is pressed.");
+            this.bIntegratorGenArduino.UseVisualStyleBackColor = false;
+            this.bIntegratorGenArduino.Click += new System.EventHandler(this.bIntegratorGenArduino_Click);
+            // 
+            // bIntegratorConfigure
+            // 
+            this.bIntegratorConfigure.Location = new System.Drawing.Point(280, 389);
+            this.bIntegratorConfigure.Name = "bIntegratorConfigure";
+            this.bIntegratorConfigure.Size = new System.Drawing.Size(75, 23);
+            this.bIntegratorConfigure.TabIndex = 26;
+            this.bIntegratorConfigure.Text = "Configure";
+            this.toolTip1.SetToolTip(this.bIntegratorConfigure, "Configure the integrator.  Input processing must be enabled below for this block " +
+        "to be active");
+            this.bIntegratorConfigure.UseVisualStyleBackColor = true;
+            this.bIntegratorConfigure.Click += new System.EventHandler(this.bIntegratorConfigure_Click);
+            // 
+            // sbsiPosDeadZone
+            // 
+            this.sbsiPosDeadZone.Location = new System.Drawing.Point(220, 144);
+            this.sbsiPosDeadZone.Maximum = 65535;
+            this.sbsiPosDeadZone.Minimum = 0;
+            this.sbsiPosDeadZone.Name = "sbsiPosDeadZone";
+            this.sbsiPosDeadZone.Size = new System.Drawing.Size(198, 76);
+            this.sbsiPosDeadZone.TabIndex = 25;
+            this.sbsiPosDeadZone.Text = "sbsiPosDeadZone";
+            this.sbsiPosDeadZone.TextBoxHint = "Input values between Negative Dead Zone and Positive DeadZone do not affect the i" +
+    "ntegrator.";
+            this.toolTip1.SetToolTip(this.sbsiPosDeadZone, "Input values between Negative Dead Zone and Positive DeadZone do not affect the i" +
+        "ntegrator.");
+            this.sbsiPosDeadZone.value = ((ushort)(36864));
+            // 
+            // sbsiNegDeadZone
+            // 
+            this.sbsiNegDeadZone.Location = new System.Drawing.Point(16, 144);
+            this.sbsiNegDeadZone.Maximum = 65535;
+            this.sbsiNegDeadZone.Minimum = 0;
+            this.sbsiNegDeadZone.Name = "sbsiNegDeadZone";
+            this.sbsiNegDeadZone.Size = new System.Drawing.Size(198, 76);
+            this.sbsiNegDeadZone.TabIndex = 24;
+            this.sbsiNegDeadZone.Text = "Negative Dead Zone";
+            this.sbsiNegDeadZone.TextBoxHint = "Input values between Negative Dead Zone and Positive DeadZone do not affect the i" +
+    "ntegrator.";
+            this.toolTip1.SetToolTip(this.sbsiNegDeadZone, "Input values between Negative Dead Zone and Positive DeadZone do not affect the i" +
+        "ntegrator.");
+            this.sbsiNegDeadZone.value = ((ushort)(28672));
+            // 
+            // sbsiMaxIncrement
+            // 
+            this.sbsiMaxIncrement.Location = new System.Drawing.Point(220, 295);
+            this.sbsiMaxIncrement.Maximum = 65535;
+            this.sbsiMaxIncrement.Minimum = 0;
+            this.sbsiMaxIncrement.Name = "sbsiMaxIncrement";
+            this.sbsiMaxIncrement.Size = new System.Drawing.Size(198, 76);
+            this.sbsiMaxIncrement.TabIndex = 25;
+            this.sbsiMaxIncrement.Text = "Max Increment";
+            this.sbsiMaxIncrement.TextBoxHint = "How many counts the integrator should change every 64mS when input value = Max In" +
+    "dex";
+            this.toolTip1.SetToolTip(this.sbsiMaxIncrement, "How many counts the integrator should change every 64mS when input value = Max In" +
+        "dex");
+            this.sbsiMaxIncrement.value = ((ushort)(2000));
+            // 
+            // sbsiPosMaxIndex
+            // 
+            this.sbsiPosMaxIndex.Location = new System.Drawing.Point(220, 226);
+            this.sbsiPosMaxIndex.Maximum = 65535;
+            this.sbsiPosMaxIndex.Minimum = 0;
+            this.sbsiPosMaxIndex.Name = "sbsiPosMaxIndex";
+            this.sbsiPosMaxIndex.Size = new System.Drawing.Size(198, 76);
+            this.sbsiPosMaxIndex.TabIndex = 25;
+            this.sbsiPosMaxIndex.Text = "Positive Max Index";
+            this.sbsiPosMaxIndex.TextBoxHint = "Inputs = to this value or higher will cause the integrator to increment by MaxInc" +
+    "rement";
+            this.toolTip1.SetToolTip(this.sbsiPosMaxIndex, "Inputs = to this value or higher will cause the integrator to increment by MaxInc" +
+        "rement");
+            this.sbsiPosMaxIndex.value = ((ushort)(65535));
+            // 
+            // sbsiIntegratorInitialValue
+            // 
+            this.sbsiIntegratorInitialValue.Location = new System.Drawing.Point(16, 364);
+            this.sbsiIntegratorInitialValue.Maximum = 65535;
+            this.sbsiIntegratorInitialValue.Minimum = 0;
+            this.sbsiIntegratorInitialValue.Name = "sbsiIntegratorInitialValue";
+            this.sbsiIntegratorInitialValue.Size = new System.Drawing.Size(198, 76);
+            this.sbsiIntegratorInitialValue.TabIndex = 24;
+            this.sbsiIntegratorInitialValue.Text = "InitialValue";
+            this.sbsiIntegratorInitialValue.TextBoxHint = "";
+            this.toolTip1.SetToolTip(this.sbsiIntegratorInitialValue, "The initial value of the Integrator after configuration");
+            this.sbsiIntegratorInitialValue.value = ((ushort)(32768));
+            // 
+            // sbsiMidIncrement
+            // 
+            this.sbsiMidIncrement.Location = new System.Drawing.Point(16, 295);
+            this.sbsiMidIncrement.Maximum = 65535;
+            this.sbsiMidIncrement.Minimum = 0;
+            this.sbsiMidIncrement.Name = "sbsiMidIncrement";
+            this.sbsiMidIncrement.Size = new System.Drawing.Size(198, 76);
+            this.sbsiMidIncrement.TabIndex = 24;
+            this.sbsiMidIncrement.Text = "Mid Increment";
+            this.sbsiMidIncrement.TextBoxHint = "How many counts the integrator should change every 64mS when input value = Mid In" +
+    "dex";
+            this.toolTip1.SetToolTip(this.sbsiMidIncrement, "How many counts the integrator should change every 64mS when input value = Mid In" +
+        "dex");
+            this.sbsiMidIncrement.value = ((ushort)(250));
+            // 
+            // sbsiPosMidIndex
+            // 
+            this.sbsiPosMidIndex.Location = new System.Drawing.Point(16, 226);
+            this.sbsiPosMidIndex.Maximum = 65535;
+            this.sbsiPosMidIndex.Minimum = 0;
+            this.sbsiPosMidIndex.Name = "sbsiPosMidIndex";
+            this.sbsiPosMidIndex.Size = new System.Drawing.Size(198, 76);
+            this.sbsiPosMidIndex.TabIndex = 24;
+            this.sbsiPosMidIndex.Text = "Positive Mid Index";
+            this.sbsiPosMidIndex.TextBoxHint = "Inputs = to this value or higher will cause the integrator to increment by a valu" +
+    "e between Mid Increment and Max Increment";
+            this.toolTip1.SetToolTip(this.sbsiPosMidIndex, "Inputs = to this value or higher will cause the integrator to increment by a valu" +
+        "e between Mid Increment and Max Increment");
+            this.sbsiPosMidIndex.value = ((ushort)(49152));
+            // 
+            // sbsiNegMidIndex
+            // 
+            this.sbsiNegMidIndex.Location = new System.Drawing.Point(220, 81);
+            this.sbsiNegMidIndex.Maximum = 65535;
+            this.sbsiNegMidIndex.Minimum = 0;
+            this.sbsiNegMidIndex.Name = "sbsiNegMidIndex";
+            this.sbsiNegMidIndex.Size = new System.Drawing.Size(198, 76);
+            this.sbsiNegMidIndex.TabIndex = 24;
+            this.sbsiNegMidIndex.Text = "Negative Mid Index";
+            this.sbsiNegMidIndex.TextBoxHint = "Inputs = to this value or lower will cause the integrator to decrement by a value" +
+    " between Mid Increment and Max Increment";
+            this.toolTip1.SetToolTip(this.sbsiNegMidIndex, "Inputs = to this value or lower will cause the integrator to decrement by a value" +
+        " between Mid Increment and Max Increment");
+            this.sbsiNegMidIndex.value = ((ushort)(16384));
+            // 
+            // sbsiIntegratorNegMaxIndex
+            // 
+            this.sbsiIntegratorNegMaxIndex.Location = new System.Drawing.Point(16, 81);
+            this.sbsiIntegratorNegMaxIndex.Maximum = 65535;
+            this.sbsiIntegratorNegMaxIndex.Minimum = 0;
+            this.sbsiIntegratorNegMaxIndex.Name = "sbsiIntegratorNegMaxIndex";
+            this.sbsiIntegratorNegMaxIndex.Size = new System.Drawing.Size(198, 76);
+            this.sbsiIntegratorNegMaxIndex.TabIndex = 24;
+            this.sbsiIntegratorNegMaxIndex.Text = "Negative Max Index";
+            this.sbsiIntegratorNegMaxIndex.TextBoxHint = "Inputs = to this value or lower will cause the integrator to decrement by MaxIncr" +
+    "ement";
+            this.toolTip1.SetToolTip(this.sbsiIntegratorNegMaxIndex, "Inputs = to this value or lower will cause the integrator to decrement by MaxIncr" +
+        "ement");
+            this.sbsiIntegratorNegMaxIndex.value = ((ushort)(0));
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(16, 6);
+            this.textBox10.Multiline = true;
+            this.textBox10.Name = "textBox10";
+            this.textBox10.ReadOnly = true;
+            this.textBox10.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox10.Size = new System.Drawing.Size(431, 65);
+            this.textBox10.TabIndex = 23;
+            this.textBox10.Text = resources.GetString("textBox10.Text");
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.tabControl3);
             this.tabPage5.Controls.Add(this.textBox8);
             this.tabPage5.Controls.Add(this.ckbResetMinMax);
             this.tabPage5.Controls.Add(this.bReadMinMax);
@@ -378,12 +695,6 @@
             this.tabPage5.Controls.Add(this.label7);
             this.tabPage5.Controls.Add(this.lMinimum);
             this.tabPage5.Controls.Add(this.label5);
-            this.tabPage5.Controls.Add(this.textBox7);
-            this.tabPage5.Controls.Add(this.textBox6);
-            this.tabPage5.Controls.Add(this.bSetFilterConstant);
-            this.tabPage5.Controls.Add(this.bSetAveragedSamples);
-            this.tabPage5.Controls.Add(this.sbsiFilterConstant);
-            this.tabPage5.Controls.Add(this.sbsiAveragedSamples);
             this.tabPage5.Location = new System.Drawing.Point(4, 24);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
@@ -392,9 +703,136 @@
             this.tabPage5.Text = "Averaging";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // tabControl3
+            // 
+            this.tabControl3.Controls.Add(this.tabPage9);
+            this.tabControl3.Controls.Add(this.tabPage10);
+            this.tabControl3.Location = new System.Drawing.Point(6, 6);
+            this.tabControl3.Name = "tabControl3";
+            this.tabControl3.SelectedIndex = 0;
+            this.tabControl3.Size = new System.Drawing.Size(448, 365);
+            this.tabControl3.TabIndex = 28;
+            // 
+            // tabPage9
+            // 
+            this.tabPage9.Controls.Add(this.button2);
+            this.tabPage9.Controls.Add(this.textBox6);
+            this.tabPage9.Controls.Add(this.sbsiAveragedSamples);
+            this.tabPage9.Controls.Add(this.bSetAveragedSamples);
+            this.tabPage9.Location = new System.Drawing.Point(4, 24);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage9.Size = new System.Drawing.Size(440, 337);
+            this.tabPage9.TabIndex = 0;
+            this.tabPage9.Text = "Averaging";
+            this.tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.MediumPurple;
+            this.button2.Location = new System.Drawing.Point(353, 196);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(45, 47);
+            this.button2.TabIndex = 27;
+            this.button2.Text = "Gen Code";
+            this.toolTip1.SetToolTip(this.button2, "Generate code that matches what is sent when configure is pressed.");
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(3, 8);
+            this.textBox6.Multiline = true;
+            this.textBox6.Name = "textBox6";
+            this.textBox6.ReadOnly = true;
+            this.textBox6.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox6.Size = new System.Drawing.Size(431, 131);
+            this.textBox6.TabIndex = 19;
+            this.textBox6.Text = resources.GetString("textBox6.Text");
+            // 
+            // sbsiAveragedSamples
+            // 
+            this.sbsiAveragedSamples.Location = new System.Drawing.Point(6, 157);
+            this.sbsiAveragedSamples.Maximum = 65535;
+            this.sbsiAveragedSamples.Minimum = 0;
+            this.sbsiAveragedSamples.Name = "sbsiAveragedSamples";
+            this.sbsiAveragedSamples.Size = new System.Drawing.Size(328, 76);
+            this.sbsiAveragedSamples.TabIndex = 0;
+            this.sbsiAveragedSamples.Text = "AveragedSamples";
+            this.sbsiAveragedSamples.TextBoxHint = "";
+            this.sbsiAveragedSamples.value = ((ushort)(64));
+            // 
+            // bSetAveragedSamples
+            // 
+            this.bSetAveragedSamples.Location = new System.Drawing.Point(339, 171);
+            this.bSetAveragedSamples.Name = "bSetAveragedSamples";
+            this.bSetAveragedSamples.Size = new System.Drawing.Size(75, 23);
+            this.bSetAveragedSamples.TabIndex = 2;
+            this.bSetAveragedSamples.Text = "Set";
+            this.bSetAveragedSamples.UseVisualStyleBackColor = true;
+            this.bSetAveragedSamples.Click += new System.EventHandler(this.bSetAveragedSamples_Click);
+            // 
+            // tabPage10
+            // 
+            this.tabPage10.Controls.Add(this.bFilteringGenCode);
+            this.tabPage10.Controls.Add(this.textBox7);
+            this.tabPage10.Controls.Add(this.sbsiFilterConstant);
+            this.tabPage10.Controls.Add(this.bSetFilterConstant);
+            this.tabPage10.Location = new System.Drawing.Point(4, 24);
+            this.tabPage10.Name = "tabPage10";
+            this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage10.Size = new System.Drawing.Size(440, 337);
+            this.tabPage10.TabIndex = 1;
+            this.tabPage10.Text = "Filtering";
+            this.tabPage10.UseVisualStyleBackColor = true;
+            // 
+            // bFilteringGenCode
+            // 
+            this.bFilteringGenCode.BackColor = System.Drawing.Color.MediumPurple;
+            this.bFilteringGenCode.Location = new System.Drawing.Point(352, 230);
+            this.bFilteringGenCode.Name = "bFilteringGenCode";
+            this.bFilteringGenCode.Size = new System.Drawing.Size(45, 47);
+            this.bFilteringGenCode.TabIndex = 28;
+            this.bFilteringGenCode.Text = "Gen Code";
+            this.toolTip1.SetToolTip(this.bFilteringGenCode, "Generate code that matches what is sent when configure is pressed.");
+            this.bFilteringGenCode.UseVisualStyleBackColor = false;
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(6, 8);
+            this.textBox7.Multiline = true;
+            this.textBox7.Name = "textBox7";
+            this.textBox7.ReadOnly = true;
+            this.textBox7.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox7.Size = new System.Drawing.Size(416, 174);
+            this.textBox7.TabIndex = 20;
+            this.textBox7.Text = resources.GetString("textBox7.Text");
+            // 
+            // sbsiFilterConstant
+            // 
+            this.sbsiFilterConstant.Location = new System.Drawing.Point(6, 188);
+            this.sbsiFilterConstant.Maximum = 65535;
+            this.sbsiFilterConstant.Minimum = 0;
+            this.sbsiFilterConstant.Name = "sbsiFilterConstant";
+            this.sbsiFilterConstant.Size = new System.Drawing.Size(328, 76);
+            this.sbsiFilterConstant.TabIndex = 1;
+            this.sbsiFilterConstant.Text = "FilterConstant";
+            this.sbsiFilterConstant.TextBoxHint = "";
+            this.sbsiFilterConstant.value = ((ushort)(65508));
+            // 
+            // bSetFilterConstant
+            // 
+            this.bSetFilterConstant.Location = new System.Drawing.Point(340, 201);
+            this.bSetFilterConstant.Name = "bSetFilterConstant";
+            this.bSetFilterConstant.Size = new System.Drawing.Size(75, 23);
+            this.bSetFilterConstant.TabIndex = 3;
+            this.bSetFilterConstant.Text = "Set";
+            this.bSetFilterConstant.UseVisualStyleBackColor = true;
+            this.bSetFilterConstant.Click += new System.EventHandler(this.bSetFilterConstant_Click);
+            // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(6, 315);
+            this.textBox8.Location = new System.Drawing.Point(6, 377);
             this.textBox8.Multiline = true;
             this.textBox8.Name = "textBox8";
             this.textBox8.ReadOnly = true;
@@ -406,7 +844,7 @@
             // ckbResetMinMax
             // 
             this.ckbResetMinMax.AutoSize = true;
-            this.ckbResetMinMax.Location = new System.Drawing.Point(56, 407);
+            this.ckbResetMinMax.Location = new System.Drawing.Point(56, 469);
             this.ckbResetMinMax.Name = "ckbResetMinMax";
             this.ckbResetMinMax.Size = new System.Drawing.Size(174, 19);
             this.ckbResetMinMax.TabIndex = 26;
@@ -415,7 +853,7 @@
             // 
             // bReadMinMax
             // 
-            this.bReadMinMax.Location = new System.Drawing.Point(261, 392);
+            this.bReadMinMax.Location = new System.Drawing.Point(261, 454);
             this.bReadMinMax.Name = "bReadMinMax";
             this.bReadMinMax.Size = new System.Drawing.Size(96, 23);
             this.bReadMinMax.TabIndex = 25;
@@ -426,7 +864,7 @@
             // lMaximum
             // 
             this.lMaximum.AutoSize = true;
-            this.lMaximum.Location = new System.Drawing.Point(220, 380);
+            this.lMaximum.Location = new System.Drawing.Point(220, 442);
             this.lMaximum.Name = "lMaximum";
             this.lMaximum.Size = new System.Drawing.Size(27, 15);
             this.lMaximum.TabIndex = 24;
@@ -435,7 +873,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(151, 380);
+            this.label7.Location = new System.Drawing.Point(151, 442);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(65, 15);
             this.label7.TabIndex = 23;
@@ -444,7 +882,7 @@
             // lMinimum
             // 
             this.lMinimum.AutoSize = true;
-            this.lMinimum.Location = new System.Drawing.Point(107, 380);
+            this.lMinimum.Location = new System.Drawing.Point(107, 442);
             this.lMinimum.Name = "lMinimum";
             this.lMinimum.Size = new System.Drawing.Size(27, 15);
             this.lMinimum.TabIndex = 22;
@@ -459,70 +897,9 @@
             this.label5.TabIndex = 21;
             this.label5.Text = "Minimum:";
             // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(3, 169);
-            this.textBox7.Multiline = true;
-            this.textBox7.Name = "textBox7";
-            this.textBox7.ReadOnly = true;
-            this.textBox7.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox7.Size = new System.Drawing.Size(464, 58);
-            this.textBox7.TabIndex = 20;
-            this.textBox7.Text = resources.GetString("textBox7.Text");
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(6, 6);
-            this.textBox6.Multiline = true;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox6.Size = new System.Drawing.Size(464, 58);
-            this.textBox6.TabIndex = 19;
-            this.textBox6.Text = resources.GetString("textBox6.Text");
-            // 
-            // bSetFilterConstant
-            // 
-            this.bSetFilterConstant.Location = new System.Drawing.Point(363, 257);
-            this.bSetFilterConstant.Name = "bSetFilterConstant";
-            this.bSetFilterConstant.Size = new System.Drawing.Size(75, 23);
-            this.bSetFilterConstant.TabIndex = 3;
-            this.bSetFilterConstant.Text = "Set";
-            this.bSetFilterConstant.UseVisualStyleBackColor = true;
-            this.bSetFilterConstant.Click += new System.EventHandler(this.bSetFilterConstant_Click);
-            // 
-            // bSetAveragedSamples
-            // 
-            this.bSetAveragedSamples.Location = new System.Drawing.Point(363, 113);
-            this.bSetAveragedSamples.Name = "bSetAveragedSamples";
-            this.bSetAveragedSamples.Size = new System.Drawing.Size(75, 23);
-            this.bSetAveragedSamples.TabIndex = 2;
-            this.bSetAveragedSamples.Text = "Set";
-            this.bSetAveragedSamples.UseVisualStyleBackColor = true;
-            this.bSetAveragedSamples.Click += new System.EventHandler(this.bSetAveragedSamples_Click);
-            // 
-            // sbsiFilterConstant
-            // 
-            this.sbsiFilterConstant.Location = new System.Drawing.Point(29, 233);
-            this.sbsiFilterConstant.Name = "sbsiFilterConstant";
-            this.sbsiFilterConstant.Size = new System.Drawing.Size(328, 76);
-            this.sbsiFilterConstant.TabIndex = 1;
-            this.sbsiFilterConstant.Text = "FilterConstant";
-            this.sbsiFilterConstant.TextBoxHint = "";
-            this.sbsiFilterConstant.value = ((ushort)(65508));
-            // 
-            // sbsiAveragedSamples
-            // 
-            this.sbsiAveragedSamples.Location = new System.Drawing.Point(29, 80);
-            this.sbsiAveragedSamples.Name = "sbsiAveragedSamples";
-            this.sbsiAveragedSamples.Size = new System.Drawing.Size(328, 76);
-            this.sbsiAveragedSamples.TabIndex = 0;
-            this.sbsiAveragedSamples.Text = "AveragedSamples";
-            this.sbsiAveragedSamples.TextBoxHint = "";
-            this.sbsiAveragedSamples.value = ((ushort)(64));
-            // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.bGenQueueCode);
             this.tabPage3.Controls.Add(this.bShowQueue);
             this.tabPage3.Controls.Add(this.button1);
             this.tabPage3.Controls.Add(this.ckbQueueLowByte);
@@ -661,13 +1038,25 @@
             this.textBox9.Text = " Allows periodic storage of the public data value into a previously initialized q" +
     "ueue in the user memory buffer.";
             // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.MediumPurple;
+            this.button5.Location = new System.Drawing.Point(383, 541);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(81, 47);
+            this.button5.TabIndex = 29;
+            this.button5.Text = "Gen Enable Code";
+            this.toolTip1.SetToolTip(this.button5, "Generate code that matches what is sent when configure is pressed.");
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // edPublicOutput
             // 
             this.edPublicOutput.DropDownToolTip = "";
             this.edPublicOutput.dropdowntype = "SerialWombat.ProcessedInputOutputValue";
             this.edPublicOutput.Location = new System.Drawing.Point(122, 546);
             this.edPublicOutput.Name = "edPublicOutput";
-            this.edPublicOutput.Size = new System.Drawing.Size(274, 35);
+            this.edPublicOutput.Size = new System.Drawing.Size(191, 35);
             this.edPublicOutput.TabIndex = 2;
             // 
             // label4
@@ -679,18 +1068,31 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Public Data Output:";
             // 
+            // bGenQueueCode
+            // 
+            this.bGenQueueCode.BackColor = System.Drawing.Color.MediumPurple;
+            this.bGenQueueCode.Location = new System.Drawing.Point(346, 215);
+            this.bGenQueueCode.Name = "bGenQueueCode";
+            this.bGenQueueCode.Size = new System.Drawing.Size(45, 47);
+            this.bGenQueueCode.TabIndex = 29;
+            this.bGenQueueCode.Text = "Gen Code";
+            this.toolTip1.SetToolTip(this.bGenQueueCode, "Generate code that matches what is sent when configure is pressed.");
+            this.bGenQueueCode.UseVisualStyleBackColor = false;
+            this.bGenQueueCode.Click += new System.EventHandler(this.bGenQueueCode_Click);
+            // 
             // ProcessedInputControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.edPublicOutput);
             this.Controls.Add(this.ckbEnabled);
             this.Controls.Add(this.tabControl1);
             this.Name = "ProcessedInputControl";
-            this.Size = new System.Drawing.Size(490, 584);
+            this.Size = new System.Drawing.Size(490, 591);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.tabPage1.ResumeLayout(false);
@@ -700,8 +1102,20 @@
             this.tpInversion.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            this.tabControl2.ResumeLayout(false);
+            this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
+            this.tabPage7.ResumeLayout(false);
+            this.tabPage7.PerformLayout();
+            this.tabPage8.ResumeLayout(false);
+            this.tabPage8.PerformLayout();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
+            this.tabControl3.ResumeLayout(false);
+            this.tabPage9.ResumeLayout(false);
+            this.tabPage9.PerformLayout();
+            this.tabPage10.ResumeLayout(false);
+            this.tabPage10.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
@@ -732,7 +1146,6 @@
         private SixteenBitSliderInput sbsiInputScaleMin;
         private System.Windows.Forms.TextBox tbM;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox tbB;
         private System.Windows.Forms.Label label3;
@@ -765,5 +1178,33 @@
         private System.Windows.Forms.CheckBox ckbQueueLowByte;
         private System.Windows.Forms.CheckBox ckbQueueHighByte;
         private System.Windows.Forms.Button bShowQueue;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TabControl tabControl2;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.TabPage tabPage8;
+        private System.Windows.Forms.TextBox textBox10;
+        private SixteenBitSliderInput sbsiPosMaxIndex;
+        private SixteenBitSliderInput sbsiPosMidIndex;
+        private SixteenBitSliderInput sbsiNegMidIndex;
+        private SixteenBitSliderInput sbsiIntegratorNegMaxIndex;
+        private SixteenBitSliderInput sbsiPosDeadZone;
+        private SixteenBitSliderInput sbsiNegDeadZone;
+        private System.Windows.Forms.Button bIntegratorGenArduino;
+        private System.Windows.Forms.Button bIntegratorConfigure;
+        private SixteenBitSliderInput sbsiMaxIncrement;
+        private SixteenBitSliderInput sbsiMidIncrement;
+        private SixteenBitSliderInput sbsiIntegratorInitialValue;
+        private System.Windows.Forms.TabControl tabControl3;
+        private System.Windows.Forms.TabPage tabPage9;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TabPage tabPage10;
+        private System.Windows.Forms.Button bFilteringGenCode;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button bGenOutlierCode;
+        private System.Windows.Forms.Button bGenInversionCode;
+        private System.Windows.Forms.Button bGenQueueCode;
     }
 }

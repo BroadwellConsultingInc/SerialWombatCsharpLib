@@ -1,30 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace SerialWombat
 {
-    public class SerialWombatAbstractScaledOutput:SerialWombatPin
-    {
+	public class SerialWombatAbstractScaledOutput : SerialWombatPin
+	{
 
-        public SerialWombatAbstractScaledOutput(SerialWombatChip serialWombatChip) : base(serialWombatChip)
-        { 
-        }
+		public SerialWombatAbstractScaledOutput(SerialWombatChip serialWombatChip) : base(serialWombatChip)
+		{
+		}
 
 
-		
+
 
 
 		public void begin(byte pin, SerialWombatPinModes mode)
-        {
-            begin(pin, (byte)mode);
-        }
+		{
+			begin(pin, (byte)mode);
+		}
 
-        public void begin(byte pin, byte pinMode)
-        {
-            _pin = pin;
-            _pinMode = pinMode;
-        }
+		public void begin(byte pin, byte pinMode)
+		{
+			_pin = pin;
+			_pinMode = pinMode;
+		}
 
 		public Int16 writeTimeout(UInt16 timeout_mS, UInt16 timeoutOutputValue)
 		{
@@ -43,8 +44,10 @@ namespace SerialWombat
 
 		}
 
+		public byte ScalingSourcePin = 255;
 		public Int16 writeScalingEnabled(bool enabled, byte sourcePin)
 		{
+			ScalingSourcePin = sourcePin;
 			byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_OUTPUTSCALE,
 		_pin,   _pinMode,
 		0, //Enable/disable scaling, set source pin
@@ -118,19 +121,19 @@ namespace SerialWombat
 				{
 					return (result);
 				}
-                byte[] tx2 = { (byte)SerialWombatCommands.CONFIGURE_PIN_OUTPUTSCALE,
-            _pin,
-            _pinMode,
-            8, // Set filter mode
+				byte[] tx2 = { (byte)SerialWombatCommands.CONFIGURE_PIN_OUTPUTSCALE,
+			_pin,
+			_pinMode,
+			8, // Set filter mode
 			(byte)(filterConstantDecreasing & 0xFF), ((byte)(filterConstantDecreasing >>8)),0x55,0x55
-        };
-                 result = _sw.sendPacket(tx);
-                if (result < 0)
-                {
-                    return (result);
-                }
-            }
-			
+		};
+				result = _sw.sendPacket(tx2);
+				if (result < 0)
+				{
+					return (result);
+				}
+			}
+
 			{
 				byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_OUTPUTSCALE,
 		_pin,
@@ -254,8 +257,120 @@ namespace SerialWombat
 		}
 
 
+		public Int16 PIDResetIntegrator()
+		{
+			byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_OUTPUTSCALE,
+			_pin,
+			_pinMode,
+			102, // Reset Integrator
+			0x55,0x55,0x55,0x55
+		};
+			return _sw.sendPacket(tx);
+		}
+		public Int32 PIDGetLastError()
+		{
+			byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_OUTPUTSCALE,
+			_pin,
+			_pinMode,
+			103, // Get Last Error
+			0x55,0x55,0x55,0x55
+			};
+			byte[] rx;
 
+			_sw.sendPacket(tx, out rx);
+
+			return BitConverter.ToInt32(rx, 4);
+
+		}
+
+
+		public Int32 PIDGetLastIntegrator()
+		{
+			byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_OUTPUTSCALE,
+			_pin,
+			_pinMode,
+			104, // Get Last Integrator
+			0x55,0x55,0x55,0x55
+			};
+			byte[] rx;
+
+			_sw.sendPacket(tx, out rx);
+
+			return BitConverter.ToInt32(rx, 4);
+		}
+
+		public Int32 PIDGetLastIntegratorEffort()
+		{
+			byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_OUTPUTSCALE,
+			_pin,
+			_pinMode,
+			105, // Get Last Integrator Effort
+			0x55,0x55,0x55,0x55
+			};
+			byte[] rx;
+
+			_sw.sendPacket(tx, out rx);
+
+			return BitConverter.ToInt32(rx, 4);
+		}
+
+		public Int32 PIDGetLastProportionalEffort()
+		{
+			byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_OUTPUTSCALE,
+			_pin,
+			_pinMode,
+			106, // Get Last Proportional Effort
+			0x55,0x55,0x55,0x55
+			};
+			byte[] rx;
+
+			_sw.sendPacket(tx, out rx);
+
+			return BitConverter.ToInt32(rx, 4);
+		}
+
+		public Int32 PIDGetLastDerivativeEffort()
+		{
+			byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_OUTPUTSCALE,
+			_pin,
+			_pinMode,
+			107, // Get Last Derivative Effort
+			0x55,0x55,0x55,0x55
+			};
+			byte[] rx;
+
+			_sw.sendPacket(tx, out rx);
+
+			return BitConverter.ToInt32(rx, 4);
+		}
+
+		public Int32 PIDGetLastEffort()
+		{
+			byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_OUTPUTSCALE,
+			_pin,
+			_pinMode,
+			108, // Get Last Total Effort
+			0x55,0x55,0x55,0x55
+			};
+			byte[] rx;
+
+			_sw.sendPacket(tx, out rx);
+
+			return BitConverter.ToInt32(rx, 4);
+		}
+
+		public Int16 Enable2DLookupOutputScaling(UInt16 IndexInUserMemory)
+		{
+			byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_OUTPUTSCALE,
+			_pin,
+			_pinMode,
+			10, // Set 2D Lookup Index 
+			(byte)(IndexInUserMemory & 0xFF), (byte)(IndexInUserMemory >>8),0x55,0x55};
+			return _sw.sendPacket(tx);
+		}
 	}
+
+
 
 	public enum ScaledOutputPeriod
 	{

@@ -8,6 +8,7 @@ using System.Threading;
 using System.Windows.Forms;
 using ScottPlot;
 using SerialWombat;
+using SerialWombatWindowsFormsLibrary.Forms;
 
 namespace SerialWombatWindowsFormsLibrary
 {
@@ -60,6 +61,25 @@ namespace SerialWombatWindowsFormsLibrary
             pulseTimerControl1.End();
         }
 
-    
+        private void ckbShowInputProcessing_CheckedChanged(object sender, EventArgs e)
+        {
+            ProcessedInputControl.Visible = ckbShowInputProcessing.Checked;
+           
+        }
+
+        private void bRenameWindow_Click(object sender, EventArgs e)
+        {
+            SingleLineTextEntryForm sltef = new SingleLineTextEntryForm("Name Form", "Add a name for this form:");
+            sltef.ShowDialog();
+            if (sltef.Success)
+            {
+                this.Text = $"{sltef.outputString} Pulse Measurement on pin {pulseTimerControl1.Pin}";
+                pulseTimerControl1.Name = sltef.outputString;
+                if (ProcessedInputControl != null)
+                {
+                    ProcessedInputControl.Name = sltef.outputString;
+                }
+            }
+        }
     }
 }

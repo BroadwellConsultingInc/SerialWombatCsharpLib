@@ -23,8 +23,6 @@ namespace WombatPanelWindowsForms
             InitializeComponent();
 
             //Add menu item onClick.  These don't seem to be supported by the designer at this point.
-
-            portOpenSerialMenuItem.Click += PortOpenSerialMenuItem_Click;
             portOpenTCPMenuItem.Click += PortOpenTCPMenuItem_Click;
             portOpenI2CBridgeMenuItem.Click += PortOpenI2CBridgeMenuItem_Click;
             portCloseMenuItem.Click += PortCloseMenuItem_Click;
@@ -316,7 +314,7 @@ namespace WombatPanelWindowsForms
                     {
                         MessageBox.Show("Serial Wombat Chip did not respond to a version request.");
                     }
-
+                    graphicPinSelectorControl1.Enabled = true;
                     
                 } 
                     
@@ -447,5 +445,7 @@ namespace WombatPanelWindowsForms
                 blf.Show();
             }
         }
+
+    
     }
 }

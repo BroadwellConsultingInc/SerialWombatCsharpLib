@@ -41,12 +41,15 @@ namespace SerialWombatWindowsFormsLibrary.Controls
             this.lCounts = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.bGenCode = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // sbsiFramesBetweenUpdates
             // 
             this.sbsiFramesBetweenUpdates.Location = new System.Drawing.Point(6, 331);
+            this.sbsiFramesBetweenUpdates.Maximum = 65535;
+            this.sbsiFramesBetweenUpdates.Minimum = 0;
             this.sbsiFramesBetweenUpdates.Name = "sbsiFramesBetweenUpdates";
             this.sbsiFramesBetweenUpdates.Size = new System.Drawing.Size(328, 76);
             this.sbsiFramesBetweenUpdates.TabIndex = 0;
@@ -57,6 +60,8 @@ namespace SerialWombatWindowsFormsLibrary.Controls
             // sbsiPublicDataDivisor
             // 
             this.sbsiPublicDataDivisor.Location = new System.Drawing.Point(6, 413);
+            this.sbsiPublicDataDivisor.Maximum = 65535;
+            this.sbsiPublicDataDivisor.Minimum = 0;
             this.sbsiPublicDataDivisor.Name = "sbsiPublicDataDivisor";
             this.sbsiPublicDataDivisor.Size = new System.Drawing.Size(328, 76);
             this.sbsiPublicDataDivisor.TabIndex = 1;
@@ -115,6 +120,7 @@ namespace SerialWombatWindowsFormsLibrary.Controls
             // 
             this.groupBox1.AutoSize = true;
             this.groupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox1.Controls.Add(this.bGenCode);
             this.groupBox1.Controls.Add(this.lFreq);
             this.groupBox1.Controls.Add(this.lCounts);
             this.groupBox1.Controls.Add(this.label2);
@@ -128,7 +134,7 @@ namespace SerialWombatWindowsFormsLibrary.Controls
             this.groupBox1.Controls.Add(this.enumDropdown1);
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(438, 552);
+            this.groupBox1.Size = new System.Drawing.Size(438, 564);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
@@ -169,6 +175,17 @@ namespace SerialWombatWindowsFormsLibrary.Controls
             this.label1.TabIndex = 7;
             this.label1.Text = "Counts:";
             // 
+            // bGenCode
+            // 
+            this.bGenCode.BackColor = System.Drawing.Color.MediumPurple;
+            this.bGenCode.Location = new System.Drawing.Point(340, 495);
+            this.bGenCode.Name = "bGenCode";
+            this.bGenCode.Size = new System.Drawing.Size(45, 47);
+            this.bGenCode.TabIndex = 31;
+            this.bGenCode.Text = "Gen Code";
+            this.bGenCode.UseVisualStyleBackColor = false;
+            this.bGenCode.Click += new System.EventHandler(this.bGenCode_Click);
+            // 
             // HSCounterControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -177,7 +194,7 @@ namespace SerialWombatWindowsFormsLibrary.Controls
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.groupBox1);
             this.Name = "HSCounterControl";
-            this.Size = new System.Drawing.Size(441, 555);
+            this.Size = new System.Drawing.Size(441, 567);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -199,5 +216,6 @@ namespace SerialWombatWindowsFormsLibrary.Controls
         private System.Windows.Forms.Label lCounts;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button bGenCode;
     }
 }

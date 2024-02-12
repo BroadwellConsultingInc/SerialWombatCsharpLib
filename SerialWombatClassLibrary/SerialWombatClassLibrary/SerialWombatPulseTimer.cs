@@ -22,6 +22,7 @@ namespace SerialWombat
 		FREQUENCY_ON_HTL_TRANSITION = 6,
 		DUTYCYCLE_ON_LTH_TRANSITION = 7,
 		DUTYCYCLE_ON_HTL_TRANSITION = 8,
+		HIGH_AND_LOW_TIME = 9,
 	}
     public class SerialWombatPulseTimer : SerialWombatPin
     {

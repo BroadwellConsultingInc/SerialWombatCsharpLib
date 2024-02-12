@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.bGenCode = new System.Windows.Forms.Button();
+            this.ckbPullUp = new System.Windows.Forms.CheckBox();
             this.enumDropdown1 = new SerialWombatWindowsFormsLibrary.EnumDropdown();
             this.realTimeScottPlot1 = new SerialWombatWindowsFormsLibrary.Controls.RealTimeScottPlot();
             this.label4 = new System.Windows.Forms.Label();
@@ -43,12 +45,12 @@
             this.ckbAutosample = new System.Windows.Forms.CheckBox();
             this.bSample = new System.Windows.Forms.Button();
             this.bConfigure = new System.Windows.Forms.Button();
-            this.ckbPullUp = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.bGenCode);
             this.groupBox1.Controls.Add(this.ckbPullUp);
             this.groupBox1.Controls.Add(this.enumDropdown1);
             this.groupBox1.Controls.Add(this.realTimeScottPlot1);
@@ -70,6 +72,27 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
+            // 
+            // bGenCode
+            // 
+            this.bGenCode.BackColor = System.Drawing.Color.MediumPurple;
+            this.bGenCode.Location = new System.Drawing.Point(113, 23);
+            this.bGenCode.Name = "bGenCode";
+            this.bGenCode.Size = new System.Drawing.Size(45, 47);
+            this.bGenCode.TabIndex = 32;
+            this.bGenCode.Text = "Gen Code";
+            this.bGenCode.UseVisualStyleBackColor = false;
+            this.bGenCode.Click += new System.EventHandler(this.bGenCode_Click);
+            // 
+            // ckbPullUp
+            // 
+            this.ckbPullUp.AutoSize = true;
+            this.ckbPullUp.Location = new System.Drawing.Point(34, 472);
+            this.ckbPullUp.Name = "ckbPullUp";
+            this.ckbPullUp.Size = new System.Drawing.Size(64, 19);
+            this.ckbPullUp.TabIndex = 13;
+            this.ckbPullUp.Text = "Pull Up";
+            this.ckbPullUp.UseVisualStyleBackColor = true;
             // 
             // enumDropdown1
             // 
@@ -174,7 +197,7 @@
             // 
             // bSample
             // 
-            this.bSample.Location = new System.Drawing.Point(126, 34);
+            this.bSample.Location = new System.Drawing.Point(199, 35);
             this.bSample.Name = "bSample";
             this.bSample.Size = new System.Drawing.Size(75, 23);
             this.bSample.TabIndex = 1;
@@ -191,16 +214,6 @@
             this.bConfigure.Text = "Configure";
             this.bConfigure.UseVisualStyleBackColor = true;
             this.bConfigure.Click += new System.EventHandler(this.bConfigure_Click_1);
-            // 
-            // ckbPullUp
-            // 
-            this.ckbPullUp.AutoSize = true;
-            this.ckbPullUp.Location = new System.Drawing.Point(34, 472);
-            this.ckbPullUp.Name = "ckbPullUp";
-            this.ckbPullUp.Size = new System.Drawing.Size(64, 19);
-            this.ckbPullUp.TabIndex = 13;
-            this.ckbPullUp.Text = "Pull Up";
-            this.ckbPullUp.UseVisualStyleBackColor = true;
             // 
             // PulseTimerControl
             // 
@@ -234,5 +247,6 @@
         private System.Windows.Forms.Button bConfigure;
         private EnumDropdown enumDropdown1;
         private System.Windows.Forms.CheckBox ckbPullUp;
+        private System.Windows.Forms.Button bGenCode;
     }
 }

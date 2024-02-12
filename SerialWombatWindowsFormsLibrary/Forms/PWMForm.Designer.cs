@@ -41,6 +41,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbPosition = new System.Windows.Forms.TextBox();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.bRename = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
@@ -182,12 +183,23 @@
             this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             this.trackBar1.ValueChanged += new System.EventHandler(this.trackBar1_ValueChanged);
             // 
+            // bRename
+            // 
+            this.bRename.Location = new System.Drawing.Point(1, 238);
+            this.bRename.Name = "bRename";
+            this.bRename.Size = new System.Drawing.Size(75, 23);
+            this.bRename.TabIndex = 1;
+            this.bRename.Text = "Rename";
+            this.bRename.UseVisualStyleBackColor = true;
+            this.bRename.Click += new System.EventHandler(this.bRename_Click);
+            // 
             // PWMForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(304, 331);
+            this.Controls.Add(this.bRename);
             this.Controls.Add(this.groupBox1);
             this.Name = "PWMForm";
             this.Text = "Form1";
@@ -213,6 +225,7 @@
         private System.Windows.Forms.Label lDutyCycle;
         private System.Windows.Forms.TextBox tbSW18ABPeriod;
         private System.Windows.Forms.Label lPeriod;
+        private System.Windows.Forms.Button bRename;
     }
 }
 

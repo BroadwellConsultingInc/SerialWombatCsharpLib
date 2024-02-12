@@ -38,6 +38,7 @@ namespace SerialWombatWindowsFormsLibrary
             tsmiUltrasonicDistanceSensor.Click += TsmiUltrasonicDistanceSensor_Click;
             tsmiWS2812.Click += TsmiWS2812_Click;
             tsmiWatchdog.Click += TsmiWatchdog_Click;
+            tsmiHBridge.Click += TsmiHBridge_Click;
             
            
 
@@ -51,6 +52,14 @@ namespace SerialWombatWindowsFormsLibrary
                 cbModel.Items.Add(s);
             }
             cbModel.SelectedIndex = 2;
+        }
+
+        private void TsmiHBridge_Click(object sender, EventArgs e)
+        {
+            HBridgeForm hbf = new HBridgeForm(SerialWombatChip, _lastClickWombatPin);
+            hbf.Show();
+            hbf.Top = FindForm().Top + 50;
+            hbf.Left = FindForm().Left + 50;
         }
 
         private void TsmiResistanceInput_Click(object sender, EventArgs e)
@@ -252,7 +261,10 @@ namespace SerialWombatWindowsFormsLibrary
         private void TsmiAnalogInput_Click(object sender, EventArgs e)
         {
             AnalogInputForm aiForm = new AnalogInputForm(SerialWombatChip, _lastClickWombatPin);
-            aiForm.Show(FindForm());
+            aiForm.Show(); 
+            aiForm.Top = FindForm().Top + 50;
+            aiForm.Left = FindForm().Left + 50;
+            
         }
 
         public GroupBox GetGroupBox()
@@ -751,7 +763,7 @@ namespace SerialWombatWindowsFormsLibrary
                 {
                     switch (_lastClickWombatPin)
                     {
-                        case byte n when (n <= 5 || (n >= 15 && n <= 18)):
+                        case byte n when (n <= 5 || (n >= 15 && n <= 19)):
                             tsmiAnalogInput.Enabled = true;
                             break;
                         default:

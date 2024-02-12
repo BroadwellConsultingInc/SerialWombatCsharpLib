@@ -103,7 +103,14 @@ namespace SerialWombatWindowsFormsLibrary.Controls
                     for (int i = 0; i < count; i += 2)
                     {
                         UInt16 d = (UInt16)(data[i] + data[i + 1] * 256);
-                        s += $"{d :X4} ";
+                        if (ckbDecimal.Checked)
+                        {
+                            s += $"{d} ";
+                        }
+                        else 
+                        { 
+                            s += $"{d:X4} ";
+                        }
                         realTimeScottPlot1.PlotData(d);
                         ++samples;
                     }
@@ -117,6 +124,11 @@ namespace SerialWombatWindowsFormsLibrary.Controls
                         if (cbAscii.Checked && data[i] >= 0x20 && data[i] <= 0x7F)
                         {
                             s += Convert.ToChar(data[i]);
+                        }
+                        else if (ckbDecimal.Checked)
+                        {
+                            s += $"{data[i]} ";
+
                         }
                         else
                         {

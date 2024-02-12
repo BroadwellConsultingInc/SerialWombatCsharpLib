@@ -206,6 +206,7 @@
             // ckbAutosample
             // 
             this.ckbAutosample.AutoSize = true;
+            this.ckbAutosample.Enabled = false;
             this.ckbAutosample.Location = new System.Drawing.Point(288, 26);
             this.ckbAutosample.Name = "ckbAutosample";
             this.ckbAutosample.Size = new System.Drawing.Size(90, 19);

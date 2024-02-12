@@ -8,6 +8,7 @@ using System.Threading;
 using System.Windows.Forms;
 using SerialWombat;
 using ScottPlot;
+using SerialWombatWindowsFormsLibrary.Controls;
 
 
 namespace SerialWombatWindowsFormsLibrary
@@ -28,6 +29,7 @@ namespace SerialWombatWindowsFormsLibrary
             
             Text = $"Pin {pin} Analog Input";
             analogInputControl1.begin(serialWombatChip, pin);
+            analogInputControl1.Name = $"Pin{pin}_AnalogInput";
 
             if (serialWombatChip.isSW18())
             {
@@ -37,6 +39,7 @@ namespace SerialWombatWindowsFormsLibrary
                 ProcessedInputControl.Left = analogInputControl1.Right + 10;
                 this.AutoSize = true;
                 this.Controls.Add(ProcessedInputControl);
+                ProcessedInputControl.Name = $"Pin{pin}_AnalogInput";
                 this.Refresh();
 
             }
@@ -49,6 +52,21 @@ namespace SerialWombatWindowsFormsLibrary
         private void AnalogInputForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             analogInputControl1.end();
+        }
+
+        private void bRename_Click(object sender, EventArgs e)
+        {
+            SingleLineTextEntryForm sltef = new SingleLineTextEntryForm("Name Form", "Add a name for this form:");
+            sltef.ShowDialog();
+            if (sltef.Success)
+            {
+                this.Text = $"{sltef.outputString} Analog Measurement on pin {analogInputControl1.Pin}";
+                analogInputControl1.Name = sltef.outputString;
+                if (ProcessedInputControl !=null)
+                {
+                    ProcessedInputControl.Name = sltef.outputString;
+                }
+            }
         }
     }
 

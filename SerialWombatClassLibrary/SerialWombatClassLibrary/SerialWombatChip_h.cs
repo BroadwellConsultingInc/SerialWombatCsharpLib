@@ -226,6 +226,7 @@ public enum SerialWombatPinModes
 	PIN_MODE_SERVO = 3,
     PIN_MODE_THROUGHPUT_CONSUMER = 4, ///< (4)
 	PIN_MODE_QUADRATUREENCODER = 5,
+	PIN_MODE_HBRIDGE = 6,
 	PIN_MODE_WATCHDOG = 7,
 	PIN_MODE_PROTECTED_OUTPUT = 8,
 	PIN_MODE_TM1637 = 11,
@@ -280,7 +281,7 @@ namespace SerialWombat
 
 		public bool inBoot = false;
 
-		public const int WOMBAT_MAXIMUM_PINS =  19;
+		public const int WOMBAT_MAXIMUM_PINS =  20;
 		public ArduinoSerial Serial;
 
 		//private:

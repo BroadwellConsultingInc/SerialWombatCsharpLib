@@ -50,6 +50,7 @@
             this.Controls.Add(this.comboBox1);
             this.Name = "EnumDropdown";
             this.Size = new System.Drawing.Size(274, 35);
+            this.Resize += new System.EventHandler(this.EnumDropdown_Resize);
             this.ResumeLayout(false);
 
         }

@@ -361,25 +361,26 @@
             // portOpenSerialMenuItem
             // 
             this.portOpenSerialMenuItem.Name = "portOpenSerialMenuItem";
-            this.portOpenSerialMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.portOpenSerialMenuItem.Size = new System.Drawing.Size(180, 22);
             this.portOpenSerialMenuItem.Text = "Open&Serial";
+            this.portOpenSerialMenuItem.Click += new System.EventHandler(this.PortOpenSerialMenuItem_Click);
             // 
             // portOpenTCPMenuItem
             // 
             this.portOpenTCPMenuItem.Name = "portOpenTCPMenuItem";
-            this.portOpenTCPMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.portOpenTCPMenuItem.Size = new System.Drawing.Size(180, 22);
             this.portOpenTCPMenuItem.Text = "Open &TCP";
             // 
             // portOpenI2CBridgeMenuItem
             // 
             this.portOpenI2CBridgeMenuItem.Name = "portOpenI2CBridgeMenuItem";
-            this.portOpenI2CBridgeMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.portOpenI2CBridgeMenuItem.Size = new System.Drawing.Size(180, 22);
             this.portOpenI2CBridgeMenuItem.Text = "Open I2C Bridge";
             // 
             // portCloseMenuItem
             // 
             this.portCloseMenuItem.Name = "portCloseMenuItem";
-            this.portCloseMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.portCloseMenuItem.Size = new System.Drawing.Size(180, 22);
             this.portCloseMenuItem.Text = "&Close";
             // 
             // tsmiResetSWCOnOpen
@@ -387,7 +388,7 @@
             this.tsmiResetSWCOnOpen.Checked = true;
             this.tsmiResetSWCOnOpen.CheckState = System.Windows.Forms.CheckState.Checked;
             this.tsmiResetSWCOnOpen.Name = "tsmiResetSWCOnOpen";
-            this.tsmiResetSWCOnOpen.Size = new System.Drawing.Size(179, 22);
+            this.tsmiResetSWCOnOpen.Size = new System.Drawing.Size(180, 22);
             this.tsmiResetSWCOnOpen.Text = "Reset SWC on Open";
             this.tsmiResetSWCOnOpen.Click += new System.EventHandler(this.tsmiResetSWCOnOpen_Click);
             // 
@@ -483,6 +484,7 @@
             // graphicPinSelectorControl1
             // 
             this.graphicPinSelectorControl1.AutoSize = true;
+            this.graphicPinSelectorControl1.Enabled = false;
             this.graphicPinSelectorControl1.Location = new System.Drawing.Point(777, 27);
             this.graphicPinSelectorControl1.Model = SerialWombat.SerialWombatModel.SerialWombat18AB;
             this.graphicPinSelectorControl1.Name = "graphicPinSelectorControl1";
