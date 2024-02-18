@@ -8,6 +8,8 @@ using System.Threading;
 using System.Windows.Forms;
 using ScottPlot;
 using SerialWombat;
+using System.Diagnostics;
+using System.Security.Policy;
 
 namespace SerialWombatWindowsFormsLibrary
 {
@@ -208,6 +210,22 @@ namespace SerialWombatWindowsFormsLibrary
 
 
             Clipboard.SetText(s);
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ProcessStartInfo processInfo = new ProcessStartInfo();
+            processInfo.FileName = "https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_serial_wombat_analog_input.html";
+            processInfo.UseShellExecute = true;
+            Process.Start(processInfo);
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ProcessStartInfo processInfo = new ProcessStartInfo();
+            processInfo.FileName = "https://youtu.be/_EKlrEVaEhg";
+            processInfo.UseShellExecute = true;
+            Process.Start(processInfo);
         }
     }
 

@@ -46,11 +46,17 @@ namespace SerialWombatWindowsFormsLibrary
            
             signalPlotEffortData = formsPlot2.plt.PlotSignal(EffortData);
             signalPlotProportionalEffortData = formsPlot2.plt.PlotSignal(ProportionalEffortData);
+            signalPlotEffortData.color = Color.Blue;
+            signalPlotProportionalEffortData.color = Color.Green;
             signalPlotIntegratorEffortData = formsPlot2.plt.PlotSignal(IntegratorEffortData);
+            signalPlotIntegratorEffortData.color = Color.Yellow;
             signalPlotDerivativeEffortData = formsPlot2.plt.PlotSignal(DerivativeEffortData);
+            signalPlotDerivativeEffortData.color = Color.Red;
 
             signalPlotTargetData = formsPlot3.plt.PlotSignal(TargetData);
+            signalPlotTargetData.color = Color.Red;
             signalPlotInputData = formsPlot3.plt.PlotSignal(InputData);
+            signalPlotInputData.color = Color.Blue;
 
 
         }
@@ -105,7 +111,7 @@ namespace SerialWombatWindowsFormsLibrary
                             realTimeScottPlot1.PlotData(LastResult.PublicData);
                         }
                         */
-                        PlotErrorData(error, pidControl1.lastTarget, Effort,ScaledOutput._sw.readPublicData(ScaledOutput.ScalingSourcePin),proportionalEffort,integratorEffort,derivativeEffort);
+                        PlotErrorData(error,ScaledOutput.ReadLastTarget(), Effort,ScaledOutput._sw.readPublicData(ScaledOutput.ScalingSourcePin),proportionalEffort,integratorEffort,derivativeEffort);
                     }
                 }
                 catch { }
@@ -227,6 +233,7 @@ namespace SerialWombatWindowsFormsLibrary
         {
             ScaledOutput = scaledOutput;
             pidControl1.ScaledOutput = scaledOutput;
+            Text = $"PID on pin {scaledOutput.pin}";
         }
     }
 

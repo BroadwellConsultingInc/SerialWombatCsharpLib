@@ -284,5 +284,11 @@ namespace SerialWombatWindowsFormsLibrary
             ScaledOutput.PIDResetIntegrator();
             ScaledOutput.writeScalingTargetValue(sbsiPIDTarget.value);
         }
+
+        private void bConfigureHysteresis_Click_1(object sender, EventArgs e)
+        {
+            ScaledOutput.writeHysteresis(sbsiHysLowLimit.value,sbsiHysLowOutput.value,
+                sbsiHysHighLimit.value,sbsiHysHighOutputValue.value,sbsiHysInitialOutputValue.value);
+        }
     }
 }

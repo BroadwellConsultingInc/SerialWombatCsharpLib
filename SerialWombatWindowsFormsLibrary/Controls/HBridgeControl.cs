@@ -23,7 +23,7 @@ namespace SerialWombatWindowsFormsLibrary.Controls
         public HBridgeControl()
         {
             InitializeComponent();
-
+            
         }
 
         public void begin(SerialWombatChip serialWombatChip, byte pin)
@@ -105,5 +105,7 @@ namespace SerialWombatWindowsFormsLibrary.Controls
             sbsiPower.value = 32768;
             sbsiPower.ValueChangeEvent();
         }
+
+       
     }
 }

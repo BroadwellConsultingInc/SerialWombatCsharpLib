@@ -388,6 +388,7 @@
             this.edPIDPeriod.Name = "edPIDPeriod";
             this.edPIDPeriod.Size = new System.Drawing.Size(140, 35);
             this.edPIDPeriod.TabIndex = 15;
+            this.edPIDPeriod.Value = 0;
             // 
             // sbsiKi
             // 
@@ -450,6 +451,7 @@
             this.bConfigureHysteresis.TabIndex = 38;
             this.bConfigureHysteresis.Text = "Configure Hysteresis";
             this.bConfigureHysteresis.UseVisualStyleBackColor = true;
+            this.bConfigureHysteresis.Click += new System.EventHandler(this.bConfigureHysteresis_Click_1);
             // 
             // sbsiHysLowOutput
             // 
@@ -531,7 +533,7 @@
             this.pidControl1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.pidControl1.Location = new System.Drawing.Point(6, 6);
             this.pidControl1.Name = "pidControl1";
-            this.pidControl1.Size = new System.Drawing.Size(408, 454);
+            this.pidControl1.Size = new System.Drawing.Size(367, 402);
             this.pidControl1.TabIndex = 0;
             // 
             // tpTimeout
@@ -764,6 +766,7 @@
             this.edFilteringPeriod.Name = "edFilteringPeriod";
             this.edFilteringPeriod.Size = new System.Drawing.Size(274, 35);
             this.edFilteringPeriod.TabIndex = 1;
+            this.edFilteringPeriod.Value = 0;
             // 
             // tpOutputScaling
             // 

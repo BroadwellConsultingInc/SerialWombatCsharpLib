@@ -20,17 +20,32 @@ namespace SerialWombatWindowsFormsLibrary
         public PIDControl()
         {
             InitializeComponent();
+            addConstantFloats();
+            swpdcPIDTargetSource.DataSourceValue = 255;
         }
 
         public PIDControl(SerialWombatAbstractScaledOutput scaledOutput)
         {
             ScaledOutput = scaledOutput;
             InitializeComponent();
+            addConstantFloats();
+        }
+
+        private void addConstantFloats()
+        {
+            sbsiKd.trackBarValueChangedDelegates.Add( (SixteenBitSliderInput.trackBarValueChangedDelegate)updateFloats);
+            sbsiKi.trackBarValueChangedDelegates.Add((SixteenBitSliderInput.trackBarValueChangedDelegate)updateFloats);
+            sbsiKp.trackBarValueChangedDelegates.Add((SixteenBitSliderInput.trackBarValueChangedDelegate)updateFloats);
+        }
+        void updateFloats(object sender, EventArgs e)
+        {
+            sbsiKd.Text = $"Kd {sbsiKd.value / 16384.0} ";
+            sbsiKi.Text = $"Ki {sbsiKi.value / 16384.0} ";
+            sbsiKp.Text = $"Kp {sbsiKp.value / 256.0} ";
         }
         private void bUpdateTargetCI_Click(object sender, EventArgs e)
         {
-            ScaledOutput.PIDResetIntegrator();
-            ScaledOutput.writeScalingTargetValue(sbsiPIDTarget.value);
+            ScaledOutput.writeScalingTargetValueResetIntegrator(sbsiPIDTarget.value);
             lastTarget = sbsiPIDTarget.value;
         }
 
@@ -65,7 +80,8 @@ namespace SerialWombatWindowsFormsLibrary
 
         private void bConfigurePID_Click(object sender, EventArgs e)
         {
-            ScaledOutput.writePID(sbsiKp.value, sbsiKi.value, sbsiKd.value, sbsiPIDTarget.value, (ScaledOutputPeriod)edPIDPeriod.selectedItem);
+            ScaledOutput.writePID(sbsiKp.value, sbsiKi.value, sbsiKd.value, sbsiPIDTarget.value, (ScaledOutputPeriod)edPIDPeriod.selectedItem,
+                swpdcPIDTargetSource.DataSourceValue);  
             lastTarget = sbsiPIDTarget.value;
         }
 

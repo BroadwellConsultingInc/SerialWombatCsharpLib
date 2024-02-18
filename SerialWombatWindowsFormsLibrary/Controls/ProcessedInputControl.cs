@@ -165,8 +165,8 @@ namespace SerialWombatWindowsFormsLibrary
         private void button5_Click(object sender, EventArgs e)
         {
             string s = $@"//put this line in setup.  This should be the last of Processed Input Commands for this pin
-                    {Name}.configureOutputValue((ProcessedInputOutputValue)edPublicOutput.selectedItem);
-            {{Name}}.writeProcessedInputEnable(ckbEnabled.Checked);
+                    {Name}.configureOutputValue(SerialWombatAbstractProcessedInput::OutputValue::{(ProcessedInputOutputValue)edPublicOutput.selectedItem});
+            {Name}.writeProcessedInputEnable({ckbEnabled.Checked});
 ";
             s = s.Replace("True", "true");
             s = s.Replace("False", "false");

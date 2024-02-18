@@ -30,6 +30,7 @@
         {
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.button4 = new System.Windows.Forms.Button();
             this.realTimeScottPlot1 = new SerialWombatWindowsFormsLibrary.Controls.RealTimeScottPlot();
             this.ckbVolts = new System.Windows.Forms.CheckBox();
@@ -52,6 +53,7 @@
             this.ckbAutosample = new System.Windows.Forms.CheckBox();
             this.bSample = new System.Windows.Forms.Button();
             this.bConfigure = new System.Windows.Forms.Button();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,6 +69,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.linkLabel2);
+            this.groupBox1.Controls.Add(this.linkLabel1);
             this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.realTimeScottPlot1);
             this.groupBox1.Controls.Add(this.ckbVolts);
@@ -96,6 +100,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(401, 87);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(120, 15);
+            this.linkLabel1.TabIndex = 31;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Class Documentation";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.MediumPurple;
@@ -103,6 +118,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(45, 47);
             this.button4.TabIndex = 30;
+            this.button4.TabStop = false;
             this.button4.Text = "Gen Code";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
@@ -112,7 +128,7 @@
             this.realTimeScottPlot1.Location = new System.Drawing.Point(29, 116);
             this.realTimeScottPlot1.Name = "realTimeScottPlot1";
             this.realTimeScottPlot1.Size = new System.Drawing.Size(429, 256);
-            this.realTimeScottPlot1.TabIndex = 9;
+            this.realTimeScottPlot1.TabIndex = 5;
             // 
             // ckbVolts
             // 
@@ -149,7 +165,7 @@
             this.comboBox1.Location = new System.Drawing.Point(274, 60);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 23);
-            this.comboBox1.TabIndex = 6;
+            this.comboBox1.TabIndex = 3;
             this.comboBox1.Tag = "";
             // 
             // tbFilterConstant
@@ -157,7 +173,7 @@
             this.tbFilterConstant.Location = new System.Drawing.Point(149, 87);
             this.tbFilterConstant.Name = "tbFilterConstant";
             this.tbFilterConstant.Size = new System.Drawing.Size(100, 23);
-            this.tbFilterConstant.TabIndex = 5;
+            this.tbFilterConstant.TabIndex = 4;
             this.tbFilterConstant.Text = "65408";
             // 
             // tbMax
@@ -166,6 +182,7 @@
             this.tbMax.Name = "tbMax";
             this.tbMax.Size = new System.Drawing.Size(100, 23);
             this.tbMax.TabIndex = 5;
+            this.tbMax.TabStop = false;
             this.tbMax.Text = "0";
             // 
             // tbAveraged
@@ -174,6 +191,7 @@
             this.tbAveraged.Name = "tbAveraged";
             this.tbAveraged.Size = new System.Drawing.Size(100, 23);
             this.tbAveraged.TabIndex = 5;
+            this.tbAveraged.TabStop = false;
             this.tbAveraged.Text = "0";
             // 
             // tbMin
@@ -182,6 +200,7 @@
             this.tbMin.Name = "tbMin";
             this.tbMin.Size = new System.Drawing.Size(100, 23);
             this.tbMin.TabIndex = 5;
+            this.tbMin.TabStop = false;
             this.tbMin.Text = "0";
             // 
             // tbFiltered
@@ -190,6 +209,7 @@
             this.tbFiltered.Name = "tbFiltered";
             this.tbFiltered.Size = new System.Drawing.Size(100, 23);
             this.tbFiltered.TabIndex = 5;
+            this.tbFiltered.TabStop = false;
             this.tbFiltered.Text = "0";
             // 
             // tbRaw
@@ -198,6 +218,7 @@
             this.tbRaw.Name = "tbRaw";
             this.tbRaw.Size = new System.Drawing.Size(100, 23);
             this.tbRaw.TabIndex = 5;
+            this.tbRaw.TabStop = false;
             this.tbRaw.Text = "0";
             // 
             // label8
@@ -232,7 +253,7 @@
             this.tbAverage.Location = new System.Drawing.Point(121, 60);
             this.tbAverage.Name = "tbAverage";
             this.tbAverage.Size = new System.Drawing.Size(100, 23);
-            this.tbAverage.TabIndex = 5;
+            this.tbAverage.TabIndex = 2;
             this.tbAverage.Text = "64";
             // 
             // label5
@@ -287,7 +308,7 @@
             this.bSample.Location = new System.Drawing.Point(103, 22);
             this.bSample.Name = "bSample";
             this.bSample.Size = new System.Drawing.Size(75, 23);
-            this.bSample.TabIndex = 2;
+            this.bSample.TabIndex = 1;
             this.bSample.Text = "Sample";
             this.bSample.UseVisualStyleBackColor = true;
             this.bSample.Click += new System.EventHandler(this.bSample_Click);
@@ -297,10 +318,21 @@
             this.bConfigure.Location = new System.Drawing.Point(7, 22);
             this.bConfigure.Name = "bConfigure";
             this.bConfigure.Size = new System.Drawing.Size(75, 23);
-            this.bConfigure.TabIndex = 1;
+            this.bConfigure.TabIndex = 0;
             this.bConfigure.Text = "Configure";
             this.bConfigure.UseVisualStyleBackColor = true;
             this.bConfigure.Click += new System.EventHandler(this.bConfigure_Click);
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Location = new System.Drawing.Point(403, 43);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(80, 15);
+            this.linkLabel2.TabIndex = 32;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "Tutorial Video";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
             // AnalogInputControl
             // 
@@ -344,5 +376,7 @@
         private System.Windows.Forms.Button bConfigure;
         private Controls.RealTimeScottPlot realTimeScottPlot1;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel linkLabel2;
     }
 }

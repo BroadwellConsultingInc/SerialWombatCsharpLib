@@ -29,24 +29,24 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.sbsiDutyCycle = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
             this.lPeriod = new System.Windows.Forms.Label();
             this.tbSW18ABPeriod = new System.Windows.Forms.TextBox();
             this.cbWombat4ABFreq = new System.Windows.Forms.ComboBox();
             this.ckbInvertSignal = new System.Windows.Forms.CheckBox();
-            this.bSetPWM = new System.Windows.Forms.Button();
             this.bConfigure = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.sbsiDutyCycle);
             this.groupBox1.Controls.Add(this.lPeriod);
             this.groupBox1.Controls.Add(this.tbSW18ABPeriod);
             this.groupBox1.Controls.Add(this.cbWombat4ABFreq);
             this.groupBox1.Controls.Add(this.ckbInvertSignal);
-            this.groupBox1.Controls.Add(this.bSetPWM);
             this.groupBox1.Controls.Add(this.bConfigure);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
@@ -55,9 +55,19 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.MediumPurple;
+            this.button4.Location = new System.Drawing.Point(272, 167);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(45, 47);
+            this.button4.TabIndex = 30;
+            this.button4.Text = "Gen Code";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // sbsiDutyCycle
             // 
-            this.sbsiDutyCycle.Enabled = false;
             this.sbsiDutyCycle.Location = new System.Drawing.Point(10, 22);
             this.sbsiDutyCycle.Maximum = 65535;
             this.sbsiDutyCycle.Minimum = 0;
@@ -71,7 +81,7 @@
             // lPeriod
             // 
             this.lPeriod.AutoSize = true;
-            this.lPeriod.Location = new System.Drawing.Point(234, 153);
+            this.lPeriod.Location = new System.Drawing.Point(204, 137);
             this.lPeriod.Name = "lPeriod";
             this.lPeriod.Size = new System.Drawing.Size(65, 15);
             this.lPeriod.TabIndex = 12;
@@ -80,7 +90,7 @@
             // 
             // tbSW18ABPeriod
             // 
-            this.tbSW18ABPeriod.Location = new System.Drawing.Point(76, 145);
+            this.tbSW18ABPeriod.Location = new System.Drawing.Point(46, 129);
             this.tbSW18ABPeriod.Name = "tbSW18ABPeriod";
             this.tbSW18ABPeriod.Size = new System.Drawing.Size(100, 23);
             this.tbSW18ABPeriod.TabIndex = 11;
@@ -90,7 +100,7 @@
             // cbWombat4ABFreq
             // 
             this.cbWombat4ABFreq.FormattingEnabled = true;
-            this.cbWombat4ABFreq.Location = new System.Drawing.Point(55, 145);
+            this.cbWombat4ABFreq.Location = new System.Drawing.Point(25, 129);
             this.cbWombat4ABFreq.Name = "cbWombat4ABFreq";
             this.cbWombat4ABFreq.Size = new System.Drawing.Size(164, 23);
             this.cbWombat4ABFreq.TabIndex = 9;
@@ -105,25 +115,15 @@
             this.ckbInvertSignal.Text = "Invert Signal";
             this.ckbInvertSignal.UseVisualStyleBackColor = true;
             // 
-            // bSetPWM
-            // 
-            this.bSetPWM.Enabled = false;
-            this.bSetPWM.Location = new System.Drawing.Point(198, 191);
-            this.bSetPWM.Name = "bSetPWM";
-            this.bSetPWM.Size = new System.Drawing.Size(85, 23);
-            this.bSetPWM.TabIndex = 4;
-            this.bSetPWM.Text = "Set PWM";
-            this.bSetPWM.UseVisualStyleBackColor = true;
-            this.bSetPWM.Click += new System.EventHandler(this.bSetDutyCycle_Click);
-            // 
             // bConfigure
             // 
-            this.bConfigure.Location = new System.Drawing.Point(55, 191);
+            this.bConfigure.Location = new System.Drawing.Point(26, 171);
             this.bConfigure.Name = "bConfigure";
             this.bConfigure.Size = new System.Drawing.Size(75, 23);
             this.bConfigure.TabIndex = 3;
             this.bConfigure.Text = "Configure";
             this.bConfigure.UseVisualStyleBackColor = true;
+            this.bConfigure.Click += new System.EventHandler(this.bConfigure_Click);
             // 
             // PWMControl
             // 
@@ -146,8 +146,8 @@
         private System.Windows.Forms.TextBox tbSW18ABPeriod;
         private System.Windows.Forms.ComboBox cbWombat4ABFreq;
         private System.Windows.Forms.CheckBox ckbInvertSignal;
-        private System.Windows.Forms.Button bSetPWM;
         private System.Windows.Forms.Button bConfigure;
         private SixteenBitSliderInput sbsiDutyCycle;
+        private System.Windows.Forms.Button button4;
     }
 }

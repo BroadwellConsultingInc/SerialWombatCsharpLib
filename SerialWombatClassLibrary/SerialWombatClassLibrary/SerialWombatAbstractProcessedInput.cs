@@ -289,7 +289,7 @@ namespace SerialWombat
 
             UInt32 b32;
 
-            if (m < 0)
+            if (b < 0)
             {
                 b32 = (UInt32)(((Int64)b) + (((Int64)1) << 32));
             }

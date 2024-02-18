@@ -80,7 +80,7 @@
             this.tbRow0.Location = new System.Drawing.Point(16, 77);
             this.tbRow0.Name = "tbRow0";
             this.tbRow0.Size = new System.Drawing.Size(47, 23);
-            this.tbRow0.TabIndex = 0;
+            this.tbRow0.TabIndex = 4;
             // 
             // groupBox1
             // 
@@ -132,7 +132,8 @@
             this.button1.Location = new System.Drawing.Point(363, 384);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(45, 47);
-            this.button1.TabIndex = 32;
+            this.button1.TabIndex = 15;
+            this.button1.TabStop = false;
             this.button1.Text = "Gen Code";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -143,7 +144,8 @@
             this.bGenCodeConfigure.Location = new System.Drawing.Point(95, 342);
             this.bGenCodeConfigure.Name = "bGenCodeConfigure";
             this.bGenCodeConfigure.Size = new System.Drawing.Size(45, 47);
-            this.bGenCodeConfigure.TabIndex = 31;
+            this.bGenCodeConfigure.TabIndex = 11;
+            this.bGenCodeConfigure.TabStop = false;
             this.bGenCodeConfigure.Text = "Gen Code";
             this.bGenCodeConfigure.UseVisualStyleBackColor = false;
             this.bGenCodeConfigure.Click += new System.EventHandler(this.bGenCodeConfigure_Click);
@@ -313,7 +315,7 @@
             this.bClear.Location = new System.Drawing.Point(292, 534);
             this.bClear.Name = "bClear";
             this.bClear.Size = new System.Drawing.Size(52, 23);
-            this.bClear.TabIndex = 8;
+            this.bClear.TabIndex = 16;
             this.bClear.Text = "Clear";
             this.bClear.UseVisualStyleBackColor = true;
             // 
@@ -330,7 +332,7 @@
             this.bSetQueueMask.Location = new System.Drawing.Point(253, 395);
             this.bSetQueueMask.Name = "bSetQueueMask";
             this.bSetQueueMask.Size = new System.Drawing.Size(104, 23);
-            this.bSetQueueMask.TabIndex = 6;
+            this.bSetQueueMask.TabIndex = 14;
             this.bSetQueueMask.Text = "Set Queue Mask";
             this.bSetQueueMask.UseVisualStyleBackColor = true;
             this.bSetQueueMask.Click += new System.EventHandler(this.bSetQueueMask_Click);
@@ -349,7 +351,7 @@
             this.tbMask.Location = new System.Drawing.Point(133, 395);
             this.tbMask.Name = "tbMask";
             this.tbMask.Size = new System.Drawing.Size(100, 23);
-            this.tbMask.TabIndex = 4;
+            this.tbMask.TabIndex = 13;
             this.tbMask.Text = "0xFFFF";
             // 
             // gbQueued
@@ -359,7 +361,7 @@
             this.gbQueued.Location = new System.Drawing.Point(262, 202);
             this.gbQueued.Name = "gbQueued";
             this.gbQueued.Size = new System.Drawing.Size(110, 137);
-            this.gbQueued.TabIndex = 3;
+            this.gbQueued.TabIndex = 9;
             this.gbQueued.TabStop = false;
             this.gbQueued.Text = "Queued Data";
             // 
@@ -370,7 +372,7 @@
             this.rbQueueASCII.Location = new System.Drawing.Point(21, 22);
             this.rbQueueASCII.Name = "rbQueueASCII";
             this.rbQueueASCII.Size = new System.Drawing.Size(53, 19);
-            this.rbQueueASCII.TabIndex = 1;
+            this.rbQueueASCII.TabIndex = 0;
             this.rbQueueASCII.TabStop = true;
             this.rbQueueASCII.Text = "ASCII";
             this.rbQueueASCII.UseVisualStyleBackColor = true;
@@ -381,7 +383,7 @@
             this.rbQueueIndex.Location = new System.Drawing.Point(21, 47);
             this.rbQueueIndex.Name = "rbQueueIndex";
             this.rbQueueIndex.Size = new System.Drawing.Size(54, 19);
-            this.rbQueueIndex.TabIndex = 0;
+            this.rbQueueIndex.TabIndex = 1;
             this.rbQueueIndex.Text = "Index";
             this.rbQueueIndex.UseVisualStyleBackColor = true;
             // 
@@ -391,7 +393,7 @@
             this.ckbAutosample.Location = new System.Drawing.Point(253, 359);
             this.ckbAutosample.Name = "ckbAutosample";
             this.ckbAutosample.Size = new System.Drawing.Size(91, 19);
-            this.ckbAutosample.TabIndex = 3;
+            this.ckbAutosample.TabIndex = 12;
             this.ckbAutosample.Text = "AutoSample";
             this.ckbAutosample.UseVisualStyleBackColor = true;
             this.ckbAutosample.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
@@ -405,7 +407,7 @@
             this.gbPublicData.Location = new System.Drawing.Point(16, 202);
             this.gbPublicData.Name = "gbPublicData";
             this.gbPublicData.Size = new System.Drawing.Size(228, 137);
-            this.gbPublicData.TabIndex = 2;
+            this.gbPublicData.TabIndex = 8;
             this.gbPublicData.TabStop = false;
             this.gbPublicData.Text = "Public Data";
             // 
@@ -416,7 +418,7 @@
             this.rbBitmap.Location = new System.Drawing.Point(21, 22);
             this.rbBitmap.Name = "rbBitmap";
             this.rbBitmap.Size = new System.Drawing.Size(172, 19);
-            this.rbBitmap.TabIndex = 1;
+            this.rbBitmap.TabIndex = 0;
             this.rbBitmap.TabStop = true;
             this.rbBitmap.Text = "Bitmap of Currently Pressed";
             this.rbBitmap.UseVisualStyleBackColor = true;
@@ -427,7 +429,7 @@
             this.rbAscii.Location = new System.Drawing.Point(21, 100);
             this.rbAscii.Name = "rbAscii";
             this.rbAscii.Size = new System.Drawing.Size(152, 19);
-            this.rbAscii.TabIndex = 0;
+            this.rbAscii.TabIndex = 3;
             this.rbAscii.Text = "ASCII of last key pressed";
             this.rbAscii.UseVisualStyleBackColor = true;
             // 
@@ -437,7 +439,7 @@
             this.rbCurrentKey.Location = new System.Drawing.Point(21, 72);
             this.rbCurrentKey.Name = "rbCurrentKey";
             this.rbCurrentKey.Size = new System.Drawing.Size(194, 19);
-            this.rbCurrentKey.TabIndex = 0;
+            this.rbCurrentKey.TabIndex = 2;
             this.rbCurrentKey.Text = "Current Key Pressed (16 = none)";
             this.rbCurrentKey.UseVisualStyleBackColor = true;
             // 
@@ -447,7 +449,7 @@
             this.rbLastKey.Location = new System.Drawing.Point(21, 47);
             this.rbLastKey.Name = "rbLastKey";
             this.rbLastKey.Size = new System.Drawing.Size(111, 19);
-            this.rbLastKey.TabIndex = 0;
+            this.rbLastKey.TabIndex = 1;
             this.rbLastKey.Text = "Last Key Pressed";
             this.rbLastKey.UseVisualStyleBackColor = true;
             // 
@@ -456,7 +458,7 @@
             this.bConfigure.Location = new System.Drawing.Point(6, 356);
             this.bConfigure.Name = "bConfigure";
             this.bConfigure.Size = new System.Drawing.Size(75, 23);
-            this.bConfigure.TabIndex = 1;
+            this.bConfigure.TabIndex = 10;
             this.bConfigure.Text = "Configure";
             this.bConfigure.UseVisualStyleBackColor = true;
             this.bConfigure.Click += new System.EventHandler(this.bConfigure_Click);
@@ -466,42 +468,42 @@
             this.tbRow3.Location = new System.Drawing.Point(16, 164);
             this.tbRow3.Name = "tbRow3";
             this.tbRow3.Size = new System.Drawing.Size(47, 23);
-            this.tbRow3.TabIndex = 0;
+            this.tbRow3.TabIndex = 7;
             // 
             // tbRow2
             // 
             this.tbRow2.Location = new System.Drawing.Point(16, 135);
             this.tbRow2.Name = "tbRow2";
             this.tbRow2.Size = new System.Drawing.Size(47, 23);
-            this.tbRow2.TabIndex = 0;
+            this.tbRow2.TabIndex = 6;
             // 
             // tbRow1
             // 
             this.tbRow1.Location = new System.Drawing.Point(16, 106);
             this.tbRow1.Name = "tbRow1";
             this.tbRow1.Size = new System.Drawing.Size(47, 23);
-            this.tbRow1.TabIndex = 0;
+            this.tbRow1.TabIndex = 5;
             // 
             // tbCol3
             // 
             this.tbCol3.Location = new System.Drawing.Point(239, 49);
             this.tbCol3.Name = "tbCol3";
             this.tbCol3.Size = new System.Drawing.Size(47, 23);
-            this.tbCol3.TabIndex = 0;
+            this.tbCol3.TabIndex = 3;
             // 
             // tbCol2
             // 
             this.tbCol2.Location = new System.Drawing.Point(186, 49);
             this.tbCol2.Name = "tbCol2";
             this.tbCol2.Size = new System.Drawing.Size(47, 23);
-            this.tbCol2.TabIndex = 0;
+            this.tbCol2.TabIndex = 2;
             // 
             // tbCol1
             // 
             this.tbCol1.Location = new System.Drawing.Point(133, 49);
             this.tbCol1.Name = "tbCol1";
             this.tbCol1.Size = new System.Drawing.Size(47, 23);
-            this.tbCol1.TabIndex = 0;
+            this.tbCol1.TabIndex = 1;
             // 
             // tbCol0
             // 

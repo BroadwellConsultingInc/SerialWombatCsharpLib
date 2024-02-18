@@ -7,7 +7,7 @@ namespace SerialWombat
 {
 	public class SerialWombatAbstractScaledOutput : SerialWombatPin
 	{
-
+		public bool biDirectional = false; // Set to true if H Bridge or similar
 		public SerialWombatAbstractScaledOutput(SerialWombatChip serialWombatChip) : base(serialWombatChip)
 		{
 		}
@@ -210,7 +210,7 @@ namespace SerialWombat
 			return (0);
 		}
 
-		public Int16 writePID(UInt16 kp, UInt16 ki, UInt16 kd, UInt16 target, ScaledOutputPeriod sampleRate)
+		public Int16 writePID(UInt16 kp, UInt16 ki, UInt16 kd, UInt16 target, ScaledOutputPeriod sampleRate, byte targetPin = 255)
 		{
 			{
 				byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_OUTPUTSCALE,
@@ -252,7 +252,16 @@ namespace SerialWombat
 		};
 				Int16 result = _sw.sendPacket(tx); if (result < 0) { return (result); }
 			}
-			return 0;
+            {
+                byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_OUTPUTSCALE,
+            _pin,
+            _pinMode,
+            109, // Enable Pid
+			targetPin,(byte)(biDirectional?1:0),0x55,0x55
+        };
+                Int16 result = _sw.sendPacket(tx); if (result < 0) { return (result); }
+            }
+            return 0;
 
 		}
 
@@ -267,7 +276,18 @@ namespace SerialWombat
 		};
 			return _sw.sendPacket(tx);
 		}
-		public Int32 PIDGetLastError()
+
+        public Int16 writeScalingTargetValueResetIntegrator(UInt16 target)
+        {
+            byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_OUTPUTSCALE,
+            _pin,
+            _pinMode,
+            110, // Write target Value and Reset Integrator
+			(byte)(target&0xFF),(byte)(target>>8),0x55,0x55
+        };
+            return _sw.sendPacket(tx);
+        }
+        public Int32 PIDGetLastError()
 		{
 			byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_OUTPUTSCALE,
 			_pin,
@@ -358,6 +378,21 @@ namespace SerialWombat
 
 			return BitConverter.ToInt32(rx, 4);
 		}
+
+		public UInt16 ReadLastTarget()
+		{
+            byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_OUTPUTSCALE,
+            _pin,
+            _pinMode,
+            111, // Get Last Target
+			0x55,0x55,0x55,0x55
+            };
+            byte[] rx;
+
+            _sw.sendPacket(tx, out rx);
+
+            return BitConverter.ToUInt16(rx, 4);
+        }
 
 		public Int16 Enable2DLookupOutputScaling(UInt16 IndexInUserMemory)
 		{

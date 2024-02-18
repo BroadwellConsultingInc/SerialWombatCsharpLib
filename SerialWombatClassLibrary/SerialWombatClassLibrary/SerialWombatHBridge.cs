@@ -9,20 +9,10 @@ namespace SerialWombat
 {
     public class SerialWombatHBridge:SerialWombatPin
     {
-        public enum driver
-        {
-            RelayAndPWM = 0,
-            LG9110_HG7881 = 1,
-            DRV8833 = 2,
-            DRV8871 = 3,
-            L298N = 4,
-            MX1508 = 5,
-            BTS7960 = 6,
-            IBT4 = 7,
-            A4990 = 8,
-            TB67H420FTG = 9,
+        public SerialWombatHBridgeDriverChip driver = SerialWombatHBridgeDriverChip.DRV8833;
+        
 
-        }
+       
         public SerialWombatHBridge(SerialWombatChip serialWombatChip) : base(serialWombatChip)
         {
             _sw = serialWombatChip;
@@ -59,6 +49,27 @@ namespace SerialWombat
             _sw.sendPacket(tx);
         }
 
+    }
+    public enum SerialWombatHBridgeDriverChip :byte
+    {
+        RelayAndPWM = 0,
+        LG9110_HG7881 = 1,
+        DRV8833 = 2,
+        DRV8871 = 3,
+        L298N = 4,
+        MX1508 = 5,
+        BTS7960 = 6,
+        IBT4 = 7,
+        A4990 = 8,
+        TB67H420FTG = 9,
+
+    }
+    public enum SerialWombatHBridgeOffState
+    {
+        BothPinsLow = 0,
+        MainPinHigh = 1,
+        SecondPinHigh = 2,
+        BothPinsHigh = 3,
     }
 }
 

@@ -6,8 +6,8 @@ namespace SerialWombat
 {
     public class SerialWombatPWM
     {
-		SerialWombatChip _sw;
-		byte _pin = 255;
+		public SerialWombatChip _sw;
+		public byte _pin = 255;
 
 		public 		 SerialWombatPWM(SerialWombatChip serialWombatChip)
 {

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.bConfigureEntry = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.swpdcSecondSource = new SerialWombatWindowsFormsLibrary.SerialWombatPublicDataControl();
@@ -54,7 +55,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.swpdcFirstSource = new SerialWombatWindowsFormsLibrary.SerialWombatPublicDataControl();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -83,6 +83,18 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.MediumPurple;
+            this.button1.Location = new System.Drawing.Point(615, 418);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(45, 47);
+            this.button1.TabIndex = 33;
+            this.button1.TabStop = false;
+            this.button1.Text = "Gen Code";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // bConfigureEntry
             // 
@@ -149,6 +161,7 @@
             this.bGenCode.Name = "bGenCode";
             this.bGenCode.Size = new System.Drawing.Size(45, 47);
             this.bGenCode.TabIndex = 32;
+            this.bGenCode.TabStop = false;
             this.bGenCode.Text = "Gen Code";
             this.bGenCode.UseVisualStyleBackColor = false;
             this.bGenCode.Click += new System.EventHandler(this.bGenCode_Click);
@@ -237,6 +250,7 @@
             this.edActive.Name = "edActive";
             this.edActive.Size = new System.Drawing.Size(274, 35);
             this.edActive.TabIndex = 0;
+            this.edActive.Value = 0;
             // 
             // sbsiInactiveTime
             // 
@@ -258,6 +272,7 @@
             this.edInactive.Name = "edInactive";
             this.edInactive.Size = new System.Drawing.Size(274, 35);
             this.edInactive.TabIndex = 2;
+            this.edInactive.Value = 0;
             // 
             // sbsiActiveTime
             // 
@@ -305,6 +320,7 @@
             this.edMode.Name = "edMode";
             this.edMode.Size = new System.Drawing.Size(274, 35);
             this.edMode.TabIndex = 4;
+            this.edMode.Value = 0;
             this.edMode.SelectedEnumChanged += new System.EventHandler(this.edMode_SelectedEnumChanged);
             // 
             // cbEntry
@@ -355,17 +371,6 @@
             this.swpdcFirstSource.Name = "swpdcFirstSource";
             this.swpdcFirstSource.Size = new System.Drawing.Size(286, 35);
             this.swpdcFirstSource.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.MediumPurple;
-            this.button1.Location = new System.Drawing.Point(615, 418);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(45, 47);
-            this.button1.TabIndex = 33;
-            this.button1.Text = "Gen Code";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // PulseOnChangeControl
             // 

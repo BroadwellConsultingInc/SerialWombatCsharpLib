@@ -31,17 +31,22 @@
             this.tbDioPin = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.gbAnimation = new System.Windows.Forms.GroupBox();
+            this.bAddToAnimation = new System.Windows.Forms.Button();
             this.bDownloadAnimation = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.tbAnimationFrames = new System.Windows.Forms.TextBox();
             this.tbUserBufferIndex = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.serialWombatPublicDataControl1 = new SerialWombatWindowsFormsLibrary.SerialWombatPublicDataControl();
             this.bPinDataDecimal = new System.Windows.Forms.Button();
             this.bPinDataHex = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tbDigits = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
@@ -79,11 +84,11 @@
             this.bWriteDecimals = new System.Windows.Forms.Button();
             this.bWriteArray = new System.Windows.Forms.Button();
             this.bWriteDigitOrder = new System.Windows.Forms.Button();
-            this.bAddToAnimation = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.gbAnimation.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,8 +112,9 @@
             // 
             this.groupBox1.AutoSize = true;
             this.groupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox1.Controls.Add(this.button5);
+            this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.gbAnimation);
-            this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.bShowAnimation);
             this.groupBox1.Controls.Add(this.bWriteRaw);
@@ -149,6 +155,18 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.MediumPurple;
+            this.button2.Location = new System.Drawing.Point(381, 334);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(45, 47);
+            this.button2.TabIndex = 33;
+            this.button2.TabStop = false;
+            this.button2.Text = "Gen Code";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // gbAnimation
             // 
             this.gbAnimation.AutoSize = true;
@@ -165,6 +183,16 @@
             this.gbAnimation.TabStop = false;
             this.gbAnimation.Text = "Animation";
             this.gbAnimation.Visible = false;
+            // 
+            // bAddToAnimation
+            // 
+            this.bAddToAnimation.Location = new System.Drawing.Point(35, 290);
+            this.bAddToAnimation.Name = "bAddToAnimation";
+            this.bAddToAnimation.Size = new System.Drawing.Size(117, 23);
+            this.bAddToAnimation.TabIndex = 31;
+            this.bAddToAnimation.Text = "Add To Animation";
+            this.bAddToAnimation.UseVisualStyleBackColor = true;
+            this.bAddToAnimation.Click += new System.EventHandler(this.bAddToAnimation_Click);
             // 
             // bDownloadAnimation
             // 
@@ -202,19 +230,76 @@
             this.tbUserBufferIndex.TabIndex = 25;
             this.tbUserBufferIndex.Text = "0";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.AutoSize = true;
+            this.groupBox2.Controls.Add(this.button4);
+            this.groupBox2.Controls.Add(this.tbDioPin);
+            this.groupBox2.Controls.Add(this.groupBox3);
+            this.groupBox2.Controls.Add(this.tbDigits);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.trackBar1);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.bConfigure);
+            this.groupBox2.Location = new System.Drawing.Point(11, 22);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(431, 301);
+            this.groupBox2.TabIndex = 27;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Initialize";
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.MediumPurple;
+            this.button4.Location = new System.Drawing.Point(366, 51);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(45, 47);
+            this.button4.TabIndex = 31;
+            this.button4.TabStop = false;
+            this.button4.Text = "Gen Code";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // groupBox3
             // 
             this.groupBox3.AutoSize = true;
+            this.groupBox3.Controls.Add(this.button3);
+            this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Controls.Add(this.serialWombatPublicDataControl1);
             this.groupBox3.Controls.Add(this.bPinDataDecimal);
             this.groupBox3.Controls.Add(this.bPinDataHex);
             this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Location = new System.Drawing.Point(6, 175);
+            this.groupBox3.Location = new System.Drawing.Point(4, 142);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(421, 108);
+            this.groupBox3.Size = new System.Drawing.Size(421, 137);
             this.groupBox3.TabIndex = 28;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "groupBox3";
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.MediumPurple;
+            this.button3.Location = new System.Drawing.Point(151, 63);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(102, 25);
+            this.button3.TabIndex = 32;
+            this.button3.TabStop = false;
+            this.button3.Text = "Gen Code";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.MediumPurple;
+            this.button1.Location = new System.Drawing.Point(151, 90);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(102, 25);
+            this.button1.TabIndex = 32;
+            this.button1.TabStop = false;
+            this.button1.Text = "Gen Code";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // serialWombatPublicDataControl1
             // 
@@ -227,7 +312,7 @@
             // 
             // bPinDataDecimal
             // 
-            this.bPinDataDecimal.Location = new System.Drawing.Point(152, 63);
+            this.bPinDataDecimal.Location = new System.Drawing.Point(19, 92);
             this.bPinDataDecimal.Name = "bPinDataDecimal";
             this.bPinDataDecimal.Size = new System.Drawing.Size(126, 23);
             this.bPinDataDecimal.TabIndex = 15;
@@ -254,23 +339,6 @@
             this.label4.TabIndex = 1;
             this.label4.Text = "Data Source Pin:";
             this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.AutoSize = true;
-            this.groupBox2.Controls.Add(this.tbDioPin);
-            this.groupBox2.Controls.Add(this.tbDigits);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.trackBar1);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.bConfigure);
-            this.groupBox2.Location = new System.Drawing.Point(11, 22);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(416, 147);
-            this.groupBox2.TabIndex = 27;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Initialize";
             // 
             // tbDigits
             // 
@@ -308,7 +376,7 @@
             // 
             // bConfigure
             // 
-            this.bConfigure.Location = new System.Drawing.Point(317, 46);
+            this.bConfigure.Location = new System.Drawing.Point(336, 17);
             this.bConfigure.Name = "bConfigure";
             this.bConfigure.Size = new System.Drawing.Size(75, 23);
             this.bConfigure.TabIndex = 14;
@@ -389,7 +457,7 @@
             // ckbSurpressZeros
             // 
             this.ckbSurpressZeros.AutoSize = true;
-            this.ckbSurpressZeros.Location = new System.Drawing.Point(279, 357);
+            this.ckbSurpressZeros.Location = new System.Drawing.Point(277, 372);
             this.ckbSurpressZeros.Name = "ckbSurpressZeros";
             this.ckbSurpressZeros.Size = new System.Drawing.Size(98, 19);
             this.ckbSurpressZeros.TabIndex = 13;
@@ -410,7 +478,7 @@
             // ckbBlink5
             // 
             this.ckbBlink5.AutoSize = true;
-            this.ckbBlink5.Location = new System.Drawing.Point(118, 432);
+            this.ckbBlink5.Location = new System.Drawing.Point(119, 449);
             this.ckbBlink5.Name = "ckbBlink5";
             this.ckbBlink5.Size = new System.Drawing.Size(15, 14);
             this.ckbBlink5.TabIndex = 12;
@@ -419,7 +487,7 @@
             // ckbDec5
             // 
             this.ckbDec5.AutoSize = true;
-            this.ckbDec5.Location = new System.Drawing.Point(117, 403);
+            this.ckbDec5.Location = new System.Drawing.Point(118, 420);
             this.ckbDec5.Name = "ckbDec5";
             this.ckbDec5.Size = new System.Drawing.Size(15, 14);
             this.ckbDec5.TabIndex = 12;
@@ -428,7 +496,7 @@
             // ckbBlink4
             // 
             this.ckbBlink4.AutoSize = true;
-            this.ckbBlink4.Location = new System.Drawing.Point(95, 432);
+            this.ckbBlink4.Location = new System.Drawing.Point(96, 449);
             this.ckbBlink4.Name = "ckbBlink4";
             this.ckbBlink4.Size = new System.Drawing.Size(15, 14);
             this.ckbBlink4.TabIndex = 12;
@@ -437,7 +505,7 @@
             // ckbDec4
             // 
             this.ckbDec4.AutoSize = true;
-            this.ckbDec4.Location = new System.Drawing.Point(94, 403);
+            this.ckbDec4.Location = new System.Drawing.Point(95, 420);
             this.ckbDec4.Name = "ckbDec4";
             this.ckbDec4.Size = new System.Drawing.Size(15, 14);
             this.ckbDec4.TabIndex = 12;
@@ -446,7 +514,7 @@
             // ckbBlink3
             // 
             this.ckbBlink3.AutoSize = true;
-            this.ckbBlink3.Location = new System.Drawing.Point(72, 432);
+            this.ckbBlink3.Location = new System.Drawing.Point(73, 449);
             this.ckbBlink3.Name = "ckbBlink3";
             this.ckbBlink3.Size = new System.Drawing.Size(15, 14);
             this.ckbBlink3.TabIndex = 12;
@@ -455,7 +523,7 @@
             // ckbDec3
             // 
             this.ckbDec3.AutoSize = true;
-            this.ckbDec3.Location = new System.Drawing.Point(71, 403);
+            this.ckbDec3.Location = new System.Drawing.Point(72, 420);
             this.ckbDec3.Name = "ckbDec3";
             this.ckbDec3.Size = new System.Drawing.Size(15, 14);
             this.ckbDec3.TabIndex = 12;
@@ -464,7 +532,7 @@
             // ckbBlink2
             // 
             this.ckbBlink2.AutoSize = true;
-            this.ckbBlink2.Location = new System.Drawing.Point(49, 432);
+            this.ckbBlink2.Location = new System.Drawing.Point(50, 449);
             this.ckbBlink2.Name = "ckbBlink2";
             this.ckbBlink2.Size = new System.Drawing.Size(15, 14);
             this.ckbBlink2.TabIndex = 12;
@@ -473,7 +541,7 @@
             // ckbDec2
             // 
             this.ckbDec2.AutoSize = true;
-            this.ckbDec2.Location = new System.Drawing.Point(48, 403);
+            this.ckbDec2.Location = new System.Drawing.Point(49, 420);
             this.ckbDec2.Name = "ckbDec2";
             this.ckbDec2.Size = new System.Drawing.Size(15, 14);
             this.ckbDec2.TabIndex = 12;
@@ -482,7 +550,7 @@
             // ckbBlink1
             // 
             this.ckbBlink1.AutoSize = true;
-            this.ckbBlink1.Location = new System.Drawing.Point(26, 432);
+            this.ckbBlink1.Location = new System.Drawing.Point(27, 449);
             this.ckbBlink1.Name = "ckbBlink1";
             this.ckbBlink1.Size = new System.Drawing.Size(15, 14);
             this.ckbBlink1.TabIndex = 12;
@@ -491,7 +559,7 @@
             // ckbDec1
             // 
             this.ckbDec1.AutoSize = true;
-            this.ckbDec1.Location = new System.Drawing.Point(25, 403);
+            this.ckbDec1.Location = new System.Drawing.Point(26, 420);
             this.ckbDec1.Name = "ckbDec1";
             this.ckbDec1.Size = new System.Drawing.Size(15, 14);
             this.ckbDec1.TabIndex = 12;
@@ -500,7 +568,7 @@
             // ckbBlink0
             // 
             this.ckbBlink0.AutoSize = true;
-            this.ckbBlink0.Location = new System.Drawing.Point(3, 432);
+            this.ckbBlink0.Location = new System.Drawing.Point(4, 449);
             this.ckbBlink0.Name = "ckbBlink0";
             this.ckbBlink0.Size = new System.Drawing.Size(15, 14);
             this.ckbBlink0.TabIndex = 12;
@@ -509,7 +577,7 @@
             // ckbDec0
             // 
             this.ckbDec0.AutoSize = true;
-            this.ckbDec0.Location = new System.Drawing.Point(2, 403);
+            this.ckbDec0.Location = new System.Drawing.Point(3, 420);
             this.ckbDec0.Name = "ckbDec0";
             this.ckbDec0.Size = new System.Drawing.Size(15, 14);
             this.ckbDec0.TabIndex = 12;
@@ -517,56 +585,56 @@
             // 
             // tbOrder5
             // 
-            this.tbOrder5.Location = new System.Drawing.Point(197, 312);
+            this.tbOrder5.Location = new System.Drawing.Point(196, 334);
             this.tbOrder5.Name = "tbOrder5";
             this.tbOrder5.Size = new System.Drawing.Size(33, 23);
             this.tbOrder5.TabIndex = 10;
             // 
             // tbOrder4
             // 
-            this.tbOrder4.Location = new System.Drawing.Point(158, 312);
+            this.tbOrder4.Location = new System.Drawing.Point(157, 334);
             this.tbOrder4.Name = "tbOrder4";
             this.tbOrder4.Size = new System.Drawing.Size(33, 23);
             this.tbOrder4.TabIndex = 9;
             // 
             // tbOrder3
             // 
-            this.tbOrder3.Location = new System.Drawing.Point(119, 312);
+            this.tbOrder3.Location = new System.Drawing.Point(118, 334);
             this.tbOrder3.Name = "tbOrder3";
             this.tbOrder3.Size = new System.Drawing.Size(33, 23);
             this.tbOrder3.TabIndex = 8;
             // 
             // tbOrder2
             // 
-            this.tbOrder2.Location = new System.Drawing.Point(80, 312);
+            this.tbOrder2.Location = new System.Drawing.Point(79, 334);
             this.tbOrder2.Name = "tbOrder2";
             this.tbOrder2.Size = new System.Drawing.Size(33, 23);
             this.tbOrder2.TabIndex = 7;
             // 
             // tbOrder1
             // 
-            this.tbOrder1.Location = new System.Drawing.Point(41, 312);
+            this.tbOrder1.Location = new System.Drawing.Point(40, 334);
             this.tbOrder1.Name = "tbOrder1";
             this.tbOrder1.Size = new System.Drawing.Size(33, 23);
             this.tbOrder1.TabIndex = 6;
             // 
             // tbArray
             // 
-            this.tbArray.Location = new System.Drawing.Point(2, 357);
+            this.tbArray.Location = new System.Drawing.Point(0, 372);
             this.tbArray.Name = "tbArray";
             this.tbArray.Size = new System.Drawing.Size(120, 23);
             this.tbArray.TabIndex = 5;
             // 
             // tbOrder0
             // 
-            this.tbOrder0.Location = new System.Drawing.Point(2, 312);
+            this.tbOrder0.Location = new System.Drawing.Point(1, 334);
             this.tbOrder0.Name = "tbOrder0";
             this.tbOrder0.Size = new System.Drawing.Size(33, 23);
             this.tbOrder0.TabIndex = 5;
             // 
             // bWriteBlinkBitmap
             // 
-            this.bWriteBlinkBitmap.Location = new System.Drawing.Point(152, 427);
+            this.bWriteBlinkBitmap.Location = new System.Drawing.Point(153, 444);
             this.bWriteBlinkBitmap.Name = "bWriteBlinkBitmap";
             this.bWriteBlinkBitmap.Size = new System.Drawing.Size(137, 23);
             this.bWriteBlinkBitmap.TabIndex = 3;
@@ -576,7 +644,7 @@
             // 
             // bWriteDecimals
             // 
-            this.bWriteDecimals.Location = new System.Drawing.Point(151, 398);
+            this.bWriteDecimals.Location = new System.Drawing.Point(152, 415);
             this.bWriteDecimals.Name = "bWriteDecimals";
             this.bWriteDecimals.Size = new System.Drawing.Size(137, 23);
             this.bWriteDecimals.TabIndex = 3;
@@ -586,7 +654,7 @@
             // 
             // bWriteArray
             // 
-            this.bWriteArray.Location = new System.Drawing.Point(128, 357);
+            this.bWriteArray.Location = new System.Drawing.Point(126, 372);
             this.bWriteArray.Name = "bWriteArray";
             this.bWriteArray.Size = new System.Drawing.Size(113, 23);
             this.bWriteArray.TabIndex = 3;
@@ -596,7 +664,7 @@
             // 
             // bWriteDigitOrder
             // 
-            this.bWriteDigitOrder.Location = new System.Drawing.Point(254, 311);
+            this.bWriteDigitOrder.Location = new System.Drawing.Point(253, 333);
             this.bWriteDigitOrder.Name = "bWriteDigitOrder";
             this.bWriteDigitOrder.Size = new System.Drawing.Size(113, 23);
             this.bWriteDigitOrder.TabIndex = 3;
@@ -604,15 +672,17 @@
             this.bWriteDigitOrder.UseVisualStyleBackColor = true;
             this.bWriteDigitOrder.Click += new System.EventHandler(this.bWriteDigitOrder_Click);
             // 
-            // bAddToAnimation
+            // button5
             // 
-            this.bAddToAnimation.Location = new System.Drawing.Point(35, 290);
-            this.bAddToAnimation.Name = "bAddToAnimation";
-            this.bAddToAnimation.Size = new System.Drawing.Size(117, 23);
-            this.bAddToAnimation.TabIndex = 31;
-            this.bAddToAnimation.Text = "Add To Animation";
-            this.bAddToAnimation.UseVisualStyleBackColor = true;
-            this.bAddToAnimation.Click += new System.EventHandler(this.bAddToAnimation_Click);
+            this.button5.BackColor = System.Drawing.Color.MediumPurple;
+            this.button5.Location = new System.Drawing.Point(302, 415);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(102, 25);
+            this.button5.TabIndex = 33;
+            this.button5.TabStop = false;
+            this.button5.Text = "Gen Code";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // TM1637Control
             // 
@@ -627,10 +697,10 @@
             this.groupBox1.PerformLayout();
             this.gbAnimation.ResumeLayout(false);
             this.gbAnimation.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -691,5 +761,10 @@
         private System.Windows.Forms.Button bDownloadAnimation;
         private System.Windows.Forms.TextBox tbAnimationFrames;
         private System.Windows.Forms.Button bAddToAnimation;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button5;
     }
 }

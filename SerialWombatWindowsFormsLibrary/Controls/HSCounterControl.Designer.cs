@@ -37,11 +37,11 @@ namespace SerialWombatWindowsFormsLibrary.Controls
             this.ckbAutosample = new System.Windows.Forms.CheckBox();
             this.realTimeScottPlot1 = new SerialWombatWindowsFormsLibrary.Controls.RealTimeScottPlot();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.bGenCode = new System.Windows.Forms.Button();
             this.lFreq = new System.Windows.Forms.Label();
             this.lCounts = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.bGenCode = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,7 +52,7 @@ namespace SerialWombatWindowsFormsLibrary.Controls
             this.sbsiFramesBetweenUpdates.Minimum = 0;
             this.sbsiFramesBetweenUpdates.Name = "sbsiFramesBetweenUpdates";
             this.sbsiFramesBetweenUpdates.Size = new System.Drawing.Size(328, 76);
-            this.sbsiFramesBetweenUpdates.TabIndex = 0;
+            this.sbsiFramesBetweenUpdates.TabIndex = 3;
             this.sbsiFramesBetweenUpdates.Text = "Frames Between Updates";
             this.sbsiFramesBetweenUpdates.TextBoxHint = "";
             this.sbsiFramesBetweenUpdates.value = ((ushort)(100));
@@ -64,7 +64,7 @@ namespace SerialWombatWindowsFormsLibrary.Controls
             this.sbsiPublicDataDivisor.Minimum = 0;
             this.sbsiPublicDataDivisor.Name = "sbsiPublicDataDivisor";
             this.sbsiPublicDataDivisor.Size = new System.Drawing.Size(328, 76);
-            this.sbsiPublicDataDivisor.TabIndex = 1;
+            this.sbsiPublicDataDivisor.TabIndex = 4;
             this.sbsiPublicDataDivisor.Text = "Public Data Divisor";
             this.sbsiPublicDataDivisor.TextBoxHint = "";
             this.sbsiPublicDataDivisor.value = ((ushort)(100));
@@ -76,14 +76,15 @@ namespace SerialWombatWindowsFormsLibrary.Controls
             this.enumDropdown1.Location = new System.Drawing.Point(6, 495);
             this.enumDropdown1.Name = "enumDropdown1";
             this.enumDropdown1.Size = new System.Drawing.Size(274, 35);
-            this.enumDropdown1.TabIndex = 2;
+            this.enumDropdown1.TabIndex = 5;
+            this.enumDropdown1.Value = 0;
             // 
             // bConfigure
             // 
             this.bConfigure.Location = new System.Drawing.Point(6, 22);
             this.bConfigure.Name = "bConfigure";
             this.bConfigure.Size = new System.Drawing.Size(75, 23);
-            this.bConfigure.TabIndex = 3;
+            this.bConfigure.TabIndex = 0;
             this.bConfigure.Text = "Configure";
             this.bConfigure.UseVisualStyleBackColor = true;
             this.bConfigure.Click += new System.EventHandler(this.bConfigure_Click_1);
@@ -93,7 +94,7 @@ namespace SerialWombatWindowsFormsLibrary.Controls
             this.bSample.Location = new System.Drawing.Point(125, 22);
             this.bSample.Name = "bSample";
             this.bSample.Size = new System.Drawing.Size(75, 23);
-            this.bSample.TabIndex = 4;
+            this.bSample.TabIndex = 1;
             this.bSample.Text = "Sample";
             this.bSample.UseVisualStyleBackColor = true;
             this.bSample.Click += new System.EventHandler(this.bSample_Click);
@@ -104,7 +105,7 @@ namespace SerialWombatWindowsFormsLibrary.Controls
             this.ckbAutosample.Location = new System.Drawing.Point(241, 28);
             this.ckbAutosample.Name = "ckbAutosample";
             this.ckbAutosample.Size = new System.Drawing.Size(90, 19);
-            this.ckbAutosample.TabIndex = 5;
+            this.ckbAutosample.TabIndex = 2;
             this.ckbAutosample.Text = "Autosample";
             this.ckbAutosample.UseVisualStyleBackColor = true;
             this.ckbAutosample.CheckedChanged += new System.EventHandler(this.ckbAutosample_CheckedChanged);
@@ -138,6 +139,18 @@ namespace SerialWombatWindowsFormsLibrary.Controls
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
+            // 
+            // bGenCode
+            // 
+            this.bGenCode.BackColor = System.Drawing.Color.MediumPurple;
+            this.bGenCode.Location = new System.Drawing.Point(340, 495);
+            this.bGenCode.Name = "bGenCode";
+            this.bGenCode.Size = new System.Drawing.Size(45, 47);
+            this.bGenCode.TabIndex = 31;
+            this.bGenCode.TabStop = false;
+            this.bGenCode.Text = "Gen Code";
+            this.bGenCode.UseVisualStyleBackColor = false;
+            this.bGenCode.Click += new System.EventHandler(this.bGenCode_Click);
             // 
             // lFreq
             // 
@@ -174,17 +187,6 @@ namespace SerialWombatWindowsFormsLibrary.Controls
             this.label1.Size = new System.Drawing.Size(48, 15);
             this.label1.TabIndex = 7;
             this.label1.Text = "Counts:";
-            // 
-            // bGenCode
-            // 
-            this.bGenCode.BackColor = System.Drawing.Color.MediumPurple;
-            this.bGenCode.Location = new System.Drawing.Point(340, 495);
-            this.bGenCode.Name = "bGenCode";
-            this.bGenCode.Size = new System.Drawing.Size(45, 47);
-            this.bGenCode.TabIndex = 31;
-            this.bGenCode.Text = "Gen Code";
-            this.bGenCode.UseVisualStyleBackColor = false;
-            this.bGenCode.Click += new System.EventHandler(this.bGenCode_Click);
             // 
             // HSCounterControl
             // 

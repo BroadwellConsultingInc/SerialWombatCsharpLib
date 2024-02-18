@@ -28,12 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tbPosition = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.tbSignalPeriod = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.bConfigure = new System.Windows.Forms.Button();
-            this.bSetPosition = new System.Windows.Forms.Button();
             this.ckbReverse = new System.Windows.Forms.CheckBox();
             this.ckbInvertSignal = new System.Windows.Forms.CheckBox();
             this.tbFixedTime = new System.Windows.Forms.TextBox();
@@ -41,30 +38,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tbVariableTime = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.sbsiPosition = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
             this.gbConfigure = new System.Windows.Forms.GroupBox();
             this.button4 = new System.Windows.Forms.Button();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.groupBox1.SuspendLayout();
             this.gbConfigure.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // tbPosition
-            // 
-            this.tbPosition.Location = new System.Drawing.Point(69, 22);
-            this.tbPosition.Name = "tbPosition";
-            this.tbPosition.Size = new System.Drawing.Size(100, 23);
-            this.tbPosition.TabIndex = 1;
-            this.tbPosition.Text = "0";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 15);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Position:";
             // 
             // tbSignalPeriod
             // 
@@ -92,17 +71,6 @@
             this.bConfigure.Text = "Configure";
             this.bConfigure.UseVisualStyleBackColor = true;
             this.bConfigure.Click += new System.EventHandler(this.bConfigure_Click);
-            // 
-            // bSetPosition
-            // 
-            this.bSetPosition.Enabled = false;
-            this.bSetPosition.Location = new System.Drawing.Point(194, 21);
-            this.bSetPosition.Name = "bSetPosition";
-            this.bSetPosition.Size = new System.Drawing.Size(85, 23);
-            this.bSetPosition.TabIndex = 4;
-            this.bSetPosition.Text = "Set Position";
-            this.bSetPosition.UseVisualStyleBackColor = true;
-            this.bSetPosition.Click += new System.EventHandler(this.bSetPosition_Click);
             // 
             // ckbReverse
             // 
@@ -162,17 +130,26 @@
             // 
             this.groupBox1.AutoSize = true;
             this.groupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox1.Controls.Add(this.sbsiPosition);
             this.groupBox1.Controls.Add(this.gbConfigure);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.tbPosition);
-            this.groupBox1.Controls.Add(this.trackBar1);
-            this.groupBox1.Controls.Add(this.bSetPosition);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(300, 258);
+            this.groupBox1.Size = new System.Drawing.Size(300, 283);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
+            // 
+            // sbsiPosition
+            // 
+            this.sbsiPosition.Location = new System.Drawing.Point(0, 28);
+            this.sbsiPosition.Maximum = 65535;
+            this.sbsiPosition.Minimum = 0;
+            this.sbsiPosition.Name = "sbsiPosition";
+            this.sbsiPosition.Size = new System.Drawing.Size(288, 76);
+            this.sbsiPosition.TabIndex = 11;
+            this.sbsiPosition.Text = "Position";
+            this.sbsiPosition.TextBoxHint = "";
+            this.sbsiPosition.value = ((ushort)(32768));
             // 
             // gbConfigure
             // 
@@ -186,7 +163,7 @@
             this.gbConfigure.Controls.Add(this.tbFixedTime);
             this.gbConfigure.Controls.Add(this.ckbReverse);
             this.gbConfigure.Controls.Add(this.ckbInvertSignal);
-            this.gbConfigure.Location = new System.Drawing.Point(10, 85);
+            this.gbConfigure.Location = new System.Drawing.Point(10, 110);
             this.gbConfigure.Name = "gbConfigure";
             this.gbConfigure.Size = new System.Drawing.Size(284, 151);
             this.gbConfigure.TabIndex = 10;
@@ -204,17 +181,6 @@
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // trackBar1
-            // 
-            this.trackBar1.Enabled = false;
-            this.trackBar1.Location = new System.Drawing.Point(6, 52);
-            this.trackBar1.Maximum = 65535;
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(270, 45);
-            this.trackBar1.TabIndex = 0;
-            this.trackBar1.TickFrequency = 4096;
-            this.trackBar1.ValueChanged += new System.EventHandler(this.trackBar1_ValueChanged);
-            // 
             // ServoControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -223,25 +189,19 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.groupBox1);
             this.Name = "ServoControl";
-            this.Size = new System.Drawing.Size(306, 264);
+            this.Size = new System.Drawing.Size(306, 289);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.gbConfigure.ResumeLayout(false);
             this.gbConfigure.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox tbPosition;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbSignalPeriod;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button bConfigure;
-        private System.Windows.Forms.Button bSetPosition;
         private System.Windows.Forms.CheckBox ckbReverse;
         private System.Windows.Forms.CheckBox ckbInvertSignal;
         private System.Windows.Forms.TextBox tbFixedTime;
@@ -249,8 +209,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbVariableTime;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.GroupBox gbConfigure;
         private System.Windows.Forms.Button button4;
+        private SixteenBitSliderInput sbsiPosition;
     }
 }

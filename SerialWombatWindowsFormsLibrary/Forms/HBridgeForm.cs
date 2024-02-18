@@ -32,6 +32,7 @@ namespace SerialWombatWindowsFormsLibrary
 
                 this.AutoSize = true;
                 scaledOutput = new SerialWombatAbstractScaledOutput(serialWombatChip);
+                scaledOutput.biDirectional = true;
                 scaledOutput.begin(pin, SerialWombatPinModes.PIN_MODE_HBRIDGE);
                 scaledOutputControl = new ScaledOutputControl(scaledOutput);
                 scaledOutputControl.Left = hBridgeControl1.Right + 10;

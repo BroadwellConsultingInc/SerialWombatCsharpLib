@@ -41,6 +41,7 @@ namespace SerialWombatWindowsFormsLibrary
 
             this.Text = $"Servo on pin {pin} on Serial Wombat Chip on {serialWombatChip.Serial.Port.PortName}";
             Name = $"Pin{Pin}Servo";
+            sbsiPosition.trackBarValueChangedDelegates.Add(bSetPosition_Click);
         }
         public void bConfigure_Click(object sender, EventArgs e)
         {
@@ -49,10 +50,6 @@ namespace SerialWombatWindowsFormsLibrary
                 Servo.attach(Pin, Convert.ToUInt16(tbFixedTime.Text),
                     (UInt16)(Convert.ToUInt16(tbVariableTime.Text) + Convert.ToUInt16(tbFixedTime.Text)), ckbReverse.Checked);
 
-              
-
-                trackBar1.Enabled = true;
-                bSetPosition.Enabled = true;
 
             }
             catch (Exception ex)
@@ -61,13 +58,14 @@ namespace SerialWombatWindowsFormsLibrary
             }
         }
 
+        
         private void bSetPosition_Click(object sender, EventArgs e)
         {
             if (Servo == null) return;
             try
             {
 
-                Servo.write16bit(Convert.ToUInt16(tbPosition.Text));
+                Servo.write16bit(sbsiPosition.value);
             }
             catch (Exception ex)
             {
@@ -75,11 +73,7 @@ namespace SerialWombatWindowsFormsLibrary
             }
         }
 
-        private void trackBar1_ValueChanged(object sender, EventArgs e)
-        {
-            tbPosition.Text = trackBar1.Value.ToString();
-            bSetPosition_Click(null, null);
-        }
+    
 
         [Browsable(true), EditorBrowsable(EditorBrowsableState.Always)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
@@ -92,7 +86,7 @@ namespace SerialWombatWindowsFormsLibrary
 
         public UInt16 Value { get { 
                 return Servo.readPublicData(); } set { 
-                trackBar1.Value = value;
+                sbsiPosition.value = value;
                 try
                 {
                     if (Servo != null)

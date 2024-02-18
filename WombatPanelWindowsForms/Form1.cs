@@ -12,7 +12,7 @@ using SerialWombat;
 using SerialWombatWindowsFormsLibrary;
 using SerialWombatSW18ABBootloader;
 using IntelHex;
-
+using System.Diagnostics;
 
 namespace WombatPanelWindowsForms
 {
@@ -446,6 +446,29 @@ namespace WombatPanelWindowsForms
             }
         }
 
-    
+        private void searchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ProcessStartInfo processInfo = new ProcessStartInfo();
+            processInfo.FileName = "https://www.serialwombat.com/docs-links";
+            processInfo.UseShellExecute = true;
+            Process.Start(processInfo);
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ProcessStartInfo processInfo = new ProcessStartInfo();
+            processInfo.FileName = "https://broadwellconsultinginc.github.io/SerialWombatArdLib/";
+            processInfo.UseShellExecute = true;
+            Process.Start(processInfo);
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+       
+            ProcessStartInfo processInfo = new ProcessStartInfo();
+            processInfo.FileName = " https://www.youtube.com/@serialwombat";
+            processInfo.UseShellExecute = true;
+            Process.Start(processInfo);
+        }
     }
 }

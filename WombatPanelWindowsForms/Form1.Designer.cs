@@ -56,12 +56,6 @@
             this.tsmiReadRam = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiCArray = new System.Windows.Forms.ToolStripMenuItem();
             this.sendStayInBootToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.indexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.portStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.portOpenSerialMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.portOpenTCPMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,6 +67,12 @@
             this.cancelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stopAndStoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.readToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tbLog = new System.Windows.Forms.TextBox();
             this.bReset = new System.Windows.Forms.Button();
             this.bSourceVoltage = new System.Windows.Forms.Button();
@@ -89,9 +89,9 @@
             this.fileToolStripMenuItem,
             this.editToolStripMenuItem,
             this.toolsToolStripMenuItem,
-            this.helpToolStripMenuItem,
             this.portStripMenuItem,
-            this.commandCaptureToolStripMenuItem});
+            this.commandCaptureToolStripMenuItem,
+            this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1163, 24);
@@ -305,47 +305,6 @@
             this.sendStayInBootToolStripMenuItem.Text = "Send Stay In Boot";
             this.sendStayInBootToolStripMenuItem.Click += new System.EventHandler(this.sendStayInBootToolStripMenuItem_Click);
             // 
-            // helpToolStripMenuItem
-            // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.contentsToolStripMenuItem,
-            this.indexToolStripMenuItem,
-            this.searchToolStripMenuItem,
-            this.toolStripSeparator5,
-            this.aboutToolStripMenuItem});
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "&Help";
-            // 
-            // contentsToolStripMenuItem
-            // 
-            this.contentsToolStripMenuItem.Name = "contentsToolStripMenuItem";
-            this.contentsToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.contentsToolStripMenuItem.Text = "&Contents";
-            // 
-            // indexToolStripMenuItem
-            // 
-            this.indexToolStripMenuItem.Name = "indexToolStripMenuItem";
-            this.indexToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.indexToolStripMenuItem.Text = "&Index";
-            // 
-            // searchToolStripMenuItem
-            // 
-            this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.searchToolStripMenuItem.Text = "&Search";
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(119, 6);
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.aboutToolStripMenuItem.Text = "&About...";
-            // 
             // portStripMenuItem
             // 
             this.portStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -361,26 +320,28 @@
             // portOpenSerialMenuItem
             // 
             this.portOpenSerialMenuItem.Name = "portOpenSerialMenuItem";
-            this.portOpenSerialMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.portOpenSerialMenuItem.Size = new System.Drawing.Size(179, 22);
             this.portOpenSerialMenuItem.Text = "Open&Serial";
             this.portOpenSerialMenuItem.Click += new System.EventHandler(this.PortOpenSerialMenuItem_Click);
             // 
             // portOpenTCPMenuItem
             // 
+            this.portOpenTCPMenuItem.Enabled = false;
             this.portOpenTCPMenuItem.Name = "portOpenTCPMenuItem";
-            this.portOpenTCPMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.portOpenTCPMenuItem.Size = new System.Drawing.Size(179, 22);
             this.portOpenTCPMenuItem.Text = "Open &TCP";
             // 
             // portOpenI2CBridgeMenuItem
             // 
+            this.portOpenI2CBridgeMenuItem.Enabled = false;
             this.portOpenI2CBridgeMenuItem.Name = "portOpenI2CBridgeMenuItem";
-            this.portOpenI2CBridgeMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.portOpenI2CBridgeMenuItem.Size = new System.Drawing.Size(179, 22);
             this.portOpenI2CBridgeMenuItem.Text = "Open I2C Bridge";
             // 
             // portCloseMenuItem
             // 
             this.portCloseMenuItem.Name = "portCloseMenuItem";
-            this.portCloseMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.portCloseMenuItem.Size = new System.Drawing.Size(179, 22);
             this.portCloseMenuItem.Text = "&Close";
             // 
             // tsmiResetSWCOnOpen
@@ -388,7 +349,7 @@
             this.tsmiResetSWCOnOpen.Checked = true;
             this.tsmiResetSWCOnOpen.CheckState = System.Windows.Forms.CheckState.Checked;
             this.tsmiResetSWCOnOpen.Name = "tsmiResetSWCOnOpen";
-            this.tsmiResetSWCOnOpen.Size = new System.Drawing.Size(180, 22);
+            this.tsmiResetSWCOnOpen.Size = new System.Drawing.Size(179, 22);
             this.tsmiResetSWCOnOpen.Text = "Reset SWC on Open";
             this.tsmiResetSWCOnOpen.Click += new System.EventHandler(this.tsmiResetSWCOnOpen_Click);
             // 
@@ -430,6 +391,50 @@
             this.readToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.readToolStripMenuItem.Text = "Read";
             this.readToolStripMenuItem.Click += new System.EventHandler(this.readToolStripMenuItem_Click);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.searchToolStripMenuItem,
+            this.toolStripMenuItem1,
+            this.toolStripMenuItem2,
+            this.toolStripSeparator5,
+            this.aboutToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "&Help";
+            // 
+            // searchToolStripMenuItem
+            // 
+            this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.searchToolStripMenuItem.Text = "User Guides";
+            this.searchToolStripMenuItem.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(167, 22);
+            this.toolStripMenuItem1.Text = "Class Information";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(167, 22);
+            this.toolStripMenuItem2.Text = "YouTube Channel";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(164, 6);
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.aboutToolStripMenuItem.Text = "&About...";
             // 
             // tbLog
             // 
@@ -505,7 +510,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Wombat Panel V1.2.2";
+            this.Text = "Wombat Panel V1.2.3";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -541,9 +546,6 @@
         private System.Windows.Forms.ToolStripMenuItem selectAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem contentsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem indexToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem portStripMenuItem;
@@ -568,6 +570,9 @@
         private System.Windows.Forms.ToolStripMenuItem sendStayInBootToolStripMenuItem;
         private SerialWombatWindowsFormsLibrary.GraphicPinSelectorControl graphicPinSelectorControl1;
         private System.Windows.Forms.ToolStripMenuItem bLDownloadToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
     }
 }
 

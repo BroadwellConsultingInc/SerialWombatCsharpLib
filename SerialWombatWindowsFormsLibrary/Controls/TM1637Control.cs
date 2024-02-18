@@ -9,6 +9,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SerialWombat;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace SerialWombatWindowsFormsLibrary
 {
@@ -31,6 +32,7 @@ namespace SerialWombatWindowsFormsLibrary
             serialWombatPublicDataControl1.DataSourceValue = pin;
             tbDioPin.Text = (pin + 1).ToString();
             groupBox1.Text = $"Pin {Pin} TM1637";
+            Name = $"Pin{Pin}_TM1637";
         }
         private void label4_Click(object sender, EventArgs e)
         {
@@ -429,6 +431,94 @@ namespace SerialWombatWindowsFormsLibrary
             tbAnimationFrames.AppendText($"0x{sevenSegmentControl1.value:X2}, 0x{sevenSegmentControl2.value:X2}, 0x{sevenSegmentControl3.value:X2}, ");
             tbAnimationFrames.AppendText($"0x{sevenSegmentControl4.value:X2}, 0x{sevenSegmentControl5.value:X2}, 0x{sevenSegmentControl6.value:X2}, ");
             tbAnimationFrames.AppendText(Environment.NewLine);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string s =
+
+            @$"
+                SerialWombatTM1637 {Name}(sw); TODO TODO //Put this line above setup()
+
+                //Put the below in setup():
+                {Name}.begin({Pin},  // Clock pin
+                {Convert.ToByte(tbDioPin.Text)}, //Data pin
+                {Convert.ToByte(tbDigits.Text)},  // Number of digits 
+                SWTM1637Mode::tm1637CharArray, 
+                {Pin}, // Pin to read data from (not used)
+                {(byte)trackBar1.Value} // Brightness
+                );
+            // Write Ascii characters 0-5
+            {Name}.writeArray((uint8_t*) ""012345""); ";
+            s = s.Replace("True", "true");
+            s = s.Replace("False", "false");
+            Clipboard.SetText(s);
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            addTextToClipboard($@"
+
+            // Initialize TM1637
+            {Name}.begin({Pin}, // Clock pin
+            {Convert.ToByte(tbDioPin.Text)}, //DIO pin
+            {Convert.ToByte(tbDigits.Text)}, // Number of digits
+            SWTM1637Mode::tm1637Decimal16,  // Mode
+                {serialWombatPublicDataControl1.DataSourceValue}, //Data source
+            {(byte)trackBar1.Value} // Brightness
+            );
+");
+        }
+
+        private void addTextToClipboard(string text)
+        {
+           
+            string s = "";
+            if (Clipboard.ContainsText())
+            {
+                s = Clipboard.GetText();
+            }
+            s += text;
+            Clipboard.SetText(s);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            addTextToClipboard($@"
+
+            // Initialize TM1637
+            {Name}.begin({Pin}, // Clock pin
+            {Convert.ToByte(tbDioPin.Text)}, //DIO pin
+            {Convert.ToByte(tbDigits.Text)}, // Number of digits
+            SWTM1637Mode::tm1637Hex16,  // Mode
+                {serialWombatPublicDataControl1.DataSourceValue}, //Data source
+            {(byte)trackBar1.Value} // Brightness
+            );
+");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            addTextToClipboard($@"  // Write Digit order
+            {Name}.writeDigitOrder({Convert.ToByte(tbOrder0.Text)}, {Convert.ToByte(tbOrder1.Text)}, {Convert.ToByte(tbOrder2.Text)},  {Convert.ToByte(tbOrder3.Text)}, {Convert.ToByte(tbOrder4.Text)}, {Convert.ToByte(tbOrder5.Text)});
+");
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            int value = 0;
+            if (ckbDec0.Checked) value |= 0x01;
+            if (ckbDec1.Checked) value |= 0x02;
+            if (ckbDec2.Checked) value |= 0x04;
+            if (ckbDec3.Checked) value |= 0x08;
+            if (ckbDec4.Checked) value |= 0x10;
+            if (ckbDec5.Checked) value |= 0x20;
+            addTextToClipboard(
+            $@"  
+
+            // Write Decimal bitmap
+            {Name}.writeDecimalBitmap(0x{(byte)value:X2});
+");
         }
     }
 }

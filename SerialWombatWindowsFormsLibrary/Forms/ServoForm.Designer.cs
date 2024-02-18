@@ -35,7 +35,7 @@
             // 
             // bRename
             // 
-            this.bRename.Location = new System.Drawing.Point(12, 277);
+            this.bRename.Location = new System.Drawing.Point(8, 300);
             this.bRename.Name = "bRename";
             this.bRename.Size = new System.Drawing.Size(75, 23);
             this.bRename.TabIndex = 2;
@@ -50,7 +50,7 @@
             this.servoControl1.Location = new System.Drawing.Point(8, 5);
             this.servoControl1.Name = "servoControl1";
             this.servoControl1.ShowConfigure = true;
-            this.servoControl1.Size = new System.Drawing.Size(306, 242);
+            this.servoControl1.Size = new System.Drawing.Size(306, 289);
             this.servoControl1.TabIndex = 3;
             // 
             // ckbOutputScalingVisible
@@ -58,7 +58,7 @@
             this.ckbOutputScalingVisible.AutoSize = true;
             this.ckbOutputScalingVisible.Checked = true;
             this.ckbOutputScalingVisible.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ckbOutputScalingVisible.Location = new System.Drawing.Point(8, 253);
+            this.ckbOutputScalingVisible.Location = new System.Drawing.Point(89, 304);
             this.ckbOutputScalingVisible.Name = "ckbOutputScalingVisible";
             this.ckbOutputScalingVisible.Size = new System.Drawing.Size(182, 19);
             this.ckbOutputScalingVisible.TabIndex = 1;

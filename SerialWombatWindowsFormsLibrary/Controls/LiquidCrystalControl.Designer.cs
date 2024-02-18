@@ -141,7 +141,7 @@
             this.gbCharacterBitmap.Location = new System.Drawing.Point(485, 46);
             this.gbCharacterBitmap.Name = "gbCharacterBitmap";
             this.gbCharacterBitmap.Size = new System.Drawing.Size(200, 176);
-            this.gbCharacterBitmap.TabIndex = 14;
+            this.gbCharacterBitmap.TabIndex = 13;
             this.gbCharacterBitmap.TabStop = false;
             this.gbCharacterBitmap.Text = "Character bitmap";
             // 
@@ -160,7 +160,7 @@
             this.button1.Location = new System.Drawing.Point(118, 82);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
+            this.button1.TabIndex = 1;
             this.button1.Text = "Set";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -191,7 +191,7 @@
             this.gbRowOffsets.Location = new System.Drawing.Point(6, 25);
             this.gbRowOffsets.Name = "gbRowOffsets";
             this.gbRowOffsets.Size = new System.Drawing.Size(415, 69);
-            this.gbRowOffsets.TabIndex = 5;
+            this.gbRowOffsets.TabIndex = 0;
             this.gbRowOffsets.TabStop = false;
             this.gbRowOffsets.Text = "Row Offsets";
             // 
@@ -200,7 +200,7 @@
             this.bSetRowOffsets.Location = new System.Drawing.Point(371, 26);
             this.bSetRowOffsets.Name = "bSetRowOffsets";
             this.bSetRowOffsets.Size = new System.Drawing.Size(38, 23);
-            this.bSetRowOffsets.TabIndex = 5;
+            this.bSetRowOffsets.TabIndex = 4;
             this.bSetRowOffsets.Text = "Set";
             this.bSetRowOffsets.UseVisualStyleBackColor = true;
             this.bSetRowOffsets.Click += new System.EventHandler(this.bSetRowOffsets_Click);
@@ -216,7 +216,7 @@
             0});
             this.nudRO4.Name = "nudRO4";
             this.nudRO4.Size = new System.Drawing.Size(75, 23);
-            this.nudRO4.TabIndex = 4;
+            this.nudRO4.TabIndex = 3;
             this.nudRO4.Value = new decimal(new int[] {
             84,
             0,
@@ -234,7 +234,7 @@
             0});
             this.nudRO3.Name = "nudRO3";
             this.nudRO3.Size = new System.Drawing.Size(75, 23);
-            this.nudRO3.TabIndex = 4;
+            this.nudRO3.TabIndex = 2;
             this.nudRO3.Value = new decimal(new int[] {
             20,
             0,
@@ -251,7 +251,7 @@
             0});
             this.nudRO2.Name = "nudRO2";
             this.nudRO2.Size = new System.Drawing.Size(75, 23);
-            this.nudRO2.TabIndex = 4;
+            this.nudRO2.TabIndex = 1;
             this.nudRO2.Value = new decimal(new int[] {
             64,
             0,
@@ -268,7 +268,7 @@
             0});
             this.nudRO1.Name = "nudRO1";
             this.nudRO1.Size = new System.Drawing.Size(75, 23);
-            this.nudRO1.TabIndex = 4;
+            this.nudRO1.TabIndex = 0;
             // 
             // ckbDisplayOff
             // 
@@ -276,7 +276,7 @@
             this.ckbDisplayOff.Location = new System.Drawing.Point(190, 233);
             this.ckbDisplayOff.Name = "ckbDisplayOff";
             this.ckbDisplayOff.Size = new System.Drawing.Size(84, 19);
-            this.ckbDisplayOff.TabIndex = 13;
+            this.ckbDisplayOff.TabIndex = 6;
             this.ckbDisplayOff.Text = "Display Off";
             this.ckbDisplayOff.UseVisualStyleBackColor = true;
             this.ckbDisplayOff.CheckedChanged += new System.EventHandler(this.ckbDisplayOff_CheckedChanged);
@@ -291,7 +291,7 @@
             this.groupBox3.Location = new System.Drawing.Point(15, 304);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(654, 113);
-            this.groupBox3.TabIndex = 5;
+            this.groupBox3.TabIndex = 12;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Buffer Mode";
             // 
@@ -302,7 +302,7 @@
             this.sbacBufferIndex.Location = new System.Drawing.Point(86, 22);
             this.sbacBufferIndex.Name = "sbacBufferIndex";
             this.sbacBufferIndex.Size = new System.Drawing.Size(56, 26);
-            this.sbacBufferIndex.TabIndex = 6;
+            this.sbacBufferIndex.TabIndex = 0;
             this.sbacBufferIndex.Value = ((ushort)(0));
             // 
             // bSetBufferIndex
@@ -310,7 +310,7 @@
             this.bSetBufferIndex.Location = new System.Drawing.Point(148, 22);
             this.bSetBufferIndex.Name = "bSetBufferIndex";
             this.bSetBufferIndex.Size = new System.Drawing.Size(38, 23);
-            this.bSetBufferIndex.TabIndex = 5;
+            this.bSetBufferIndex.TabIndex = 1;
             this.bSetBufferIndex.Text = "Set";
             this.bSetBufferIndex.UseVisualStyleBackColor = true;
             this.bSetBufferIndex.Click += new System.EventHandler(this.bSetBufferIndex_Click);
@@ -329,7 +329,7 @@
             this.tbBuffer.Location = new System.Drawing.Point(6, 73);
             this.tbBuffer.Name = "tbBuffer";
             this.tbBuffer.Size = new System.Drawing.Size(569, 23);
-            this.tbBuffer.TabIndex = 8;
+            this.tbBuffer.TabIndex = 2;
             // 
             // bBufferWrite
             // 
@@ -337,7 +337,7 @@
             this.bBufferWrite.Location = new System.Drawing.Point(581, 73);
             this.bBufferWrite.Name = "bBufferWrite";
             this.bBufferWrite.Size = new System.Drawing.Size(44, 23);
-            this.bBufferWrite.TabIndex = 5;
+            this.bBufferWrite.TabIndex = 3;
             this.bBufferWrite.Text = "Write";
             this.bBufferWrite.UseVisualStyleBackColor = true;
             this.bBufferWrite.Click += new System.EventHandler(this.bBufferWrite_Click);
@@ -352,7 +352,7 @@
             this.gbSetCursor.Location = new System.Drawing.Point(5, 100);
             this.gbSetCursor.Name = "gbSetCursor";
             this.gbSetCursor.Size = new System.Drawing.Size(353, 69);
-            this.gbSetCursor.TabIndex = 5;
+            this.gbSetCursor.TabIndex = 1;
             this.gbSetCursor.TabStop = false;
             this.gbSetCursor.Text = "Set Cursor";
             // 
@@ -361,7 +361,7 @@
             this.bSetCursor.Location = new System.Drawing.Point(303, 24);
             this.bSetCursor.Name = "bSetCursor";
             this.bSetCursor.Size = new System.Drawing.Size(38, 23);
-            this.bSetCursor.TabIndex = 5;
+            this.bSetCursor.TabIndex = 3;
             this.bSetCursor.Text = "Set";
             this.bSetCursor.UseVisualStyleBackColor = true;
             this.bSetCursor.Click += new System.EventHandler(this.bSetCursor_Click);
@@ -381,7 +381,7 @@
             0});
             this.nudSetColumn.Name = "nudSetColumn";
             this.nudSetColumn.Size = new System.Drawing.Size(75, 23);
-            this.nudSetColumn.TabIndex = 4;
+            this.nudSetColumn.TabIndex = 2;
             this.nudSetColumn.Value = new decimal(new int[] {
             2,
             0,
@@ -403,7 +403,7 @@
             0});
             this.nudSetRow.Name = "nudSetRow";
             this.nudSetRow.Size = new System.Drawing.Size(75, 23);
-            this.nudSetRow.TabIndex = 4;
+            this.nudSetRow.TabIndex = 1;
             this.nudSetRow.Value = new decimal(new int[] {
             2,
             0,
@@ -434,7 +434,7 @@
             this.ckbBlink.Location = new System.Drawing.Point(377, 271);
             this.ckbBlink.Name = "ckbBlink";
             this.ckbBlink.Size = new System.Drawing.Size(52, 19);
-            this.ckbBlink.TabIndex = 12;
+            this.ckbBlink.TabIndex = 11;
             this.ckbBlink.Text = "Blink";
             this.ckbBlink.UseVisualStyleBackColor = true;
             // 
@@ -443,7 +443,7 @@
             this.tbWrite.Location = new System.Drawing.Point(12, 185);
             this.tbWrite.Name = "tbWrite";
             this.tbWrite.Size = new System.Drawing.Size(346, 23);
-            this.tbWrite.TabIndex = 8;
+            this.tbWrite.TabIndex = 2;
             // 
             // ckbCursor
             // 
@@ -451,7 +451,7 @@
             this.ckbCursor.Location = new System.Drawing.Point(308, 271);
             this.ckbCursor.Name = "ckbCursor";
             this.ckbCursor.Size = new System.Drawing.Size(61, 19);
-            this.ckbCursor.TabIndex = 12;
+            this.ckbCursor.TabIndex = 10;
             this.ckbCursor.Text = "Cursor";
             this.ckbCursor.UseVisualStyleBackColor = true;
             // 
@@ -460,7 +460,7 @@
             this.bWrite.Location = new System.Drawing.Point(377, 184);
             this.bWrite.Name = "bWrite";
             this.bWrite.Size = new System.Drawing.Size(44, 23);
-            this.bWrite.TabIndex = 5;
+            this.bWrite.TabIndex = 3;
             this.bWrite.Text = "Write";
             this.bWrite.UseVisualStyleBackColor = true;
             this.bWrite.Click += new System.EventHandler(this.bWrite_Click);
@@ -471,7 +471,7 @@
             this.ckbRightToLeft.Location = new System.Drawing.Point(207, 271);
             this.ckbRightToLeft.Name = "ckbRightToLeft";
             this.ckbRightToLeft.Size = new System.Drawing.Size(92, 19);
-            this.ckbRightToLeft.TabIndex = 11;
+            this.ckbRightToLeft.TabIndex = 9;
             this.ckbRightToLeft.Text = "Right To Left";
             this.ckbRightToLeft.UseVisualStyleBackColor = true;
             // 
@@ -480,7 +480,7 @@
             this.bClear.Location = new System.Drawing.Point(15, 229);
             this.bClear.Name = "bClear";
             this.bClear.Size = new System.Drawing.Size(75, 23);
-            this.bClear.TabIndex = 9;
+            this.bClear.TabIndex = 4;
             this.bClear.Text = "Clear";
             this.bClear.UseVisualStyleBackColor = true;
             this.bClear.Click += new System.EventHandler(this.bClear_Click);
@@ -491,7 +491,7 @@
             this.ckbAutoScroll.Location = new System.Drawing.Point(115, 271);
             this.ckbAutoScroll.Name = "ckbAutoScroll";
             this.ckbAutoScroll.Size = new System.Drawing.Size(81, 19);
-            this.ckbAutoScroll.TabIndex = 10;
+            this.ckbAutoScroll.TabIndex = 8;
             this.ckbAutoScroll.Text = "AutoScroll";
             this.ckbAutoScroll.UseVisualStyleBackColor = true;
             // 
@@ -500,7 +500,7 @@
             this.bHome.Location = new System.Drawing.Point(98, 229);
             this.bHome.Name = "bHome";
             this.bHome.Size = new System.Drawing.Size(75, 23);
-            this.bHome.TabIndex = 9;
+            this.bHome.TabIndex = 5;
             this.bHome.Text = "Home";
             this.bHome.UseVisualStyleBackColor = true;
             this.bHome.Click += new System.EventHandler(this.bHome_Click);
@@ -511,7 +511,7 @@
             this.ckbScrollRight.Location = new System.Drawing.Point(15, 271);
             this.ckbScrollRight.Name = "ckbScrollRight";
             this.ckbScrollRight.Size = new System.Drawing.Size(86, 19);
-            this.ckbScrollRight.TabIndex = 10;
+            this.ckbScrollRight.TabIndex = 7;
             this.ckbScrollRight.Text = "Scroll Right";
             this.ckbScrollRight.UseVisualStyleBackColor = true;
             this.ckbScrollRight.CheckedChanged += new System.EventHandler(this.ckbScrollRight_CheckedChanged);
@@ -538,7 +538,7 @@
             this.groupBox2.Location = new System.Drawing.Point(8, 22);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(452, 133);
-            this.groupBox2.TabIndex = 7;
+            this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "groupBox2";
             // 
@@ -550,14 +550,14 @@
             this.swpdD7.Pin = ((byte)(255));
             this.swpdD7.PinType = SerialWombat.SerialWombatPinType.EnhancedPerformanceOutputPin;
             this.swpdD7.Size = new System.Drawing.Size(65, 25);
-            this.swpdD7.TabIndex = 2;
+            this.swpdD7.TabIndex = 4;
             // 
             // bConfig
             // 
             this.bConfig.Location = new System.Drawing.Point(341, 86);
             this.bConfig.Name = "bConfig";
             this.bConfig.Size = new System.Drawing.Size(75, 23);
-            this.bConfig.TabIndex = 6;
+            this.bConfig.TabIndex = 7;
             this.bConfig.Text = "Configure";
             this.bConfig.UseVisualStyleBackColor = true;
             this.bConfig.Click += new System.EventHandler(this.bConfig_Click);
@@ -595,7 +595,7 @@
             0});
             this.nudColumns.Name = "nudColumns";
             this.nudColumns.Size = new System.Drawing.Size(75, 23);
-            this.nudColumns.TabIndex = 4;
+            this.nudColumns.TabIndex = 6;
             this.nudColumns.Value = new decimal(new int[] {
             20,
             0,
@@ -627,7 +627,7 @@
             0});
             this.nudRows.Name = "nudRows";
             this.nudRows.Size = new System.Drawing.Size(75, 23);
-            this.nudRows.TabIndex = 4;
+            this.nudRows.TabIndex = 5;
             this.nudRows.Value = new decimal(new int[] {
             2,
             0,
@@ -661,7 +661,7 @@
             this.swpdRS.Pin = ((byte)(255));
             this.swpdRS.PinType = SerialWombat.SerialWombatPinType.EnhancedPerformanceOutputPin;
             this.swpdRS.Size = new System.Drawing.Size(65, 25);
-            this.swpdRS.TabIndex = 2;
+            this.swpdRS.TabIndex = 0;
             // 
             // label4
             // 
@@ -680,7 +680,7 @@
             this.swpdD4.Pin = ((byte)(255));
             this.swpdD4.PinType = SerialWombat.SerialWombatPinType.EnhancedPerformanceOutputPin;
             this.swpdD4.Size = new System.Drawing.Size(65, 25);
-            this.swpdD4.TabIndex = 2;
+            this.swpdD4.TabIndex = 1;
             // 
             // label3
             // 
@@ -718,7 +718,7 @@
             this.swpdD6.Pin = ((byte)(255));
             this.swpdD6.PinType = SerialWombat.SerialWombatPinType.EnhancedPerformanceOutputPin;
             this.swpdD6.Size = new System.Drawing.Size(65, 25);
-            this.swpdD6.TabIndex = 2;
+            this.swpdD6.TabIndex = 3;
             // 
             // lRsPin
             // 
