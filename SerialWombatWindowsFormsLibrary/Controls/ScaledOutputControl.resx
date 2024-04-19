@@ -69,32 +69,6 @@ This allows a sensor or other input device to scale to the Serial Wombat philoso
   <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="textBox2.Text" xml:space="preserve">
-    <value>Configure the scaled output block into PID control mode
-
-This pin mode implements Propotional / Integral / Derivative (PID) control.  It attempts to
-drive the input to a target value based on calibration constants provided by the host.
-
-For a discussion of PID control in general, this link is suggested:
-https://www.ni.com/en-us/innovations/white-papers/06/pid-theory-explained.html  
-
-This block implements PID using the diagram shown in this link where the kP term is
-applied after the sum of the error, 1/ki * integration and kd * derivative sum.  This
-is different from the order used in some PID algorithms.  The net effect is the same but
-the values of the ki and kd are different than if the constants were all applied first and
-the sum taken afterwards.  This was done to best distribute values so that calculations could
-be done using integral math rather than floating point due to the performance cost of floating
-point on small microcontrollers.
-
-Note that kp, ki and kd are unsigned integers.  For this reason it is necessary that 
-an increase in controller output creates a positive change in the measurement of the plant.
-The writeScalingInvertedInput function can be used to invert the input if the system reacts
-negatively to a an increase in output.
-
-See the pid() function in the Serial Wombat 18AB firmware to see exactly how the math is implemented:
-https://github.com/BroadwellConsultingInc/SerialWombat/blob/main/SerialWombat18A_18B/SerialWombat18A_18B.X/outputScale.c
-</value>
-  </data>
   <data name="textBox3.Text" xml:space="preserve">
     <value>Controls the output based on hystersis control
 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -79,6 +80,8 @@
             this.bResync = new System.Windows.Forms.Button();
             this.tbCodeGeneration = new System.Windows.Forms.TextBox();
             this.graphicPinSelectorControl1 = new SerialWombatWindowsFormsLibrary.GraphicPinSelectorControl();
+            this.ckbDecodeMessages = new System.Windows.Forms.CheckBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -496,11 +499,25 @@
             this.graphicPinSelectorControl1.Size = new System.Drawing.Size(208, 444);
             this.graphicPinSelectorControl1.TabIndex = 5;
             // 
+            // ckbDecodeMessages
+            // 
+            this.ckbDecodeMessages.AutoSize = true;
+            this.ckbDecodeMessages.Checked = true;
+            this.ckbDecodeMessages.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckbDecodeMessages.Location = new System.Drawing.Point(653, 324);
+            this.ckbDecodeMessages.Name = "ckbDecodeMessages";
+            this.ckbDecodeMessages.Size = new System.Drawing.Size(66, 19);
+            this.ckbDecodeMessages.TabIndex = 6;
+            this.ckbDecodeMessages.Text = "Decode";
+            this.toolTip1.SetToolTip(this.ckbDecodeMessages, "Decode Messages using SerialWombatPacketDecoder class ");
+            this.ckbDecodeMessages.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1163, 568);
+            this.Controls.Add(this.ckbDecodeMessages);
             this.Controls.Add(this.graphicPinSelectorControl1);
             this.Controls.Add(this.bResync);
             this.Controls.Add(this.bSourceVoltage);
@@ -510,7 +527,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Wombat Panel V1.2.3";
+            this.Text = "Wombat Panel V1.2.4 20240419";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -573,6 +590,8 @@
         private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.CheckBox ckbDecodeMessages;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 

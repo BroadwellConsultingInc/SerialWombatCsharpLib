@@ -47,6 +47,16 @@ namespace SerialWombatWindowsFormsLibrary
             }
             catch
             { }
+            if (textBoxLastValue > trackBar1.Maximum)
+            {
+                textBoxLastValue = (UInt16) trackBar1.Maximum;
+                tbValue.Text = textBoxLastValue.ToString(); 
+            }
+            if (textBoxLastValue < trackBar1.Minimum)
+            {
+                textBoxLastValue = (UInt16)trackBar1.Minimum;
+                tbValue.Text = textBoxLastValue.ToString();
+            }
             return textBoxLastValue;
         }
         public UInt16 value { get { return (getValueFromTextBox()); }

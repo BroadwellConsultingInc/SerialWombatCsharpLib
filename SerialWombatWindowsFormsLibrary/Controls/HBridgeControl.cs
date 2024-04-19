@@ -23,6 +23,7 @@ namespace SerialWombatWindowsFormsLibrary.Controls
         public HBridgeControl()
         {
             InitializeComponent();
+            edDriver.Value = (int)SerialWombatHBridgeDriverChip.DRV8833;
             
         }
 
@@ -106,6 +107,24 @@ namespace SerialWombatWindowsFormsLibrary.Controls
             sbsiPower.ValueChangeEvent();
         }
 
-       
+        private void bGenCode_Click(object sender, EventArgs e)
+        {
+            
+            string s =
+            @$"
+                //Put this line before setup()
+                SerialWombatHBridge_18AB {Name}(sw); // Your serial wombat chip may be named something else than sw
+                //Add this to  setup():
+                                {Name}.begin({Pin}, //Pin Number
+                                {pddSecondPin.Pin}, // Second Pin
+                                {Convert.ToUInt16( textBox1.Text)},// PWM Period in uS
+                                {edDriver.selectedItem.ToString()});   // Driver
+                               
+";
+           
+            s = s.Replace("True", "true");
+            s = s.Replace("False", "false");
+            Clipboard.SetText(s);
+        }
     }
 }

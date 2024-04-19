@@ -15,6 +15,7 @@ namespace SerialWombatWindowsFormsLibrary
     {
         public byte Pin = 0;
         public SerialWombatChip SerialWombatChip;
+        public List<SerialWombatDataSources> monitoredSources = new List<SerialWombatDataSources>();
       
         UInt16 LastResult = 0;
 
@@ -56,12 +57,11 @@ namespace SerialWombatWindowsFormsLibrary
             {
                 Thread t = new Thread(SampleThread);
                 t.Start();
-                bSample.Enabled = false;
+               
 
             }
             else
             {
-                bSample.Enabled = true;
             }
         }
 
@@ -69,9 +69,20 @@ namespace SerialWombatWindowsFormsLibrary
         {
             while (ckbAutosample.Checked)
             {
-                Pin = Convert.ToByte(tbDataId.Text);
-                LastResult = SerialWombatChip.readPublicData(Pin);
-                realTimeScottPlot1.PlotData(LastResult);
+                try
+                {
+
+                    for (int i = 0; i < monitoredSources.Count; ++i)
+                    {
+                        LastResult = SerialWombatChip.readPublicData(monitoredSources[i]);
+                        if (LastResult == 0)
+                        {
+                            LastResult = 1; //TODO Remove
+                        }
+                        realTimeScottPlot1.PlotData(LastResult, i);
+                    }
+                }
+                catch { }
                 Thread.Sleep(100);
             }
         }
@@ -86,6 +97,17 @@ namespace SerialWombatWindowsFormsLibrary
             int i = comboBox1.SelectedIndex;
             SerialWombatDataSources ds = (SerialWombatDataSources)comboBox1.Items[comboBox1.SelectedIndex];
             tbDataId.Text = ((byte)ds).ToString();
+        }
+
+        private void bAdd_Click(object sender, EventArgs e)
+        {
+            monitoredSources.Add((SerialWombatDataSources)comboBox1.Items[comboBox1.SelectedIndex]);
+            if (monitoredSources.Count > 1)
+            {
+                realTimeScottPlot1.addPlot();
+            }
+            ckbAutosample.Checked = true;
+
         }
     }
 }

@@ -21,6 +21,7 @@ namespace SerialWombatWindowsFormsLibrary
         public ByteEditor()
         {
             InitializeComponent();
+            Value = 0;
 
         }
 
@@ -32,6 +33,12 @@ namespace SerialWombatWindowsFormsLibrary
         void updateTextbox()
         {
             textBox1.Text = Value.ToString();
+            string s = $"{bytevalue}  0x{bytevalue:x2}";
+            if (bytevalue >= 0x20 && bytevalue < 128)
+            {
+                s += $" '{(char)bytevalue}'";
+            }
+            toolTip1.SetToolTip(textBox1,s);
         }
         public byte Value { get { return bytevalue; }
             
@@ -57,9 +64,20 @@ namespace SerialWombatWindowsFormsLibrary
         {
             if (dirty)
             {
-                bytevalue = Convert.ToByte(textBox1.Text); 
-                onTypedChange?.Invoke(this, EventArgs.Empty);
-                dirty = false; 
+                SerialWombatPacket p = new SerialWombatPacket(textBox1.Text);
+                if (!p.parseError)
+                {
+                    Value = p[0];
+                    onTypedChange?.Invoke(this, EventArgs.Empty);
+                    dirty = false;
+                    textBox1.ResetBackColor();
+
+                }
+                else
+                {
+                    textBox1.BackColor = Color.Red;
+                    toolTip1.SetToolTip(textBox1, "Syntax Error");
+                }
             }
         }
 

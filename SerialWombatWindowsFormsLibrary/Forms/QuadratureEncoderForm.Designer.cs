@@ -53,6 +53,8 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.bRename = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,9 +78,11 @@
             this.groupBox1.Controls.Add(this.tbLowLimit);
             this.groupBox1.Controls.Add(this.cbPullUpDown);
             this.groupBox1.Controls.Add(this.cbAction);
+            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.tbSecondPin);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(1, 1);
             this.groupBox1.Name = "groupBox1";
@@ -308,6 +312,22 @@
             this.bRename.UseVisualStyleBackColor = true;
             this.bRename.Click += new System.EventHandler(this.bRename_Click);
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(318, 152);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(62, 15);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Target Pin:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(318, 170);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(46, 23);
+            this.textBox1.TabIndex = 1;
+            // 
             // QuadratureEncoderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -352,5 +372,7 @@
         private System.Windows.Forms.CheckBox ckbAutoSample;
         private Controls.RealTimeScottPlot realTimeScottPlot1;
         private System.Windows.Forms.Button bRename;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label10;
     }
 }

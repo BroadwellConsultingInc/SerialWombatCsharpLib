@@ -40,19 +40,6 @@
             this.ckbInvert = new System.Windows.Forms.CheckBox();
             this.tpPID = new System.Windows.Forms.TabPage();
             this.tabControl4 = new System.Windows.Forms.TabControl();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.bUpdateTargetCI = new System.Windows.Forms.Button();
-            this.bResetIntegrator = new System.Windows.Forms.Button();
-            this.bPIDUpdateTarget = new System.Windows.Forms.Button();
-            this.sbsiKp = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.sbsiPIDTarget = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
-            this.bGenPIDCode = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.bConfigurePID = new System.Windows.Forms.Button();
-            this.sbsiKd = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
-            this.edPIDPeriod = new SerialWombatWindowsFormsLibrary.EnumDropdown();
-            this.sbsiKi = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.bGenHysteresisCode = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -62,7 +49,7 @@
             this.sbsiHysHighOutputValue = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
             this.sbsiHysHighLimit = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
             this.sbsiHysLowLimit = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tpPID1 = new System.Windows.Forms.TabPage();
             this.pidControl1 = new SerialWombatWindowsFormsLibrary.PIDControl();
             this.tpTimeout = new System.Windows.Forms.TabPage();
             this.bGenTimeoutCode = new System.Windows.Forms.Button();
@@ -108,9 +95,8 @@
             this.tabPage1.SuspendLayout();
             this.tpPID.SuspendLayout();
             this.tabControl4.SuspendLayout();
-            this.tabPage6.SuspendLayout();
             this.tabPage7.SuspendLayout();
-            this.tabPage4.SuspendLayout();
+            this.tpPID1.SuspendLayout();
             this.tpTimeout.SuspendLayout();
             this.tpFiltering.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -236,172 +222,13 @@
             // 
             // tabControl4
             // 
-            this.tabControl4.Controls.Add(this.tabPage6);
             this.tabControl4.Controls.Add(this.tabPage7);
-            this.tabControl4.Controls.Add(this.tabPage4);
+            this.tabControl4.Controls.Add(this.tpPID1);
             this.tabControl4.Location = new System.Drawing.Point(6, 6);
             this.tabControl4.Name = "tabControl4";
             this.tabControl4.SelectedIndex = 0;
             this.tabControl4.Size = new System.Drawing.Size(381, 456);
             this.tabControl4.TabIndex = 33;
-            // 
-            // tabPage6
-            // 
-            this.tabPage6.Controls.Add(this.bUpdateTargetCI);
-            this.tabPage6.Controls.Add(this.bResetIntegrator);
-            this.tabPage6.Controls.Add(this.bPIDUpdateTarget);
-            this.tabPage6.Controls.Add(this.sbsiKp);
-            this.tabPage6.Controls.Add(this.textBox2);
-            this.tabPage6.Controls.Add(this.sbsiPIDTarget);
-            this.tabPage6.Controls.Add(this.bGenPIDCode);
-            this.tabPage6.Controls.Add(this.label6);
-            this.tabPage6.Controls.Add(this.bConfigurePID);
-            this.tabPage6.Controls.Add(this.sbsiKd);
-            this.tabPage6.Controls.Add(this.edPIDPeriod);
-            this.tabPage6.Controls.Add(this.sbsiKi);
-            this.tabPage6.Location = new System.Drawing.Point(4, 24);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(373, 428);
-            this.tabPage6.TabIndex = 0;
-            this.tabPage6.Text = "PID";
-            this.tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // bUpdateTargetCI
-            // 
-            this.bUpdateTargetCI.Location = new System.Drawing.Point(15, 240);
-            this.bUpdateTargetCI.Name = "bUpdateTargetCI";
-            this.bUpdateTargetCI.Size = new System.Drawing.Size(139, 23);
-            this.bUpdateTargetCI.TabIndex = 34;
-            this.bUpdateTargetCI.Text = "Update Target, Clear I";
-            this.toolTip1.SetToolTip(this.bUpdateTargetCI, "Send new target value, and clear integrator");
-            this.bUpdateTargetCI.UseVisualStyleBackColor = true;
-            this.bUpdateTargetCI.Click += new System.EventHandler(this.bUpdateTargetCI_Click);
-            // 
-            // bResetIntegrator
-            // 
-            this.bResetIntegrator.Location = new System.Drawing.Point(253, 300);
-            this.bResetIntegrator.Name = "bResetIntegrator";
-            this.bResetIntegrator.Size = new System.Drawing.Size(106, 23);
-            this.bResetIntegrator.TabIndex = 33;
-            this.bResetIntegrator.Text = "Reset Integrator";
-            this.bResetIntegrator.UseVisualStyleBackColor = true;
-            this.bResetIntegrator.Click += new System.EventHandler(this.bPIDResetIntegrator_Click);
-            // 
-            // bPIDUpdateTarget
-            // 
-            this.bPIDUpdateTarget.Location = new System.Drawing.Point(177, 240);
-            this.bPIDUpdateTarget.Name = "bPIDUpdateTarget";
-            this.bPIDUpdateTarget.Size = new System.Drawing.Size(92, 23);
-            this.bPIDUpdateTarget.TabIndex = 32;
-            this.bPIDUpdateTarget.Text = "Update Target";
-            this.toolTip1.SetToolTip(this.bPIDUpdateTarget, "Send new target value without clearing integrator");
-            this.bPIDUpdateTarget.UseVisualStyleBackColor = true;
-            this.bPIDUpdateTarget.Click += new System.EventHandler(this.bPIDUpdateTarget_Click);
-            // 
-            // sbsiKp
-            // 
-            this.sbsiKp.Location = new System.Drawing.Point(6, 6);
-            this.sbsiKp.Maximum = 65535;
-            this.sbsiKp.Minimum = 0;
-            this.sbsiKp.Name = "sbsiKp";
-            this.sbsiKp.Size = new System.Drawing.Size(311, 56);
-            this.sbsiKp.TabIndex = 11;
-            this.sbsiKp.Text = "kP";
-            this.sbsiKp.TextBoxHint = "The proportional constant applied to the sum of the error, 1/ki * error sum, and " +
-    "kd * derivative.  Scaled to 1/256ths";
-            this.sbsiKp.value = ((ushort)(0));
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(15, 329);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox2.Size = new System.Drawing.Size(344, 78);
-            this.textBox2.TabIndex = 18;
-            this.textBox2.Text = resources.GetString("textBox2.Text");
-            // 
-            // sbsiPIDTarget
-            // 
-            this.sbsiPIDTarget.Location = new System.Drawing.Point(6, 176);
-            this.sbsiPIDTarget.Maximum = 65535;
-            this.sbsiPIDTarget.Minimum = 0;
-            this.sbsiPIDTarget.Name = "sbsiPIDTarget";
-            this.sbsiPIDTarget.Size = new System.Drawing.Size(311, 58);
-            this.sbsiPIDTarget.TabIndex = 11;
-            this.sbsiPIDTarget.Text = "Target Value";
-            this.sbsiPIDTarget.TextBoxHint = "The value the output will attempt to control the input to";
-            this.sbsiPIDTarget.value = ((ushort)(0));
-            // 
-            // bGenPIDCode
-            // 
-            this.bGenPIDCode.BackColor = System.Drawing.Color.MediumPurple;
-            this.bGenPIDCode.Location = new System.Drawing.Point(290, 240);
-            this.bGenPIDCode.Name = "bGenPIDCode";
-            this.bGenPIDCode.Size = new System.Drawing.Size(74, 47);
-            this.bGenPIDCode.TabIndex = 31;
-            this.bGenPIDCode.Text = "Gen PID Code";
-            this.bGenPIDCode.UseVisualStyleBackColor = false;
-            this.bGenPIDCode.Click += new System.EventHandler(this.bGenPIDCode_Click);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(37, 272);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(86, 15);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Sample Period:";
-            // 
-            // bConfigurePID
-            // 
-            this.bConfigurePID.Location = new System.Drawing.Point(15, 300);
-            this.bConfigurePID.Name = "bConfigurePID";
-            this.bConfigurePID.Size = new System.Drawing.Size(108, 23);
-            this.bConfigurePID.TabIndex = 14;
-            this.bConfigurePID.Text = "Configure PID";
-            this.bConfigurePID.UseVisualStyleBackColor = true;
-            this.bConfigurePID.Click += new System.EventHandler(this.bConfigurePID_Click);
-            // 
-            // sbsiKd
-            // 
-            this.sbsiKd.Location = new System.Drawing.Point(3, 119);
-            this.sbsiKd.Maximum = 65535;
-            this.sbsiKd.Minimum = 0;
-            this.sbsiKd.Name = "sbsiKd";
-            this.sbsiKd.Size = new System.Drawing.Size(311, 61);
-            this.sbsiKd.TabIndex = 17;
-            this.sbsiKd.Text = "kD";
-            this.sbsiKd.TextBoxHint = "The derivative contant applied to the derivative.  This value is scaled to 1/1638" +
-    "4. ";
-            this.sbsiKd.value = ((ushort)(0));
-            // 
-            // edPIDPeriod
-            // 
-            this.edPIDPeriod.DropDownToolTip = "an enumerated time for how often the PID controller updates.  This value should b" +
-    "e based on how fast the system responds to change in output so that integral and" +
-    " derivative terms work correctly.";
-            this.edPIDPeriod.dropdowntype = "SerialWombat.ScaledOutputPeriod";
-            this.edPIDPeriod.Location = new System.Drawing.Point(129, 269);
-            this.edPIDPeriod.Name = "edPIDPeriod";
-            this.edPIDPeriod.Size = new System.Drawing.Size(140, 35);
-            this.edPIDPeriod.TabIndex = 15;
-            this.edPIDPeriod.Value = 0;
-            // 
-            // sbsiKi
-            // 
-            this.sbsiKi.Location = new System.Drawing.Point(6, 68);
-            this.sbsiKi.Maximum = 65535;
-            this.sbsiKi.Minimum = 0;
-            this.sbsiKi.Name = "sbsiKi";
-            this.sbsiKi.Size = new System.Drawing.Size(311, 60);
-            this.sbsiKi.TabIndex = 16;
-            this.sbsiKi.Text = "kI";
-            this.sbsiKi.TextBoxHint = "The integral constant applied to the integral.  Scaled to 1/16384ths, as typicall" +
-    "y you want this value to be less than 1.0";
-            this.sbsiKi.value = ((ushort)(0));
             // 
             // tabPage7
             // 
@@ -516,16 +343,16 @@
             this.sbsiHysLowLimit.TextBoxHint = "If the input source is at or below this level the output value is lowOutputValue";
             this.sbsiHysLowLimit.value = ((ushort)(0));
             // 
-            // tabPage4
+            // tpPID1
             // 
-            this.tabPage4.Controls.Add(this.pidControl1);
-            this.tabPage4.Location = new System.Drawing.Point(4, 24);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(373, 428);
-            this.tabPage4.TabIndex = 2;
-            this.tabPage4.Text = "tabPage4";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.tpPID1.Controls.Add(this.pidControl1);
+            this.tpPID1.Location = new System.Drawing.Point(4, 24);
+            this.tpPID1.Name = "tpPID1";
+            this.tpPID1.Padding = new System.Windows.Forms.Padding(3);
+            this.tpPID1.Size = new System.Drawing.Size(373, 428);
+            this.tpPID1.TabIndex = 2;
+            this.tpPID1.Text = "PID";
+            this.tpPID1.UseVisualStyleBackColor = true;
             // 
             // pidControl1
             // 
@@ -894,6 +721,7 @@
             this.button1.TabIndex = 31;
             this.button1.Text = "Gen Code";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // b2DConfigure
             // 
@@ -993,12 +821,10 @@
             this.tabPage1.PerformLayout();
             this.tpPID.ResumeLayout(false);
             this.tabControl4.ResumeLayout(false);
-            this.tabPage6.ResumeLayout(false);
-            this.tabPage6.PerformLayout();
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
-            this.tabPage4.ResumeLayout(false);
-            this.tabPage4.PerformLayout();
+            this.tpPID1.ResumeLayout(false);
+            this.tpPID1.PerformLayout();
             this.tpTimeout.ResumeLayout(false);
             this.tpTimeout.PerformLayout();
             this.tpFiltering.ResumeLayout(false);
@@ -1037,13 +863,6 @@
         private SixteenBitSliderInput sbsiInputMax;
         private SixteenBitSliderInput sbsiInputMin;
         private System.Windows.Forms.TabPage tpPID;
-        private SixteenBitSliderInput sbsiKd;
-        private SixteenBitSliderInput sbsiKi;
-        private EnumDropdown edPIDPeriod;
-        private System.Windows.Forms.Button bConfigurePID;
-        private System.Windows.Forms.Label label6;
-        private SixteenBitSliderInput sbsiKp;
-        private SixteenBitSliderInput sbsiPIDTarget;
         private System.Windows.Forms.Button bConfigureMaximumRate;
         private System.Windows.Forms.Button bConfigureFiltering;
         private System.Windows.Forms.TabPage tpOutputScaling;
@@ -1052,24 +871,19 @@
         private SixteenBitSliderInput sbsiOutputScalingMin;
         private System.Windows.Forms.CheckBox ckbScaledOutputEnable;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox5;
         private SixteenBitSliderInput sbsiFilterConstant2;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button bGenInputScalingCode;
-        private System.Windows.Forms.Button bGenPIDCode;
         private System.Windows.Forms.Button bGenTimeoutCode;
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
         private SixteenBitSliderInput sbsiMaxChangeUp;
         private System.Windows.Forms.TabControl tabControl4;
-        private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.TabPage tabPage7;
-        private System.Windows.Forms.Button bResetIntegrator;
-        private System.Windows.Forms.Button bPIDUpdateTarget;
         private System.Windows.Forms.Button bGenHysteresisCode;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button bConfigureHysteresis;
@@ -1092,8 +906,7 @@
         private SixteenBitAddressControl sbac2DIndex;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button b2DConfigure;
-        private System.Windows.Forms.Button bUpdateTargetCI;
-        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TabPage tpPID1;
         private PIDControl pidControl1;
     }
 }

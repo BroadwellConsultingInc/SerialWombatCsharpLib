@@ -127,7 +127,7 @@ namespace SerialWombatWindowsFormsLibrary
             sltef.ShowDialog();
             if (sltef.Success)
             {
-                this.Text = $"{sltef.outputString} Quad Enc on pins {QuadratureEncoder.Pin}, {QuadratureEncoder.SecondPin}";
+ //TODO               this.Text = $"{sltef.outputString} Quad Enc on pins {QuadratureEncoder.Pin}, {QuadratureEncoder.SecondPin}";
             }
         }
     }

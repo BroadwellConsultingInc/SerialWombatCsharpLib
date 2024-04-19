@@ -164,7 +164,7 @@ namespace SerialWombat
 			return (1);
 		}
 
-		public int write(byte[] buffer, int size)
+		public virtual int write(byte[] buffer, int size)
 		{
 			int bytesAvailable = 0;
 			int bytesSent;
@@ -392,10 +392,13 @@ namespace SerialWombat
 				{
 					txLength = 2;
 				}
-				txoffset = txQueue.begin(userMemoryOffset, txLength);
+
+                txQueue = new SerialWombatQueue(_sw);
+                txoffset = txQueue.begin(userMemoryOffset, txLength);
 				if (txoffset >= 0)
 				{
 					userMemoryOffset += (UInt16)txoffset;
+
 				}
 				else
 				{
@@ -415,7 +418,7 @@ namespace SerialWombat
 			return ((Int16)(txoffset + rxoffset));
 		}
 
-		public new int write(byte[] buffer, int size)
+		public override int write(byte[] buffer, int size)
 		{
 			return (txQueue.write(size, buffer));
 		}

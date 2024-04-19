@@ -26,6 +26,7 @@ namespace SerialWombatWindowsFormsLibrary
             cbBaudRate.Items.Add(300);
             cbBaudRate.SelectedIndex = 0;
             cbMode.SelectedIndex = 0;
+           
         }
 
         int[] swbaudrates =
@@ -40,7 +41,11 @@ namespace SerialWombatWindowsFormsLibrary
         };
 
         int[] hwbaudrates =
-        {
+        {1200,
+2400,
+4800,
+9600,
+19200,
             38400,
 57600,
 115200,
@@ -50,6 +55,10 @@ namespace SerialWombatWindowsFormsLibrary
         {
             SerialWombatChip = serialWombatChip;
             Pin = pin;
+            pdTx.Pin = 255;
+            pdRx.Pin = 255;
+            cbMode_SelectedIndexChanged(null, null);
+
         }
         
         public void end()
@@ -59,13 +68,11 @@ namespace SerialWombatWindowsFormsLibrary
         private void cbMode_SelectedIndexChanged(object sender, EventArgs e)
         {
             cbBaudRate.Items.Clear();
-            cbTxPin.Items.Clear();
-            cbRxPin.Items.Clear();
-            foreach (int i in swbaudrates)
-            {
-                cbBaudRate.Items.Add(i);
-            }
-           switch (cbMode.SelectedIndex)
+            pdRx.IncludeNAPin = true;
+            pdTx.IncludeNAPin = true;
+            byte priorRxPin = pdRx.Pin;
+            byte priorTxPin = pdTx.Pin;
+            switch (cbMode.SelectedIndex)
             {
                 case 0:
                 case 1:
@@ -74,36 +81,45 @@ namespace SerialWombatWindowsFormsLibrary
                     {
                         cbBaudRate.Items.Add(i);
                     }
+
                     if (SerialWombatChip != null)
                     {
-                        foreach (int i in SerialWombatChip.enhancedPerformanceInputPins)
+                        if (SerialWombatChip.isSW18())
                         {
-                            cbRxPin.Items.Add(i);
+                            pdRx.PinType = SerialWombatPinType.EnhancedPerformanceInputPin;
+                            pdRx.begin(SerialWombatChip);
+
+                            pdTx.PinType = SerialWombatPinType.EnhancedPerformanceOutputPin;
+                            pdTx.begin(SerialWombatChip);
                         }
-                        foreach (int i in SerialWombatChip.enhancedPerformanceOutputPins)
+                        else
                         {
-                            cbTxPin.Items.Add(i);
+                            pdRx.PinType = SerialWombatPinType.InputPin;
+                            pdRx.begin(SerialWombatChip);
+
+                            pdTx.PinType = SerialWombatPinType.OutputPin;
+                            pdTx.begin(SerialWombatChip);
                         }
                     }
                     break;
                
                 case 2:
                     gbSoftwareUartQueues.Enabled = true;
+                    foreach (int i in swbaudrates)
+                    {
+                        cbBaudRate.Items.Add(i);
+                    }
                     if (SerialWombatChip != null)
                     {
-                        foreach (int i in SerialWombatChip.inputPins)
-                        {
-                            cbRxPin.Items.Add(i);
-                        }
-                        foreach (int i in SerialWombatChip.outputPins)
-                        {
-                            cbTxPin.Items.Add(i);
-                        }
+                        pdRx.PinType = SerialWombatPinType.InputPin;
+                        pdRx.begin(SerialWombatChip);
+
+                        pdTx.PinType = SerialWombatPinType.OutputPin;
+                        pdTx.begin(SerialWombatChip);
                     }
                     break;
             }
-            cbTxPin.Items.Add(255);
-            cbRxPin.Items.Add(255);
+            pdTx.Pin = priorTxPin; pdRx.Pin = priorRxPin;
             cbBaudRate.SelectedIndex = 4;
         }
 
@@ -117,8 +133,8 @@ namespace SerialWombatWindowsFormsLibrary
                         SerialWombatUART = new SerialWombatUART(SerialWombatChip);
                         SerialWombatUART.begin((uint)(int)cbBaudRate.SelectedItem,
                             Pin,
-                            (byte)(int)cbRxPin.SelectedItem,
-                            (byte)(int)cbTxPin.SelectedItem,
+                            pdRx.Pin,
+                            pdTx.Pin,
                             (byte)(cbMode.SelectedIndex + 1));
                     }
                     break;
@@ -129,9 +145,9 @@ namespace SerialWombatWindowsFormsLibrary
                         SerialWombatUART = sWUART;
                         sWUART.begin((uint)(int)cbBaudRate.SelectedItem,
                             Pin,
-                            (byte)(int)cbRxPin.SelectedItem,
-                            (byte)(int)cbTxPin.SelectedItem,
-                            Convert.ToUInt16(tbQueueIndex.Text),
+                            pdRx.Pin,
+                            pdTx.Pin,
+                            sbacQueueIndex.Value,
                             Convert.ToUInt16(tbRxSize.Text),
                             Convert.ToUInt16(tbTxSize.Text))
                             ;
@@ -139,8 +155,9 @@ namespace SerialWombatWindowsFormsLibrary
                     }
                     break;
             }
-            ckbAutosample.Enabled = (cbRxPin.SelectedIndex != 255);
-            bTxFile.Enabled = (cbTxPin.SelectedIndex != 255);
+       
+            ckbAutosample.Enabled = (pdRx.Pin != 255);
+            bTxFile.Enabled = (pdTx.Pin!= 255);
         }
 
         void SampleThread()
@@ -234,6 +251,62 @@ namespace SerialWombatWindowsFormsLibrary
                 Thread.Sleep(5);
             }
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+         
+            string s = "";
+            switch (cbMode.SelectedIndex)
+            {
+                case 0:
+                case 1:
+                    {
+                        s += @$"
+                //Put this line before setup()
+                SerialWombatUART {Name}(sw); // Your serial wombat chip may be named something else than sw
+                //Add this to  setup():
+                                {Name}.begin({(uint)(int)cbBaudRate.SelectedItem},
+                            {Pin},
+                            {pdRx.Pin},
+                            {pdTx.Pin},
+                            {(byte)(cbMode.SelectedIndex + 1)});
+                               
+";
+                     }
+                    break;
+
+                case 2:
+                    {
+                        s += @$"
+                //Put this line before setup()
+                SerialWombatSWUART {Name}(sw); // Your serial wombat chip may be named something else than sw
+                //Add this to  setup():
+                                {Name}.begin({(uint)(int)cbBaudRate.SelectedItem},
+                            {Pin},
+                            {pdRx.Pin},
+                            {pdTx.Pin},
+                            0x{sbacQueueIndex.Value:X4},
+                            {Convert.ToUInt16(tbRxSize.Text)},
+                            {Convert.ToUInt16(tbTxSize.Text)})
+                            ;
+                               
+";
+                       
+
+                    }
+                    break;
+            }
+            s = s.Replace("True", "true");
+            s = s.Replace("False", "false");
+            Clipboard.SetText(s);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SerialWombatQueue q = new SerialWombatQueue(SerialWombatChip);
+            q.begin(sbacQueueIndex.Value,Convert.ToUInt16(tbRxSize.Text));
+            q.begin((UInt16)(sbacQueueIndex.Value + Convert.ToUInt16(tbRxSize.Text) + 8), Convert.ToUInt16(tbTxSize.Text));
         }
     }
 }

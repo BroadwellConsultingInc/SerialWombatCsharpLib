@@ -309,7 +309,7 @@ namespace SerialWombat
 
         public Int16 configureIntegrator(UInt16 negativeMaxIndex, UInt16 negativeMidIndex,
             UInt16 negativeDeadZone, UInt16 positiveDeadZone, UInt16 positiveMidIndex,
-            UInt16 positiveMaxIndex, UInt16 midIncrement, UInt16 maxIncrement, UInt16 initialValue)
+            UInt16 positiveMaxIndex, UInt16 midIncrement, UInt16 maxIncrement, UInt16 initialValue,byte updateRateMask = 0)
         {
             {
                 byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_INPUTPROCESS,
@@ -366,6 +366,17 @@ namespace SerialWombat
                 16,
                 (byte)(midIncrement & 0xFF),(byte)(midIncrement >>8),
                 (byte)(maxIncrement & 0xFF),(byte)(maxIncrement >>8),
+                };
+                Int16 result = _sw.sendPacket(tx);
+
+                if (result < 0) return (result);
+            }
+            {
+                byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_INPUTPROCESS,
+                _pin,
+                swPinModeNumber,
+                17,
+                updateRateMask,0,0,0
                 };
                 Int16 result = _sw.sendPacket(tx);
 

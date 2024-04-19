@@ -10,6 +10,7 @@ namespace SerialWombat
     {
         protected byte[] _data = { 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55 };
         protected bool _isresponse = false;
+        public bool parseError = false;
 
         public SerialWombatPacket()
         {
@@ -144,9 +145,17 @@ namespace SerialWombat
 
             for (int i = 0; i < 8 && i < hexbytes.Count(); ++i)
             {
-                _data[i] = Convert.ToByte(hexbytes[i], 16);
+                try
+                {
+                    _data[i] = Convert.ToByte(hexbytes[i], 16);
+                }
+                catch
+                {
+                    _data[i] = 0x55;
+                    parseError = true;
+                        }
             }
-            return (true);
+            return (parseError);
 
         }
 
@@ -469,12 +478,12 @@ namespace SerialWombat
         }
         public SerialWombatPacket(string s)
         {
-            if (!ParseMsg(s))
+            ParseMsg(s);
+            if (parseError)
             {
                 //There was an error.
                 _data = new byte[] { 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55 };
             }
-
         }
 
         public byte this[int index]

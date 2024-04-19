@@ -89,6 +89,10 @@ namespace SerialWombatWindowsFormsLibrary
             {
                 try
                 {
+                    if (comboBox1.SelectedIndex== -1)
+                    {
+                        return 255;
+                    }
                     return (byte)(int)comboBox1.SelectedItem;
                 }
                 catch
@@ -98,11 +102,21 @@ namespace SerialWombatWindowsFormsLibrary
             }
             set
             {
-                for (int i = 0; i < comboBox1.Items.Count; i++)
+                try
                 {
-                    if ((int)comboBox1.Items[i] == value)
+                    for (int i = 0; i < comboBox1.Items.Count; i++)
                     {
-                        comboBox1.SelectedIndex = i;
+                        if ((int)comboBox1.Items[i] == value)
+                        {
+                            comboBox1.SelectedIndex = i;
+                        }
+                    }
+                }
+                catch
+                {
+                    if (naPin)
+                    {
+                        comboBox1.SelectedIndex = comboBox1.Items.Count - 1;
                     }
                 }
 

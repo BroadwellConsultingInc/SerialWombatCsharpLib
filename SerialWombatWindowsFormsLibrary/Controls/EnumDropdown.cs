@@ -62,7 +62,7 @@ namespace SerialWombatWindowsFormsLibrary
         {
             comboBox1.Width = Width - Margin.Right;
         }
-                [Browsable(true), EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true), EditorBrowsable(EditorBrowsableState.Always)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public int Value { set { if (value < comboBox1.Items.Count) comboBox1.SelectedIndex = value; }
             get { return comboBox1.SelectedIndex; }

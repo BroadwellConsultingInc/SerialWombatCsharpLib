@@ -176,7 +176,7 @@ namespace SerialWombatWindowsFormsLibrary
 
         private void TsmiQuadratureEncoder_Click(object sender, EventArgs e)
         {
-            QuadratureEncoderForm qef = new QuadratureEncoderForm(SerialWombatChip, _lastClickWombatPin);
+            QuadEncForm qef = new QuadEncForm(SerialWombatChip, _lastClickWombatPin);
             qef.Show();
             qef.Top = FindForm().Top + 50;
             qef.Left = FindForm().Left + 50;
@@ -961,6 +961,14 @@ namespace SerialWombatWindowsFormsLibrary
             tpcf.Show();
             tpcf.Top = FindForm().Top + 50;
             tpcf.Left = FindForm().Left + 50;
+        }
+
+        private void toolStripMenuItem1_Click_1(object sender, EventArgs e)
+        {
+            QueuedPulseOutputForm queuedPulseOutputForm = new QueuedPulseOutputForm(SerialWombatChip, _lastClickWombatPin);
+            queuedPulseOutputForm.Show();
+            queuedPulseOutputForm.Top = FindForm().Top + 50;
+            queuedPulseOutputForm.Left = FindForm().Left + 50;
         }
     }
 }

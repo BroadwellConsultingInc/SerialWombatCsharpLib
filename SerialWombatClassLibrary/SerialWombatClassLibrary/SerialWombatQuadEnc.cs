@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -67,61 +68,109 @@ The Serial Wombat can be queried for overflow frames.  If overflow frames are oc
 The Serial Wombat 4A and 4B can measure a maxium of 8 transitions per mS across all pulse input pins.  More frequent transitions than
 this may result pin mode malfunction.
 */
-	public class SerialWombatQuadEnc
+	public class SerialWombatQuadEnc:SerialWombatPin
     {
 
-		SerialWombatChip _sw;
-		public byte Pin = 255;
+		
 		public byte SecondPin;
 
 		/// \brief Constructor for the SerialWombatQuadEnc class
 		/// \param serialWombatChip The Serial Wombat running the quadrature encoder
-		public SerialWombatQuadEnc(SerialWombatChip serialWombatChip) 
+		public SerialWombatQuadEnc(SerialWombatChip serialWombatChip) : base(serialWombatChip)
 		{
 			_sw = serialWombatChip;
-			Pin = 255;
+			_pin = 255;
 			SecondPin = 255;
 		}
 
-		/// \brief Simple initialization for SerialWombatQuadEnc
-		/// \param pin The first pin to be used as a Quadrature Encoder input. All 4 pins on the SW4A/SW4B may be used.
-		/// \param secondPin The second pin to be used as a Quadrature Encoder input. All 4 pins on the SW4A/SW4B may be used, except the first specified pin.
-		/// 
-		/// This initialization assumes a simple Rotary Encoder knob that is connected to ground.  Polling mode is used, and both transitions generate increments.
-		/// Pull ups are enabled, and 10ms of debouncing is used.
-		/// Position is initialized to 0.
-		public void  begin(byte pin, byte secondPin)
-		{
-			begin(pin, secondPin, 10, true, QuadEncReadModes.QE_ONBOTH_POLL);
-		}
 
-public 		void  begin(byte pin, byte secondPin, UInt16 debounce_mS, bool pullUpsEnabled)
+public 		Int16  begin(byte pin, byte secondPin, UInt16 debounce_mS = 10, bool pullUpsEnabled = true, QuadEncReadModes readState = QuadEncReadModes.QE_ONBOTH_POLL)
 		{
-			begin(pin, secondPin, debounce_mS, pullUpsEnabled, QuadEncReadModes.QE_ONBOTH_POLL);
-		}
-
-public 		Int16  begin(byte pin, byte secondPin, UInt16 debounce_mS, bool pullUpsEnabled, QuadEncReadModes readState)
-		{
-			Pin = pin;
+			_pin = pin;
 			SecondPin = secondPin;
-			byte[] tx = { 200, Pin, (byte)SerialWombatPinModes.PIN_MODE_QUADRATUREENCODER, (byte)(debounce_mS & 0xFF), (byte)((debounce_mS >> 8) & 0xFF), SecondPin, (byte)readState, pullUpsEnabled?(byte)1:(byte)0 };
-			byte[] rx;
-			return _sw.sendPacket(tx, out rx);
+			byte[] tx = { 200, _pin, (byte)SerialWombatPinModes.PIN_MODE_QUADRATUREENCODER, (byte)(debounce_mS & 0xFF), (byte)((debounce_mS >> 8) & 0xFF), SecondPin, (byte)readState, pullUpsEnabled?(byte)1:(byte)0 };
+			return _sw.sendPacket(tx);
 		}
 
 public 		UInt16  read()
 		{
-			return _sw.readPublicData(Pin);
+			return _sw.readPublicData(_pin);
 		}
 
 public 		UInt16  read(UInt16 replacementValue)
 		{
-			return _sw.writePublicData(Pin, replacementValue);
+			return _sw.writePublicData(_pin, replacementValue);
 		}
 
 public 		void  write(UInt16 value)
 		{
-			_sw.writePublicData(Pin, value);
+			_sw.writePublicData(_pin, value);
 		}
 	}
+
+	public class SerialWombatQuadEnc_18AB : SerialWombatQuadEnc
+	{
+        public SerialWombatAbstractProcessedInput processedInput;
+
+        public SerialWombatQuadEnc_18AB(SerialWombatChip serialWombatChip) : base(serialWombatChip)
+        { }
+
+        new public void begin(byte pin, byte secondPin, UInt16 debounce_mS = 10, bool pullUpsEnabled = true, QuadEncReadModes readState = QuadEncReadModes.QE_ONBOTH_POLL)
+        {
+			_pin = pin;
+            _pinMode = (byte)SerialWombatPinModes.PIN_MODE_QUADRATUREENCODER;
+            base.begin(pin,secondPin,debounce_mS,pullUpsEnabled,readState);
+            processedInput = new SerialWombatAbstractProcessedInput(_sw);
+            processedInput.begin(_pin, _pinMode);
+        }
+        public Int16 writeMinMaxIncrementTargetPin(UInt16 min = 65535, UInt16 max = 0, UInt16 increment = 1, byte targetPin = 255)
+        {
+
+            {
+                byte[] tx = { 201, _pin,(byte) SerialWombatPinModes.PIN_MODE_QUADRATUREENCODER,
+                    (byte)(increment  & 0xFF),(byte)((increment>>8)  & 0xFF), 0x55, 0x55, 0x55 };
+                Int16 result = _sw.sendPacket(tx);
+                if (result < 0)
+                {
+                    return (result);
+                }
+            }
+            {
+                byte[] tx = { 202, _pin, (byte)SerialWombatPinModes.PIN_MODE_QUADRATUREENCODER,
+                        (byte)(min  & 0xFF),(byte)((min>>8)  & 0xFF),
+                        (byte)(max  & 0xFF),(byte)((max>>8)  & 0xFF),
+                        0x55 };
+                Int16 result = _sw.sendPacket(tx);
+                if (result < 0)
+                {
+                    return (result);
+                }
+            }
+            {
+                byte[] tx = { 203, _pin, (byte)SerialWombatPinModes.PIN_MODE_QUADRATUREENCODER,
+                    targetPin, 0x55, 0x55, 0x55, 0x55 };
+                return _sw.sendPacket(tx);
+
+            }
+        }
+
+        public Int16 writeFrequencyPeriodmS(UInt16 period)
+        {
+            byte[] tx = { 204, _pin, (byte)SerialWombatPinModes.PIN_MODE_QUADRATUREENCODER,
+                (byte)(period  & 0xFF),(byte)((period>>8)  & 0xFF),
+                0x55, 0x55, 0x55 };
+            return _sw.sendPacket(tx);
+
+        }
+
+        public UInt16 readFrequency()
+        {
+            byte[] tx = { 205, _pin, (byte)SerialWombatPinModes.PIN_MODE_QUADRATUREENCODER, 0x55, 0x55, 0x55, 0x55, 0x55 };
+            byte[] rx;
+            Int16 result = _sw.sendPacket(tx,out rx);
+            if (result < 0) return 0;
+
+            return ((UInt16)(rx[3] + 256 * rx[4]));
+        }
+    }
 }

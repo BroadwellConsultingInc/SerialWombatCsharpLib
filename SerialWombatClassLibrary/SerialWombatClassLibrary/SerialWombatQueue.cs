@@ -38,7 +38,13 @@ namespace SerialWombat
             0x55,
             0x55  };
 
-            return _sw.sendPacket(tx);
+            byte[] rx;
+             Int16 result = _sw.sendPacket(tx,out rx);
+            if (result >= 0)
+            {
+                return ((Int16)(rx[3] + rx[4] * 256));
+            }
+            return (result);
         }
         public int read(int count, out byte[] data)
         {

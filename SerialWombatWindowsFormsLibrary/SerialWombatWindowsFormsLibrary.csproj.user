@@ -40,6 +40,9 @@
     <Compile Update="Controls\PIDControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Controls\PinHighLowInputControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Controls\ProcessedInputControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -52,7 +55,13 @@
     <Compile Update="Controls\PWMControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Controls\QuadEncControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Controls\QueueControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\QueuedPulseOutputControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Controls\RealTimeScottPlot.cs">
@@ -131,6 +140,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\PulseOnChangeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\QuadEncForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\QueuedPulseOutputForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\SingleLineTextEntryForm.cs">

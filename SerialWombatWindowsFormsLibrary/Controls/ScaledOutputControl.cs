@@ -35,10 +35,12 @@ namespace SerialWombatWindowsFormsLibrary
             ScaledOutput.writeInputScaling(sbsiInputMin.value, sbsiInputMax.value);
         }
 
+        /*
         private void bConfigurePID_Click(object sender, EventArgs e)
         {
             ScaledOutput.writePID(sbsiKp.value, sbsiKi.value, sbsiKd.value, sbsiPIDTarget.value, (ScaledOutputPeriod)edPIDPeriod.selectedItem);
         }
+        */
 
         private void bConfigureHysteresis_Click(object sender, EventArgs e)
         {
@@ -108,6 +110,7 @@ namespace SerialWombatWindowsFormsLibrary
 ");
         }
 
+        /*
         private void bGenPIDCode_Click(object sender, EventArgs e)
         {
             addTextToClipboard(
@@ -120,6 +123,7 @@ namespace SerialWombatWindowsFormsLibrary
 ");
 
         }
+        */
 
         private void bGenHysteresisCode_Click(object sender, EventArgs e)
         {
@@ -143,16 +147,18 @@ namespace SerialWombatWindowsFormsLibrary
 ");
         }
 
+        /*
         private void bPIDResetIntegrator_Click(object sender, EventArgs e)
         {
             ScaledOutput.PIDResetIntegrator();
         }
 
+
         private void bPIDUpdateTarget_Click(object sender, EventArgs e)
         {
             ScaledOutput.writeScalingTargetValue(sbsiPIDTarget.value);
         }
-
+        */
         private void bGenFilterCode_Click(object sender, EventArgs e)
         {
             addTextToClipboard(
@@ -279,16 +285,60 @@ namespace SerialWombatWindowsFormsLibrary
             ScaledOutput.Enable2DLookupOutputScaling(sbac2DIndex.Value);
         }
 
+        /*
         private void bUpdateTargetCI_Click(object sender, EventArgs e)
         {
             ScaledOutput.PIDResetIntegrator();
             ScaledOutput.writeScalingTargetValue(sbsiPIDTarget.value);
         }
+        */
 
         private void bConfigureHysteresis_Click_1(object sender, EventArgs e)
         {
             ScaledOutput.writeHysteresis(sbsiHysLowLimit.value,sbsiHysLowOutput.value,
                 sbsiHysHighLimit.value,sbsiHysHighOutputValue.value,sbsiHysInitialOutputValue.value);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string s =
+         $@"//Put the interpolation table in user RAM.
+               {{
+                    uint16_t xytable[] = {{
+                ";
+
+
+            List<byte> data = new List<byte>();
+            UInt16[] x = new UInt16[17];
+            UInt16[] y = new UInt16[17];
+            double ymax = 0;
+            int pointcount = 0;
+            l2DWarning.Text = "";
+            for (int i = 0; i < 17; ++i)
+            {
+                
+                x[i] = xyArray[i, 0].value;
+                y[i] = xyArray[i, 1].value;
+                s += $"{x[i]}, {y[i]},{Environment.NewLine}";
+                if (y[i] > ymax) ymax = y[i];
+                if (i > 0)
+                {
+                    if (x[i] <= x[i - 1]) { l2DWarning.Text = "ERROR: X values must be ascending"; }
+                }
+                if (x[i] == 65535)
+                {
+                    pointcount = i + 1; break;
+                }
+            }
+            if ((int)(x[pointcount - 1]) != 65535) { l2DWarning.Text = "ERROR: X must contain a 65535 entry"; }
+
+            s += @$"}}; {Environment.NewLine} 
+            sw.writeUserBuffer({sbac2DIndex.Value}, (uint8_t*)xytable, {(UInt16)(pointcount * 2 * 2)});
+}}{Environment.NewLine}
+            {Name}.Enable2DLookupOutputScaling({sbac2DIndex.Value});
+          
+            ";
+                 addTextToClipboard(s); //Output Maximum Value
         }
     }
 }

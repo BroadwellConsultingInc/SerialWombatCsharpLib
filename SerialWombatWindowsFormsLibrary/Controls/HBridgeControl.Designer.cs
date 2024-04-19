@@ -31,17 +31,17 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.bOff = new System.Windows.Forms.Button();
             this.gbConfigure = new System.Windows.Forms.GroupBox();
+            this.bGenCode = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.edOffState = new SerialWombatWindowsFormsLibrary.EnumDropdown();
             this.edDriver = new SerialWombatWindowsFormsLibrary.EnumDropdown();
+            this.edOffState = new SerialWombatWindowsFormsLibrary.EnumDropdown();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.pddSecondPin = new SerialWombatWindowsFormsLibrary.SerialWombatPinDropdown();
             this.label1 = new System.Windows.Forms.Label();
             this.bConfigure = new System.Windows.Forms.Button();
             this.sbsiPower = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
-            this.bGenCode = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.gbConfigure.SuspendLayout();
             this.SuspendLayout();
@@ -75,8 +75,8 @@
             this.gbConfigure.Controls.Add(this.bGenCode);
             this.gbConfigure.Controls.Add(this.label4);
             this.gbConfigure.Controls.Add(this.label3);
-            this.gbConfigure.Controls.Add(this.edOffState);
             this.gbConfigure.Controls.Add(this.edDriver);
+            this.gbConfigure.Controls.Add(this.edOffState);
             this.gbConfigure.Controls.Add(this.label2);
             this.gbConfigure.Controls.Add(this.textBox1);
             this.gbConfigure.Controls.Add(this.pddSecondPin);
@@ -88,6 +88,18 @@
             this.gbConfigure.TabIndex = 4;
             this.gbConfigure.TabStop = false;
             this.gbConfigure.Text = "Configure";
+            // 
+            // bGenCode
+            // 
+            this.bGenCode.BackColor = System.Drawing.Color.MediumPurple;
+            this.bGenCode.Location = new System.Drawing.Point(259, 22);
+            this.bGenCode.Name = "bGenCode";
+            this.bGenCode.Size = new System.Drawing.Size(45, 47);
+            this.bGenCode.TabIndex = 5;
+            this.bGenCode.TabStop = false;
+            this.bGenCode.Text = "Gen Code";
+            this.bGenCode.UseVisualStyleBackColor = false;
+            this.bGenCode.Click += new System.EventHandler(this.bGenCode_Click);
             // 
             // label4
             // 
@@ -107,6 +119,16 @@
             this.label3.TabIndex = 10;
             this.label3.Text = "Driver";
             // 
+            // edDriver
+            // 
+            this.edDriver.DropDownToolTip = "";
+            this.edDriver.dropdowntype = "SerialWombat.SerialWombatHBridgeDriverChip";
+            this.edDriver.Location = new System.Drawing.Point(77, 54);
+            this.edDriver.Name = "edDriver";
+            this.edDriver.Size = new System.Drawing.Size(136, 35);
+            this.edDriver.TabIndex = 2;
+            this.edDriver.Value = 0;
+            // 
             // edOffState
             // 
             this.edOffState.DropDownToolTip = "";
@@ -116,16 +138,6 @@
             this.edOffState.Size = new System.Drawing.Size(136, 35);
             this.edOffState.TabIndex = 2;
             this.edOffState.Value = 0;
-            // 
-            // edDriver
-            // 
-            this.edDriver.DropDownToolTip = "";
-            this.edDriver.dropdowntype = "SerialWombat.SerialWombatHBridgeDriver";
-            this.edDriver.Location = new System.Drawing.Point(77, 54);
-            this.edDriver.Name = "edDriver";
-            this.edDriver.Size = new System.Drawing.Size(136, 35);
-            this.edDriver.TabIndex = 1;
-            this.edDriver.Value = -1;
             // 
             // label2
             // 
@@ -187,17 +199,6 @@
             this.sbsiPower.TextBoxHint = "";
             this.sbsiPower.value = ((ushort)(32768));
             // 
-            // bGenCode
-            // 
-            this.bGenCode.BackColor = System.Drawing.Color.MediumPurple;
-            this.bGenCode.Location = new System.Drawing.Point(259, 22);
-            this.bGenCode.Name = "bGenCode";
-            this.bGenCode.Size = new System.Drawing.Size(45, 47);
-            this.bGenCode.TabIndex = 5;
-            this.bGenCode.TabStop = false;
-            this.bGenCode.Text = "Gen Code";
-            this.bGenCode.UseVisualStyleBackColor = false;
-            // 
             // HBridgeControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -226,10 +227,10 @@
         private System.Windows.Forms.Button bOff;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
-        private EnumDropdown edDriver;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private EnumDropdown edOffState;
         private System.Windows.Forms.Button bGenCode;
+        private EnumDropdown edDriver;
     }
 }

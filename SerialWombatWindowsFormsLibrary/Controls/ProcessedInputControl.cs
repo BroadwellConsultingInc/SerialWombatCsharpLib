@@ -96,6 +96,11 @@ namespace SerialWombatWindowsFormsLibrary
 
         private void bIntegratorConfigure_Click(object sender, EventArgs e)
         {
+            byte FrequencyMask = 0;
+            for (int i = 0; i < edIntegratonPeriod.Value && i <= 7; ++i)
+            {
+                FrequencyMask |=(byte) (1 << i);
+            }
             ProcessedInput.configureIntegrator(sbsiIntegratorNegMaxIndex.value,
                 sbsiNegMidIndex.value,
                 sbsiNegDeadZone.value,
@@ -104,7 +109,8 @@ namespace SerialWombatWindowsFormsLibrary
                 sbsiPosMaxIndex.value,
                 sbsiMidIncrement.value,
                 sbsiMaxIncrement.value,
-                sbsiIntegratorInitialValue.value
+                sbsiIntegratorInitialValue.value,
+                FrequencyMask
                 );
         }
 

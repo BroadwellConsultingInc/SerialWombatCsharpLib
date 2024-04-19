@@ -25,6 +25,7 @@ namespace SerialWombatWindowsFormsLibrary
             Pin = pin;
             SerialWombatChip = serialWombatChip;
             this.Text = $"HBridge on pin {pin} on Serial Wombat Chip on {serialWombatChip.Serial.Port.PortName}";
+            hBridgeControl1.Name = $"Pin{pin}HBridge";
 
 
             if (serialWombatChip.ModelEnum == SerialWombatModel.SerialWombat18AB)
@@ -39,6 +40,7 @@ namespace SerialWombatWindowsFormsLibrary
                 this.Controls.Add(scaledOutputControl);
                 ckbOutputScalingVisible.Visible = true;
                 ckbOutputScalingVisible.Checked = true;
+                scaledOutputControl.Name = $"Pin{Pin}HBridge";
                 this.Refresh();
             }
             hBridgeControl1.begin(serialWombatChip,Pin);

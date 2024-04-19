@@ -63,6 +63,8 @@
             this.tbM = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.label10 = new System.Windows.Forms.Label();
+            this.edIntegratonPeriod = new SerialWombatWindowsFormsLibrary.EnumDropdown();
             this.bIntegratorGenArduino = new System.Windows.Forms.Button();
             this.bIntegratorConfigure = new System.Windows.Forms.Button();
             this.sbsiPosDeadZone = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
@@ -505,6 +507,8 @@
             // 
             // tabPage8
             // 
+            this.tabPage8.Controls.Add(this.label10);
+            this.tabPage8.Controls.Add(this.edIntegratonPeriod);
             this.tabPage8.Controls.Add(this.bIntegratorGenArduino);
             this.tabPage8.Controls.Add(this.bIntegratorConfigure);
             this.tabPage8.Controls.Add(this.sbsiPosDeadZone);
@@ -525,6 +529,25 @@
             this.tabPage8.Text = "Integrator";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(219, 369);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(41, 15);
+            this.label10.TabIndex = 28;
+            this.label10.Text = "Period";
+            // 
+            // edIntegratonPeriod
+            // 
+            this.edIntegratonPeriod.DropDownToolTip = "";
+            this.edIntegratonPeriod.dropdowntype = "SerialWombat.ScaledOutputPeriod";
+            this.edIntegratonPeriod.Location = new System.Drawing.Point(269, 364);
+            this.edIntegratonPeriod.Name = "edIntegratonPeriod";
+            this.edIntegratonPeriod.Size = new System.Drawing.Size(117, 35);
+            this.edIntegratonPeriod.TabIndex = 27;
+            this.edIntegratonPeriod.Value = 0;
+            // 
             // bIntegratorGenArduino
             // 
             this.bIntegratorGenArduino.BackColor = System.Drawing.Color.MediumPurple;
@@ -540,7 +563,7 @@
             // 
             // bIntegratorConfigure
             // 
-            this.bIntegratorConfigure.Location = new System.Drawing.Point(280, 389);
+            this.bIntegratorConfigure.Location = new System.Drawing.Point(221, 404);
             this.bIntegratorConfigure.Name = "bIntegratorConfigure";
             this.bIntegratorConfigure.Size = new System.Drawing.Size(75, 23);
             this.bIntegratorConfigure.TabIndex = 9;
@@ -582,7 +605,7 @@
             // 
             // sbsiMaxIncrement
             // 
-            this.sbsiMaxIncrement.Location = new System.Drawing.Point(220, 295);
+            this.sbsiMaxIncrement.Location = new System.Drawing.Point(220, 293);
             this.sbsiMaxIncrement.Maximum = 65535;
             this.sbsiMaxIncrement.Minimum = 0;
             this.sbsiMaxIncrement.Name = "sbsiMaxIncrement";
@@ -625,7 +648,7 @@
             // 
             // sbsiMidIncrement
             // 
-            this.sbsiMidIncrement.Location = new System.Drawing.Point(16, 295);
+            this.sbsiMidIncrement.Location = new System.Drawing.Point(16, 293);
             this.sbsiMidIncrement.Maximum = 65535;
             this.sbsiMidIncrement.Minimum = 0;
             this.sbsiMidIncrement.Name = "sbsiMidIncrement";
@@ -693,7 +716,6 @@
             this.textBox10.Size = new System.Drawing.Size(431, 65);
             this.textBox10.TabIndex = 23;
             this.textBox10.TabStop = false;
-            this.textBox10.Text = resources.GetString("textBox10.Text");
             // 
             // tabPage5
             // 
@@ -1226,5 +1248,7 @@
         private System.Windows.Forms.Button bGenOutlierCode;
         private System.Windows.Forms.Button bGenInversionCode;
         private System.Windows.Forms.Button bGenQueueCode;
+        private System.Windows.Forms.Label label10;
+        private EnumDropdown edIntegratonPeriod;
     }
 }

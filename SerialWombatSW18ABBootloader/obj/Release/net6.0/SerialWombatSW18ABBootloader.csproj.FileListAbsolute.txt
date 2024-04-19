@@ -1,0 +1,17 @@
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatSW18ABBootloader\bin\Release\net6.0\SerialWombatSW18ABBootloader.deps.json
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatSW18ABBootloader\bin\Release\net6.0\SerialWombatSW18ABBootloader.dll
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatSW18ABBootloader\bin\Release\net6.0\SerialWombatSW18ABBootloader.pdb
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatSW18ABBootloader\bin\Release\net6.0\IntelHex.dll
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatSW18ABBootloader\bin\Release\net6.0\SerialWombatClassLibrary.dll
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatSW18ABBootloader\bin\Release\net6.0\IntelHex.pdb
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatSW18ABBootloader\bin\Release\net6.0\SerialWombatClassLibrary.pdb
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatSW18ABBootloader\obj\Release\net6.0\SerialWombatSW18ABBootloader.csproj.AssemblyReference.cache
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatSW18ABBootloader\obj\Release\net6.0\SerialWombatSW18ABBootloader.GeneratedMSBuildEditorConfig.editorconfig
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatSW18ABBootloader\obj\Release\net6.0\SerialWombatSW18ABBootloader.AssemblyInfoInputs.cache
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatSW18ABBootloader\obj\Release\net6.0\SerialWombatSW18ABBootloader.AssemblyInfo.cs
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatSW18ABBootloader\obj\Release\net6.0\SerialWombatSW18ABBootloader.csproj.CoreCompileInputs.cache
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatSW18ABBootloader\obj\Release\net6.0\SerialWombatSW18ABBootloader.csproj.CopyComplete
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatSW18ABBootloader\obj\Release\net6.0\SerialWombatSW18ABBootloader.dll
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatSW18ABBootloader\obj\Release\net6.0\refint\SerialWombatSW18ABBootloader.dll
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatSW18ABBootloader\obj\Release\net6.0\SerialWombatSW18ABBootloader.pdb
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatSW18ABBootloader\obj\Release\net6.0\ref\SerialWombatSW18ABBootloader.dll

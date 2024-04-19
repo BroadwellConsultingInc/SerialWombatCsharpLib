@@ -15,13 +15,26 @@ namespace SerialWombatWindowsFormsLibrary.Forms
     {
         public byte Pin = 0;
         public SerialWombatChip SerialWombatChip;
+        ProcessedInputControl ProcessedInputControl;
         public SW18ABCapTouchForm(SerialWombatChip serialWombatChip, byte pin)
         {
             InitializeComponent();
             SerialWombatChip = serialWombatChip; 
             Pin = pin;
-            Text = $"Pin {pin} Analog Input";
+            Text = $"Pin {pin} Cap Touch Input";
             sW18abCapTouchControl1.begin(serialWombatChip, pin);
+            if (serialWombatChip.isSW18())
+            {
+                SerialWombatAbstractProcessedInput processedInput = new SerialWombatAbstractProcessedInput(SerialWombatChip);
+                processedInput.begin(pin, SerialWombatPinModes.PIN_MODE_SW18AB_CAPTOUCH);
+                ProcessedInputControl = new ProcessedInputControl(processedInput);
+                ProcessedInputControl.Left = sW18abCapTouchControl1.Right + 10;
+                this.AutoSize = true;
+                this.Controls.Add(ProcessedInputControl);
+                ProcessedInputControl.Name = $"Pin{pin}_CapTouchInput";
+                this.Refresh();
+
+            }
         }
 
         private void SW18ABCapTouchForm_FormClosing(object sender, FormClosingEventArgs e)

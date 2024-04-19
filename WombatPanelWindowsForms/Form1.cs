@@ -254,7 +254,14 @@ namespace WombatPanelWindowsForms
             }
             else
             {
-                tbLog.AppendText($"Tx: {sent.RawString};{sent.PacketDescription} {Environment.NewLine}Rx: {received.RawString};{received.PacketDescription}{Environment.NewLine}{Environment.NewLine}");
+                string sd = "";
+                string rd = "";
+                if (ckbDecodeMessages.Checked)
+                {
+                    sd = "// " + SerialWombatPacketDecoder.decode(sent.Data, false);
+                    rd = "// " + SerialWombatPacketDecoder.decode(received.Data, true);
+                }
+                tbLog.AppendText($"Tx: {sent.RawString}  {sd} {Environment.NewLine}Rx: {received.RawString} {rd}{Environment.NewLine}{Environment.NewLine}");
             }
 
            

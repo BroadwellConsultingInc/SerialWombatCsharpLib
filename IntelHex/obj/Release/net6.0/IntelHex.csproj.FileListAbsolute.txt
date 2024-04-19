@@ -1,0 +1,12 @@
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\IntelHex\bin\Release\net6.0\IntelHex.deps.json
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\IntelHex\bin\Release\net6.0\IntelHex.dll
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\IntelHex\bin\Release\net6.0\IntelHex.pdb
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\IntelHex\obj\Release\net6.0\IntelHex.csproj.AssemblyReference.cache
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\IntelHex\obj\Release\net6.0\IntelHex.GeneratedMSBuildEditorConfig.editorconfig
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\IntelHex\obj\Release\net6.0\IntelHex.AssemblyInfoInputs.cache
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\IntelHex\obj\Release\net6.0\IntelHex.AssemblyInfo.cs
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\IntelHex\obj\Release\net6.0\IntelHex.csproj.CoreCompileInputs.cache
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\IntelHex\obj\Release\net6.0\IntelHex.dll
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\IntelHex\obj\Release\net6.0\refint\IntelHex.dll
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\IntelHex\obj\Release\net6.0\IntelHex.pdb
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\IntelHex\obj\Release\net6.0\ref\IntelHex.dll

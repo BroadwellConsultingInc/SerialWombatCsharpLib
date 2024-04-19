@@ -34,6 +34,7 @@
             this.tsmiHex = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiDecimal = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiCharacter = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -101,5 +102,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiHex;
         private System.Windows.Forms.ToolStripMenuItem tsmiDecimal;
         private System.Windows.Forms.ToolStripMenuItem tsmiCharacter;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
