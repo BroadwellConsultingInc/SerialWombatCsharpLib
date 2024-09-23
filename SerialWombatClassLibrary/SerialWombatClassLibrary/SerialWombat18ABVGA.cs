@@ -24,9 +24,10 @@ namespace SerialWombat
         public Int32 begin(byte Pin, UInt16 bufferIndex)
         {
             _pin = Pin;
-
             byte[] tx = { 200, _pin, _pinMode, 0x55,0x55,0x55,0x55,0x55};
-  
+			BitConverter.GetBytes(bufferIndex).CopyTo(tx, 5);
+
+
 
             byte[] rx;
             Int16 result =  _sw.sendPacket(tx,out rx);

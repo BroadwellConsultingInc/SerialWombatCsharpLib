@@ -277,7 +277,7 @@ namespace WombatPanelWindowsForms
                     SerialWombatChip sw = new SerialWombatChip();
                     SerialWombatChip.SendDelegate LogDataDelegate = new SerialWombatChip.SendDelegate(LogData);
                     sw.SendDelegates.Add(LogDataDelegate);
-                    sw.begin(sps.SelectedPort,tsmiResetSWCOnOpen.Checked);
+                    sw.begin(sps.SelectedPort,tsmiResetSWCOnOpen.Checked, sps.SelectedPortType);
                     try
                     {
                         byte[] b = sw.readVersion();
@@ -291,10 +291,11 @@ namespace WombatPanelWindowsForms
                                 MessageBox.Show($"This Serial Wombat chip is in bootloader mode.  Upload a hex file through the tools menu.  Most Wombat Panel operations will not work.");
                             }
                             
-                            else if (ver < 208)
+                            else if (ver < 212)
                             {
-                                MessageBox.Show($"This Serial Wombat chip is using firmware version {(char)b[4]}.{(char)b[5]}.{(char)b[6]}   .  Version 2.1.0 or later is required for all features to work correctly.  See https://youtu.be/q7ls-lMaL80 ");
+                                MessageBox.Show($"This Serial Wombat chip is using firmware version {(char)b[4]}.{(char)b[5]}.{(char)b[6]}   .  Version 2.1.2 or later is required for all features to work correctly.  See https://youtu.be/q7ls-lMaL80 ");
                             }
+                            int packetTime = communicationsTest(100);
                             string swdata = "";
 
                             swdata += ($"Serial Wombat SW18AB on port {sps.SelectedPort} detected, firmware version {(char)b[4]}.{(char)b[5]}.{(char)b[6]} {Environment.NewLine}");
@@ -310,9 +311,16 @@ namespace WombatPanelWindowsForms
                             swdata += ($"Source Voltage: {sw._supplyVoltagemV / 1000.0}{Environment.NewLine}");
                             swdata += ($"Temperature: {sw.readTemperature_100thsDegC() / 100.0}{Environment.NewLine}");
                             swdata += ($"Birthday: {sw.readBirthday()}{Environment.NewLine}");
+                           
                             string brand;
                             sw.readBrand(out brand);
                             swdata += ($"Brand: {brand}{Environment.NewLine}");
+                            swdata += $"Packet time: {packetTime}mS per packet{Environment.NewLine}";
+                            if (packetTime > 5)
+                            {
+                                swdata += ("mS per packet may be slow due to Serial Port Settings.  Consider seeing if latency settings can be improved in the Port's Windows Device manager Advanced Properties");
+
+                            }
                             tbLog.AppendText(swdata);
                             graphicPinSelectorControl1.Enabled = true;
                         }
@@ -477,5 +485,62 @@ namespace WombatPanelWindowsForms
             processInfo.UseShellExecute = true;
             Process.Start(processInfo);
         }
+
+        private void communicationsTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+
+            communicationsTest(5000);
+           
+            
+        }
+
+        private int communicationsTest(int iterations)
+        {
+            int passed = 0;
+            int failed = 0;
+            int count = 0;
+            byte[] resetSeq = { 0xB4, (byte)'R', (byte)'E', (byte)'S', (byte)'E', (byte)'T', 0x55, 0x55 };
+
+            ChipList.Last().sendPacket(resetSeq);
+            DateTime start = DateTime.Now;
+            byte seqNum = 0;
+            for (int i = 0; i < iterations; ++i)
+            {
+                byte[] packet = new byte[8];
+                packet[0] = 0xB4;
+
+                for (int p = 1; p <= 7; ++p)
+                {
+                    packet[p] = seqNum;
+                    ++seqNum;
+                }
+                byte[] rxPacket;
+                ChipList.Last().sendPacket(packet, out rxPacket);
+                for (int p = 0; p < 8; ++p)
+                {
+                    if (packet[p] != rxPacket[p])
+                    {
+                        ++failed;
+                    }
+                    else
+                    {
+                        ++passed;
+                    }
+                }
+                ++count;
+            }
+            DateTime end = DateTime.Now;
+            int msPerPacket = (int)((end - start).TotalMilliseconds / count);
+            string result = $"Communication test:  {count} packets in {(end - start).TotalMilliseconds} ms, {msPerPacket} ms Per Packet {Environment.NewLine} Pass: {passed} Fail: {failed}{Environment.NewLine}";
+            tbLog.AppendText(result);
+            if (msPerPacket > 5)
+            {
+                tbLog.AppendText("mS per packet may be slow due to Serial Port Settings.  Consider seeing if latency settings can be improved in the Port's Windows Device manager Advanced Properties");
+            }
+            return msPerPacket;
+        }
     }
+
+   
 }

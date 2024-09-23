@@ -970,5 +970,35 @@ namespace SerialWombatWindowsFormsLibrary
             queuedPulseOutputForm.Top = FindForm().Top + 50;
             queuedPulseOutputForm.Left = FindForm().Left + 50;
         }
+
+        private void toolStripMenuItem2_Click_1(object sender, EventArgs e)
+        {
+            VGA18ABForm vgaForm = new VGA18ABForm(SerialWombatChip, _lastClickWombatPin);
+            vgaForm.Show();
+            vgaForm.Top = FindForm().Top + 50;
+            vgaForm.Left = FindForm().Left + 50;
+
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            FrequencyOutputForm foForm = new FrequencyOutputForm(SerialWombatChip, _lastClickWombatPin);
+            foForm.Show();
+            foForm.Top = FindForm().Top + 50;
+            foForm.Left = FindForm().Left + 50;
+        }
+
+        private void dataLoggerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DataLoggerForm dlf = new DataLoggerForm(SerialWombatChip);
+            dlf.Show();
+            dlf.Top = FindForm().Top + 50;
+            dlf.Left = FindForm().Left + 50;
+        }
     }
 }

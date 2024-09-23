@@ -21,10 +21,16 @@ namespace SerialWombatWindowsFormsLibrary
         [Browsable(true), EditorBrowsable(EditorBrowsableState.Always)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public string dropdowntype { set { ddtype = value;
-           
-                 System.Reflection.Assembly A = System.Reflection.Assembly.Load("SerialWombatClassLibrary");
-          
-            Type newtype = A.GetType(ddtype);
+
+                String assem = value.Split(".")[0];
+                 System.Reflection.Assembly A = System.Reflection.Assembly.Load(assem);
+                string s = value;
+                if (value.Split('.').Length > 2)
+                {
+                    s = value.Remove(0, assem.Length + 1);
+                }
+                Type newtype = A.GetType(s);
+                
                 Array array = Enum.GetValues(newtype);
                 comboBox1.DataSource = array;
                 // try

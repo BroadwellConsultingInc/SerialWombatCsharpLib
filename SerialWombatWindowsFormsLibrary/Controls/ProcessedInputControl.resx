@@ -163,7 +163,4 @@ when given a steady input.</value>
   <data name="textBox8.Text" xml:space="preserve">
     <value>When ProcessedInput is enabled the ProcessedInputModule keeps track of the minimum and maximum values of the public output.  These values can be read by the host.  They can optionally be reset after reading.</value>
   </data>
-  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
 </root>

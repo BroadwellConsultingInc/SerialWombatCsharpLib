@@ -54,6 +54,7 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // button4
             // 
@@ -77,6 +78,7 @@
             this.sbsiDutyCycle.Text = "Duty Cycle (0-65535)";
             this.sbsiDutyCycle.TextBoxHint = "";
             this.sbsiDutyCycle.value = ((ushort)(0));
+            this.sbsiDutyCycle.Load += new System.EventHandler(this.sbsiDutyCycle_Load);
             // 
             // lPeriod
             // 
@@ -87,6 +89,7 @@
             this.lPeriod.TabIndex = 12;
             this.lPeriod.Text = "Period (uS)";
             this.lPeriod.Visible = false;
+            this.lPeriod.Click += new System.EventHandler(this.lPeriod_Click);
             // 
             // tbSW18ABPeriod
             // 
@@ -96,6 +99,7 @@
             this.tbSW18ABPeriod.TabIndex = 11;
             this.tbSW18ABPeriod.Text = "1000";
             this.tbSW18ABPeriod.Visible = false;
+            this.tbSW18ABPeriod.TextChanged += new System.EventHandler(this.tbSW18ABPeriod_TextChanged);
             // 
             // cbWombat4ABFreq
             // 
@@ -104,6 +108,7 @@
             this.cbWombat4ABFreq.Name = "cbWombat4ABFreq";
             this.cbWombat4ABFreq.Size = new System.Drawing.Size(164, 23);
             this.cbWombat4ABFreq.TabIndex = 9;
+            this.cbWombat4ABFreq.SelectedIndexChanged += new System.EventHandler(this.cbWombat4ABFreq_SelectedIndexChanged);
             // 
             // ckbInvertSignal
             // 
@@ -114,6 +119,7 @@
             this.ckbInvertSignal.TabIndex = 6;
             this.ckbInvertSignal.Text = "Invert Signal";
             this.ckbInvertSignal.UseVisualStyleBackColor = true;
+            this.ckbInvertSignal.CheckedChanged += new System.EventHandler(this.ckbInvertSignal_CheckedChanged);
             // 
             // bConfigure
             // 

@@ -68,6 +68,11 @@ namespace SerialWombatWindowsFormsLibrary
                 }
             }
         }
+
+        private void analogInputControl1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 
     

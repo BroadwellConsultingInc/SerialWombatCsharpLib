@@ -57,6 +57,7 @@
             this.tsmiReadRam = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiCArray = new System.Windows.Forms.ToolStripMenuItem();
             this.sendStayInBootToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.communicationsTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.portStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.portOpenSerialMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.portOpenTCPMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -268,7 +269,8 @@
             this.bLDownloadToolStripMenuItem,
             this.tsmiReadRam,
             this.tsmiCArray,
-            this.sendStayInBootToolStripMenuItem});
+            this.sendStayInBootToolStripMenuItem,
+            this.communicationsTestToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.toolsToolStripMenuItem.Text = "&Tools";
@@ -307,6 +309,13 @@
             this.sendStayInBootToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
             this.sendStayInBootToolStripMenuItem.Text = "Send Stay In Boot";
             this.sendStayInBootToolStripMenuItem.Click += new System.EventHandler(this.sendStayInBootToolStripMenuItem_Click);
+            // 
+            // communicationsTestToolStripMenuItem
+            // 
+            this.communicationsTestToolStripMenuItem.Name = "communicationsTestToolStripMenuItem";
+            this.communicationsTestToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.communicationsTestToolStripMenuItem.Text = "Communications Test";
+            this.communicationsTestToolStripMenuItem.Click += new System.EventHandler(this.communicationsTestToolStripMenuItem_Click);
             // 
             // portStripMenuItem
             // 
@@ -527,7 +536,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Wombat Panel V1.2.4 20240419";
+            this.Text = "Wombat Panel V1.3.0 20240923";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -592,6 +601,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.CheckBox ckbDecodeMessages;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ToolStripMenuItem communicationsTestToolStripMenuItem;
     }
 }
 

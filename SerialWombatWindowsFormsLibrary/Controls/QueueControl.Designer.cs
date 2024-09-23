@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ckbDecimal = new System.Windows.Forms.CheckBox();
             this.cbAscii = new System.Windows.Forms.CheckBox();
             this.realTimeScottPlot1 = new SerialWombatWindowsFormsLibrary.Controls.RealTimeScottPlot();
             this.ckb16BitReads = new System.Windows.Forms.CheckBox();
@@ -42,7 +43,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbLength = new System.Windows.Forms.TextBox();
             this.tbAddress = new System.Windows.Forms.TextBox();
-            this.ckbDecimal = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,6 +70,18 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // ckbDecimal
+            // 
+            this.ckbDecimal.AutoSize = true;
+            this.ckbDecimal.Location = new System.Drawing.Point(222, 290);
+            this.ckbDecimal.Name = "ckbDecimal";
+            this.ckbDecimal.Size = new System.Drawing.Size(69, 19);
+            this.ckbDecimal.TabIndex = 11;
+            this.ckbDecimal.Text = "Decimal";
+            this.ckbDecimal.UseVisualStyleBackColor = true;
+            this.ckbDecimal.CheckedChanged += new System.EventHandler(this.ckbDecimal_CheckedChanged);
             // 
             // cbAscii
             // 
@@ -80,6 +92,7 @@
             this.cbAscii.TabIndex = 10;
             this.cbAscii.Text = "Ascii";
             this.cbAscii.UseVisualStyleBackColor = true;
+            this.cbAscii.CheckedChanged += new System.EventHandler(this.cbAscii_CheckedChanged);
             // 
             // realTimeScottPlot1
             // 
@@ -87,6 +100,7 @@
             this.realTimeScottPlot1.Name = "realTimeScottPlot1";
             this.realTimeScottPlot1.Size = new System.Drawing.Size(429, 256);
             this.realTimeScottPlot1.TabIndex = 9;
+            this.realTimeScottPlot1.Load += new System.EventHandler(this.realTimeScottPlot1_Load);
             // 
             // ckb16BitReads
             // 
@@ -97,6 +111,7 @@
             this.ckb16BitReads.TabIndex = 8;
             this.ckb16BitReads.Text = "16 Bit Reads";
             this.ckb16BitReads.UseVisualStyleBackColor = true;
+            this.ckb16BitReads.CheckedChanged += new System.EventHandler(this.ckb16BitReads_CheckedChanged);
             // 
             // tbCopyReadAddress
             // 
@@ -105,6 +120,7 @@
             this.tbCopyReadAddress.Size = new System.Drawing.Size(88, 23);
             this.tbCopyReadAddress.TabIndex = 7;
             this.tbCopyReadAddress.Text = "4000";
+            this.tbCopyReadAddress.TextChanged += new System.EventHandler(this.tbCopyReadAddress_TextChanged);
             // 
             // bCopyAndRead
             // 
@@ -114,6 +130,7 @@
             this.bCopyAndRead.TabIndex = 6;
             this.bCopyAndRead.Text = "Copy && Read";
             this.bCopyAndRead.UseVisualStyleBackColor = true;
+            this.bCopyAndRead.Click += new System.EventHandler(this.bCopyAndRead_Click);
             // 
             // bWrite
             // 
@@ -143,6 +160,7 @@
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBox1.Size = new System.Drawing.Size(401, 183);
             this.textBox1.TabIndex = 3;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // bInitialize
             // 
@@ -162,6 +180,7 @@
             this.label2.Size = new System.Drawing.Size(83, 15);
             this.label2.TabIndex = 1;
             this.label2.Text = "Length (bytes)";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -171,6 +190,7 @@
             this.label1.Size = new System.Drawing.Size(49, 15);
             this.label1.TabIndex = 1;
             this.label1.Text = "Address";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // tbLength
             // 
@@ -179,6 +199,7 @@
             this.tbLength.Size = new System.Drawing.Size(100, 23);
             this.tbLength.TabIndex = 0;
             this.tbLength.Text = "0x0000";
+            this.tbLength.TextChanged += new System.EventHandler(this.tbLength_TextChanged);
             // 
             // tbAddress
             // 
@@ -187,16 +208,7 @@
             this.tbAddress.Size = new System.Drawing.Size(100, 23);
             this.tbAddress.TabIndex = 0;
             this.tbAddress.Text = "0x0000";
-            // 
-            // ckbDecimal
-            // 
-            this.ckbDecimal.AutoSize = true;
-            this.ckbDecimal.Location = new System.Drawing.Point(222, 290);
-            this.ckbDecimal.Name = "ckbDecimal";
-            this.ckbDecimal.Size = new System.Drawing.Size(69, 19);
-            this.ckbDecimal.TabIndex = 11;
-            this.ckbDecimal.Text = "Decimal";
-            this.ckbDecimal.UseVisualStyleBackColor = true;
+            this.tbAddress.TextChanged += new System.EventHandler(this.tbAddress_TextChanged);
             // 
             // QueueControl
             // 

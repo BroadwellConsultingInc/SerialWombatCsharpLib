@@ -95,3 +95,11 @@ F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatWindowsF
 F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatWindowsFormsLibrary\obj\Release\net6.0-windows\SerialWombatWindowsFormsLibrary.pdb
 F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatWindowsFormsLibrary\obj\Release\net6.0-windows\SerialWombatWindowsFormsLibrary.genruntimeconfig.cache
 F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatWindowsFormsLibrary\obj\Release\net6.0-windows\ref\SerialWombatWindowsFormsLibrary.dll
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatWindowsFormsLibrary\bin\Release\net6.0-windows\System.CodeDom.dll
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatWindowsFormsLibrary\bin\Release\net6.0-windows\System.Management.dll
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatWindowsFormsLibrary\bin\Release\net6.0-windows\runtimes\win\lib\net6.0\System.Management.dll
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatWindowsFormsLibrary\obj\Release\net6.0-windows\SerialWombatWindowsFormsLibrary.Forms.VGA18ABForm.resources
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatWindowsFormsLibrary\obj\Release\net6.0-windows\SerialWombatWindowsFormsLibrary.Controls.DataLoggerControl.resources
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatWindowsFormsLibrary\obj\Release\net6.0-windows\SerialWombatWindowsFormsLibrary.Controls.FrequencyOutputControl.resources
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatWindowsFormsLibrary\obj\Release\net6.0-windows\SerialWombatWindowsFormsLibrary.DataLoggerForm.resources
+F:\keep\GitHub\broadwellconsultinginc\SerialWombatCsharpLib\SerialWombatWindowsFormsLibrary\obj\Release\net6.0-windows\SerialWombatWindowsFormsLibrary.Forms.FrequencyOutputForm.resources

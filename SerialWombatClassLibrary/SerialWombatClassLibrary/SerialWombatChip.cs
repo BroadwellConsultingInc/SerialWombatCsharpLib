@@ -51,10 +51,10 @@ namespace SerialWombat
 
         }
 
-        public void begin(string portName, bool reset)
+        public void begin(string portName, bool reset = true, SerialWombatClassLibrary.SerialPortChipType chipType = SerialWombatClassLibrary.SerialPortChipType.GENERIC)
         {
             IsSerial = true;
-            Serial.begin(portName);
+            Serial.begin(portName, chipType);
             Serial.setTimeout(1000);
             sendPacket("UUUUUUUU"); // Resync
             if (reset)
@@ -185,7 +185,7 @@ namespace SerialWombat
             {
                 byte[] newtx = { 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55 };
                 tx.CopyTo(newtx, 0);
-                tx = newtx; 
+                tx = newtx;
             }
             Serial.Pool.WaitOne();
             Serial.write(tx, 8);
@@ -200,6 +200,7 @@ namespace SerialWombat
         }
         public Int16 sendPacket(byte[] tx, out byte[] rx)
         {
+            Serial.Port.DiscardInBuffer();
             rx = new byte[] { (byte)'E', 0, 0, 0, 0, 0, 0, 0 };
             if (tx.Length < 8)
             {
@@ -327,6 +328,10 @@ namespace SerialWombat
             return (version);
         }
 
+        public String fwVersionString
+        {
+            get { return System.Text.Encoding.ASCII.GetString(fwVersion); }
+        }
         public UInt16 readSupplyVoltage_mV()
         {
             if (isSW18())
@@ -381,13 +386,13 @@ namespace SerialWombat
             _pullDown[pin] = openDrain;
             _openDrain[pin] = openDrain;
             _pinmode[pin] = mode;
-            configureDigitalPin(pin,(byte)(_highLow[pin]?1:0));
+            configureDigitalPin(pin, (byte)(_highLow[pin] ? 1 : 0));
         }
 
         public void digitalWrite(byte pin, byte val)
         {
             _highLow[pin] = val > 0;
-            configureDigitalPin(pin,val);
+            configureDigitalPin(pin, val);
         }
 
 
@@ -554,128 +559,176 @@ namespace SerialWombat
 			*/
             return (0);  // Didn't find one.
         }
-            public int readUserBuffer(UInt16 index, byte[] buffer, UInt16 count)
-{
-                UInt16 bytesRead = 0;
-                while (bytesRead < count)
+        public int readUserBuffer(UInt16 index, byte[] buffer, UInt16 count)
+        {
+            UInt16 bytesRead = 0;
+            while (bytesRead < count)
+            {
+                byte[] tx = { (byte)SerialWombatCommands.COMMAND_BINARY_READ_USER_BUFFER, (byte)(index & 0xFF), (byte)(index >> 8), 0x55, 0x55, 0x55, 0x55, 0x55 };
+                byte[] rx;
+                Int16 result = sendPacket(tx, out rx);
+                if (result >= 0)
                 {
-                    byte[] tx = { (byte)SerialWombatCommands.COMMAND_BINARY_READ_USER_BUFFER, (byte)(index & 0xFF), (byte)(index >>8), 0x55, 0x55, 0x55, 0x55, 0x55 };
-                    byte[] rx;
-                    Int16 result = sendPacket(tx, out rx);
-                    if (result >= 0)
+                    for (int i = 1; i < 8; ++i)
                     {
-                        for (int i = 1; i < 8; ++i)
-                        {
-                            buffer[bytesRead] = rx[i];
-                            ++bytesRead;
+                        buffer[bytesRead] = rx[i];
+                        ++bytesRead;
                         ++index;
-                            if (bytesRead >= count)
-                            {
-                                break;
-                            }
+                        if (bytesRead >= count)
+                        {
+                            break;
                         }
                     }
-                    else
-                    {
-                        return (bytesRead);
-                    }
                 }
-                return (bytesRead);
+                else
+                {
+                    return (bytesRead);
+                }
             }
+            return (bytesRead);
+        }
         /*
             void registerErrorHandler(SerialWombatErrorHandler_t handler)
 {
                 errorHandler = handler;
             }
         */
-            public void configureDigitalPin(byte pin, byte highLow)
+        public void configureDigitalPin(byte pin, byte highLow)
+        {
+            byte[] tx = { 200, pin, 0, 0, 0, 0, 0, 0x55 };
+            byte[] rx;
+            _highLow[pin] = highLow > 0;
+            switch (_pinmode[pin])
             {
-                byte[] tx = { 200, pin, 0, 0, 0, 0, 0, 0x55 };
-                byte[] rx;
-                _highLow[pin] = highLow > 0;
-                switch (_pinmode[pin])
-                {
-                    case 0: // Arduino input
-                        {
-                            tx[3] = 2; //Input
-                        }
-                        break;
-                    case 1:
-                        {
-                            if (_highLow[pin])
-                            {
-                                tx[3] = 1; //Output
-                            }
-                            else
-                            {
-                                tx[3] = 0;
-                            }
-
-                        }
-                        break;
-                    case 2:
-                        {
-                            tx[3] = 2; //Input
-                            tx[4] = 1; //Pullup on
-                        }
-                        break;
-                    default:
-                        {
-                            return;
-                        }
-                }
-                tx[6] = _openDrain[pin] ? (byte)1 : (byte)0;
-                tx[5] = _pullDown[pin] ? (byte)1 : (byte)0;
-                sendPacket(tx, out rx);
-            }
-
-
-            public UInt16 readPublicData(SerialWombatDataSources ds)
-            {
-                return (readPublicData((byte)ds));
-            }
-            public UInt16 readPublicData(byte pin)
-            {
-                byte[] tx = { 0x81, pin, 255, 255, 0x55, 0x55, 0x55, 0x55 };
-                byte[] rx;
-                sendPacket(tx, out rx);
-
-                for (int retry = 0; retry < 5; ++retry)  // Added code to help with multithreading
-                {
-                    if (rx[1] != pin)
+                case 0: // Arduino input
                     {
-                        while (Serial.read() >= 0) ;
+                        tx[3] = 2; //Input
                     }
-                    else
+                    break;
+                case 1:
                     {
-                        break;
+                        if (_highLow[pin])
+                        {
+                            tx[3] = 1; //Output
+                        }
+                        else
+                        {
+                            tx[3] = 0;
+                        }
+
                     }
-                    sendPacket(tx, out rx);
-                }
-                return (UInt16)(rx[2] + (UInt16)rx[3] * 256);
+                    break;
+                case 2:
+                    {
+                        tx[3] = 2; //Input
+                        tx[4] = 1; //Pullup on
+                    }
+                    break;
+                default:
+                    {
+                        return;
+                    }
             }
+            tx[6] = _openDrain[pin] ? (byte)1 : (byte)0;
+            tx[5] = _pullDown[pin] ? (byte)1 : (byte)0;
+            sendPacket(tx, out rx);
+        }
 
-            public UInt16 writePublicData(byte pin, UInt16 value)
-            {
-                byte[] tx = { 0x82, pin, (byte)(value & 0xFF), (byte)(value >> 8), 255, 0x55, 0x55, 0x55 };
-                byte[] rx;
-                sendPacket(tx, out rx);
-                return ((UInt16)(rx[2] + rx[3] * 256));
-            }
 
-            public Int16 writeUserBuffer(UInt16 address, byte[] buffer, UInt16 count)
+        public UInt16 readPublicData(SerialWombatDataSources ds)
+        {
+            return (readPublicData((byte)ds));
+        }
+        public UInt16 readPublicData(byte pin)
+        {
+            byte[] tx = { 0x81, pin, 255, 255, 0x55, 0x55, 0x55, 0x55 };
+            byte[] rx;
+            sendPacket(tx, out rx);
+
+            for (int retry = 0; retry < 5; ++retry)  // Added code to help with multithreading
             {
-                UInt16 bytesSent = 0;
-                if (count == 0)
+                if (rx[1] != pin)
                 {
-                    return 0;
+                    Serial.Port.DiscardInBuffer();
+                    
+                }
+                else
+                {
+                    break;
+                }
+                sendPacket(tx, out rx);
+            }
+            return (UInt16)(rx[2] + (UInt16)rx[3] * 256);
+        }
+
+        public UInt16 writePublicData(byte pin, UInt16 value)
+        {
+            byte[] tx = { 0x82, pin, (byte)(value & 0xFF), (byte)(value >> 8), 255, 0x55, 0x55, 0x55 };
+            byte[] rx;
+            sendPacket(tx, out rx);
+            return ((UInt16)(rx[2] + rx[3] * 256));
+        }
+
+        public Int16 writeUserBuffer(UInt16 address, byte[] buffer, UInt16 count)
+        {
+            UInt16 bytesSent = 0;
+            if (count == 0)
+            {
+                return 0;
+            }
+
+            { // Send first packet of up to 4 bytes
+                UInt16 bytesToSend = 4;
+                if (count < 4)
+                {
+                    bytesToSend = count;
+                    count = 0;
+                }
+                else
+                {
+                    count -= 4;
                 }
 
+                byte[] tx = { 0x84, (byte)(address & 0xFF), (byte)(address >> 8), (byte)bytesToSend, 0x55, 0x55, 0x55, 0x55 };
+                byte[] rx;
+
+                byte i;
+                for (i = 0; i < bytesToSend; ++i)
+                {
+                    tx[4 + i] = buffer[i];
+                }
+                int result = sendPacket(tx, out rx);
+                if (rx[0] == 'E')
+                {
+                    return ((Int16)result);
+                }
+                bytesSent = bytesToSend;
+            }
+            while (count >= 7)  // Continue sending
+            {
+
+                count -= 7;
+                byte[] tx = { 0x85, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55 };
+                byte[] rx;
+                byte i;
+                for (i = 0; i < 7; ++i)
+                {
+                    tx[1 + i] = buffer[bytesSent + i];
+                }
+                int result = sendPacket(tx, out rx);
+                if (rx[0] == 'E')
+                {
+                    return ((Int16)result);
+                }
+                bytesSent += 7;
+            }
+            while (count > 0)
+            {
                 { // Send first packet of up to 4 bytes
-                    UInt16 bytesToSend = 4;
+                    byte bytesToSend = 4;
                     if (count < 4)
                     {
-                        bytesToSend = count;
+                        bytesToSend = (byte)count;
                         count = 0;
                     }
                     else
@@ -683,75 +736,28 @@ namespace SerialWombat
                         count -= 4;
                     }
 
-                    byte[] tx = { 0x84, (byte)(address & 0xFF), (byte)(address >> 8), (byte)bytesToSend, 0x55, 0x55, 0x55, 0x55 };
+                    byte[] tx = { 0x84, (byte)((address + bytesSent) & 0xFF), (byte)((address + bytesSent) >> 8), (byte)bytesToSend, 0x55, 0x55, 0x55, 0x55 };
                     byte[] rx;
 
                     byte i;
                     for (i = 0; i < bytesToSend; ++i)
                     {
-                        tx[4 + i] = buffer[i];
+                        tx[4 + i] = buffer[i + bytesSent];
                     }
                     int result = sendPacket(tx, out rx);
                     if (rx[0] == 'E')
                     {
                         return ((Int16)result);
                     }
-                    bytesSent = bytesToSend;
+                    bytesSent += bytesToSend;
                 }
-                while (count >= 7)  // Continue sending
-                {
-                    
-                count -= 7;
-                    byte[] tx = { 0x85, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55 };
-                    byte[] rx;
-                    byte i;
-                    for (i = 0; i < 7; ++i)
-                    {
-                        tx[1 + i] = buffer[bytesSent + i];
-                    }
-                    int result = sendPacket(tx, out rx);
-                    if (rx[0] == 'E')
-                    {
-                        return ((Int16)result);
-                    }
-                    bytesSent += 7;
-                }
-                while (count > 0)
-                {
-                    { // Send first packet of up to 4 bytes
-                        byte bytesToSend = 4;
-                        if (count < 4)
-                        {
-                            bytesToSend = (byte)count;
-                            count = 0;
-                        }
-                        else
-                        {
-                            count -= 4;
-                        }
 
-                        byte[] tx = { 0x84, (byte)((address + bytesSent) & 0xFF), (byte)((address + bytesSent) >> 8), (byte)bytesToSend, 0x55, 0x55, 0x55, 0x55 };
-                        byte[] rx;
-
-                        byte i;
-                        for (i = 0; i < bytesToSend; ++i)
-                        {
-                            tx[4 + i] = buffer[i + bytesSent];
-                        }
-                        int result = sendPacket(tx, out rx);
-                        if (rx[0] == 'E')
-                        {
-                            return ((Int16)result);
-                        }
-                        bytesSent += bytesToSend;
-                    }
-                    
-                }
+            }
             return ((Int16)bytesSent);
 
 
 
-            }
+        }
 
         public Int16 StartCommandCapture()
         {
@@ -844,71 +850,71 @@ namespace SerialWombat
 
         int writeUserBuffer(UInt16 index, string s)
         {
-            return writeUserBuffer(index, Encoding.ASCII.GetBytes(s),(UInt16) s.Length);
+            return writeUserBuffer(index, Encoding.ASCII.GetBytes(s), (UInt16)s.Length);
         }
 
-      
 
-    public Int16 enable2ndCommandInterface(bool enabled)
-    {
-        byte[] tx = { 0xA6, 0, 0xB2, 0xA5, 0x61, 0x73, 0xF8, 0xA2 };
-        if (enabled)
+
+        public Int16 enable2ndCommandInterface(bool enabled)
         {
-            tx[1] = 1;
+            byte[] tx = { 0xA6, 0, 0xB2, 0xA5, 0x61, 0x73, 0xF8, 0xA2 };
+            if (enabled)
+            {
+                tx[1] = 1;
+            }
+            return sendPacket(tx);
         }
-        return sendPacket(tx);
-    }
 
         public UInt16 returnErrorCode(byte[] rx)
-    {
-        int result = rx[1] - (byte)'0';
-        result *= 10;
-        result += rx[2] - '0';
-        result *= 10;
-        result += rx[3] - '0';
-        result *= 10;
-        result += rx[4] - '0';
-        result *= 10;
-        result += rx[5] - '0';
-        return ((UInt16)result);
-    }
+        {
+            int result = rx[1] - (byte)'0';
+            result *= 10;
+            result += rx[2] - '0';
+            result *= 10;
+            result += rx[3] - '0';
+            result *= 10;
+            result += rx[4] - '0';
+            result *= 10;
+            result += rx[5] - '0';
+            return ((UInt16)result);
+        }
 
         public Int16 echo(byte[] data, byte count)
-    {
-        byte[] tx = Encoding.ASCII.GetBytes( "!UUUUUUU");
-        for (int i = 0; i < 7 && i < count; ++i)
         {
-            tx[i + 1] = (byte)data[i];
+            byte[] tx = Encoding.ASCII.GetBytes("!UUUUUUU");
+            for (int i = 0; i < 7 && i < count; ++i)
+            {
+                tx[i + 1] = (byte)data[i];
+            }
+            return sendPacket(tx);
         }
-        return sendPacket(tx);
-    }
 
         public Int16 echo(string data)
-    {
-        int length = data.Length;
-        byte[] tx = Encoding.ASCII.GetBytes("!UUUUUUU");
-            for (int i = 0; i < 7 && i < length; ++i)
         {
-            tx[i + 1] = Encoding.ASCII.GetBytes( data)[i];
+            int length = data.Length;
+            byte[] tx = Encoding.ASCII.GetBytes("!UUUUUUU");
+            for (int i = 0; i < 7 && i < length; ++i)
+            {
+                tx[i + 1] = Encoding.ASCII.GetBytes(data)[i];
+            }
+            return sendPacket(tx);
         }
-        return sendPacket(tx);
-    }
 
         public UInt32 readBirthday()
-    {
-        if (isSW18())
         {
-            UInt32 birthday = (readFlashAddress(0x2A00C) >> 8) & 0xFF;
-            birthday *= 100;
-            birthday += (readFlashAddress(0x2A00C)) & 0xFF;
-            birthday *= 100;
-            birthday += readFlashAddress(0x2A00E) & 0xFF;
-            birthday *= 100;
-            birthday += readFlashAddress(0x2A010) & 0xFF;
-            return (birthday);
+            if (isSW18())
+            {
+                UInt32 birthday = (readFlashAddress(0x2A00C) >> 8) & 0xFF;
+                birthday *= 100;
+                birthday += (readFlashAddress(0x2A00C)) & 0xFF;
+                birthday *= 100;
+                birthday += readFlashAddress(0x2A00E) & 0xFF;
+                birthday *= 100;
+                birthday += readFlashAddress(0x2A010) & 0xFF;
+                return (birthday);
+            }
+            return 0;
         }
-        return 0;
-    }
 
         public Int16 readBrand(out String data)
         {
@@ -1056,13 +1062,13 @@ namespace SerialWombat
                     return (inputPins);
 
                 case SerialWombatPinType.OutputPin:
-                    return(outputPins);
+                    return (outputPins);
 
                 case SerialWombatPinType.EnhancedPerformanceInputPin:
                     return (enhancedPerformanceInputPins);
 
-                         case SerialWombatPinType.EnhancedPerformanceOutputPin:
-                    return(enhancedPerformanceOutputPins);
+                case SerialWombatPinType.EnhancedPerformanceOutputPin:
+                    return (enhancedPerformanceOutputPins);
 
                 case SerialWombatPinType.AnalogPin:
                     return (AnalogPins);
@@ -1083,10 +1089,20 @@ namespace SerialWombat
     {
         public SerialPort Port;
         public Semaphore Pool = new Semaphore(0, 1);
-        public void begin(string portName)
+        public void begin(string portName, SerialWombatClassLibrary.SerialPortChipType chipType)
         {
             Port = new SerialPort(portName, 115200, Parity.None, 8, StopBits.One);
-            Port.DtrEnable = true; // Added for compatibility with Seeeduino Xiao
+            if (chipType == SerialWombatClassLibrary.SerialPortChipType.SEEDUINO_XIAO_SAMD21)
+            {
+                Port.DtrEnable = true; // Added for compatibility with Seeeduino Xiao 
+            }
+
+            if (chipType == SerialWombatClassLibrary.SerialPortChipType.SEEDUINO_XIAO_ESP32)
+            {
+                Port.RtsEnable = true;
+                Port.Handshake = Handshake.RequestToSend;
+                Port.RtsEnable = false;
+            }
             Port.Open();
             Port.ReadTimeout = 20;
             Port.Write("UUUUUUUU");
@@ -1116,17 +1132,30 @@ namespace SerialWombat
             rx = new byte[] { 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55 };
             int i = 0;
             int retries = 0;
-            while (i < 8 && retries < 50)
+            DateTime start = DateTime.Now;
+            while(Port.BytesToRead < count && (DateTime.Now - start).TotalMilliseconds < 20)
             {
-                try
-                {
-                    i += Port.Read(rx, i, 1);
-                }
 
-                catch
+            }
+            if (Port.BytesToRead >= count)
+            {
+                Port.Read(rx, 0, count);
+                i = count;
+            }
+            else
+            {
+                while (i < 8 && retries < 50)
                 {
-                    Thread.Sleep(20);
-                    ++retries;
+                    try
+                    {
+                        i += Port.Read(rx, i, 1);
+                    }
+
+                    catch
+                    {
+                        Thread.Sleep(20);
+                        ++retries;
+                    }
                 }
             }
             return (i);
@@ -1232,6 +1261,27 @@ namespace SerialWombat
 
         public byte pin { get { return _pin; } }
         public byte swPinModeNumber { get { return _pinMode; } }
+
+        public Int16 initPacketNoResponse(byte packetNumber,UInt16 param0,UInt16 param1)
+        {
+            byte[] tx = { (byte)(200 +packetNumber), _pin, _pinMode, (byte)(param0 & 0xFF), (byte)((param0 >> 8) & 0xFF), (byte)(param1 & 0xFF), (byte)((param1 >> 8) & 0xFF),0x55 };
+            return (_sw.sendPacket(tx));
+        }
+
+        public Int16 initPacketNoResponse(byte packetNumber, UInt16 param0, UInt16 param1, byte param3)
+        {
+            byte[] tx = { (byte)(200 + packetNumber), _pin, _pinMode, (byte)(param0 & 0xFF), (byte)((param0 >> 8) & 0xFF), (byte)(param1 & 0xFF), (byte)((param1 >> 8) & 0xFF), param3};
+            return (_sw.sendPacket(tx));
+        }
+    }
+}
+namespace SerialWombatClassLibrary
+{
+    public enum SerialPortChipType
+    {
+        GENERIC = 0,
+        SEEDUINO_XIAO_ESP32 = 1,
+        SEEDUINO_XIAO_SAMD21 = 2,
     }
 }
 

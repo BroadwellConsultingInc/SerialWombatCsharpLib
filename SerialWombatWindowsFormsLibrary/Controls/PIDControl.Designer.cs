@@ -161,7 +161,7 @@
             this.edPIDPeriod.DropDownToolTip = "an enumerated time for how often the PID controller updates.  This value should b" +
     "e based on how fast the system responds to change in output so that integral and" +
     " derivative terms work correctly.";
-            this.edPIDPeriod.dropdowntype = "SerialWombat.ScaledOutputPeriod";
+            this.edPIDPeriod.dropdowntype = "SerialWombatClassLibrary.SerialWombat.ScaledOutputPeriod";
             this.edPIDPeriod.Location = new System.Drawing.Point(129, 266);
             this.edPIDPeriod.Name = "edPIDPeriod";
             this.edPIDPeriod.Size = new System.Drawing.Size(140, 35);

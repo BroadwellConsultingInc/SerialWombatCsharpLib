@@ -37,17 +37,17 @@ namespace SerialWombat
 
         public enum Period
         {
-            PERIOD_1024mS = 0,
-            PERIOD_512mS = 1,
-            PERIOD_256mS = 2,
-            PERIOD_128mS = 3,
-            PERIOD_64mS = 4,
+            PERIOD_1024mS = 10,
+            PERIOD_512mS = 9,
+            PERIOD_256mS = 8,
+            PERIOD_128mS = 7,
+            PERIOD_64mS = 6,
             PERIOD_32mS = 5,
-            PERIOD_16mS = 6,
-            FREQ_8mS = 7,
-            PERIOD_4mS = 8,
-            PERIOD_2mS = 9,
-            FREQ_1mS = 10
+            PERIOD_16mS = 4,
+            FREQ_8mS = 3,
+            PERIOD_4mS = 2,
+            PERIOD_2mS = 1,
+            FREQ_1mS = 0
 
         };
 

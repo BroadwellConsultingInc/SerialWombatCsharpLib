@@ -1044,7 +1044,7 @@ namespace SerialWombat
         static public string setVGA()
         {
             if (dataList[0] == 0xC8)
-                return $"Set pin {dataList[1]} VGA:  Buffer Address:  0x{hex4(6)}";
+                return $"Set pin {dataList[1]} VGA:  Buffer Address:  0x{hex4(5)}";
             else if (dataList[0] == 0xC9)
             {
                 if (dataList[3] == 0)

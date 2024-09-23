@@ -541,12 +541,12 @@
             // edIntegratonPeriod
             // 
             this.edIntegratonPeriod.DropDownToolTip = "";
-            this.edIntegratonPeriod.dropdowntype = "SerialWombat.ScaledOutputPeriod";
+            this.edIntegratonPeriod.dropdowntype = "SerialWombatClassLibrary.SerialWombat.ScaledOutputPeriod";
             this.edIntegratonPeriod.Location = new System.Drawing.Point(269, 364);
             this.edIntegratonPeriod.Name = "edIntegratonPeriod";
             this.edIntegratonPeriod.Size = new System.Drawing.Size(117, 35);
             this.edIntegratonPeriod.TabIndex = 27;
-            this.edIntegratonPeriod.Value = 0;
+            this.edIntegratonPeriod.Value = -1;
             // 
             // bIntegratorGenArduino
             // 
@@ -1017,12 +1017,12 @@
             // edQueueingPeriod
             // 
             this.edQueueingPeriod.DropDownToolTip = "";
-            this.edQueueingPeriod.dropdowntype = "SerialWombat.ScaledOutputPeriod";
+            this.edQueueingPeriod.dropdowntype = "SerialWombatClassLibrary.SerialWombat.ScaledOutputPeriod";
             this.edQueueingPeriod.Location = new System.Drawing.Point(160, 155);
             this.edQueueingPeriod.Name = "edQueueingPeriod";
             this.edQueueingPeriod.Size = new System.Drawing.Size(274, 35);
             this.edQueueingPeriod.TabIndex = 2;
-            this.edQueueingPeriod.Value = 0;
+            this.edQueueingPeriod.Value = -1;
             // 
             // bInitializeQueue
             // 
@@ -1106,12 +1106,12 @@
             // edPublicOutput
             // 
             this.edPublicOutput.DropDownToolTip = "";
-            this.edPublicOutput.dropdowntype = "SerialWombat.ProcessedInputOutputValue";
+            this.edPublicOutput.dropdowntype = "SerialWombatClassLibrary.SerialWombat.ProcessedInputOutputValue";
             this.edPublicOutput.Location = new System.Drawing.Point(122, 546);
             this.edPublicOutput.Name = "edPublicOutput";
             this.edPublicOutput.Size = new System.Drawing.Size(191, 35);
             this.edPublicOutput.TabIndex = 2;
-            this.edPublicOutput.Value = 0;
+            this.edPublicOutput.Value = -1;
             // 
             // label4
             // 

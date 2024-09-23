@@ -73,7 +73,7 @@ namespace SerialWombatWindowsFormsLibrary.Controls
        
                 if (SerialWombatChip.ModelEnum == SerialWombatModel.SerialWombat18AB)
                 {
-                    Pwm.setPeriod_SW18AB_uS(Convert.ToUInt16(tbSW18ABPeriod.Text));
+                    Pwm.setPeriod_SW18AB_uS(Convert.ToUInt32(tbSW18ABPeriod.Text));
                     
                 }
             }
@@ -119,6 +119,36 @@ namespace SerialWombatWindowsFormsLibrary.Controls
             s = s.Replace("True", "true");
             s = s.Replace("False", "false");
             Clipboard.SetText(s);
+        }
+
+        private void sbsiDutyCycle_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lPeriod_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbSW18ABPeriod_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbWombat4ABFreq_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ckbInvertSignal_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

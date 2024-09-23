@@ -10,7 +10,13 @@
     <Compile Update="Controls\ByteEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Controls\DataLoggerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Controls\EnumDropdown.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\FrequencyOutputControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Controls\GraphicPinSelectorControl.cs">
@@ -121,7 +127,13 @@
     <Compile Update="Forms\AnalogInputForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\DataLoggerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\DebounceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\FrequencyOutputForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\HBridgeForm.cs">
@@ -164,6 +176,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\UserBufferForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\VGA18ABForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\WS2812Form.cs">

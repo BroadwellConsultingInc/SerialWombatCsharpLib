@@ -588,7 +588,7 @@
             // edFilteringPeriod
             // 
             this.edFilteringPeriod.DropDownToolTip = "";
-            this.edFilteringPeriod.dropdowntype = "SerialWombat.ScaledOutputPeriod";
+            this.edFilteringPeriod.dropdowntype = "SerialWombatClassLibrary.SerialWombat.ScaledOutputPeriod";
             this.edFilteringPeriod.Location = new System.Drawing.Point(53, 417);
             this.edFilteringPeriod.Name = "edFilteringPeriod";
             this.edFilteringPeriod.Size = new System.Drawing.Size(274, 35);

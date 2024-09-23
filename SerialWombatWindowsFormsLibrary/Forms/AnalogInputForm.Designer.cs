@@ -51,6 +51,7 @@
             this.analogInputControl1.Name = "analogInputControl1";
             this.analogInputControl1.Size = new System.Drawing.Size(533, 513);
             this.analogInputControl1.TabIndex = 2;
+            this.analogInputControl1.Load += new System.EventHandler(this.analogInputControl1_Load);
             // 
             // bRename
             // 

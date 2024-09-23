@@ -31,6 +31,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.enumDropdown1 = new SerialWombatWindowsFormsLibrary.EnumDropdown();
             this.SuspendLayout();
             // 
             // button1
@@ -63,11 +64,22 @@
             this.listBox1.TabIndex = 1;
             this.listBox1.DoubleClick += new System.EventHandler(this.listBox1_DoubleClick);
             // 
+            // enumDropdown1
+            // 
+            this.enumDropdown1.DropDownToolTip = "";
+            this.enumDropdown1.dropdowntype = "SerialWombatClassLibrary.SerialPortChipType";
+            this.enumDropdown1.Location = new System.Drawing.Point(24, 180);
+            this.enumDropdown1.Name = "enumDropdown1";
+            this.enumDropdown1.Size = new System.Drawing.Size(201, 35);
+            this.enumDropdown1.TabIndex = 2;
+            this.enumDropdown1.Value = -1;
+            // 
             // SerialPortSelector
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(250, 312);
+            this.Controls.Add(this.enumDropdown1);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -83,5 +95,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ListBox listBox1;
+        private EnumDropdown enumDropdown1;
     }
 }
