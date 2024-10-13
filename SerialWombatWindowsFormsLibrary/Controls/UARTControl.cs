@@ -26,7 +26,7 @@ namespace SerialWombatWindowsFormsLibrary
             cbBaudRate.Items.Add(300);
             cbBaudRate.SelectedIndex = 0;
             cbMode.SelectedIndex = 0;
-           
+
         }
 
         int[] swbaudrates =
@@ -60,7 +60,7 @@ namespace SerialWombatWindowsFormsLibrary
             cbMode_SelectedIndexChanged(null, null);
 
         }
-        
+
         public void end()
         {
             ckbAutosample.Checked = false;
@@ -102,7 +102,7 @@ namespace SerialWombatWindowsFormsLibrary
                         }
                     }
                     break;
-               
+
                 case 2:
                     gbSoftwareUartQueues.Enabled = true;
                     foreach (int i in swbaudrates)
@@ -155,9 +155,9 @@ namespace SerialWombatWindowsFormsLibrary
                     }
                     break;
             }
-       
+
             ckbAutosample.Enabled = (pdRx.Pin != 255);
-            bTxFile.Enabled = (pdTx.Pin!= 255);
+            bTxFile.Enabled = (pdTx.Pin != 255);
         }
 
         void SampleThread()
@@ -171,7 +171,7 @@ namespace SerialWombatWindowsFormsLibrary
                 if (bytesRead > 0)
                 {
                     b = b.Take(bytesRead).ToArray();
-                     receivedString += Encoding.ASCII.GetString(b);
+                    receivedString += Encoding.ASCII.GetString(b);
                     Thread thread = new Thread(updateData);
                     thread.Name = $"Pin {Pin} update Rx box";
                     thread.Start();
@@ -216,10 +216,10 @@ namespace SerialWombatWindowsFormsLibrary
         private void bTxFile_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
-                if (ofd.ShowDialog() == DialogResult.OK)
+            if (ofd.ShowDialog() == DialogResult.OK)
             {
                 byte[] buff = null;
-   
+
                 FileStream fs = new FileStream(ofd.FileName,
                                                FileMode.Open,
                                                FileAccess.Read);
@@ -255,7 +255,7 @@ namespace SerialWombatWindowsFormsLibrary
 
         private void button4_Click(object sender, EventArgs e)
         {
-         
+
             string s = "";
             switch (cbMode.SelectedIndex)
             {
@@ -266,14 +266,14 @@ namespace SerialWombatWindowsFormsLibrary
                 //Put this line before setup()
                 SerialWombatUART {Name}(sw); // Your serial wombat chip may be named something else than sw
                 //Add this to  setup():
-                                {Name}.begin({(uint)(int)cbBaudRate.SelectedItem},
-                            {Pin},
-                            {pdRx.Pin},
-                            {pdTx.Pin},
-                            {(byte)(cbMode.SelectedIndex + 1)});
+                                {Name}.begin({(uint)(int)cbBaudRate.SelectedItem}, // Baud Rate
+                            {Pin}, // Pin on which the state machine runs
+                            {pdRx.Pin}, // Rx Pin
+                            {pdTx.Pin},  // Tx Pin
+                            {(byte)(cbMode.SelectedIndex + 1)});  // Hardware Interface
                                
 ";
-                     }
+                    }
                     break;
 
                 case 2:
@@ -282,17 +282,17 @@ namespace SerialWombatWindowsFormsLibrary
                 //Put this line before setup()
                 SerialWombatSWUART {Name}(sw); // Your serial wombat chip may be named something else than sw
                 //Add this to  setup():
-                                {Name}.begin({(uint)(int)cbBaudRate.SelectedItem},
-                            {Pin},
-                            {pdRx.Pin},
-                            {pdTx.Pin},
-                            0x{sbacQueueIndex.Value:X4},
-                            {Convert.ToUInt16(tbRxSize.Text)},
-                            {Convert.ToUInt16(tbTxSize.Text)})
+                                {Name}.begin({(uint)(int)cbBaudRate.SelectedItem},  // Baud Rate
+                            {Pin}, // Pin on which the state machine runs
+                            {pdRx.Pin}, // Rx Pin
+                            {pdTx.Pin}, // Tx Pin
+                            0x{sbacQueueIndex.Value:X4},  // Queues Location Index
+                            {Convert.ToUInt16(tbRxSize.Text)}, // Rx Queue Size
+                            {Convert.ToUInt16(tbTxSize.Text)}) // Tx Queue Size
                             ;
                                
 ";
-                       
+
 
                     }
                     break;
@@ -305,8 +305,13 @@ namespace SerialWombatWindowsFormsLibrary
         private void button1_Click(object sender, EventArgs e)
         {
             SerialWombatQueue q = new SerialWombatQueue(SerialWombatChip);
-            q.begin(sbacQueueIndex.Value,Convert.ToUInt16(tbRxSize.Text));
+            q.begin(sbacQueueIndex.Value, Convert.ToUInt16(tbRxSize.Text));
             q.begin((UInt16)(sbacQueueIndex.Value + Convert.ToUInt16(tbRxSize.Text) + 8), Convert.ToUInt16(tbTxSize.Text));
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -1,0 +1,63 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\WombatPanelWindowsForms\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E39122E9-965E-42FA-8A34-23897D43A8FB}|..\\SerialWombatWindowsFormsLibrary\\SerialWombatWindowsFormsLibrary.csproj|f:\\keep\\github\\broadwellconsultinginc\\serialwombatcsharplib\\serialwombatwindowsformslibrary\\controls\\dataloggercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E39122E9-965E-42FA-8A34-23897D43A8FB}|..\\SerialWombatWindowsFormsLibrary\\SerialWombatWindowsFormsLibrary.csproj|f:\\keep\\github\\broadwellconsultinginc\\serialwombatcsharplib\\serialwombatwindowsformslibrary\\controls\\dataloggercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DataLoggerControl.cs [Design]",
+              "DocumentMoniker": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatWindowsFormsLibrary\\Controls\\DataLoggerControl.cs",
+              "RelativeDocumentMoniker": "..\\SerialWombatWindowsFormsLibrary\\Controls\\DataLoggerControl.cs",
+              "ToolTip": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatWindowsFormsLibrary\\Controls\\DataLoggerControl.cs [Design]",
+              "RelativeToolTip": "..\\SerialWombatWindowsFormsLibrary\\Controls\\DataLoggerControl.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T15:33:38.189Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DataLoggerControl.cs",
+              "DocumentMoniker": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatWindowsFormsLibrary\\Controls\\DataLoggerControl.cs",
+              "RelativeDocumentMoniker": "..\\SerialWombatWindowsFormsLibrary\\Controls\\DataLoggerControl.cs",
+              "ToolTip": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatWindowsFormsLibrary\\Controls\\DataLoggerControl.cs",
+              "RelativeToolTip": "..\\SerialWombatWindowsFormsLibrary\\Controls\\DataLoggerControl.cs",
+              "ViewState": "AgIAAFsAAAAAAAAAAAAmwGsAAAB3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T15:15:30.273Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

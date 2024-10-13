@@ -13,6 +13,7 @@ using SerialWombatWindowsFormsLibrary;
 using SerialWombatSW18ABBootloader;
 using IntelHex;
 using System.Diagnostics;
+using System.Reflection;
 
 namespace WombatPanelWindowsForms
 {
@@ -291,9 +292,9 @@ namespace WombatPanelWindowsForms
                                 MessageBox.Show($"This Serial Wombat chip is in bootloader mode.  Upload a hex file through the tools menu.  Most Wombat Panel operations will not work.");
                             }
                             
-                            else if (ver < 212)
+                            else if (ver < 214)
                             {
-                                MessageBox.Show($"This Serial Wombat chip is using firmware version {(char)b[4]}.{(char)b[5]}.{(char)b[6]}   .  Version 2.1.2 or later is required for all features to work correctly.  See https://youtu.be/q7ls-lMaL80 ");
+                                MessageBox.Show($"This Serial Wombat chip is using firmware version {(char)b[4]}.{(char)b[5]}.{(char)b[6]}   .  Version 2.1.4 or later is required for all features to work correctly.  Choose \"Tools...Bootload Lates Firmware\" or   See https://youtu.be/q7ls-lMaL80 ");
                             }
                             int packetTime = communicationsTest(100);
                             string swdata = "";
@@ -448,19 +449,7 @@ namespace WombatPanelWindowsForms
             }
         }
 
-        private void bLDownloadToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SerialWombatSW18ABBootloaderClient bl =
-               new SerialWombatSW18ABBootloaderClient(ChipList.Last());
-            OpenFileDialog ofd = new OpenFileDialog();
-            if (ofd.ShowDialog() == DialogResult.OK)
-            {
-                Bootload blf = new Bootload(ofd.FileName, ChipList.Last(), false);
-
-                blf.Show();
-            }
-        }
-
+       
         private void searchToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ProcessStartInfo processInfo = new ProcessStartInfo();
@@ -539,6 +528,20 @@ namespace WombatPanelWindowsForms
                 tbLog.AppendText("mS per packet may be slow due to Serial Port Settings.  Consider seeing if latency settings can be improved in the Port's Windows Device manager Advanced Properties");
             }
             return msPerPacket;
+        }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            SerialWombatSW18ABBootloaderClient bl =
+               new SerialWombatSW18ABBootloaderClient(ChipList.Last());
+            var currentAssembly = Assembly.GetExecutingAssembly();
+            var s = currentAssembly.GetManifestResourceNames();
+            var stream = currentAssembly.GetManifestResourceStream("WombatPanelWindowsForms.Resources.SW18AB_V214_CRC_6CEF_27887.hex");
+            var reader = new StreamReader(stream);
+                Bootload blf = new Bootload(reader, ChipList.Last());
+                blf.alreadyInBoot = false;
+
+                blf.Show();
         }
     }
 

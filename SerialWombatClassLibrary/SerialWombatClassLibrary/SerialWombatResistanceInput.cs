@@ -9,7 +9,7 @@ namespace SerialWombat
 	{
 		Raw = 0,
 		Filtered = 1,
-		Average = 2,
+		Averaged = 2,
 		Minimum = 3,
 		Maximum = 4
 	};
@@ -44,16 +44,14 @@ Declare and initialize a SerialWombatresistanceInput instance for each pin being
 
 
 */
-	public class SerialWombatResistanceInput
-	{
-		SerialWombatChip _sw;
-
-		byte _pin = 255;
+	public class SerialWombatResistanceInput : SerialWombatPin
+    {
+		
 
 		/// <summary> Constructor for the SerialWombatresistanceInput class.</summary>
 		/// 
 		/// <param name="SerialWombat"> a reference to the Serial Wombat on which the resistance Input will be measured</param>
-		public SerialWombatResistanceInput(SerialWombatChip serialWombatChip)
+		public SerialWombatResistanceInput(SerialWombatChip serialWombatChip):base(serialWombatChip)
 		{
 			_sw = serialWombatChip;
 		}
@@ -124,7 +122,7 @@ Declare and initialize a SerialWombatresistanceInput instance for each pin being
 		/// 
 		/// 
 		/// <returns> A 16 bit unsigned value indicating the filtered Resistance result</returns>
-		public UInt16 readFilteredCounts()
+		public UInt16 readFilteredOhms()
 		{
 			byte[] tx = { 204, _pin, (byte)SerialWombatPinModes.PIN_MODE_RESISTANCEINPUT, 0x55, 0x55, 0x55, 0x55, 0x55 };
 			byte[] rx;
@@ -184,7 +182,7 @@ Declare and initialize a SerialWombatresistanceInput instance for each pin being
 		/// 
 		/// <returns> A 16 bit unsigned value indicating maximum Resistances</returns>
 
-		public UInt16 readMinimumCounts(bool resetAfterRead)
+		public UInt16 readMinimumOhms(bool resetAfterRead)
 		{
 			byte[] tx = { 203, _pin, (byte)SerialWombatPinModes.PIN_MODE_RESISTANCEINPUT, 0, 0x55, 0x55, 0x55, 0x55 };
 			byte[] rx;

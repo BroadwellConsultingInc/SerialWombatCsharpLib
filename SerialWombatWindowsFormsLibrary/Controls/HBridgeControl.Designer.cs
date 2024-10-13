@@ -28,192 +28,191 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.bOff = new System.Windows.Forms.Button();
-            this.gbConfigure = new System.Windows.Forms.GroupBox();
-            this.bGenCode = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.edDriver = new SerialWombatWindowsFormsLibrary.EnumDropdown();
-            this.edOffState = new SerialWombatWindowsFormsLibrary.EnumDropdown();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.pddSecondPin = new SerialWombatWindowsFormsLibrary.SerialWombatPinDropdown();
-            this.label1 = new System.Windows.Forms.Label();
-            this.bConfigure = new System.Windows.Forms.Button();
-            this.sbsiPower = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
-            this.groupBox1.SuspendLayout();
-            this.gbConfigure.SuspendLayout();
-            this.SuspendLayout();
+            groupBox1 = new System.Windows.Forms.GroupBox();
+            bOff = new System.Windows.Forms.Button();
+            gbConfigure = new System.Windows.Forms.GroupBox();
+            bGenCode = new System.Windows.Forms.Button();
+            label4 = new System.Windows.Forms.Label();
+            label3 = new System.Windows.Forms.Label();
+            edDriver = new EnumDropdown();
+            edOffState = new EnumDropdown();
+            label2 = new System.Windows.Forms.Label();
+            textBox1 = new System.Windows.Forms.TextBox();
+            pddSecondPin = new SerialWombatPinDropdown();
+            label1 = new System.Windows.Forms.Label();
+            bConfigure = new System.Windows.Forms.Button();
+            sbsiPower = new SixteenBitSliderInput();
+            groupBox1.SuspendLayout();
+            gbConfigure.SuspendLayout();
+            SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.AutoSize = true;
-            this.groupBox1.Controls.Add(this.bOff);
-            this.groupBox1.Controls.Add(this.gbConfigure);
-            this.groupBox1.Controls.Add(this.sbsiPower);
-            this.groupBox1.Location = new System.Drawing.Point(20, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(343, 362);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            groupBox1.AutoSize = true;
+            groupBox1.Controls.Add(bOff);
+            groupBox1.Controls.Add(gbConfigure);
+            groupBox1.Controls.Add(sbsiPower);
+            groupBox1.Location = new System.Drawing.Point(20, 12);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new System.Drawing.Size(343, 362);
+            groupBox1.TabIndex = 0;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "groupBox1";
             // 
             // bOff
             // 
-            this.bOff.Enabled = false;
-            this.bOff.Location = new System.Drawing.Point(197, 317);
-            this.bOff.Name = "bOff";
-            this.bOff.Size = new System.Drawing.Size(75, 23);
-            this.bOff.TabIndex = 1;
-            this.bOff.Text = "Off";
-            this.bOff.UseVisualStyleBackColor = true;
-            this.bOff.Click += new System.EventHandler(this.bOff_Click);
+            bOff.Enabled = false;
+            bOff.Location = new System.Drawing.Point(197, 317);
+            bOff.Name = "bOff";
+            bOff.Size = new System.Drawing.Size(75, 23);
+            bOff.TabIndex = 1;
+            bOff.Text = "Off";
+            bOff.UseVisualStyleBackColor = true;
+            bOff.Click += bOff_Click;
             // 
             // gbConfigure
             // 
-            this.gbConfigure.Controls.Add(this.bGenCode);
-            this.gbConfigure.Controls.Add(this.label4);
-            this.gbConfigure.Controls.Add(this.label3);
-            this.gbConfigure.Controls.Add(this.edDriver);
-            this.gbConfigure.Controls.Add(this.edOffState);
-            this.gbConfigure.Controls.Add(this.label2);
-            this.gbConfigure.Controls.Add(this.textBox1);
-            this.gbConfigure.Controls.Add(this.pddSecondPin);
-            this.gbConfigure.Controls.Add(this.label1);
-            this.gbConfigure.Controls.Add(this.bConfigure);
-            this.gbConfigure.Location = new System.Drawing.Point(16, 25);
-            this.gbConfigure.Name = "gbConfigure";
-            this.gbConfigure.Size = new System.Drawing.Size(310, 178);
-            this.gbConfigure.TabIndex = 4;
-            this.gbConfigure.TabStop = false;
-            this.gbConfigure.Text = "Configure";
+            gbConfigure.Controls.Add(bGenCode);
+            gbConfigure.Controls.Add(label4);
+            gbConfigure.Controls.Add(label3);
+            gbConfigure.Controls.Add(edDriver);
+            gbConfigure.Controls.Add(edOffState);
+            gbConfigure.Controls.Add(label2);
+            gbConfigure.Controls.Add(textBox1);
+            gbConfigure.Controls.Add(pddSecondPin);
+            gbConfigure.Controls.Add(label1);
+            gbConfigure.Controls.Add(bConfigure);
+            gbConfigure.Location = new System.Drawing.Point(16, 25);
+            gbConfigure.Name = "gbConfigure";
+            gbConfigure.Size = new System.Drawing.Size(310, 178);
+            gbConfigure.TabIndex = 4;
+            gbConfigure.TabStop = false;
+            gbConfigure.Text = "Configure";
             // 
             // bGenCode
             // 
-            this.bGenCode.BackColor = System.Drawing.Color.MediumPurple;
-            this.bGenCode.Location = new System.Drawing.Point(259, 22);
-            this.bGenCode.Name = "bGenCode";
-            this.bGenCode.Size = new System.Drawing.Size(45, 47);
-            this.bGenCode.TabIndex = 5;
-            this.bGenCode.TabStop = false;
-            this.bGenCode.Text = "Gen Code";
-            this.bGenCode.UseVisualStyleBackColor = false;
-            this.bGenCode.Click += new System.EventHandler(this.bGenCode_Click);
+            bGenCode.BackColor = System.Drawing.Color.MediumPurple;
+            bGenCode.Location = new System.Drawing.Point(259, 22);
+            bGenCode.Name = "bGenCode";
+            bGenCode.Size = new System.Drawing.Size(45, 47);
+            bGenCode.TabIndex = 5;
+            bGenCode.TabStop = false;
+            bGenCode.Text = "Gen Code";
+            bGenCode.UseVisualStyleBackColor = false;
+            bGenCode.Click += bGenCode_Click;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 104);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 15);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "OffState";
+            label4.AutoSize = true;
+            label4.Location = new System.Drawing.Point(6, 104);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(50, 15);
+            label4.TabIndex = 10;
+            label4.Text = "OffState";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 64);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 15);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Driver";
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(13, 64);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(38, 15);
+            label3.TabIndex = 10;
+            label3.Text = "Driver";
             // 
             // edDriver
             // 
-            this.edDriver.DropDownToolTip = "";
-            this.edDriver.dropdowntype = "SerialWombat.SerialWombatHBridgeDriverChip";
-            this.edDriver.Location = new System.Drawing.Point(77, 54);
-            this.edDriver.Name = "edDriver";
-            this.edDriver.Size = new System.Drawing.Size(136, 35);
-            this.edDriver.TabIndex = 2;
-            this.edDriver.Value = 0;
+            edDriver.DropDownToolTip = "";
+            edDriver.dropdowntype = "SerialWombatClassLibrary.SerialWombat.SerialWombatHBridgeDriverChip";
+            edDriver.Location = new System.Drawing.Point(77, 54);
+            edDriver.Name = "edDriver";
+            edDriver.Size = new System.Drawing.Size(136, 35);
+            edDriver.TabIndex = 2;
+            edDriver.Value = 0;
             // 
             // edOffState
             // 
-            this.edOffState.DropDownToolTip = "";
-            this.edOffState.dropdowntype = "SerialWombat.SerialWombatHBridgeOffState";
-            this.edOffState.Location = new System.Drawing.Point(77, 95);
-            this.edOffState.Name = "edOffState";
-            this.edOffState.Size = new System.Drawing.Size(136, 35);
-            this.edOffState.TabIndex = 2;
-            this.edOffState.Value = 0;
+            edOffState.DropDownToolTip = "";
+            edOffState.dropdowntype = "SerialWombatClassLibrary.SerialWombat.SerialWombatHBridgeOffState";
+            edOffState.Location = new System.Drawing.Point(77, 95);
+            edOffState.Name = "edOffState";
+            edOffState.Size = new System.Drawing.Size(136, 35);
+            edOffState.TabIndex = 2;
+            edOffState.Value = -1;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 148);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 15);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "PWM Period (uS)";
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(6, 148);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(97, 15);
+            label2.TabIndex = 7;
+            label2.Text = "PWM Period (uS)";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(109, 140);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 23);
-            this.textBox1.TabIndex = 3;
-            this.textBox1.Text = "1000";
+            textBox1.Location = new System.Drawing.Point(109, 140);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new System.Drawing.Size(100, 23);
+            textBox1.TabIndex = 3;
+            textBox1.Text = "1000";
             // 
             // pddSecondPin
             // 
-            this.pddSecondPin.AutoSize = true;
-            this.pddSecondPin.IncludeNAPin = false;
-            this.pddSecondPin.Location = new System.Drawing.Point(102, 11);
-            this.pddSecondPin.Name = "pddSecondPin";
-            this.pddSecondPin.Pin = ((byte)(255));
-            this.pddSecondPin.PinType = SerialWombat.SerialWombatPinType.EnhancedPerformanceOutputPin;
-            this.pddSecondPin.Size = new System.Drawing.Size(66, 26);
-            this.pddSecondPin.TabIndex = 0;
+            pddSecondPin.AutoSize = true;
+            pddSecondPin.IncludeNAPin = false;
+            pddSecondPin.Location = new System.Drawing.Point(102, 11);
+            pddSecondPin.Name = "pddSecondPin";
+            pddSecondPin.Pin = 255;
+            pddSecondPin.PinType = SerialWombat.SerialWombatPinType.EnhancedPerformanceOutputPin;
+            pddSecondPin.Size = new System.Drawing.Size(66, 26);
+            pddSecondPin.TabIndex = 0;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 15);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "SecondPin:";
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(13, 22);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(66, 15);
+            label1.TabIndex = 3;
+            label1.Text = "SecondPin:";
             // 
             // bConfigure
             // 
-            this.bConfigure.Location = new System.Drawing.Point(229, 107);
-            this.bConfigure.Name = "bConfigure";
-            this.bConfigure.Size = new System.Drawing.Size(75, 23);
-            this.bConfigure.TabIndex = 4;
-            this.bConfigure.Text = "Configure";
-            this.bConfigure.UseVisualStyleBackColor = true;
-            this.bConfigure.Click += new System.EventHandler(this.bConfigure_Click);
+            bConfigure.Location = new System.Drawing.Point(229, 107);
+            bConfigure.Name = "bConfigure";
+            bConfigure.Size = new System.Drawing.Size(75, 23);
+            bConfigure.TabIndex = 4;
+            bConfigure.Text = "Configure";
+            bConfigure.UseVisualStyleBackColor = true;
+            bConfigure.Click += bConfigure_Click;
             // 
             // sbsiPower
             // 
-            this.sbsiPower.Enabled = false;
-            this.sbsiPower.Location = new System.Drawing.Point(9, 248);
-            this.sbsiPower.Maximum = 65535;
-            this.sbsiPower.Minimum = 0;
-            this.sbsiPower.Name = "sbsiPower";
-            this.sbsiPower.Size = new System.Drawing.Size(328, 63);
-            this.sbsiPower.TabIndex = 0;
-            this.sbsiPower.Text = "Power";
-            this.sbsiPower.TextBoxHint = "";
-            this.sbsiPower.value = ((ushort)(32768));
+            sbsiPower.Enabled = false;
+            sbsiPower.Location = new System.Drawing.Point(9, 248);
+            sbsiPower.Maximum = 65535;
+            sbsiPower.Minimum = 0;
+            sbsiPower.Name = "sbsiPower";
+            sbsiPower.Size = new System.Drawing.Size(328, 63);
+            sbsiPower.TabIndex = 0;
+            sbsiPower.Text = "Power";
+            sbsiPower.TextBoxHint = "";
+            sbsiPower.value = (ushort)32768;
             // 
             // HBridgeControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Controls.Add(this.groupBox1);
-            this.Name = "HBridgeControl";
-            this.Size = new System.Drawing.Size(366, 377);
-            this.groupBox1.ResumeLayout(false);
-            this.gbConfigure.ResumeLayout(false);
-            this.gbConfigure.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            AutoSize = true;
+            AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            Controls.Add(groupBox1);
+            Name = "HBridgeControl";
+            Size = new System.Drawing.Size(366, 377);
+            groupBox1.ResumeLayout(false);
+            gbConfigure.ResumeLayout(false);
+            gbConfigure.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

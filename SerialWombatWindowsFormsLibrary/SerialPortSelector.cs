@@ -24,9 +24,6 @@ namespace SerialWombatWindowsFormsLibrary
         private void SerialPortSelector_Load(object sender, EventArgs e)
         {
             listBox1.Items.AddRange(SerialPort.GetPortNames());
-            enumDropdown1.Value = (int) SerialWombatClassLibrary.SerialPortChipType.GENERIC;
-
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -34,7 +31,7 @@ namespace SerialWombatWindowsFormsLibrary
             if (listBox1.SelectedIndex != -1)
             {
                 SelectedPort = (string)listBox1.SelectedItem;
-                SelectedPortType = (SerialWombatClassLibrary.SerialPortChipType) enumDropdown1.selectedItem;
+                SelectedPortType = (SerialWombatClassLibrary.SerialPortChipType.SEEDUINO_XIAO_SAMD21);
                 this.Close();
             }
 
@@ -57,7 +54,25 @@ namespace SerialWombatWindowsFormsLibrary
 
         }
 
-       
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndex != -1)
+            {
+                SelectedPort = (string)listBox1.SelectedItem;
+                SelectedPortType = (SerialWombatClassLibrary.SerialPortChipType.SEEDUINO_XIAO_ESP32);
+                this.Close();
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndex != -1)
+            {
+                SelectedPort = (string)listBox1.SelectedItem;
+                SelectedPortType = (SerialWombatClassLibrary.SerialPortChipType.GENERIC);
+                this.Close();
+            }
+        }
     }
- 
+
 }

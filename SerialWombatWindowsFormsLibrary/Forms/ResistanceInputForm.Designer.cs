@@ -29,34 +29,46 @@ namespace SerialWombatWindowsFormsLibrary
         /// </summary>
         private void InitializeComponent()
         {
-            this.resistanceInputControl1 = new SerialWombatWindowsFormsLibrary.Controls.ResistanceInputControl();
-            this.SuspendLayout();
+            resistanceInputControl1 = new Controls.ResistanceInputControl();
+            bRename = new System.Windows.Forms.Button();
+            SuspendLayout();
             // 
             // resistanceInputControl1
             // 
-            this.resistanceInputControl1.AutoSize = true;
-            this.resistanceInputControl1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.resistanceInputControl1.Location = new System.Drawing.Point(8, 4);
-            this.resistanceInputControl1.Name = "resistanceInputControl1";
-            this.resistanceInputControl1.Size = new System.Drawing.Size(534, 518);
-            this.resistanceInputControl1.TabIndex = 0;
+            resistanceInputControl1.AutoSize = true;
+            resistanceInputControl1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            resistanceInputControl1.Location = new System.Drawing.Point(8, 4);
+            resistanceInputControl1.Name = "resistanceInputControl1";
+            resistanceInputControl1.Size = new System.Drawing.Size(534, 518);
+            resistanceInputControl1.TabIndex = 0;
+            // 
+            // bRename
+            // 
+            bRename.Location = new System.Drawing.Point(12, 528);
+            bRename.Name = "bRename";
+            bRename.Size = new System.Drawing.Size(75, 23);
+            bRename.TabIndex = 1;
+            bRename.Text = "Rename";
+            bRename.UseVisualStyleBackColor = true;
+            bRename.Click += bRename_Click;
             // 
             // ResistanceInputForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(554, 534);
-            this.Controls.Add(this.resistanceInputControl1);
-            this.Name = "ResistanceInputForm";
-            this.Text = "ResistanceInputForm";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ResistanceInputForm_FormClosing);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            AutoSize = true;
+            ClientSize = new System.Drawing.Size(554, 575);
+            Controls.Add(bRename);
+            Controls.Add(resistanceInputControl1);
+            Name = "ResistanceInputForm";
+            Text = "ResistanceInputForm";
+            FormClosing += ResistanceInputForm_FormClosing;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
         private Controls.ResistanceInputControl resistanceInputControl1;
+        private System.Windows.Forms.Button bRename;
     }
 }

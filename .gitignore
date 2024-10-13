@@ -58,3 +58,13 @@
 /WombatPanelWindowsForms/bin
 /WombatPanelWindowsForms/obj
 /IntelHex/bin
+/SerialWombatArduinoExamples/SW18AB_Cs_FirmwareUpdate_UART/bin
+/SerialWombatArduinoExamples/SW18ABVGA_Pong/bin
+/SerialWombatArduinoExamples/SW_Cs_TM1637_FlashUI/bin
+/SerialWombatArduinoExamples/SW_Cs_Touch_Calibration/bin
+/SerialWombatArduinoExamples/UDS1_Demo/bin
+/SerialWombatArduinoExamples/UDS2_AveragedValues/bin
+/SerialWombatArduinoExamples/UDS4_PinToPinInteraction/bin
+/SerialWombatSW18ABBootloader/obj
+/SerialWombatSW18ABBootloader/obj
+/SerialWombatWindowsFormsLibrary/obj

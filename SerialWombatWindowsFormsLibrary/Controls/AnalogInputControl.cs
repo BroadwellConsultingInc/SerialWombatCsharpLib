@@ -40,8 +40,8 @@ namespace SerialWombatWindowsFormsLibrary
             AnalogInputControl_Load(this,null);
         groupBox1.Text = "";
             Text = $"Analog Input on pin {pin}";
+            this.Name = $"Pin{pin}AnalogInput";
 
-        
         }
 
 
@@ -155,6 +155,9 @@ namespace SerialWombatWindowsFormsLibrary
                 // AnalogInput = new AnalogInput(Pin, SerialWombatChip,Pin, (AnalogInPublicDataSelection)comboBox1.SelectedIndex, Convert.ToUInt16(tbFilterConstant.Text), Convert.ToUInt16(tbAverage.Text)); 
                 AnalogInput = new SerialWombatAnalogInput(SerialWombatChip);
                 AnalogInput.begin(Pin, Convert.ToUInt16(tbAverage.Text), Convert.ToUInt16(tbFilterConstant.Text), (AnalogInputPublicDataOutput)comboBox1.SelectedIndex);
+                bSample.Enabled = true;
+                ckbAutosample.Enabled = true;
+                bGenCode.Enabled = true;    
             }
             catch (Exception ex)
             {

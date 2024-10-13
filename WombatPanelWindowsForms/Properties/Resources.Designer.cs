@@ -59,5 +59,15 @@ namespace WombatPanelWindowsForms.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] SW18AB_V214_CRC_6CEF_27887 {
+            get {
+                object obj = ResourceManager.GetObject("SW18AB_V214_CRC_6CEF_27887", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

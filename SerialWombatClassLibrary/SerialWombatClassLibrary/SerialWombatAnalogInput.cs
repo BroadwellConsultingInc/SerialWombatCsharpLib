@@ -32,7 +32,7 @@ namespace SerialWombat
 	{
 		Raw = 0,
 		Filtered = 1,
-		Average = 2,
+		Averaged = 2,
 		Minimum = 3,
 		Maximum = 4
 	};

@@ -10,6 +10,9 @@
     <Compile Update="Controls\ByteEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Controls\CapTouch18ABControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Controls\DataLoggerControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -50,6 +53,9 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Controls\ProcessedInputControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\PublicDataMonitorControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Controls\PulseOnChangeControl.cs">

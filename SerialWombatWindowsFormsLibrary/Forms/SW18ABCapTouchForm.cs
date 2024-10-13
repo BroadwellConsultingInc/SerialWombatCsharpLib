@@ -1,4 +1,5 @@
 ﻿using SerialWombat;
+using SerialWombatWindowsFormsLibrary.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,13 +23,13 @@ namespace SerialWombatWindowsFormsLibrary.Forms
             SerialWombatChip = serialWombatChip; 
             Pin = pin;
             Text = $"Pin {pin} Cap Touch Input";
-            sW18abCapTouchControl1.begin(serialWombatChip, pin);
+            capTouch18abControl1.begin(serialWombatChip, pin);
             if (serialWombatChip.isSW18())
             {
                 SerialWombatAbstractProcessedInput processedInput = new SerialWombatAbstractProcessedInput(SerialWombatChip);
                 processedInput.begin(pin, SerialWombatPinModes.PIN_MODE_SW18AB_CAPTOUCH);
                 ProcessedInputControl = new ProcessedInputControl(processedInput);
-                ProcessedInputControl.Left = sW18abCapTouchControl1.Right + 10;
+                ProcessedInputControl.Left = capTouch18abControl1.Right + 10;
                 this.AutoSize = true;
                 this.Controls.Add(ProcessedInputControl);
                 ProcessedInputControl.Name = $"Pin{pin}_CapTouchInput";
@@ -39,7 +40,7 @@ namespace SerialWombatWindowsFormsLibrary.Forms
 
         private void SW18ABCapTouchForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            sW18abCapTouchControl1.end();
+            capTouch18abControl1.end();
         }
     }
 }

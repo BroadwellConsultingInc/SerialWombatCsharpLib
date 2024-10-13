@@ -11,8 +11,11 @@ namespace SerialWombat
         UInt16 _trueOutput = 1;
         UInt16 _falseOutput = 1;
 
+        public SerialWombatAbstractProcessedInput processedInput;
+
         public SerialWombat18CapTouch(SerialWombatChip serialWombatChip) : base(serialWombatChip)
         {
+         
         }
 
        
@@ -23,7 +26,17 @@ namespace SerialWombat
 
             byte[] tx = { 200, _pin, 22, (byte)(chargeTime & 0xFF), (byte)((chargeTime >> 8) & 0xFF), (byte)(delay & 0xFF), (byte)((delay >> 8) & 0xFF), 0x55 };
 
-            return _sw.sendPacket(tx);
+            _sw.sendPacket(tx);
+
+            _pin = pin;
+            _pinMode = (byte)SerialWombatPinModes.PIN_MODE_SW18AB_CAPTOUCH;
+            processedInput = new SerialWombatAbstractProcessedInput(_sw);
+            processedInput.begin(_pin, _pinMode);
+            processedInput.writeProcessedInputEnable(true);
+            processedInput.writeAveragingNumberOfSamples(8);
+            processedInput.configureOutputValue(ProcessedInputOutputValue.AVERAGE);
+
+            return (0);
         }
 
         public Int16 makeDigital(UInt16 touchLimit, UInt16 noTouchLimit)

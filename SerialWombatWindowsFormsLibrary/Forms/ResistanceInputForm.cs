@@ -47,5 +47,20 @@ namespace SerialWombatWindowsFormsLibrary
         {
             resistanceInputControl1.End();
         }
+
+        private void bRename_Click(object sender, EventArgs e)
+        {
+            SingleLineTextEntryForm sltef = new SingleLineTextEntryForm("Name Form", "Add a name for this form:");
+            sltef.ShowDialog();
+            if (sltef.Success)
+            {
+                this.Text = $"{sltef.outputString} Resistance Measurement on pin {resistanceInputControl1.Pin}";
+                resistanceInputControl1.Name = sltef.outputString;
+                if (ProcessedInputControl != null)
+                {
+                    ProcessedInputControl.Name = sltef.outputString;
+                }
+            }
+        }
     }
 }

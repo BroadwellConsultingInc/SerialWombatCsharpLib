@@ -41,6 +41,23 @@
 
         }
 
+        public void bootload(StreamReader reader, bool resetToBootloader = true)
+        {
+            Bootloading = true;
+            reset = resetToBootloader;
+            PercentDone = 0;
+            status = "Not started";
+            result = "Not completed";
+
+            status = "Parsing Hex File";
+
+            hexData = loadFile(reader);
+
+            Thread t = new Thread(threadfunc);
+            t.Start();
+
+        }
+
         void threadfunc()
         {
             Bootloading = true;
@@ -161,7 +178,26 @@
             m.Crop(baseAddr, baseAddr + length);
             return m;
         }
-            
+
+        HexData loadFile(StreamReader reader)
+        {
+            HexData m = new HexData(reader, true);
+
+            //     byte x = (byte)m.Memory[(UInt32)0x55E00];
+            m.Fill32(baseAddr, baseAddr + length, 0x00FFFFFF);
+            m.Memory[(UInt32)(0x1F800 * 2)] = (byte)0x23;
+            m.Memory[(UInt32)(0x1F800 * 2 + 1)] = (byte)0xCD; // Magic number indicating programmed.
+            m.Memory[(UInt32)(0x1F800 * 2 + 2)] = (byte)0x00; // Magic number indicating programmed.
+            UInt16 crc = m.Crc16citt(0x8000, 0x1F800 * 2);
+
+            m.Memory[(UInt32)(0x1F804 * 2 + 1)] = (byte)(crc >> 8);
+            m.Memory[(UInt32)(0x1F804 * 2)] = (byte)(crc & 0xFF); // CRC.
+            byte b = (byte)m.Memory[(UInt32)(0x1FC04 * 2)];
+            b = (byte)m.Memory[(UInt32)(0x1FC04 * 2 + 1)];
+            m.Crop(baseAddr, baseAddr + length);
+            return m;
+        }
+
         public string Status
         {
             get { return status; }

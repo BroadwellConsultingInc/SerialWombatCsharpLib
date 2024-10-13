@@ -55,10 +55,20 @@ namespace IntelHex
             Load(filename, enforceChecksum);
         }
 
+        public HexData(StreamReader reader, Boolean enforceChecksum) : this()
+        {
+            Load(reader, enforceChecksum);
+        }
         public void Load(string Filename, Boolean EnforceChecksum)
         {
-            using (StreamReader sr = new StreamReader(Filename))
-            {
+            StreamReader sr = new StreamReader(Filename);
+            Load(sr,EnforceChecksum);
+            sr.Close();
+        }
+
+        public void Load(StreamReader sr, Boolean EnforceChecksum)
+        {
+
                 String? line;
 
                 UInt32 extendedaddress = 0;
@@ -158,7 +168,6 @@ namespace IntelHex
 
                             break;
                     }
-                }
             }
         }
 

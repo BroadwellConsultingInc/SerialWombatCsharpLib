@@ -7,6 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\SW18AB_V214_CRC_6CEF_27887.hex" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\SW18AB_V214_CRC_6CEF_27887.hex" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\SerialWombatClassLibrary\SerialWombatClassLibrary\SerialWombatClassLibrary.csproj" />
     <ProjectReference Include="..\SerialWombatSW18ABBootloader\SerialWombatSW18ABBootloader.csproj" />
     <ProjectReference Include="..\SerialWombatWindowsFormsLibrary\SerialWombatWindowsFormsLibrary.csproj" />

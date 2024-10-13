@@ -26,10 +26,12 @@ namespace SerialWombatWindowsFormsLibrary.Controls
 
         public void begin(SerialWombatChip serialWombatChip, byte pin)
         {
-            SerialWombatChip = serialWombatChip; 
+            SerialWombatChip = serialWombatChip;
             Pin = pin;
 
             groupBox1.Text = $"Resistance Input on Pin {pin}";
+            this.Name = $"ResistanceInput{pin}";
+            comboBox1.SelectedIndex = 0;
         }
 
         public UInt16 ReadRawDataAndPlot()
@@ -39,13 +41,13 @@ namespace SerialWombatWindowsFormsLibrary.Controls
                 {
                     LastResult.PublicData = SerialWombatChip.readPublicData(ResistanceInput.Pin);
                     LastResult.Averaged = ResistanceInput.readAveragedOhms();
-                    LastResult.Filtered = ResistanceInput.readFilteredCounts();
+                    LastResult.Filtered = ResistanceInput.readFilteredOhms();
                     LastResult.Maximum = ResistanceInput.readMaximumOhms(false);
-                    LastResult.Minimum = ResistanceInput.readMinimumCounts(false);
-                    realTimeScottPlot1.PlotData(LastResult.PublicData);           
+                    LastResult.Minimum = ResistanceInput.readMinimumOhms(false);
+                    realTimeScottPlot1.PlotData(LastResult.PublicData);
                 }
                 UpdateGraph();
-               
+
                 return (LastResult.PublicData);
             }
             catch
@@ -64,7 +66,7 @@ namespace SerialWombatWindowsFormsLibrary.Controls
                 tbAveraged.Invoke(d, new object[] { });
             }
             else
-            {             
+            {
                 tbAveraged.Text = LastResult.Averaged.ToString();
                 tbFiltered.Text = LastResult.Filtered.ToString();
                 tbMax.Text = LastResult.Maximum.ToString();
@@ -96,8 +98,25 @@ namespace SerialWombatWindowsFormsLibrary.Controls
         {
             while (ckbAutosample.Checked)
             {
-                ReadRawDataAndPlot();
-                Thread.Sleep(100);
+              
+                    try
+                    {
+
+                        if (ResistanceInput != null)
+                        {
+                            LastResult.PublicData = ResistanceInput.readPublicData();
+                            LastResult.Averaged = ResistanceInput.readAveragedOhms();
+                            LastResult.Filtered = ResistanceInput.readFilteredOhms();
+                            LastResult.Maximum = ResistanceInput.readMaximumOhms(false);
+                            LastResult.Minimum = ResistanceInput.readMinimumOhms(false);
+
+                                realTimeScottPlot1.PlotData(LastResult.PublicData);
+
+                        }
+                    }
+                    catch { }
+                    Thread.Sleep(100);
+
             }
         }
 
@@ -118,6 +137,7 @@ namespace SerialWombatWindowsFormsLibrary.Controls
                 ResistanceInput = new SerialWombatResistanceInput(SerialWombatChip);
                 ResistanceInput.begin(Pin, Convert.ToUInt16(tbAverage.Text), Convert.ToUInt16(tbFilterConstant.Text), (ResistanceInputPublicDataOutput)comboBox1.SelectedIndex);
                 ckbAutosample.Enabled = true;
+                bGenCode.Enabled = true;
             }
             catch (Exception ex)
             {
@@ -126,5 +146,21 @@ namespace SerialWombatWindowsFormsLibrary.Controls
 
         }
 
+        private void bGenCode_Click(object sender, EventArgs e)
+        {
+            string s =
+            @$"
+                //Put this line before setup()
+                SerialWombatResistanceInput {Name}(sw); // Your serial wombat chip may be named something else than sw
+                //Add this line to  setup():
+                                {Name}.begin({Pin}, //Pin Number
+                                {Convert.ToUInt16(tbAverage.Text)},  // Samples per Average
+                                {Convert.ToUInt16(tbFilterConstant.Text)},//Filter Constant 
+                                ResistanceInputPublicDataOutput::ResistanceInputPublicDataOutput_{(AnalogInputPublicDataOutput)comboBox1.SelectedIndex}); //Public data output
+";
+
+
+            Clipboard.SetText(s);
+        }
     }
 }

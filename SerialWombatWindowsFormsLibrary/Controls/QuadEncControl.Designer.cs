@@ -28,318 +28,316 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lFrequency = new System.Windows.Forms.Label();
-            this.bReadFrequency = new System.Windows.Forms.Button();
-            this.bRead = new System.Windows.Forms.Button();
-            this.bWrite = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.tbValue = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lSecondPin = new System.Windows.Forms.Label();
-            this.sbsiFreqPeriod = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
-            this.sbsiHighLimit = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
-            this.sbsiLowLimit = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
-            this.sbsiIncrement = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
-            this.sbsiDebounce = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
-            this.eddAction = new SerialWombatWindowsFormsLibrary.EnumDropdown();
-            this.swpdTargetPin = new SerialWombatWindowsFormsLibrary.SerialWombatPinDropdown();
-            this.ckbPullUps = new System.Windows.Forms.CheckBox();
-            this.swpdSecondPin = new SerialWombatWindowsFormsLibrary.SerialWombatPinDropdown();
-            this.bGenCode = new System.Windows.Forms.Button();
-            this.realTimeScottPlot1 = new SerialWombatWindowsFormsLibrary.Controls.RealTimeScottPlot();
-            this.ckbAutosample = new System.Windows.Forms.CheckBox();
-            this.bSample = new System.Windows.Forms.Button();
-            this.bConfigure = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
-            this.SuspendLayout();
+            groupBox1 = new System.Windows.Forms.GroupBox();
+            lFrequency = new System.Windows.Forms.Label();
+            bReadFrequency = new System.Windows.Forms.Button();
+            bRead = new System.Windows.Forms.Button();
+            bWrite = new System.Windows.Forms.Button();
+            label9 = new System.Windows.Forms.Label();
+            tbValue = new System.Windows.Forms.TextBox();
+            label1 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
+            lSecondPin = new System.Windows.Forms.Label();
+            sbsiFreqPeriod = new SixteenBitSliderInput();
+            sbsiHighLimit = new SixteenBitSliderInput();
+            sbsiLowLimit = new SixteenBitSliderInput();
+            sbsiIncrement = new SixteenBitSliderInput();
+            sbsiDebounce = new SixteenBitSliderInput();
+            eddAction = new EnumDropdown();
+            swpdTargetPin = new SerialWombatPinDropdown();
+            ckbPullUps = new System.Windows.Forms.CheckBox();
+            swpdSecondPin = new SerialWombatPinDropdown();
+            bGenCode = new System.Windows.Forms.Button();
+            realTimeScottPlot1 = new RealTimeScottPlot();
+            ckbAutosample = new System.Windows.Forms.CheckBox();
+            bSample = new System.Windows.Forms.Button();
+            bConfigure = new System.Windows.Forms.Button();
+            groupBox1.SuspendLayout();
+            SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.AutoSize = true;
-            this.groupBox1.Controls.Add(this.lFrequency);
-            this.groupBox1.Controls.Add(this.bReadFrequency);
-            this.groupBox1.Controls.Add(this.bRead);
-            this.groupBox1.Controls.Add(this.bWrite);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.tbValue);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.lSecondPin);
-            this.groupBox1.Controls.Add(this.sbsiFreqPeriod);
-            this.groupBox1.Controls.Add(this.sbsiHighLimit);
-            this.groupBox1.Controls.Add(this.sbsiLowLimit);
-            this.groupBox1.Controls.Add(this.sbsiIncrement);
-            this.groupBox1.Controls.Add(this.sbsiDebounce);
-            this.groupBox1.Controls.Add(this.eddAction);
-            this.groupBox1.Controls.Add(this.swpdTargetPin);
-            this.groupBox1.Controls.Add(this.ckbPullUps);
-            this.groupBox1.Controls.Add(this.swpdSecondPin);
-            this.groupBox1.Controls.Add(this.bGenCode);
-            this.groupBox1.Controls.Add(this.realTimeScottPlot1);
-            this.groupBox1.Controls.Add(this.ckbAutosample);
-            this.groupBox1.Controls.Add(this.bSample);
-            this.groupBox1.Controls.Add(this.bConfigure);
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(602, 631);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            groupBox1.AutoSize = true;
+            groupBox1.Controls.Add(lFrequency);
+            groupBox1.Controls.Add(bReadFrequency);
+            groupBox1.Controls.Add(bRead);
+            groupBox1.Controls.Add(bWrite);
+            groupBox1.Controls.Add(label9);
+            groupBox1.Controls.Add(tbValue);
+            groupBox1.Controls.Add(label1);
+            groupBox1.Controls.Add(label2);
+            groupBox1.Controls.Add(lSecondPin);
+            groupBox1.Controls.Add(sbsiFreqPeriod);
+            groupBox1.Controls.Add(sbsiHighLimit);
+            groupBox1.Controls.Add(sbsiLowLimit);
+            groupBox1.Controls.Add(sbsiIncrement);
+            groupBox1.Controls.Add(sbsiDebounce);
+            groupBox1.Controls.Add(eddAction);
+            groupBox1.Controls.Add(swpdTargetPin);
+            groupBox1.Controls.Add(ckbPullUps);
+            groupBox1.Controls.Add(swpdSecondPin);
+            groupBox1.Controls.Add(bGenCode);
+            groupBox1.Controls.Add(realTimeScottPlot1);
+            groupBox1.Controls.Add(ckbAutosample);
+            groupBox1.Controls.Add(bSample);
+            groupBox1.Controls.Add(bConfigure);
+            groupBox1.Location = new System.Drawing.Point(3, 3);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new System.Drawing.Size(602, 631);
+            groupBox1.TabIndex = 0;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "groupBox1";
             // 
             // lFrequency
             // 
-            this.lFrequency.AutoSize = true;
-            this.lFrequency.Location = new System.Drawing.Point(200, 271);
-            this.lFrequency.Name = "lFrequency";
-            this.lFrequency.Size = new System.Drawing.Size(13, 15);
-            this.lFrequency.TabIndex = 47;
-            this.lFrequency.Text = "0";
+            lFrequency.AutoSize = true;
+            lFrequency.Location = new System.Drawing.Point(200, 271);
+            lFrequency.Name = "lFrequency";
+            lFrequency.Size = new System.Drawing.Size(13, 15);
+            lFrequency.TabIndex = 47;
+            lFrequency.Text = "0";
             // 
             // bReadFrequency
             // 
-            this.bReadFrequency.Enabled = false;
-            this.bReadFrequency.Location = new System.Drawing.Point(271, 258);
-            this.bReadFrequency.Name = "bReadFrequency";
-            this.bReadFrequency.Size = new System.Drawing.Size(56, 23);
-            this.bReadFrequency.TabIndex = 45;
-            this.bReadFrequency.Text = "Read";
-            this.bReadFrequency.UseVisualStyleBackColor = true;
-            this.bReadFrequency.Click += new System.EventHandler(this.bReadFrequency_Click);
+            bReadFrequency.Enabled = false;
+            bReadFrequency.Location = new System.Drawing.Point(271, 258);
+            bReadFrequency.Name = "bReadFrequency";
+            bReadFrequency.Size = new System.Drawing.Size(56, 23);
+            bReadFrequency.TabIndex = 45;
+            bReadFrequency.Text = "Read";
+            bReadFrequency.UseVisualStyleBackColor = true;
+            bReadFrequency.Click += bReadFrequency_Click;
             // 
             // bRead
             // 
-            this.bRead.Location = new System.Drawing.Point(239, 296);
-            this.bRead.Name = "bRead";
-            this.bRead.Size = new System.Drawing.Size(56, 23);
-            this.bRead.TabIndex = 45;
-            this.bRead.Text = "Read";
-            this.bRead.UseVisualStyleBackColor = true;
-            this.bRead.Click += new System.EventHandler(this.bRead_Click);
+            bRead.Location = new System.Drawing.Point(239, 296);
+            bRead.Name = "bRead";
+            bRead.Size = new System.Drawing.Size(56, 23);
+            bRead.TabIndex = 45;
+            bRead.Text = "Read";
+            bRead.UseVisualStyleBackColor = true;
+            bRead.Click += bRead_Click;
             // 
             // bWrite
             // 
-            this.bWrite.Location = new System.Drawing.Point(177, 296);
-            this.bWrite.Name = "bWrite";
-            this.bWrite.Size = new System.Drawing.Size(56, 23);
-            this.bWrite.TabIndex = 46;
-            this.bWrite.Text = "Write";
-            this.bWrite.UseVisualStyleBackColor = true;
-            this.bWrite.Click += new System.EventHandler(this.bWrite_Click);
+            bWrite.Location = new System.Drawing.Point(177, 296);
+            bWrite.Name = "bWrite";
+            bWrite.Size = new System.Drawing.Size(56, 23);
+            bWrite.TabIndex = 46;
+            bWrite.Text = "Write";
+            bWrite.UseVisualStyleBackColor = true;
+            bWrite.Click += bWrite_Click;
             // 
             // label9
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(8, 300);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(38, 15);
-            this.label9.TabIndex = 44;
-            this.label9.Text = "Value:";
+            label9.AutoSize = true;
+            label9.Location = new System.Drawing.Point(8, 300);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(38, 15);
+            label9.TabIndex = 44;
+            label9.Text = "Value:";
             // 
             // tbValue
             // 
-            this.tbValue.Location = new System.Drawing.Point(79, 297);
-            this.tbValue.Name = "tbValue";
-            this.tbValue.Size = new System.Drawing.Size(80, 23);
-            this.tbValue.TabIndex = 43;
-            this.tbValue.Text = "32768";
+            tbValue.Location = new System.Drawing.Point(79, 297);
+            tbValue.Name = "tbValue";
+            tbValue.Size = new System.Drawing.Size(80, 23);
+            tbValue.TabIndex = 43;
+            tbValue.Text = "32768";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(200, 250);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 15);
-            this.label1.TabIndex = 42;
-            this.label1.Text = "Frequency:";
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(200, 250);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(65, 15);
+            label1.TabIndex = 42;
+            label1.Text = "Frequency:";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(346, 258);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 15);
-            this.label2.TabIndex = 42;
-            this.label2.Text = "Target Pin:";
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(346, 258);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(62, 15);
+            label2.TabIndex = 42;
+            label2.Text = "Target Pin:";
             // 
             // lSecondPin
             // 
-            this.lSecondPin.AutoSize = true;
-            this.lSecondPin.Location = new System.Drawing.Point(162, 22);
-            this.lSecondPin.Name = "lSecondPin";
-            this.lSecondPin.Size = new System.Drawing.Size(69, 15);
-            this.lSecondPin.TabIndex = 42;
-            this.lSecondPin.Text = "Second Pin:";
+            lSecondPin.AutoSize = true;
+            lSecondPin.Location = new System.Drawing.Point(162, 22);
+            lSecondPin.Name = "lSecondPin";
+            lSecondPin.Size = new System.Drawing.Size(69, 15);
+            lSecondPin.TabIndex = 42;
+            lSecondPin.Text = "Second Pin:";
             // 
             // sbsiFreqPeriod
             // 
-            this.sbsiFreqPeriod.Enabled = false;
-            this.sbsiFreqPeriod.Location = new System.Drawing.Point(8, 244);
-            this.sbsiFreqPeriod.Maximum = 65535;
-            this.sbsiFreqPeriod.Minimum = 0;
-            this.sbsiFreqPeriod.Name = "sbsiFreqPeriod";
-            this.sbsiFreqPeriod.Size = new System.Drawing.Size(170, 47);
-            this.sbsiFreqPeriod.TabIndex = 41;
-            this.sbsiFreqPeriod.Text = "Freq Sample Period (mS)";
-            this.sbsiFreqPeriod.TextBoxHint = "";
-            this.sbsiFreqPeriod.value = ((ushort)(1000));
+            sbsiFreqPeriod.Enabled = false;
+            sbsiFreqPeriod.Location = new System.Drawing.Point(8, 244);
+            sbsiFreqPeriod.Maximum = 65535;
+            sbsiFreqPeriod.Minimum = 0;
+            sbsiFreqPeriod.Name = "sbsiFreqPeriod";
+            sbsiFreqPeriod.Size = new System.Drawing.Size(170, 47);
+            sbsiFreqPeriod.TabIndex = 41;
+            sbsiFreqPeriod.Text = "Freq Sample Period (mS)";
+            sbsiFreqPeriod.TextBoxHint = "";
+            sbsiFreqPeriod.value = (ushort)1000;
             // 
             // sbsiHighLimit
             // 
-            this.sbsiHighLimit.Enabled = false;
-            this.sbsiHighLimit.Location = new System.Drawing.Point(183, 176);
-            this.sbsiHighLimit.Maximum = 65535;
-            this.sbsiHighLimit.Minimum = 0;
-            this.sbsiHighLimit.Name = "sbsiHighLimit";
-            this.sbsiHighLimit.Size = new System.Drawing.Size(170, 76);
-            this.sbsiHighLimit.TabIndex = 41;
-            this.sbsiHighLimit.Text = "High Limit";
-            this.sbsiHighLimit.TextBoxHint = "";
-            this.sbsiHighLimit.value = ((ushort)(65535));
+            sbsiHighLimit.Enabled = false;
+            sbsiHighLimit.Location = new System.Drawing.Point(183, 176);
+            sbsiHighLimit.Maximum = 65535;
+            sbsiHighLimit.Minimum = 0;
+            sbsiHighLimit.Name = "sbsiHighLimit";
+            sbsiHighLimit.Size = new System.Drawing.Size(170, 76);
+            sbsiHighLimit.TabIndex = 41;
+            sbsiHighLimit.Text = "High Limit";
+            sbsiHighLimit.TextBoxHint = "";
+            sbsiHighLimit.value = ushort.MaxValue;
             // 
             // sbsiLowLimit
             // 
-            this.sbsiLowLimit.Enabled = false;
-            this.sbsiLowLimit.Location = new System.Drawing.Point(7, 176);
-            this.sbsiLowLimit.Maximum = 65535;
-            this.sbsiLowLimit.Minimum = 0;
-            this.sbsiLowLimit.Name = "sbsiLowLimit";
-            this.sbsiLowLimit.Size = new System.Drawing.Size(170, 76);
-            this.sbsiLowLimit.TabIndex = 41;
-            this.sbsiLowLimit.Text = "Low Limit";
-            this.sbsiLowLimit.TextBoxHint = "";
-            this.sbsiLowLimit.value = ((ushort)(0));
+            sbsiLowLimit.Enabled = false;
+            sbsiLowLimit.Location = new System.Drawing.Point(7, 176);
+            sbsiLowLimit.Maximum = 65535;
+            sbsiLowLimit.Minimum = 0;
+            sbsiLowLimit.Name = "sbsiLowLimit";
+            sbsiLowLimit.Size = new System.Drawing.Size(170, 76);
+            sbsiLowLimit.TabIndex = 41;
+            sbsiLowLimit.Text = "Low Limit";
+            sbsiLowLimit.TextBoxHint = "";
+            sbsiLowLimit.value = (ushort)0;
             // 
             // sbsiIncrement
             // 
-            this.sbsiIncrement.Location = new System.Drawing.Point(183, 105);
-            this.sbsiIncrement.Maximum = 65535;
-            this.sbsiIncrement.Minimum = 0;
-            this.sbsiIncrement.Name = "sbsiIncrement";
-            this.sbsiIncrement.Size = new System.Drawing.Size(170, 76);
-            this.sbsiIncrement.TabIndex = 41;
-            this.sbsiIncrement.Text = "Increment";
-            this.sbsiIncrement.TextBoxHint = "";
-            this.sbsiIncrement.value = ((ushort)(1));
+            sbsiIncrement.Location = new System.Drawing.Point(183, 105);
+            sbsiIncrement.Maximum = 65535;
+            sbsiIncrement.Minimum = 0;
+            sbsiIncrement.Name = "sbsiIncrement";
+            sbsiIncrement.Size = new System.Drawing.Size(170, 76);
+            sbsiIncrement.TabIndex = 41;
+            sbsiIncrement.Text = "Increment";
+            sbsiIncrement.TextBoxHint = "";
+            sbsiIncrement.value = (ushort)1;
             // 
             // sbsiDebounce
             // 
-            this.sbsiDebounce.Enabled = false;
-            this.sbsiDebounce.Location = new System.Drawing.Point(7, 105);
-            this.sbsiDebounce.Maximum = 65535;
-            this.sbsiDebounce.Minimum = 0;
-            this.sbsiDebounce.Name = "sbsiDebounce";
-            this.sbsiDebounce.Size = new System.Drawing.Size(170, 76);
-            this.sbsiDebounce.TabIndex = 41;
-            this.sbsiDebounce.Text = "Debounce (mS)";
-            this.sbsiDebounce.TextBoxHint = "";
-            this.sbsiDebounce.value = ((ushort)(10));
+            sbsiDebounce.Location = new System.Drawing.Point(7, 105);
+            sbsiDebounce.Maximum = 65535;
+            sbsiDebounce.Minimum = 0;
+            sbsiDebounce.Name = "sbsiDebounce";
+            sbsiDebounce.Size = new System.Drawing.Size(170, 76);
+            sbsiDebounce.TabIndex = 41;
+            sbsiDebounce.Text = "Debounce (mS)";
+            sbsiDebounce.TextBoxHint = "";
+            sbsiDebounce.value = (ushort)10;
             // 
             // eddAction
             // 
-            this.eddAction.DropDownToolTip = "";
-            this.eddAction.dropdowntype = "SerialWombat.QuadEncReadModes";
-            this.eddAction.Location = new System.Drawing.Point(6, 73);
-            this.eddAction.Name = "eddAction";
-            this.eddAction.Size = new System.Drawing.Size(274, 35);
-            this.eddAction.TabIndex = 40;
-            this.eddAction.Value = 0;
+            eddAction.DropDownToolTip = "";
+            eddAction.dropdowntype = "SerialWombatClassLibrary.SerialWombat.QuadEncReadModes";
+            eddAction.Location = new System.Drawing.Point(6, 73);
+            eddAction.Name = "eddAction";
+            eddAction.Size = new System.Drawing.Size(274, 35);
+            eddAction.TabIndex = 40;
+            eddAction.Value = 0;
             // 
             // swpdTargetPin
             // 
-            this.swpdTargetPin.Enabled = false;
-            this.swpdTargetPin.IncludeNAPin = false;
-            this.swpdTargetPin.Location = new System.Drawing.Point(350, 276);
-            this.swpdTargetPin.Name = "swpdTargetPin";
-            this.swpdTargetPin.Pin = ((byte)(255));
-            this.swpdTargetPin.PinType = SerialWombat.SerialWombatPinType.SerialWombatPin;
-            this.swpdTargetPin.Size = new System.Drawing.Size(65, 25);
-            this.swpdTargetPin.TabIndex = 38;
+            swpdTargetPin.Enabled = false;
+            swpdTargetPin.IncludeNAPin = false;
+            swpdTargetPin.Location = new System.Drawing.Point(350, 276);
+            swpdTargetPin.Name = "swpdTargetPin";
+            swpdTargetPin.Pin = 255;
+            swpdTargetPin.PinType = SerialWombat.SerialWombatPinType.SerialWombatPin;
+            swpdTargetPin.Size = new System.Drawing.Size(65, 25);
+            swpdTargetPin.TabIndex = 38;
             // 
             // ckbPullUps
             // 
-            this.ckbPullUps.AutoSize = true;
-            this.ckbPullUps.Checked = true;
-            this.ckbPullUps.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ckbPullUps.Location = new System.Drawing.Point(239, 48);
-            this.ckbPullUps.Name = "ckbPullUps";
-            this.ckbPullUps.Size = new System.Drawing.Size(69, 19);
-            this.ckbPullUps.TabIndex = 39;
-            this.ckbPullUps.Text = "Pull Ups";
-            this.ckbPullUps.UseVisualStyleBackColor = true;
+            ckbPullUps.AutoSize = true;
+            ckbPullUps.Checked = true;
+            ckbPullUps.CheckState = System.Windows.Forms.CheckState.Checked;
+            ckbPullUps.Location = new System.Drawing.Point(239, 48);
+            ckbPullUps.Name = "ckbPullUps";
+            ckbPullUps.Size = new System.Drawing.Size(69, 19);
+            ckbPullUps.TabIndex = 39;
+            ckbPullUps.Text = "Pull Ups";
+            ckbPullUps.UseVisualStyleBackColor = true;
             // 
             // swpdSecondPin
             // 
-            this.swpdSecondPin.IncludeNAPin = false;
-            this.swpdSecondPin.Location = new System.Drawing.Point(157, 42);
-            this.swpdSecondPin.Name = "swpdSecondPin";
-            this.swpdSecondPin.Pin = ((byte)(255));
-            this.swpdSecondPin.PinType = SerialWombat.SerialWombatPinType.SerialWombatPin;
-            this.swpdSecondPin.Size = new System.Drawing.Size(65, 25);
-            this.swpdSecondPin.TabIndex = 38;
+            swpdSecondPin.IncludeNAPin = false;
+            swpdSecondPin.Location = new System.Drawing.Point(157, 42);
+            swpdSecondPin.Name = "swpdSecondPin";
+            swpdSecondPin.Pin = 255;
+            swpdSecondPin.PinType = SerialWombat.SerialWombatPinType.SerialWombatPin;
+            swpdSecondPin.Size = new System.Drawing.Size(65, 25);
+            swpdSecondPin.TabIndex = 38;
             // 
             // bGenCode
             // 
-            this.bGenCode.BackColor = System.Drawing.Color.MediumPurple;
-            this.bGenCode.Location = new System.Drawing.Point(99, 20);
-            this.bGenCode.Name = "bGenCode";
-            this.bGenCode.Size = new System.Drawing.Size(45, 47);
-            this.bGenCode.TabIndex = 37;
-            this.bGenCode.Text = "Gen Code";
-            this.bGenCode.UseVisualStyleBackColor = false;
+            bGenCode.BackColor = System.Drawing.Color.MediumPurple;
+            bGenCode.Location = new System.Drawing.Point(99, 20);
+            bGenCode.Name = "bGenCode";
+            bGenCode.Size = new System.Drawing.Size(45, 47);
+            bGenCode.TabIndex = 37;
+            bGenCode.Text = "Gen Code";
+            bGenCode.UseVisualStyleBackColor = false;
             // 
             // realTimeScottPlot1
             // 
-            this.realTimeScottPlot1.Location = new System.Drawing.Point(-14, 353);
-            this.realTimeScottPlot1.Name = "realTimeScottPlot1";
-            this.realTimeScottPlot1.Size = new System.Drawing.Size(429, 256);
-            this.realTimeScottPlot1.TabIndex = 36;
+            realTimeScottPlot1.Location = new System.Drawing.Point(-14, 353);
+            realTimeScottPlot1.Name = "realTimeScottPlot1";
+            realTimeScottPlot1.Size = new System.Drawing.Size(429, 256);
+            realTimeScottPlot1.TabIndex = 36;
             // 
             // ckbAutosample
             // 
-            this.ckbAutosample.AutoSize = true;
-            this.ckbAutosample.Location = new System.Drawing.Point(262, 328);
-            this.ckbAutosample.Name = "ckbAutosample";
-            this.ckbAutosample.Size = new System.Drawing.Size(91, 19);
-            this.ckbAutosample.TabIndex = 35;
-            this.ckbAutosample.Text = "AutoSample";
-            this.ckbAutosample.UseVisualStyleBackColor = true;
-            this.ckbAutosample.CheckedChanged += new System.EventHandler(this.ckbAutosample_CheckedChanged);
+            ckbAutosample.AutoSize = true;
+            ckbAutosample.Location = new System.Drawing.Point(262, 328);
+            ckbAutosample.Name = "ckbAutosample";
+            ckbAutosample.Size = new System.Drawing.Size(91, 19);
+            ckbAutosample.TabIndex = 35;
+            ckbAutosample.Text = "AutoSample";
+            ckbAutosample.UseVisualStyleBackColor = true;
+            ckbAutosample.CheckedChanged += ckbAutosample_CheckedChanged;
             // 
             // bSample
             // 
-            this.bSample.Location = new System.Drawing.Point(170, 325);
-            this.bSample.Name = "bSample";
-            this.bSample.Size = new System.Drawing.Size(75, 23);
-            this.bSample.TabIndex = 34;
-            this.bSample.Text = "Sample";
-            this.bSample.UseVisualStyleBackColor = true;
-            this.bSample.Click += new System.EventHandler(this.bSample_Click);
+            bSample.Location = new System.Drawing.Point(170, 325);
+            bSample.Name = "bSample";
+            bSample.Size = new System.Drawing.Size(75, 23);
+            bSample.TabIndex = 34;
+            bSample.Text = "Sample";
+            bSample.UseVisualStyleBackColor = true;
+            bSample.Click += bSample_Click;
             // 
             // bConfigure
             // 
-            this.bConfigure.Location = new System.Drawing.Point(8, 32);
-            this.bConfigure.Name = "bConfigure";
-            this.bConfigure.Size = new System.Drawing.Size(75, 23);
-            this.bConfigure.TabIndex = 33;
-            this.bConfigure.Text = "Configure";
-            this.bConfigure.UseVisualStyleBackColor = true;
-            this.bConfigure.Click += new System.EventHandler(this.bConfigure_Click);
+            bConfigure.Location = new System.Drawing.Point(8, 32);
+            bConfigure.Name = "bConfigure";
+            bConfigure.Size = new System.Drawing.Size(75, 23);
+            bConfigure.TabIndex = 33;
+            bConfigure.Text = "Configure";
+            bConfigure.UseVisualStyleBackColor = true;
+            bConfigure.Click += bConfigure_Click;
             // 
             // QuadEncControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.Controls.Add(this.groupBox1);
-            this.Name = "QuadEncControl";
-            this.Size = new System.Drawing.Size(608, 637);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            AutoSize = true;
+            Controls.Add(groupBox1);
+            Name = "QuadEncControl";
+            Size = new System.Drawing.Size(608, 637);
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

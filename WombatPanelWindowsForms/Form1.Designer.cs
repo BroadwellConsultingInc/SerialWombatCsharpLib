@@ -52,8 +52,8 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.selectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiDownloadNewHexFile = new System.Windows.Forms.ToolStripMenuItem();
-            this.bLDownloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiReadRam = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiCArray = new System.Windows.Forms.ToolStripMenuItem();
             this.sendStayInBootToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -265,8 +265,8 @@
             // toolsToolStripMenuItem
             // 
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem4,
             this.tsmiDownloadNewHexFile,
-            this.bLDownloadToolStripMenuItem,
             this.tsmiReadRam,
             this.tsmiCArray,
             this.sendStayInBootToolStripMenuItem,
@@ -275,45 +275,45 @@
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.toolsToolStripMenuItem.Text = "&Tools";
             // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(225, 22);
+            this.toolStripMenuItem4.Text = "Bootload Latest Firmware";
+            this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
+            // 
             // tsmiDownloadNewHexFile
             // 
             this.tsmiDownloadNewHexFile.Name = "tsmiDownloadNewHexFile";
-            this.tsmiDownloadNewHexFile.Size = new System.Drawing.Size(203, 22);
-            this.tsmiDownloadNewHexFile.Text = "Download New Hex File";
+            this.tsmiDownloadNewHexFile.Size = new System.Drawing.Size(225, 22);
+            this.tsmiDownloadNewHexFile.Text = "Download Firmware Hex File";
             this.tsmiDownloadNewHexFile.Click += new System.EventHandler(this.tsmiDownloadNewHexFile_Click_1);
-            // 
-            // bLDownloadToolStripMenuItem
-            // 
-            this.bLDownloadToolStripMenuItem.Name = "bLDownloadToolStripMenuItem";
-            this.bLDownloadToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
-            this.bLDownloadToolStripMenuItem.Text = "BL Download";
-            this.bLDownloadToolStripMenuItem.Click += new System.EventHandler(this.bLDownloadToolStripMenuItem_Click);
             // 
             // tsmiReadRam
             // 
             this.tsmiReadRam.Name = "tsmiReadRam";
-            this.tsmiReadRam.Size = new System.Drawing.Size(203, 22);
+            this.tsmiReadRam.Size = new System.Drawing.Size(225, 22);
             this.tsmiReadRam.Text = "Read RAM";
             this.tsmiReadRam.Click += new System.EventHandler(this.tsmiReadRam_Click_1);
             // 
             // tsmiCArray
             // 
             this.tsmiCArray.Name = "tsmiCArray";
-            this.tsmiCArray.Size = new System.Drawing.Size(203, 22);
+            this.tsmiCArray.Size = new System.Drawing.Size(225, 22);
             this.tsmiCArray.Text = "Create C Array from Hex";
             this.tsmiCArray.Click += new System.EventHandler(this.tsmiCArray_Click_1);
             // 
             // sendStayInBootToolStripMenuItem
             // 
             this.sendStayInBootToolStripMenuItem.Name = "sendStayInBootToolStripMenuItem";
-            this.sendStayInBootToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.sendStayInBootToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
             this.sendStayInBootToolStripMenuItem.Text = "Send Stay In Boot";
             this.sendStayInBootToolStripMenuItem.Click += new System.EventHandler(this.sendStayInBootToolStripMenuItem_Click);
             // 
             // communicationsTestToolStripMenuItem
             // 
             this.communicationsTestToolStripMenuItem.Name = "communicationsTestToolStripMenuItem";
-            this.communicationsTestToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.communicationsTestToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
             this.communicationsTestToolStripMenuItem.Text = "Communications Test";
             this.communicationsTestToolStripMenuItem.Click += new System.EventHandler(this.communicationsTestToolStripMenuItem_Click);
             // 
@@ -536,7 +536,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Wombat Panel V1.3.0 20240923";
+            this.Text = "Wombat Panel V1.4.0 20241013";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -595,13 +595,13 @@
         private System.Windows.Forms.ToolStripMenuItem readToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sendStayInBootToolStripMenuItem;
         private SerialWombatWindowsFormsLibrary.GraphicPinSelectorControl graphicPinSelectorControl1;
-        private System.Windows.Forms.ToolStripMenuItem bLDownloadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.CheckBox ckbDecodeMessages;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ToolStripMenuItem communicationsTestToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
     }
 }
 

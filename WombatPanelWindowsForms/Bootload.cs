@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -29,6 +30,17 @@ namespace WombatPanelWindowsForms
             bl = new SerialWombatSW18ABBootloaderClient(serialWombatChip); 
             bl.bootload(filename, resetBeforeLoading);
            
+
+        }
+
+        public Bootload(StreamReader reader, SerialWombatChip serialWombatChip, bool resetBeforeLoading = true)
+        {
+            InitializeComponent();
+            Text = $"Bootload latest";
+
+            bl = new SerialWombatSW18ABBootloaderClient(serialWombatChip);
+            bl.bootload(reader, resetBeforeLoading);
+
 
         }
         private String status = "";

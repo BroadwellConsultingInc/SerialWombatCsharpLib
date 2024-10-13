@@ -15,19 +15,19 @@ namespace SerialWombatWindowsFormsLibrary.Controls
     public partial class DataLoggerControl : UserControl
     {
         SerialWombat18ABDataLogger logger;
-        List<Type> dataToLog = new List<Type> {  };
+        List<Type> dataToLog = new List<Type> { };
         int bytesPerLogEntry = 0;
         public DataLoggerControl()
         {
             InitializeComponent();
-           
+
         }
-        public void begin (SerialWombatChip sw)
+        public void begin(SerialWombatChip sw)
         {
-           
+
             logger = new SerialWombat18ABDataLogger(sw);
             serialWombatPinDropdown1.begin(sw, 0);
-            
+
         }
 
         private void ckbQueueOnChange_CheckedChanged(object sender, EventArgs e)
@@ -38,7 +38,7 @@ namespace SerialWombatWindowsFormsLibrary.Controls
         private void bInitialize_Click(object sender, EventArgs e)
         {
             dataToLog = new List<Type>();
-            if (ckbQueueFrameNumber.Checked ) { dataToLog.Add(typeof(UInt16)); bytesPerLogEntry += sizeof(UInt16); }
+            if (ckbQueueFrameNumber.Checked) { dataToLog.Add(typeof(UInt16)); bytesPerLogEntry += sizeof(UInt16); }
             logger.begin(sbacAddress.Value, sbacLen.Value, ckbQueueFrameNumber.Checked, ckbQueueOnChange.Checked, (DataLoggerPeriod)edQueueingPeriod.selectedItem);
             bAddPin.Enabled = true;
         }
@@ -51,7 +51,7 @@ namespace SerialWombatWindowsFormsLibrary.Controls
 
         private void bAddPin_Click(object sender, EventArgs e)
         {
-            logger.configurePin(serialWombatPinDropdown1.Pin,ckbLowByte.Checked,ckbQueueHighByte.Checked);  
+            logger.configurePin(serialWombatPinDropdown1.Pin, ckbLowByte.Checked, ckbQueueHighByte.Checked);
             if (ckbQueueHighByte.Checked && ckbLowByte.Checked)
             {
                 dataToLog.Add(typeof(UInt16));
@@ -60,7 +60,7 @@ namespace SerialWombatWindowsFormsLibrary.Controls
             else if (ckbQueueHighByte.Checked || ckbLowByte.Checked)
             {
                 dataToLog.Add(typeof(byte));
-                bytesPerLogEntry+= sizeof(byte);
+                bytesPerLogEntry += sizeof(byte);
             }
         }
 
@@ -70,9 +70,10 @@ namespace SerialWombatWindowsFormsLibrary.Controls
             logger.queue.read(65535, out data);
 
             string s = "";
-            for (int i = 0; i < data.Length; ) { 
-                
-            foreach (Type t in dataToLog)
+            for (int i = 0; i < data.Length;)
+            {
+
+                foreach (Type t in dataToLog)
                 {
                     if (t == typeof(UInt16))
                     {
@@ -87,7 +88,7 @@ namespace SerialWombatWindowsFormsLibrary.Controls
                     }
                 }
                 s += Environment.NewLine;
-            
+
             }
             textBox1.AppendText(s);
         }
@@ -100,11 +101,11 @@ namespace SerialWombatWindowsFormsLibrary.Controls
                 SerialWombat18ABDataLogger {Name}(sw); // Your serial wombat chip may be named something else than sw
                 //Add this to  setup():
                                 {Name}.begin(
-                                    {sbacAddress.Value},
-                                    {sbacLen.Value},
-                                    {ckbQueueFrameNumber.Checked},
-                                    {ckbQueueOnChange.Checked},
-                                    DataLoggerPeriod::{(DataLoggerPeriod)edQueueingPeriod.selectedItem}
+                                    {sbacAddress.Value},  // Index in User Memory
+                                    {sbacLen.Value},  // Size of Queue
+                                    {ckbQueueFrameNumber.Checked},  // Queue Frame number
+                                    {ckbQueueOnChange.Checked},  // Queue on Change
+                                    DataLoggerPeriod::{(DataLoggerPeriod)edQueueingPeriod.selectedItem} // Queue Period
                                 );
                                
 ";
@@ -117,16 +118,14 @@ namespace SerialWombatWindowsFormsLibrary.Controls
         private void button4_Click(object sender, EventArgs e)
         {
             string s =
-          @$"
-                
-                SerialWombat18ABDataLogger {Name}(sw); // Your serial wombat chip may be named something else than sw
-               
-                                {Name}.configurePin({serialWombatPinDropdown1.Pin},
-                                    {ckbLowByte.Checked},
-                                    {ckbQueueHighByte.Checked}
-                                );
-                               
+          @$"               
+               {Name}.configurePin({serialWombatPinDropdown1.Pin}, // Pin
+                                {ckbLowByte.Checked}, // Queue Low Byte
+                                {ckbQueueHighByte.Checked} // Queue High Byte
+                                );                               
 ";
+            s = s.Replace("True", "true");
+            s = s.Replace("False", "false");
             addTextToClipboard(s);
         }
 
@@ -139,6 +138,21 @@ namespace SerialWombatWindowsFormsLibrary.Controls
             }
             s += text;
             Clipboard.SetText(s);
+        }
+
+       
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            string s =
+          @$"
+                
+               {Name}.enable({ckbQueueing.Checked});                               
+";
+            s = s.Replace("True", "true");
+            s = s.Replace("False", "false");
+            addTextToClipboard(s);
         }
     }
 }
