@@ -23,7 +23,7 @@ namespace SerialWombatWindowsFormsLibrary.Controls
         public HBridgeControl()
         {
             InitializeComponent();
-            edDriver.Value = (int)SerialWombatHBridgeDriverChip.DRV8833;
+            edDriver.Value = (int)SerialWombatHBridgeDriverMode.HBRIDGE_OFF_BOTH_LOW;
             
         }
 
@@ -126,5 +126,7 @@ namespace SerialWombatWindowsFormsLibrary.Controls
             s = s.Replace("False", "false");
             Clipboard.SetText(s);
         }
+
+       
     }
 }

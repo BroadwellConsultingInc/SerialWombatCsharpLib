@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SerialWombatWindowsFormsLib
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SerialWombatClassLibrary", "..\SerialWombatClassLibrary\SerialWombatClassLibrary\SerialWombatClassLibrary.csproj", "{971C0F4A-0FBD-4935-B615-FF698FD02292}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntelHex", "..\IntelHex\IntelHex.csproj", "{8DB2ECA8-BD8F-4775-8D66-55BBE20F281F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntelHex", "..\IntelHex\IntelHex.csproj", "{8DB2ECA8-BD8F-4775-8D66-55BBE20F281F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerialWombatSW18ABBootloader", "..\SerialWombatSW18ABBootloader\SerialWombatSW18ABBootloader.csproj", "{6952F25F-0E08-469C-B565-33478007656C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SerialWombatSW18ABBootloader", "..\SerialWombatSW18ABBootloader\SerialWombatSW18ABBootloader.csproj", "{6952F25F-0E08-469C-B565-33478007656C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerialWombatSW08BBootloader", "..\SerialWombatSW08BBootloader\SerialWombatSW08BBootloader.csproj", "{FF20065D-4DA4-495F-B788-79341EBF6B7F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{6952F25F-0E08-469C-B565-33478007656C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6952F25F-0E08-469C-B565-33478007656C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6952F25F-0E08-469C-B565-33478007656C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF20065D-4DA4-495F-B788-79341EBF6B7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF20065D-4DA4-495F-B788-79341EBF6B7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF20065D-4DA4-495F-B788-79341EBF6B7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF20065D-4DA4-495F-B788-79341EBF6B7F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

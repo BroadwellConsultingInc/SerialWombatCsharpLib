@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SerialWombat;
 using SerialWombatSW18ABBootloader;
+using SerialWombatSW08BBootloader;
 using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -18,7 +19,9 @@ namespace WombatPanelWindowsForms
 {
     public partial class Bootload : Form
     {
-        SerialWombatSW18ABBootloaderClient bl;
+        SerialWombatSW18ABBootloaderClient bl18 = null;
+        SerialWombatSW08BBootloaderClient bl08 = null;
+
         private delegate void SafeCallDelegate();
 
         public bool alreadyInBoot = false;
@@ -27,9 +30,17 @@ namespace WombatPanelWindowsForms
             InitializeComponent();
             Text = $"Bootload {filename}";
 
-            bl = new SerialWombatSW18ABBootloaderClient(serialWombatChip); 
-            bl.bootload(filename, resetBeforeLoading);
-           
+            if (serialWombatChip.isSW18())
+            {
+                bl18 = new SerialWombatSW18ABBootloaderClient(serialWombatChip);
+                bl18.bootload(filename, resetBeforeLoading);
+            }
+            else if (serialWombatChip.isSW08())
+
+            {
+                bl08 = new SerialWombatSW08BBootloaderClient(serialWombatChip);
+                bl08.bootload(filename, resetBeforeLoading);
+            }           
 
         }
 
@@ -37,9 +48,16 @@ namespace WombatPanelWindowsForms
         {
             InitializeComponent();
             Text = $"Bootload latest";
-
-            bl = new SerialWombatSW18ABBootloaderClient(serialWombatChip);
-            bl.bootload(reader, resetBeforeLoading);
+            if (serialWombatChip.isSW18())
+            {
+                bl18 = new SerialWombatSW18ABBootloaderClient(serialWombatChip);
+                bl18.bootload(reader, resetBeforeLoading);
+            }
+            else if (serialWombatChip.isSW08())
+            {
+                bl08 = new SerialWombatSW08BBootloaderClient(serialWombatChip);
+                bl08.bootload(reader, resetBeforeLoading);
+            }
 
 
         }
@@ -48,15 +66,28 @@ namespace WombatPanelWindowsForms
 
         void updateThread()
         {
-            while (bl.Bootloading)
+            if (bl18 != null)
             {
-                status = bl.Status;
-                pctDone = bl.PercentDone;
+                while (bl18.Bootloading)
+                {
+                    status = bl18.Status;
+                    pctDone = bl18.PercentDone;
 
-                statusUpdate();
-                progressUpdate();
-                Thread.Sleep(200);
+                    statusUpdate();
+                    progressUpdate();
+                    Thread.Sleep(200);
+                }
             }
+            else if (bl08!= null)
+                while (bl08.Bootloading)
+                {
+                    status = bl08.Status;
+                    pctDone = bl08.PercentDone;
+
+                    statusUpdate();
+                    progressUpdate();
+                    Thread.Sleep(200);
+                }
         }
 
         void statusUpdate()

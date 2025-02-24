@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SerialWombatClassLibrary\SerialWombatClassLibrary\SerialWombatClassLibrary.csproj" />
+    <ProjectReference Include="..\SerialWombatSW08BBootloader\SerialWombatSW08BBootloader.csproj" />
     <ProjectReference Include="..\SerialWombatSW18ABBootloader\SerialWombatSW18ABBootloader.csproj" />
     <ProjectReference Include="..\SerialWombatWindowsFormsLibrary\SerialWombatWindowsFormsLibrary.csproj" />
   </ItemGroup>

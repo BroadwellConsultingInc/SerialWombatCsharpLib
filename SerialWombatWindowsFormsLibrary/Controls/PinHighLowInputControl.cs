@@ -61,7 +61,7 @@ namespace SerialWombatWindowsFormsLibrary.Controls
 
         [Browsable(true), EditorBrowsable(EditorBrowsableState.Always)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
-        public string Text
+        override public string Text
         {
             get { return label1.Text; }
             set

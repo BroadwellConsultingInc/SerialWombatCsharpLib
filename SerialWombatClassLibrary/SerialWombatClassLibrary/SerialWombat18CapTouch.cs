@@ -123,9 +123,9 @@ namespace SerialWombat
             }
         }
 
-        override public bool readTransitionsState()
+        override public bool readTransitionsState(bool resetTransitions = false)
         {
-            byte[] tx = { 204, _pin, 22, 1, 0x55, 0x55, 0x55, 0x55 };
+            byte[] tx = { 204, _pin, 22, resetTransitions?(byte)1:(byte)0, 0x55, 0x55, 0x55, 0x55 };
             byte[] rx;
             _sw.sendPacket(tx, out rx);
             transitions = (UInt16)(256 * rx[5] + rx[4]);

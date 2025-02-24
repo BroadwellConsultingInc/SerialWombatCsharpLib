@@ -9,7 +9,7 @@ namespace SerialWombat
 {
     public class SerialWombatHBridge:SerialWombatPin
     {
-        public SerialWombatHBridgeDriverChip driver = SerialWombatHBridgeDriverChip.DRV8833;
+        public SerialWombatHBridgeDriverMode driverMode = SerialWombatHBridgeDriverMode.HBRIDGE_OFF_BOTH_LOW;
         
 
        
@@ -19,10 +19,10 @@ namespace SerialWombat
             _pinMode = (byte)SerialWombatPinModes.PIN_MODE_HBRIDGE;
         }
 
-        public Int16 begin(byte pin, byte secondPin)
+        public Int16 begin(byte pin, byte secondPin, SerialWombatHBridgeDriverMode mode)
         {
             _pin = pin;
-            byte[] tx = { 200, _pin, (byte)_pinMode,  secondPin,0x55,0x55,0x55,0x55};
+            byte[] tx = { 200, _pin, (byte)_pinMode,  secondPin,(byte)mode,0x55,0x55,0x55};
             return _sw.sendPacket(tx);
         }
     }
@@ -35,9 +35,9 @@ namespace SerialWombat
             scaledOutput = new SerialWombatAbstractScaledOutput(serialWombatChip);
         }
 
-        public new Int16 begin(byte pin, byte secondPin)
+        public new Int16 begin(byte pin, byte secondPin, SerialWombatHBridgeDriverMode mode = SerialWombatHBridgeDriverMode.HBRIDGE_OFF_BOTH_LOW)
         {
-            Int16 result = base.begin(pin, secondPin);
+            Int16 result = base.begin(pin, secondPin, mode);
             if (result < 0) return result;
             scaledOutput.begin(_pin, _pinMode);
             return 0;
@@ -50,18 +50,12 @@ namespace SerialWombat
         }
 
     }
-    public enum SerialWombatHBridgeDriverChip :byte
+    public enum SerialWombatHBridgeDriverMode :byte
     {
-        RelayAndPWM = 0,
-        LG9110_HG7881 = 1,
-        DRV8833 = 2,
-        DRV8871 = 3,
-        L298N = 4,
-        MX1508 = 5,
-        BTS7960 = 6,
-        IBT4 = 7,
-        A4990 = 8,
-        TB67H420FTG = 9,
+        HBRIDGE_OFF_BOTH_LOW = 0,
+        HBRIDGE_OFF_BOTH_HIGH = 1,
+        HBRIDGE_RELAY_AND_PWM = 2,
+
 
     }
     public enum SerialWombatHBridgeOffState

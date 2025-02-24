@@ -14,17 +14,21 @@ namespace SerialWombatWindowsFormsLibrary
     {
 
         public SerialWombatAbstractScaledOutput ScaledOutput;
-
+        public string PinName = "ScaledOutput";
         public ScaledOutputControl(SerialWombatAbstractScaledOutput scaledOutput)
         {
             InitializeComponent();
             ScaledOutput = scaledOutput;
             pidControl1.ScaledOutput= scaledOutput;
             swpdsInput.DataSourceValue = scaledOutput.pin;
-            Name = "ChangeMe_SomeScaledOutputInstance";
+           
        
         }
-
+        public void SetPinName(string pinName)
+        {
+            PinName = pinName;
+            pidControl1.PinName = pinName;
+        }
         private void ckbScaledOutputEnable_CheckedChanged(object sender, EventArgs e)
         {
             ScaledOutput.writeScalingEnabled(ckbScaledOutputEnable.Checked, (byte)swpdsInput.DataSourceValue);
@@ -95,7 +99,7 @@ namespace SerialWombatWindowsFormsLibrary
             addTextToClipboard(
                 $@"//put this line in setup.  Make this the last line after other
                     // Output Scaling configurations for this pin
-                    {Name}.writeScalingEnabled(true, //Enabled
+                    {PinName}.writeScalingEnabled(true, //Enabled
                     {(byte)swpdsInput.DataSourceValue}); //DataSource
 ");
            
@@ -105,7 +109,7 @@ namespace SerialWombatWindowsFormsLibrary
         {
             addTextToClipboard(
                $@"//put this line in setup.
-                    {Name}.writeInputScaling({sbsiInputMin.value}, //Input Minimum
+                    {PinName}.writeInputScaling({sbsiInputMin.value}, //Input Minimum
                     {sbsiInputMax.value}); //Input Maximum
 ");
         }
@@ -129,7 +133,7 @@ namespace SerialWombatWindowsFormsLibrary
         {
             addTextToClipboard(
      $@"//put this line in setup.
-                    {Name}.writeHysteresis({sbsiHysLowLimit.value}, //Low Limit
+                    {PinName}.writeHysteresis({sbsiHysLowLimit.value}, //Low Limit
                     {sbsiHysLowOutput.value}, //Low Value
                     {sbsiHysHighLimit.value}, //High Limit
                     {sbsiHysHighOutputValue.value}, //High Value
@@ -142,7 +146,7 @@ namespace SerialWombatWindowsFormsLibrary
         {
             addTextToClipboard(
      $@"//put this line in setup.
-                    {Name}.writeTimeout({sbsiTimeout_mS.value}, //Timeout in mS
+                    {PinName}.writeTimeout({sbsiTimeout_mS.value}, //Timeout in mS
                     {sbsiTimeoutOutputValue.value}); //Output value if timeout
 ");
         }
@@ -163,7 +167,7 @@ namespace SerialWombatWindowsFormsLibrary
         {
             addTextToClipboard(
      $@"//put this line in setup.
-                    {Name}.write1stOrderFiltering(SerialWombatAbstractScaledOutput::Period::{(ScaledOutputPeriod)edFilteringPeriod.selectedItem}, //Filter Period
+                    {PinName}.write1stOrderFiltering(SerialWombatAbstractScaledOutput::Period::{(ScaledOutputPeriod)edFilteringPeriod.selectedItem}, //Filter Period
                     {sbsiFilterConstant.value});  //Filter constant
 ");
         }
@@ -172,7 +176,7 @@ namespace SerialWombatWindowsFormsLibrary
         {
             addTextToClipboard(
      $@"//put this line in setup.
-                    {Name}.writeRateControl(SerialWombatAbstractScaledOutput::Period::{(ScaledOutputPeriod)edFilteringPeriod.selectedItem}, // Sampling Period
+                    {PinName}.writeRateControl(SerialWombatAbstractScaledOutput::Period::{(ScaledOutputPeriod)edFilteringPeriod.selectedItem}, // Sampling Period
                     {sbsiMaxChangeUp.value}, //Maximum Increase Rate
                     {sbsiFilterConstant2.value} //Maximum Decrease Rate);
 ");
@@ -184,7 +188,7 @@ namespace SerialWombatWindowsFormsLibrary
         {
             addTextToClipboard(
             $@"//put this line in setup.
-                    {Name}.ScaledOutput.writeOutputScaling({sbsiOutputScalingMin.value}, //Output Minimum Value
+                    {PinName}.ScaledOutput.writeOutputScaling({sbsiOutputScalingMin.value}, //Output Minimum Value
                     {sbsiOutputScalingMax.value}); //Output Maximum Value
 ");
         }
@@ -221,8 +225,18 @@ namespace SerialWombatWindowsFormsLibrary
                 pXY.Controls.Add(sbsi);
                 xyArray[i, 1] = sbsi;
                 sbsi.trackBarValueChangedDelegates.Add(linearXYDataChange);
-                xyArray[0,0].Enabled = false;
+               
+
             }
+            // Start wtih H Bridge pattern that removes weak center range
+            xyArray[0, 0].Enabled = false;
+            xyArray[0, 1].value = 0;
+            xyArray[1, 0].value = 32758;            xyArray[1, 1].value = 27768;
+            xyArray[2, 0].value = 32759;            xyArray[2, 1].value = 32768;
+            xyArray[3, 0].value = 32967;            xyArray[3, 1].value = 32768;
+            xyArray[4, 0].value = 32968;            xyArray[4, 1].value = 37768;
+            xyArray[5, 0].value = 65535;            xyArray[5, 1].value = 65535;
+            linearXYDataChange(null,null);
         }
         private void linearXYDataChange(object sender, EventArgs e)
         {
@@ -340,5 +354,7 @@ namespace SerialWombatWindowsFormsLibrary
             ";
                  addTextToClipboard(s); //Output Maximum Value
         }
+
+       
     }
 }

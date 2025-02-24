@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.bResend = new System.Windows.Forms.Button();
+            this.ckbReverseRG = new System.Windows.Forms.CheckBox();
             this.gbAnimation = new System.Windows.Forms.GroupBox();
             this.bAnimationStart = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -73,6 +75,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.bResend);
+            this.groupBox1.Controls.Add(this.ckbReverseRG);
             this.groupBox1.Controls.Add(this.gbAnimation);
             this.groupBox1.Controls.Add(this.sbacUserBufferAddress);
             this.groupBox1.Controls.Add(this.bTestSequence);
@@ -88,6 +92,27 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
+            // 
+            // bResend
+            // 
+            this.bResend.Location = new System.Drawing.Point(473, 99);
+            this.bResend.Name = "bResend";
+            this.bResend.Size = new System.Drawing.Size(75, 23);
+            this.bResend.TabIndex = 10;
+            this.bResend.Text = "Resend Colors";
+            this.bResend.UseVisualStyleBackColor = true;
+            this.bResend.Click += new System.EventHandler(this.bResend_Click);
+            // 
+            // ckbReverseRG
+            // 
+            this.ckbReverseRG.AutoSize = true;
+            this.ckbReverseRG.Location = new System.Drawing.Point(287, 65);
+            this.ckbReverseRG.Name = "ckbReverseRG";
+            this.ckbReverseRG.Size = new System.Drawing.Size(198, 19);
+            this.ckbReverseRG.TabIndex = 9;
+            this.ckbReverseRG.Text = "Reverse Red and Green (WS2811)";
+            this.ckbReverseRG.UseVisualStyleBackColor = true;
+            this.ckbReverseRG.CheckedChanged += new System.EventHandler(this.ckbReverseRG_CheckedChanged);
             // 
             // gbAnimation
             // 
@@ -279,6 +304,8 @@
             // sbsiMax
             // 
             this.sbsiMax.Location = new System.Drawing.Point(17, 145);
+            this.sbsiMax.Maximum = 65535;
+            this.sbsiMax.Minimum = 0;
             this.sbsiMax.Name = "sbsiMax";
             this.sbsiMax.Size = new System.Drawing.Size(328, 76);
             this.sbsiMax.TabIndex = 2;
@@ -289,6 +316,8 @@
             // sbsiMin
             // 
             this.sbsiMin.Location = new System.Drawing.Point(17, 63);
+            this.sbsiMin.Maximum = 65535;
+            this.sbsiMin.Minimum = 0;
             this.sbsiMin.Name = "sbsiMin";
             this.sbsiMin.Size = new System.Drawing.Size(328, 76);
             this.sbsiMin.TabIndex = 2;
@@ -441,5 +470,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.NumericUpDown nudTotalFrames;
+        private System.Windows.Forms.CheckBox ckbReverseRG;
+        private System.Windows.Forms.Button bResend;
     }
 }

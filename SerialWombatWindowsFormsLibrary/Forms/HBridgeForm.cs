@@ -26,13 +26,14 @@ namespace SerialWombatWindowsFormsLibrary
             SerialWombatChip = serialWombatChip;
             this.Text = $"HBridge on pin {pin} on Serial Wombat Chip on {serialWombatChip.Serial.Port.PortName}";
             hBridgeControl1.Name = $"Pin{pin}HBridge";
+            
 
 
-            if (serialWombatChip.ModelEnum == SerialWombatModel.SerialWombat18AB)
+            if (SerialWombatChip.isSW08() || SerialWombatChip.isSW18())
             {
 
                 this.AutoSize = true;
-                scaledOutput = new SerialWombatAbstractScaledOutput(serialWombatChip);
+                scaledOutput = new SerialWombatAbstractScaledOutput(SerialWombatChip);
                 scaledOutput.biDirectional = true;
                 scaledOutput.begin(pin, SerialWombatPinModes.PIN_MODE_HBRIDGE);
                 scaledOutputControl = new ScaledOutputControl(scaledOutput);
@@ -40,10 +41,10 @@ namespace SerialWombatWindowsFormsLibrary
                 this.Controls.Add(scaledOutputControl);
                 ckbOutputScalingVisible.Visible = true;
                 ckbOutputScalingVisible.Checked = true;
-                scaledOutputControl.Name = $"Pin{Pin}HBridge";
+                scaledOutputControl.SetPinName( $"Pin{Pin}HBridge");
                 this.Refresh();
             }
-            hBridgeControl1.begin(serialWombatChip,Pin);
+            hBridgeControl1.begin(SerialWombatChip,Pin);
         }
     }
 }

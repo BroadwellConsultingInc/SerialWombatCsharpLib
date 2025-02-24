@@ -160,5 +160,43 @@ namespace SerialWombatWindowsFormsLibrary.Controls
                 bRead.Enabled = true;
             }
         }
+
+        private void bGenCode_Click(object sender, EventArgs e)
+        {
+            string type = "SerialWombatQuadEnc";
+            if (quadEnc._sw.isSW18())
+            {
+                type = "SerialWombatQuadEnc_18AB";
+            }
+
+            string s =
+@$"
+                //Put this line before setup()
+                {type} {Name}(sw); // Your serial wombat chip may be named something else than sw
+                //Add this line to  setup():
+                {Name}.begin({Pin}, //1st Pin
+                {swpdSecondPin.Pin}, //2nd Pin
+                {sbsiDebounce.value}, //DebouceTime in mS
+                {ckbPullUps.Checked}, //pull ups
+                 QE_READ_MODE_t ::{eddAction.selectedItem.ToString()} //Mode
+);
+";
+            if (quadEnc._sw.isSW18())
+            {
+                s += $@"
+            {Name}.writeMinMaxIncrementTargetPin	(	{sbsiLowLimit.value},//Minimum, 65535 = ignore
+{sbsiHighLimit.value},//Maximum, 0 = ignore
+{sbsiIncrement.value}, //Increment
+{swpdTargetPin.Pin} //Target Pin 
+);		
+
+{Name}.writeFrequencyPeriodmS	(	{sbsiFreqPeriod.value}	);// period in mS to count pulses to calculate frequency	
+
+";
+            }
+            s = s.Replace("True", "true");
+            s = s.Replace("False", "false");
+            Clipboard.SetText(s);
+        }
     }
 }

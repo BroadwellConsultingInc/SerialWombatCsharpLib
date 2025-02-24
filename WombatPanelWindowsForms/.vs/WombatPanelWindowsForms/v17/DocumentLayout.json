@@ -3,6 +3,43 @@
   "WorkspaceRootPath": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\WombatPanelWindowsForms\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{AEFEAA2B-78BF-40A6-8F55-BC8FBBBB1548}|WombatPanelWindowsForms.csproj|f:\\keep\\github\\broadwellconsultinginc\\serialwombatcsharplib\\wombatpanelwindowsforms\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{AEFEAA2B-78BF-40A6-8F55-BC8FBBBB1548}|WombatPanelWindowsForms.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E39122E9-965E-42FA-8A34-23897D43A8FB}|..\\SerialWombatWindowsFormsLibrary\\SerialWombatWindowsFormsLibrary.csproj|f:\\keep\\github\\broadwellconsultinginc\\serialwombatcsharplib\\serialwombatwindowsformslibrary\\controls\\scaledoutputcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E39122E9-965E-42FA-8A34-23897D43A8FB}|..\\SerialWombatWindowsFormsLibrary\\SerialWombatWindowsFormsLibrary.csproj|f:\\keep\\github\\broadwellconsultinginc\\serialwombatcsharplib\\serialwombatwindowsformslibrary\\controls\\pidcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E39122E9-965E-42FA-8A34-23897D43A8FB}|..\\SerialWombatWindowsFormsLibrary\\SerialWombatWindowsFormsLibrary.csproj|f:\\keep\\github\\broadwellconsultinginc\\serialwombatcsharplib\\serialwombatwindowsformslibrary\\forms\\pidform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E39122E9-965E-42FA-8A34-23897D43A8FB}|..\\SerialWombatWindowsFormsLibrary\\SerialWombatWindowsFormsLibrary.csproj|f:\\keep\\github\\broadwellconsultinginc\\serialwombatcsharplib\\serialwombatwindowsformslibrary\\forms\\hbridgeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E39122E9-965E-42FA-8A34-23897D43A8FB}|..\\SerialWombatWindowsFormsLibrary\\SerialWombatWindowsFormsLibrary.csproj|f:\\keep\\github\\broadwellconsultinginc\\serialwombatcsharplib\\serialwombatwindowsformslibrary\\controls\\hbridgecontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E39122E9-965E-42FA-8A34-23897D43A8FB}|..\\SerialWombatWindowsFormsLibrary\\SerialWombatWindowsFormsLibrary.csproj|f:\\keep\\github\\broadwellconsultinginc\\serialwombatcsharplib\\serialwombatwindowsformslibrary\\controls\\pidcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E39122E9-965E-42FA-8A34-23897D43A8FB}|..\\SerialWombatWindowsFormsLibrary\\SerialWombatWindowsFormsLibrary.csproj|f:\\keep\\github\\broadwellconsultinginc\\serialwombatcsharplib\\serialwombatwindowsformslibrary\\controls\\hbridgecontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E39122E9-965E-42FA-8A34-23897D43A8FB}|..\\SerialWombatWindowsFormsLibrary\\SerialWombatWindowsFormsLibrary.csproj|f:\\keep\\github\\broadwellconsultinginc\\serialwombatcsharplib\\serialwombatwindowsformslibrary\\forms\\hbridgeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E39122E9-965E-42FA-8A34-23897D43A8FB}|..\\SerialWombatWindowsFormsLibrary\\SerialWombatWindowsFormsLibrary.csproj|f:\\keep\\github\\broadwellconsultinginc\\serialwombatcsharplib\\serialwombatwindowsformslibrary\\forms\\pidform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E39122E9-965E-42FA-8A34-23897D43A8FB}|..\\SerialWombatWindowsFormsLibrary\\SerialWombatWindowsFormsLibrary.csproj|f:\\keep\\github\\broadwellconsultinginc\\serialwombatcsharplib\\serialwombatwindowsformslibrary\\controls\\scaledoutputcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{971C0F4A-0FBD-4935-B615-FF698FD02292}|..\\SerialWombatClassLibrary\\SerialWombatClassLibrary\\SerialWombatClassLibrary.csproj|f:\\keep\\github\\broadwellconsultinginc\\serialwombatcsharplib\\serialwombatclasslibrary\\serialwombatclasslibrary\\serialwombatabstractscaledoutput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E39122E9-965E-42FA-8A34-23897D43A8FB}|..\\SerialWombatWindowsFormsLibrary\\SerialWombatWindowsFormsLibrary.csproj|f:\\keep\\github\\broadwellconsultinginc\\serialwombatcsharplib\\serialwombatwindowsformslibrary\\controls\\dataloggercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -16,7 +53,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -24,27 +61,161 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:132:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DataLoggerControl.cs [Design]",
-              "DocumentMoniker": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatWindowsFormsLibrary\\Controls\\DataLoggerControl.cs",
-              "RelativeDocumentMoniker": "..\\SerialWombatWindowsFormsLibrary\\Controls\\DataLoggerControl.cs",
-              "ToolTip": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatWindowsFormsLibrary\\Controls\\DataLoggerControl.cs [Design]",
-              "RelativeToolTip": "..\\SerialWombatWindowsFormsLibrary\\Controls\\DataLoggerControl.cs [Design]",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\WombatPanelWindowsForms\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\WombatPanelWindowsForms\\Form1.cs [Design]",
+              "RelativeToolTip": "Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T15:33:38.189Z",
+              "WhenOpened": "2025-02-24T16:03:07.204Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 7,
+              "Title": "HBridgeControl.cs [Design]",
+              "DocumentMoniker": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatWindowsFormsLibrary\\Controls\\HBridgeControl.cs",
+              "RelativeDocumentMoniker": "..\\SerialWombatWindowsFormsLibrary\\Controls\\HBridgeControl.cs",
+              "ToolTip": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatWindowsFormsLibrary\\Controls\\HBridgeControl.cs [Design]",
+              "RelativeToolTip": "..\\SerialWombatWindowsFormsLibrary\\Controls\\HBridgeControl.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-24T15:33:21.611Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ScaledOutputControl.cs",
+              "DocumentMoniker": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatWindowsFormsLibrary\\Controls\\ScaledOutputControl.cs",
+              "RelativeDocumentMoniker": "..\\SerialWombatWindowsFormsLibrary\\Controls\\ScaledOutputControl.cs",
+              "ToolTip": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatWindowsFormsLibrary\\Controls\\ScaledOutputControl.cs",
+              "RelativeToolTip": "..\\SerialWombatWindowsFormsLibrary\\Controls\\ScaledOutputControl.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAB0AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-24T14:24:03.918Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PIDControl.cs [Design]",
+              "DocumentMoniker": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatWindowsFormsLibrary\\Controls\\PIDControl.cs",
+              "RelativeDocumentMoniker": "..\\SerialWombatWindowsFormsLibrary\\Controls\\PIDControl.cs",
+              "ToolTip": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatWindowsFormsLibrary\\Controls\\PIDControl.cs [Design]",
+              "RelativeToolTip": "..\\SerialWombatWindowsFormsLibrary\\Controls\\PIDControl.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-24T13:46:50.86Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PIDControl.cs",
+              "DocumentMoniker": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatWindowsFormsLibrary\\Controls\\PIDControl.cs",
+              "RelativeDocumentMoniker": "..\\SerialWombatWindowsFormsLibrary\\Controls\\PIDControl.cs",
+              "ToolTip": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatWindowsFormsLibrary\\Controls\\PIDControl.cs",
+              "RelativeToolTip": "..\\SerialWombatWindowsFormsLibrary\\Controls\\PIDControl.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAmwD0AAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-24T13:47:47.797Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PIDForm.cs",
+              "DocumentMoniker": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatWindowsFormsLibrary\\Forms\\PIDForm.cs",
+              "RelativeDocumentMoniker": "..\\SerialWombatWindowsFormsLibrary\\Forms\\PIDForm.cs",
+              "ToolTip": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatWindowsFormsLibrary\\Forms\\PIDForm.cs",
+              "RelativeToolTip": "..\\SerialWombatWindowsFormsLibrary\\Forms\\PIDForm.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAAA7wFAAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-24T13:48:55.984Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "HBridgeForm.cs",
+              "DocumentMoniker": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatWindowsFormsLibrary\\Forms\\HBridgeForm.cs",
+              "RelativeDocumentMoniker": "..\\SerialWombatWindowsFormsLibrary\\Forms\\HBridgeForm.cs",
+              "ToolTip": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatWindowsFormsLibrary\\Forms\\HBridgeForm.cs",
+              "RelativeToolTip": "..\\SerialWombatWindowsFormsLibrary\\Forms\\HBridgeForm.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAQwCkAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-24T15:34:41.858Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "HBridgeControl.cs",
+              "DocumentMoniker": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatWindowsFormsLibrary\\Controls\\HBridgeControl.cs",
+              "RelativeDocumentMoniker": "..\\SerialWombatWindowsFormsLibrary\\Controls\\HBridgeControl.cs",
+              "ToolTip": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatWindowsFormsLibrary\\Controls\\HBridgeControl.cs",
+              "RelativeToolTip": "..\\SerialWombatWindowsFormsLibrary\\Controls\\HBridgeControl.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAgwG8AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-24T15:33:25.959Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "HBridgeForm.cs [Design]",
+              "DocumentMoniker": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatWindowsFormsLibrary\\Forms\\HBridgeForm.cs",
+              "RelativeDocumentMoniker": "..\\SerialWombatWindowsFormsLibrary\\Forms\\HBridgeForm.cs",
+              "ToolTip": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatWindowsFormsLibrary\\Forms\\HBridgeForm.cs [Design]",
+              "RelativeToolTip": "..\\SerialWombatWindowsFormsLibrary\\Forms\\HBridgeForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-24T15:34:37.065Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ScaledOutputControl.cs [Design]",
+              "DocumentMoniker": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatWindowsFormsLibrary\\Controls\\ScaledOutputControl.cs",
+              "RelativeDocumentMoniker": "..\\SerialWombatWindowsFormsLibrary\\Controls\\ScaledOutputControl.cs",
+              "ToolTip": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatWindowsFormsLibrary\\Controls\\ScaledOutputControl.cs [Design]",
+              "RelativeToolTip": "..\\SerialWombatWindowsFormsLibrary\\Controls\\ScaledOutputControl.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-24T14:23:17.377Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "PIDForm.cs [Design]",
+              "DocumentMoniker": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatWindowsFormsLibrary\\Forms\\PIDForm.cs",
+              "RelativeDocumentMoniker": "..\\SerialWombatWindowsFormsLibrary\\Forms\\PIDForm.cs",
+              "ToolTip": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatWindowsFormsLibrary\\Forms\\PIDForm.cs [Design]",
+              "RelativeToolTip": "..\\SerialWombatWindowsFormsLibrary\\Forms\\PIDForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-24T13:48:46.542Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "SerialWombatAbstractScaledOutput.cs",
+              "DocumentMoniker": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatClassLibrary\\SerialWombatClassLibrary\\SerialWombatAbstractScaledOutput.cs",
+              "RelativeDocumentMoniker": "..\\SerialWombatClassLibrary\\SerialWombatClassLibrary\\SerialWombatAbstractScaledOutput.cs",
+              "ToolTip": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatClassLibrary\\SerialWombatClassLibrary\\SerialWombatAbstractScaledOutput.cs",
+              "RelativeToolTip": "..\\SerialWombatClassLibrary\\SerialWombatClassLibrary\\SerialWombatAbstractScaledOutput.cs",
+              "ViewState": "AgIAAPEAAAAAAAAAAAAUwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-24T02:00:22.501Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "DataLoggerControl.cs",
               "DocumentMoniker": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatWindowsFormsLibrary\\Controls\\DataLoggerControl.cs",
               "RelativeDocumentMoniker": "..\\SerialWombatWindowsFormsLibrary\\Controls\\DataLoggerControl.cs",
@@ -54,6 +225,17 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-09T15:15:30.273Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "DataLoggerControl.cs [Design]",
+              "DocumentMoniker": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatWindowsFormsLibrary\\Controls\\DataLoggerControl.cs",
+              "RelativeDocumentMoniker": "..\\SerialWombatWindowsFormsLibrary\\Controls\\DataLoggerControl.cs",
+              "ToolTip": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatWindowsFormsLibrary\\Controls\\DataLoggerControl.cs [Design]",
+              "RelativeToolTip": "..\\SerialWombatWindowsFormsLibrary\\Controls\\DataLoggerControl.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T15:33:38.189Z"
             }
           ]
         }

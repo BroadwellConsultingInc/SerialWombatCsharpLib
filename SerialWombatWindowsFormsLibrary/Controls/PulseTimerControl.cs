@@ -140,11 +140,7 @@ namespace SerialWombatWindowsFormsLibrary.Controls
             }
         }
 
-        private void AnalogInputForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            ckbAutosample.Checked = false;
-        }
-
+       
         private void ckbAutosample_CheckedChanged(object sender, EventArgs e)
         {
             if (ckbAutosample.Checked)

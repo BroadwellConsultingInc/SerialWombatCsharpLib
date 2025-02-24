@@ -28,23 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             gbCapTouch = new System.Windows.Forms.GroupBox();
+            linkLabel2 = new System.Windows.Forms.LinkLabel();
+            linkLabel1 = new System.Windows.Forms.LinkLabel();
             bCalibrate = new System.Windows.Forms.Button();
-            publicDataMonitorControl1 = new PublicDataMonitorControl();
             groupBox3 = new System.Windows.Forms.GroupBox();
+            label1 = new System.Windows.Forms.Label();
             sbsiDelay = new SixteenBitSliderInput();
             sbsiChargeTime = new SixteenBitSliderInput();
             bGenConfigCode = new System.Windows.Forms.Button();
             bConfigure = new System.Windows.Forms.Button();
-            label1 = new System.Windows.Forms.Label();
+            toolTip1 = new System.Windows.Forms.ToolTip(components);
             gbCapTouch.SuspendLayout();
             groupBox3.SuspendLayout();
             SuspendLayout();
             // 
             // gbCapTouch
             // 
+            gbCapTouch.Controls.Add(linkLabel2);
+            gbCapTouch.Controls.Add(linkLabel1);
             gbCapTouch.Controls.Add(bCalibrate);
-            gbCapTouch.Controls.Add(publicDataMonitorControl1);
             gbCapTouch.Controls.Add(groupBox3);
             gbCapTouch.Location = new System.Drawing.Point(3, 3);
             gbCapTouch.Name = "gbCapTouch";
@@ -53,6 +57,28 @@
             gbCapTouch.TabStop = false;
             gbCapTouch.Text = "groupBox1";
             // 
+            // linkLabel2
+            // 
+            linkLabel2.AutoSize = true;
+            linkLabel2.Location = new System.Drawing.Point(276, 72);
+            linkLabel2.Name = "linkLabel2";
+            linkLabel2.Size = new System.Drawing.Size(80, 15);
+            linkLabel2.TabIndex = 34;
+            linkLabel2.TabStop = true;
+            linkLabel2.Text = "Tutorial Video";
+            linkLabel2.LinkClicked += linkLabel2_LinkClicked;
+            // 
+            // linkLabel1
+            // 
+            linkLabel1.AutoSize = true;
+            linkLabel1.Location = new System.Drawing.Point(274, 116);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new System.Drawing.Size(120, 15);
+            linkLabel1.TabIndex = 33;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "Class Documentation";
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
+            // 
             // bCalibrate
             // 
             bCalibrate.Location = new System.Drawing.Point(276, 34);
@@ -60,17 +86,9 @@
             bCalibrate.Size = new System.Drawing.Size(161, 23);
             bCalibrate.TabIndex = 4;
             bCalibrate.Text = "Measure Calibration";
+            toolTip1.SetToolTip(bCalibrate, "Interactively determine optimal touch setting for a sensor after configuration");
             bCalibrate.UseVisualStyleBackColor = true;
             bCalibrate.Click += bCalibrate_Click;
-            // 
-            // publicDataMonitorControl1
-            // 
-            publicDataMonitorControl1.AutoSize = true;
-            publicDataMonitorControl1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            publicDataMonitorControl1.Location = new System.Drawing.Point(6, 259);
-            publicDataMonitorControl1.Name = "publicDataMonitorControl1";
-            publicDataMonitorControl1.Size = new System.Drawing.Size(446, 427);
-            publicDataMonitorControl1.TabIndex = 3;
             // 
             // groupBox3
             // 
@@ -85,6 +103,15 @@
             groupBox3.TabIndex = 2;
             groupBox3.TabStop = false;
             groupBox3.Text = "Configure";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(115, 209);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(132, 15);
+            label1.TabIndex = 34;
+            label1.Text = "CodeGen Coming Soon";
             // 
             // sbsiDelay
             // 
@@ -133,15 +160,6 @@
             bConfigure.UseVisualStyleBackColor = true;
             bConfigure.Click += bConfigure_Click_1;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(115, 209);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(132, 15);
-            label1.TabIndex = 34;
-            label1.Text = "CodeGen Coming Soon";
-            // 
             // CapTouch18ABControl
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -169,5 +187,8 @@
         private PublicDataMonitorControl publicDataMonitorControl1;
         private System.Windows.Forms.Button bCalibrate;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

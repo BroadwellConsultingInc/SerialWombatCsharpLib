@@ -16,6 +16,7 @@ namespace SerialWombatWindowsFormsLibrary
     {
         public UInt16 lastTarget = 0;
         public SerialWombatAbstractScaledOutput ScaledOutput;
+        public string PinName = "PIDControl";
         public PIDControl()
         {
             InitializeComponent();
@@ -58,11 +59,11 @@ namespace SerialWombatWindowsFormsLibrary
         {
             addTextToClipboard(
                $@"//put this line in setup.
-                    {Name}.writePID({sbsiKp.value}, //Kp
+                    {PinName}.writePID({sbsiKp.value}, //Kp
                     {sbsiKi.value}, //Ki
                     {sbsiKd.value}, //Kd
                     {sbsiPIDTarget.value},  //Target Value
-                    {(ScaledOutputPeriod)edPIDPeriod.selectedItem});//Period
+                    SerialWombatAbstractScaledOutput::Period::{(ScaledOutputPeriod)edPIDPeriod.selectedItem});//Period
 ");
         }
 
@@ -80,7 +81,7 @@ namespace SerialWombatWindowsFormsLibrary
         private void bConfigurePID_Click(object sender, EventArgs e)
         {
             ScaledOutput.writePID(sbsiKp.value, sbsiKi.value, sbsiKd.value, sbsiPIDTarget.value, (ScaledOutputPeriod)edPIDPeriod.selectedItem,
-                swpdcPIDTargetSource.DataSourceValue);  
+                swpdcPIDTargetSource.DataSourceValue, ckbBiDirectional.Checked);  
             lastTarget = sbsiPIDTarget.value;
         }
 
@@ -92,7 +93,9 @@ namespace SerialWombatWindowsFormsLibrary
         private void bShowPIDGraphs_Click(object sender, EventArgs e)
         {
             PIDForm pf = new PIDForm();
+
             pf.setScaledOutput(ScaledOutput);
+            pf.pinName = PinName;
             pf.Show();
         }
     }

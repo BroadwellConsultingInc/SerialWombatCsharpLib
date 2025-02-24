@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -11,11 +12,11 @@ using System.Windows.Forms;
 using SerialWombat;
 
 namespace SerialWombatWindowsFormsLibrary
-{ 
+{
     public partial class MatrixKeypadControl : SerialWombatCodeGenerationControl
     {
-    SerialWombatChip SerialWombatChip;
-    public byte Pin;
+        SerialWombatChip SerialWombatChip;
+        public byte Pin;
         SerialWombatMatrixKeypad keypad;
 
 
@@ -28,9 +29,9 @@ namespace SerialWombatWindowsFormsLibrary
 
         Label[] lmatrix;
         public void begin(SerialWombatChip serialWombatChip, byte pin)
-    {
-        SerialWombatChip = serialWombatChip;
-        Pin = pin;
+        {
+            SerialWombatChip = serialWombatChip;
+            Pin = pin;
             keypad = new SerialWombatMatrixKeypad(SerialWombatChip);
             groupBox1.Text = $"Pin {pin} Keypad";
 
@@ -77,46 +78,50 @@ namespace SerialWombatWindowsFormsLibrary
                 Convert.ToByte(tbCol2.Text),
                     Convert.ToByte(tbCol3.Text),
                     PublicDataMode,
-                    QueueMode);
+                    QueueMode,(byte)nudKeyDelay.Value);
+            byte[] asciiText = Encoding.ASCII.GetBytes(tbAscii.Text);
+            for (byte i = 0; i < 16 && i < asciiText.Length; ++i)
+            {
+                keypad.writeAsciiTable(i, asciiText[i]);
+            }
 
-           
 
-}
+        }
 
         private void bSetQueueMask_Click(object sender, EventArgs e)
         {
             keypad.writeQueueMask(Convert.ToUInt16(tbMask.Text, 16));
-           
-            
-            }
+
+
+        }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (ckbAutosample.Checked)
             {
                 Thread t = new Thread(SampleThread);
-                t.Start();          
+                t.Start();
             }
 
         }
 
         void update()
-        { 
+        {
 
-         if (l0.InvokeRequired)
+            if (l0.InvokeRequired)
             {
                 var d = new SafeCallDelegate(update);
-        l0.Invoke(d, new object[] { });
+                l0.Invoke(d, new object[] { });
             }
             else
-{
+            {
                 UInt16 publicData = keypad.readPublicData();
 
                 if (rbBitmap.Checked)
                 {
                     for (int i = 0; i < 16; ++i)
                     {
-                        if ((publicData & (1<<i)) > 0)
+                        if ((publicData & (1 << i)) > 0)
                         {
                             lmatrix[i].BackColor = Color.LightGreen;
                         }
@@ -154,7 +159,7 @@ namespace SerialWombatWindowsFormsLibrary
                     }
                     k = keypad.read();
                 }
-            
+
             }
         }
         public void end()
@@ -162,7 +167,7 @@ namespace SerialWombatWindowsFormsLibrary
             ckbAutosample.Checked = false;
         }
 
-void SampleThread()
+        void SampleThread()
         {
             while (ckbAutosample.Checked)
             {
@@ -214,8 +219,17 @@ void SampleThread()
                 {Convert.ToByte(tbCol2.Text)}, // Col 2 pin
                     {Convert.ToByte(tbCol3.Text)}, // Col 3 pin
                     {PublicDataMode},  //Public data mode
-                    {QueueMode}); //Queue Mode
+                    {QueueMode}, //Queue Mode
+                    {nudKeyDelay.Value}); // Row Delay in mS
+
+                
 ";
+            byte[] asciiText = Encoding.ASCII.GetBytes(tbAscii.Text);
+            for (byte i = 0; i < 16 && i < asciiText.Length; ++i)
+            {
+                s += @$"           {Name}.writeAsciiTable({i}, (uint8_t)'{(Char)(asciiText[i])}');
+";
+            }
             Clipboard.SetText(s);
         }
 
@@ -228,5 +242,28 @@ void SampleThread()
 ";
             Clipboard.SetText(s);
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ProcessStartInfo processInfo = new ProcessStartInfo();
+            processInfo.FileName = "https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_serial_wombat_matrix_keypad.html";
+            processInfo.UseShellExecute = true;
+            Process.Start(processInfo);
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ProcessStartInfo processInfo = new ProcessStartInfo();
+            processInfo.FileName = "https://www.youtube.com/watch?v=hxLda6lBWNg";
+            processInfo.UseShellExecute = true;
+            Process.Start(processInfo);
+        }
+
+        private void bClear_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+        }
+
+       
     }
 }

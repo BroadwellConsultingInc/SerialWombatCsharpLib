@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using SerialWombat;
 using SerialWombatWindowsFormsLibrary;
 using SerialWombatSW18ABBootloader;
+using SerialWombatSW08BBootloader;
 using IntelHex;
 using System.Diagnostics;
 using System.Reflection;
@@ -248,6 +249,10 @@ namespace WombatPanelWindowsForms
         private delegate void SafeCallDelegate(SerialWombatPacket sent, SerialWombatPacket received);
         void LogData(SerialWombatPacket sent, SerialWombatPacket received)
         {
+            if (ckbIgnoreReads.Checked && received.Data[0] == 0x81)
+            {
+                return;
+            }
             if (tbLog.InvokeRequired)
             {
                 var d = new SafeCallDelegate(LogData);
@@ -255,6 +260,8 @@ namespace WombatPanelWindowsForms
             }
             else
             {
+
+               
                 string sd = "";
                 string rd = "";
                 if (ckbDecodeMessages.Checked)
@@ -353,10 +360,16 @@ namespace WombatPanelWindowsForms
                         cb.SelectedIndex = previousIndex;
                     }
                 }
-
-                graphicPinSelectorControl1.SerialWombatChip = ChipList.Last();
-                graphicPinSelectorControl1.Model = ChipList.Last().ModelEnum;
-                Text = ChipList.Last().ModelEnum.ToString() + $" On Serial Port {sps.SelectedPort}";
+                try
+                {
+                    graphicPinSelectorControl1.SerialWombatChip = ChipList.Last();
+                    graphicPinSelectorControl1.Model = ChipList.Last().ModelEnum;
+                    Text = ChipList.Last().ModelEnum.ToString() + $" On Serial Port {sps.SelectedPort}";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
 
 
             }
@@ -399,15 +412,31 @@ namespace WombatPanelWindowsForms
 
         private void tsmiDownloadNewHexFile_Click_1(object sender, EventArgs e)
         {
-            SerialWombatSW18ABBootloaderClient bl = 
-                new SerialWombatSW18ABBootloaderClient(ChipList.Last());
-            OpenFileDialog ofd = new OpenFileDialog();
-            if (ofd.ShowDialog() == DialogResult.OK)
+            if (ChipList.Last().isSW18())
             {
-                Bootload blf = new Bootload(ofd.FileName,ChipList.Last());
-                blf.alreadyInBoot = false;
-                
-                blf.Show();
+                SerialWombatSW18ABBootloaderClient bl =
+                    new SerialWombatSW18ABBootloaderClient(ChipList.Last());
+                OpenFileDialog ofd = new OpenFileDialog();
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    Bootload blf = new Bootload(ofd.FileName, ChipList.Last());
+                    blf.alreadyInBoot = false;
+
+                    blf.Show();
+                }
+            }
+            if (ChipList.Last().isSW08())
+            {
+                SerialWombatSW08BBootloaderClient bl =
+                   new SerialWombatSW08BBootloaderClient(ChipList.Last());
+                OpenFileDialog ofd = new OpenFileDialog();
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    Bootload blf = new Bootload(ofd.FileName, ChipList.Last());
+                    blf.alreadyInBoot = false;
+
+                    blf.Show();
+                }
             }
         }
 
@@ -542,6 +571,28 @@ namespace WombatPanelWindowsForms
                 blf.alreadyInBoot = false;
 
                 blf.Show();
+        }
+
+        private void createSW08BCArrayFromHexToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            if(ofd.ShowDialog() == DialogResult.OK)
+            {
+                HexData m = SerialWombat08BHexProcessor.readAndProcess(ofd.FileName);
+                string s = m.to32BitArray(0, 16384, true);
+
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.DefaultExt = ".c";
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    StreamWriter sw = new StreamWriter(sfd.FileName);
+                    sw.Write(s);
+
+                    sw.Close();
+                }
+
+
+            }
         }
     }
 

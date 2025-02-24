@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -32,11 +33,11 @@ namespace SerialWombatWindowsFormsLibrary.Controls
             Name = $"Pin{Pin}_CapTouch";
         }
 
-     
+
         private void bConfigure_Click_1(object sender, EventArgs e)
         {
             ct.begin(Pin, sbsiChargeTime.value, sbsiDelay.value);
-            
+
             publicDataMonitorControl1.begin(SerialWombatChip, Pin);
         }
 
@@ -149,6 +150,22 @@ namespace SerialWombatWindowsFormsLibrary.Controls
         public void end()
         {
             publicDataMonitorControl1.end();
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ProcessStartInfo processInfo = new ProcessStartInfo();
+            processInfo.FileName = "https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_serial_wombat18_cap_touch.html";
+            processInfo.UseShellExecute = true;
+            Process.Start(processInfo);
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ProcessStartInfo processInfo = new ProcessStartInfo();
+            processInfo.FileName = "https://www.youtube.com/watch?v=c4B0_DRVHs0";
+            processInfo.UseShellExecute = true;
+            Process.Start(processInfo);
         }
     }
 }

@@ -82,6 +82,10 @@ namespace SerialWombatWindowsFormsLibrary
                     {
                         outputColor = Color.FromArgb(255, outputColor.R / 8, outputColor.G / 8, outputColor.B / 8);
                     }
+                    if (ckbReverseRG.Checked)
+                    {
+                        outputColor = Color.FromArgb(255, outputColor.G, outputColor.R, outputColor.B);
+                    }
                     Ws2812.write((byte)ledNum, outputColor);
                     CodeGenerated(CodeGenerationPlatform.CSharp,
                $@"  // Write LED color
@@ -176,6 +180,10 @@ namespace SerialWombatWindowsFormsLibrary
                 {
                     colors[i] = l.BackColor;
                 }
+                if (ckbReverseRG.Checked)
+                {
+                    colors[i] = Color.FromArgb(255, colors[i].G, colors[i].R, colors[i].B);
+                }
                 Codegen += $" Color.FromArgb(255,{colors[i].R},{colors[i].G},{colors[i].B})," + Environment.NewLine;
                 ++i;
                 if (i == nudNumberOfLEDs.Value)
@@ -224,6 +232,25 @@ Ws2812.writeMode(SWWS2812Mode.ws2812ModeAnimation);
                 );
             Ws2812.writeMode(SWWS2812Mode.ws2812ModeChase);
 ");
+        }
+
+        private void bResend_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < nudNumberOfLEDs.Value; i++)
+            {
+                Color outputColor = labelArray[i].BackColor;
+                if (ckbReverseRG.Checked)
+                {
+                    outputColor = Color.FromArgb(255, outputColor.G, outputColor.R, outputColor.B);
+                }
+                Ws2812.write((byte)i, outputColor);
+
+            }
+        }
+
+        private void ckbReverseRG_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

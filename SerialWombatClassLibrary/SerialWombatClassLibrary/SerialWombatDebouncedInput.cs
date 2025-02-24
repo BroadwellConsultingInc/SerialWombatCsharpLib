@@ -77,7 +77,7 @@ public 		void  begin(byte pin, UInt16 debounce_mS, bool invert, bool usePullUp)
 public 		override UInt16  readDurationInTrueState_mS()
 		{
 
-			byte[] tx = { 201, _pin, 10, 1, 0x55, 0x55, 0x55, 0x55 };
+			byte[] tx = { 201, _pin, 10, 0, 0x55, 0x55, 0x55, 0x55 };
 			byte[] rx;
 			_sw.sendPacket(tx, out rx);
 
@@ -95,7 +95,7 @@ public 		override UInt16  readDurationInTrueState_mS()
 public 	override	UInt16  readDurationInFalseState_mS()
 		{
 
-			byte[] tx = { 201, _pin, 10, 1, 0x55, 0x55, 0x55, 0x55 };
+			byte[] tx = { 201, _pin, 10, 0, 0x55, 0x55, 0x55, 0x55 };
 			byte[] rx;
 			_sw.sendPacket(tx, out rx);
 
@@ -111,9 +111,9 @@ public 	override	UInt16  readDurationInFalseState_mS()
 			}
 		}
 
-public override		bool  readTransitionsState()
+		public override bool readTransitionsState(bool resetTransitions = true)
 		{
-			byte[] tx = { 201, _pin, 10, 1, 0x55, 0x55, 0x55, 0x55 };
+			byte[] tx = { 201, _pin, 10,resetTransitions?(byte)1:(byte)0, 0x55, 0x55, 0x55, 0x55 };
 			byte[] rx;
 			_sw.sendPacket(tx, out rx);
 			transitions = ((ushort)(256 * rx[5] + rx[4]));

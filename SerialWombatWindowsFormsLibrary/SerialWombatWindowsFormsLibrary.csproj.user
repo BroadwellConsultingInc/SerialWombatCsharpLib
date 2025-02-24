@@ -16,6 +16,9 @@
     <Compile Update="Controls\DataLoggerControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Controls\DebouncedInputControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Controls\EnumDropdown.cs">
       <SubType>UserControl</SubType>
     </Compile>

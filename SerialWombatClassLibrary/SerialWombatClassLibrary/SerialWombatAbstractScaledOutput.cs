@@ -210,8 +210,9 @@ namespace SerialWombat
 			return (0);
 		}
 
-		public Int16 writePID(UInt16 kp, UInt16 ki, UInt16 kd, UInt16 target, ScaledOutputPeriod sampleRate, byte targetPin = 255)
+		public Int16 writePID(UInt16 kp, UInt16 ki, UInt16 kd, UInt16 target, ScaledOutputPeriod sampleRate, byte targetPin = 255, bool biDirectional = false)
 		{
+			this.biDirectional= biDirectional;
 			{
 				byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_OUTPUTSCALE,
 			_pin,

@@ -47,7 +47,7 @@ namespace SerialWombat
 		/// Wombat resets its count to zero after this call.
 		/// 
 		/// \return TRUE or FALSE, current status of debounced input
-		public abstract bool readTransitionsState() ;
+		public abstract bool readTransitionsState(bool resetTransitions = true) ;
 		
 	}
 	

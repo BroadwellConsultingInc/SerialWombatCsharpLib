@@ -28,82 +28,84 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.lActual = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
-            this.SuspendLayout();
+            components = new System.ComponentModel.Container();
+            groupBox1 = new System.Windows.Forms.GroupBox();
+            lActual = new System.Windows.Forms.Label();
+            comboBox1 = new System.Windows.Forms.ComboBox();
+            label1 = new System.Windows.Forms.Label();
+            trackBar1 = new System.Windows.Forms.TrackBar();
+            toolTip1 = new System.Windows.Forms.ToolTip(components);
+            groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)trackBar1).BeginInit();
+            SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.lActual);
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.trackBar1);
-            this.groupBox1.Location = new System.Drawing.Point(8, 5);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(376, 114);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
-            // 
-            // trackBar1
-            // 
-            this.trackBar1.Location = new System.Drawing.Point(6, 54);
-            this.trackBar1.Maximum = 32;
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(364, 45);
-            this.trackBar1.TabIndex = 0;
-            this.trackBar1.Value = 1;
-            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(13, 15);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "1";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Hz",
-            "kHz",
-            "MHz"});
-            this.comboBox1.Location = new System.Drawing.Point(69, 26);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 23);
-            this.comboBox1.TabIndex = 2;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            groupBox1.Controls.Add(lActual);
+            groupBox1.Controls.Add(comboBox1);
+            groupBox1.Controls.Add(label1);
+            groupBox1.Controls.Add(trackBar1);
+            groupBox1.Location = new System.Drawing.Point(8, 5);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new System.Drawing.Size(376, 114);
+            groupBox1.TabIndex = 0;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "groupBox1";
             // 
             // lActual
             // 
-            this.lActual.AutoSize = true;
-            this.lActual.Location = new System.Drawing.Point(227, 28);
-            this.lActual.Name = "lActual";
-            this.lActual.Size = new System.Drawing.Size(0, 15);
-            this.lActual.TabIndex = 3;
+            lActual.AutoSize = true;
+            lActual.Location = new System.Drawing.Point(227, 28);
+            lActual.Name = "lActual";
+            lActual.Size = new System.Drawing.Size(0, 15);
+            lActual.TabIndex = 3;
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "Hz", "kHz", "MHz" });
+            comboBox1.Location = new System.Drawing.Point(69, 26);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new System.Drawing.Size(121, 23);
+            comboBox1.TabIndex = 2;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(18, 29);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(13, 15);
+            label1.TabIndex = 1;
+            label1.Text = "1";
+            // 
+            // trackBar1
+            // 
+            trackBar1.Location = new System.Drawing.Point(6, 54);
+            trackBar1.Maximum = 32;
+            trackBar1.Name = "trackBar1";
+            trackBar1.Size = new System.Drawing.Size(364, 45);
+            trackBar1.TabIndex = 0;
+            trackBar1.Value = 1;
+            trackBar1.Scroll += trackBar1_Scroll;
+            // 
+            // toolTip1
+            // 
+            toolTip1.ToolTipTitle = "Drag to configure output freqeuncy.  Actual frequency output will be displayed";
             // 
             // HSClockControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Controls.Add(this.groupBox1);
-            this.Name = "HSClockControl";
-            this.Size = new System.Drawing.Size(387, 122);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            AutoSize = true;
+            AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            Controls.Add(groupBox1);
+            Name = "HSClockControl";
+            Size = new System.Drawing.Size(387, 122);
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)trackBar1).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
@@ -113,5 +115,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.Label lActual;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

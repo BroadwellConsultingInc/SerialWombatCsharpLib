@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label6 = new System.Windows.Forms.Label();
             groupBox1 = new System.Windows.Forms.GroupBox();
             linkLabel2 = new System.Windows.Forms.LinkLabel();
@@ -54,6 +55,7 @@
             ckbAutosample = new System.Windows.Forms.CheckBox();
             bSample = new System.Windows.Forms.Button();
             bConfigure = new System.Windows.Forms.Button();
+            toolTip1 = new System.Windows.Forms.ToolTip(components);
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -131,6 +133,7 @@
             bGenCode.TabIndex = 30;
             bGenCode.TabStop = false;
             bGenCode.Text = "Gen Code";
+            toolTip1.SetToolTip(bGenCode, "Generate Arduino initalization code for Analog Input");
             bGenCode.UseVisualStyleBackColor = false;
             bGenCode.Click += button4_Click;
             // 
@@ -307,6 +310,7 @@
             ckbAutosample.Size = new System.Drawing.Size(90, 19);
             ckbAutosample.TabIndex = 3;
             ckbAutosample.Text = "Autosample";
+            toolTip1.SetToolTip(ckbAutosample, "Continuously read pin's public data and graph (Asynchronous reads)");
             ckbAutosample.UseVisualStyleBackColor = true;
             ckbAutosample.CheckedChanged += checkBox1_CheckedChanged;
             // 
@@ -318,6 +322,7 @@
             bSample.Size = new System.Drawing.Size(75, 23);
             bSample.TabIndex = 1;
             bSample.Text = "Sample";
+            toolTip1.SetToolTip(bSample, "Read one sample from the Pin mode and chart it");
             bSample.UseVisualStyleBackColor = true;
             bSample.Click += bSample_Click;
             // 
@@ -328,6 +333,7 @@
             bConfigure.Size = new System.Drawing.Size(75, 23);
             bConfigure.TabIndex = 0;
             bConfigure.Text = "Configure";
+            toolTip1.SetToolTip(bConfigure, "Set pin to Analog input and configure Average and Filter, and Public output type");
             bConfigure.UseVisualStyleBackColor = true;
             bConfigure.Click += bConfigure_Click;
             // 
@@ -374,5 +380,6 @@
         private System.Windows.Forms.Button bGenCode;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

@@ -245,7 +245,7 @@
             // edActive
             // 
             this.edActive.DropDownToolTip = "";
-            this.edActive.dropdowntype = "SerialWombatPinStates";
+            this.edActive.dropdowntype = "SerialWombatClassLibrary.SerialWombat.SerialWombatPinStates";
             this.edActive.Location = new System.Drawing.Point(6, 35);
             this.edActive.Name = "edActive";
             this.edActive.Size = new System.Drawing.Size(274, 35);
@@ -267,7 +267,7 @@
             // edInactive
             // 
             this.edInactive.DropDownToolTip = "";
-            this.edInactive.dropdowntype = "SerialWombatPinStates";
+            this.edInactive.dropdowntype = "SerialWombatClassLibrary.SerialWombat.SerialWombatPinStates";
             this.edInactive.Location = new System.Drawing.Point(6, 89);
             this.edInactive.Name = "edInactive";
             this.edInactive.Size = new System.Drawing.Size(274, 35);
@@ -315,7 +315,7 @@
             // edMode
             // 
             this.edMode.DropDownToolTip = "";
-            this.edMode.dropdowntype = "SerialWombat.PulseOnChangeModes";
+            this.edMode.dropdowntype = "SerialWombatClassLibrary.SerialWombat.PulseOnChangeModes";
             this.edMode.Location = new System.Drawing.Point(374, 150);
             this.edMode.Name = "edMode";
             this.edMode.Size = new System.Drawing.Size(274, 35);

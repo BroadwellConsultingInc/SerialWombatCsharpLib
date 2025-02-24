@@ -362,6 +362,7 @@
             this.pidControl1.Name = "pidControl1";
             this.pidControl1.Size = new System.Drawing.Size(367, 402);
             this.pidControl1.TabIndex = 0;
+
             // 
             // tpTimeout
             // 

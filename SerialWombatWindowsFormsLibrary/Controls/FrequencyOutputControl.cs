@@ -78,13 +78,13 @@ namespace SerialWombatWindowsFormsLibrary.Controls
                 SerialWombatFrequencyOutput {Name}(sw); // Your serial wombat chip may be named something else than sw
                 //Add this to  setup():
                                 {Name}.begin({Pin}, //Pin Number
-                                {sbsiDutyCycle.value}, // Duty Cycle (out of 65535)
-                                {sbsiMaxFrequency}, // Max Frequency in Hz (up to 65535)
-                                {ckbLowFrequency.Checked}); // Low Frequency
+                                {sbsiMaxFrequency.value}, // Max Frequency in Hz (up to 65535)
+                                {ckbLowFrequency.Checked},
+                                {sbsiDutyCycle.value}); // Duty Cycle (out of 65535)); // Low Frequency     
                                
 ";
            
-                s += $@" {Name}.writePublicData({Convert.ToUInt16(sbsiFrequency.Text)}); // Set period in uS
+                s += $@" {Name}.writePublicData({Convert.ToUInt16(sbsiFrequency.value)}); // Set period in uS
 ";
             
             s = s.Replace("True", "true");

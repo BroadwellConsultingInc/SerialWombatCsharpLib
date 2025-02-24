@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             groupBox1 = new System.Windows.Forms.GroupBox();
             bOff = new System.Windows.Forms.Button();
             gbConfigure = new System.Windows.Forms.GroupBox();
             bGenCode = new System.Windows.Forms.Button();
-            label4 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
             edDriver = new EnumDropdown();
-            edOffState = new EnumDropdown();
             label2 = new System.Windows.Forms.Label();
             textBox1 = new System.Windows.Forms.TextBox();
             pddSecondPin = new SerialWombatPinDropdown();
             label1 = new System.Windows.Forms.Label();
             bConfigure = new System.Windows.Forms.Button();
             sbsiPower = new SixteenBitSliderInput();
+            toolTip1 = new System.Windows.Forms.ToolTip(components);
             groupBox1.SuspendLayout();
             gbConfigure.SuspendLayout();
             SuspendLayout();
@@ -67,16 +67,15 @@
             bOff.Size = new System.Drawing.Size(75, 23);
             bOff.TabIndex = 1;
             bOff.Text = "Off";
+            toolTip1.SetToolTip(bOff, "Set Power to 32768 (Off)");
             bOff.UseVisualStyleBackColor = true;
             bOff.Click += bOff_Click;
             // 
             // gbConfigure
             // 
             gbConfigure.Controls.Add(bGenCode);
-            gbConfigure.Controls.Add(label4);
             gbConfigure.Controls.Add(label3);
             gbConfigure.Controls.Add(edDriver);
-            gbConfigure.Controls.Add(edOffState);
             gbConfigure.Controls.Add(label2);
             gbConfigure.Controls.Add(textBox1);
             gbConfigure.Controls.Add(pddSecondPin);
@@ -98,46 +97,29 @@
             bGenCode.TabIndex = 5;
             bGenCode.TabStop = false;
             bGenCode.Text = "Gen Code";
+            toolTip1.SetToolTip(bGenCode, "Generate Arduino Initialization code for H Bridge module");
             bGenCode.UseVisualStyleBackColor = false;
             bGenCode.Click += bGenCode_Click;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new System.Drawing.Point(6, 104);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(50, 15);
-            label4.TabIndex = 10;
-            label4.Text = "OffState";
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Location = new System.Drawing.Point(13, 64);
             label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(38, 15);
+            label3.Size = new System.Drawing.Size(72, 15);
             label3.TabIndex = 10;
-            label3.Text = "Driver";
+            label3.Text = "Driver Mode";
             // 
             // edDriver
             // 
             edDriver.DropDownToolTip = "";
-            edDriver.dropdowntype = "SerialWombatClassLibrary.SerialWombat.SerialWombatHBridgeDriverChip";
+            edDriver.dropdowntype = "SerialWombatClassLibrary.SerialWombat.SerialWombatHBridgeDriverMode";
             edDriver.Location = new System.Drawing.Point(77, 54);
             edDriver.Name = "edDriver";
             edDriver.Size = new System.Drawing.Size(136, 35);
             edDriver.TabIndex = 2;
-            edDriver.Value = 0;
-            // 
-            // edOffState
-            // 
-            edOffState.DropDownToolTip = "";
-            edOffState.dropdowntype = "SerialWombatClassLibrary.SerialWombat.SerialWombatHBridgeOffState";
-            edOffState.Location = new System.Drawing.Point(77, 95);
-            edOffState.Name = "edOffState";
-            edOffState.Size = new System.Drawing.Size(136, 35);
-            edOffState.TabIndex = 2;
-            edOffState.Value = -1;
+            toolTip1.SetToolTip(edDriver, "Operation mode (Consult datasheet of H Bridge to deterine slow decay mode)");
+            edDriver.Value = -1;
             // 
             // label2
             // 
@@ -155,6 +137,7 @@
             textBox1.Size = new System.Drawing.Size(100, 23);
             textBox1.TabIndex = 3;
             textBox1.Text = "1000";
+            toolTip1.SetToolTip(textBox1, "Frequency of PWM output");
             // 
             // pddSecondPin
             // 
@@ -166,6 +149,7 @@
             pddSecondPin.PinType = SerialWombat.SerialWombatPinType.EnhancedPerformanceOutputPin;
             pddSecondPin.Size = new System.Drawing.Size(66, 26);
             pddSecondPin.TabIndex = 0;
+            toolTip1.SetToolTip(pddSecondPin, "Second Pin to configure as H Bridge PWM");
             // 
             // label1
             // 
@@ -183,6 +167,7 @@
             bConfigure.Size = new System.Drawing.Size(75, 23);
             bConfigure.TabIndex = 4;
             bConfigure.Text = "Configure";
+            toolTip1.SetToolTip(bConfigure, "Set Pin to H Bridge mode, configure Second pin, Driver Mode, and Period");
             bConfigure.UseVisualStyleBackColor = true;
             bConfigure.Click += bConfigure_Click;
             // 
@@ -196,7 +181,7 @@
             sbsiPower.Size = new System.Drawing.Size(328, 63);
             sbsiPower.TabIndex = 0;
             sbsiPower.Text = "Power";
-            sbsiPower.TextBoxHint = "";
+            sbsiPower.TextBoxHint = "Output ( 0 = Full Left, 32768 = off, 65535 = Full Right)";
             sbsiPower.value = (ushort)32768;
             // 
             // HBridgeControl
@@ -227,9 +212,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private EnumDropdown edOffState;
         private System.Windows.Forms.Button bGenCode;
         private EnumDropdown edDriver;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

@@ -37,7 +37,7 @@ namespace SerialWombatWindowsFormsLibrary
         public PlottableSignal signalPlotProportionalEffortData;
         public PlottableSignal signalPlotDerivativeEffortData;
         private delegate void SafeCallDelegate();
-
+        
         public PIDForm()
         {
             InitializeComponent();
@@ -75,6 +75,12 @@ namespace SerialWombatWindowsFormsLibrary
             }
         }
 
+        public string pinName
+        {
+            get { return pidControl1.PinName; }
+            set { pidControl1.PinName = value; }
+        }
+        
         void SampleThread()
         {
             while (ckbAutoUpdate.Checked)

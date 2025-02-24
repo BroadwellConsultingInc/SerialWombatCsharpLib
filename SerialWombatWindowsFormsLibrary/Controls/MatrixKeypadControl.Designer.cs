@@ -28,8 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tbRow0 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbAscii = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.nudKeyDelay = new System.Windows.Forms.NumericUpDown();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.button1 = new System.Windows.Forms.Button();
             this.bGenCodeConfigure = new System.Windows.Forms.Button();
             this.lD = new System.Windows.Forms.Label();
@@ -70,7 +77,9 @@
             this.tbCol2 = new System.Windows.Forms.TextBox();
             this.tbCol1 = new System.Windows.Forms.TextBox();
             this.tbCol0 = new System.Windows.Forms.TextBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudKeyDelay)).BeginInit();
             this.gbQueued.SuspendLayout();
             this.gbPublicData.SuspendLayout();
             this.SuspendLayout();
@@ -81,9 +90,16 @@
             this.tbRow0.Name = "tbRow0";
             this.tbRow0.Size = new System.Drawing.Size(47, 23);
             this.tbRow0.TabIndex = 4;
+            this.toolTip1.SetToolTip(this.tbRow0, "Row 0 Pin");
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.tbAscii);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.nudKeyDelay);
+            this.groupBox1.Controls.Add(this.linkLabel2);
+            this.groupBox1.Controls.Add(this.linkLabel1);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.bGenCodeConfigure);
             this.groupBox1.Controls.Add(this.lD);
@@ -126,6 +142,69 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(195, 350);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(74, 15);
+            this.label3.TabIndex = 44;
+            this.label3.Text = "ASCII Values:";
+            // 
+            // tbAscii
+            // 
+            this.tbAscii.Location = new System.Drawing.Point(275, 350);
+            this.tbAscii.Name = "tbAscii";
+            this.tbAscii.Size = new System.Drawing.Size(133, 23);
+            this.tbAscii.TabIndex = 43;
+            this.tbAscii.Text = "123A456B789C*0#D";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(339, 110);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(92, 15);
+            this.label2.TabIndex = 42;
+            this.label2.Text = "Row Delay (ms):";
+            // 
+            // nudKeyDelay
+            // 
+            this.nudKeyDelay.Location = new System.Drawing.Point(338, 130);
+            this.nudKeyDelay.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.nudKeyDelay.Name = "nudKeyDelay";
+            this.nudKeyDelay.Size = new System.Drawing.Size(70, 23);
+            this.nudKeyDelay.TabIndex = 41;
+            this.nudKeyDelay.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Location = new System.Drawing.Point(338, 77);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(80, 15);
+            this.linkLabel2.TabIndex = 40;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "Tutorial Video";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(338, 49);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(120, 15);
+            this.linkLabel1.TabIndex = 39;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Class Documentation";
+            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.MediumPurple;
@@ -135,6 +214,7 @@
             this.button1.TabIndex = 15;
             this.button1.TabStop = false;
             this.button1.Text = "Gen Code";
+            this.toolTip1.SetToolTip(this.button1, "Generate Arduino initialization code for Arduino into Windows Clipboard");
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -318,6 +398,7 @@
             this.bClear.TabIndex = 16;
             this.bClear.Text = "Clear";
             this.bClear.UseVisualStyleBackColor = true;
+            this.bClear.Click += new System.EventHandler(this.bClear_Click);
             // 
             // textBox1
             // 
@@ -353,6 +434,7 @@
             this.tbMask.Size = new System.Drawing.Size(100, 23);
             this.tbMask.TabIndex = 13;
             this.tbMask.Text = "0xFFFF";
+            this.toolTip1.SetToolTip(this.tbMask, "Binary mask to determine which keys are queued (LSB is Index 0)");
             // 
             // gbQueued
             // 
@@ -375,6 +457,7 @@
             this.rbQueueASCII.TabIndex = 0;
             this.rbQueueASCII.TabStop = true;
             this.rbQueueASCII.Text = "ASCII";
+            this.toolTip1.SetToolTip(this.rbQueueASCII, "Data Queued is ASCII value of queued data");
             this.rbQueueASCII.UseVisualStyleBackColor = true;
             // 
             // rbQueueIndex
@@ -385,16 +468,18 @@
             this.rbQueueIndex.Size = new System.Drawing.Size(54, 19);
             this.rbQueueIndex.TabIndex = 1;
             this.rbQueueIndex.Text = "Index";
+            this.toolTip1.SetToolTip(this.rbQueueIndex, "Queued data is index of pressed keys (0-15)");
             this.rbQueueIndex.UseVisualStyleBackColor = true;
             // 
             // ckbAutosample
             // 
             this.ckbAutosample.AutoSize = true;
-            this.ckbAutosample.Location = new System.Drawing.Point(253, 359);
+            this.ckbAutosample.Location = new System.Drawing.Point(153, 370);
             this.ckbAutosample.Name = "ckbAutosample";
             this.ckbAutosample.Size = new System.Drawing.Size(91, 19);
             this.ckbAutosample.TabIndex = 12;
             this.ckbAutosample.Text = "AutoSample";
+            this.toolTip1.SetToolTip(this.ckbAutosample, "Constantlly read queue and put results in Text box below");
             this.ckbAutosample.UseVisualStyleBackColor = true;
             this.ckbAutosample.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
@@ -421,6 +506,7 @@
             this.rbBitmap.TabIndex = 0;
             this.rbBitmap.TabStop = true;
             this.rbBitmap.Text = "Bitmap of Currently Pressed";
+            this.toolTip1.SetToolTip(this.rbBitmap, "Public data changes as 16 different bits indicating all buttons\' state");
             this.rbBitmap.UseVisualStyleBackColor = true;
             // 
             // rbAscii
@@ -431,6 +517,7 @@
             this.rbAscii.Size = new System.Drawing.Size(152, 19);
             this.rbAscii.TabIndex = 3;
             this.rbAscii.Text = "ASCII of last key pressed";
+            this.toolTip1.SetToolTip(this.rbAscii, "ASCII value of Keypad assuming standard 0-9#*ABCD keypad");
             this.rbAscii.UseVisualStyleBackColor = true;
             // 
             // rbCurrentKey
@@ -441,6 +528,7 @@
             this.rbCurrentKey.Size = new System.Drawing.Size(194, 19);
             this.rbCurrentKey.TabIndex = 2;
             this.rbCurrentKey.Text = "Current Key Pressed (16 = none)";
+            this.toolTip1.SetToolTip(this.rbCurrentKey, "Index of key currently pressed (0-15) or none (16)");
             this.rbCurrentKey.UseVisualStyleBackColor = true;
             // 
             // rbLastKey
@@ -451,6 +539,7 @@
             this.rbLastKey.Size = new System.Drawing.Size(111, 19);
             this.rbLastKey.TabIndex = 1;
             this.rbLastKey.Text = "Last Key Pressed";
+            this.toolTip1.SetToolTip(this.rbLastKey, "Index of last key pressed (0-15)");
             this.rbLastKey.UseVisualStyleBackColor = true;
             // 
             // bConfigure
@@ -469,6 +558,7 @@
             this.tbRow3.Name = "tbRow3";
             this.tbRow3.Size = new System.Drawing.Size(47, 23);
             this.tbRow3.TabIndex = 7;
+            this.toolTip1.SetToolTip(this.tbRow3, "Row 3 Pin");
             // 
             // tbRow2
             // 
@@ -476,6 +566,7 @@
             this.tbRow2.Name = "tbRow2";
             this.tbRow2.Size = new System.Drawing.Size(47, 23);
             this.tbRow2.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.tbRow2, "Row 2 Pin");
             // 
             // tbRow1
             // 
@@ -483,6 +574,7 @@
             this.tbRow1.Name = "tbRow1";
             this.tbRow1.Size = new System.Drawing.Size(47, 23);
             this.tbRow1.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.tbRow1, "Row 1 Pin");
             // 
             // tbCol3
             // 
@@ -490,6 +582,7 @@
             this.tbCol3.Name = "tbCol3";
             this.tbCol3.Size = new System.Drawing.Size(47, 23);
             this.tbCol3.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.tbCol3, "Column 3 Pin");
             // 
             // tbCol2
             // 
@@ -497,6 +590,7 @@
             this.tbCol2.Name = "tbCol2";
             this.tbCol2.Size = new System.Drawing.Size(47, 23);
             this.tbCol2.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.tbCol2, "Column 2 Pin");
             // 
             // tbCol1
             // 
@@ -504,6 +598,7 @@
             this.tbCol1.Name = "tbCol1";
             this.tbCol1.Size = new System.Drawing.Size(47, 23);
             this.tbCol1.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.tbCol1, "Column 1 Pin");
             // 
             // tbCol0
             // 
@@ -511,6 +606,7 @@
             this.tbCol0.Name = "tbCol0";
             this.tbCol0.Size = new System.Drawing.Size(47, 23);
             this.tbCol0.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.tbCol0, "Column 0 pin");
             // 
             // MatrixKeypadControl
             // 
@@ -522,6 +618,7 @@
             this.Size = new System.Drawing.Size(470, 565);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudKeyDelay)).EndInit();
             this.gbQueued.ResumeLayout(false);
             this.gbQueued.PerformLayout();
             this.gbPublicData.ResumeLayout(false);
@@ -574,5 +671,12 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button bGenCodeConfigure;
+        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.NumericUpDown nudKeyDelay;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox tbAscii;
     }
 }

@@ -92,6 +92,13 @@ namespace SerialWombatWindowsFormsLibrary
                             pdTx.PinType = SerialWombatPinType.EnhancedPerformanceOutputPin;
                             pdTx.begin(SerialWombatChip);
                         }
+                        else if (SerialWombatChip.isSW08())
+                        {
+                            pdRx.PinType = SerialWombatPinType.InputPin;
+                            pdRx.begin(SerialWombatChip);
+                            pdTx.PinType = SerialWombatPinType.OutputPin;
+                            pdRx.begin(SerialWombatChip);
+                        }
                         else
                         {
                             pdRx.PinType = SerialWombatPinType.InputPin;

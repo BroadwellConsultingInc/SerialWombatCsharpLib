@@ -334,7 +334,7 @@ namespace SerialWombat
         }
         public UInt16 readSupplyVoltage_mV()
         {
-            if (isSW18())
+            if (isSW18() || isSW08())
             {
                 _supplyVoltagemV = readPublicData(SerialWombatDataSources.SW_DATA_SOURCE_VCC_mVOLTS);
             }
@@ -505,7 +505,10 @@ namespace SerialWombat
         {
             return (model[1] == '1' && model[2] == '8');
         }
-
+        public bool isSW08()
+        {
+            return (model[1] == '0' && model[2] == '8');
+        }
         public void eraseFlashPage(UInt32 address)
         {
             byte[] tx = { 0xA4, 0, (byte)(address & 0xFF), (byte)(address >> 8), (byte)((address >> 16) & 0xFF), (byte)((address >> 24) & 0xFF) };
@@ -971,6 +974,16 @@ namespace SerialWombat
                     }
                     return (ints);
                 }
+                else if (isSW08())
+                {
+                    int[] ints = new int[8];
+                    for (int i = 0; i < 8; ++i)
+                    {
+                        ints[i] = i;
+                    }
+                    return (ints);
+
+                }
                 else
                 {
                     int[] ints = new int[4];
@@ -994,6 +1007,16 @@ namespace SerialWombat
                         ints[i] = i;
                     }
                     return (ints);
+                }
+                else if (isSW08())
+                {
+                    int[] ints = new int[8];
+                    for (int i = 0; i < 8; ++i)
+                    {
+                        ints[i] = i;
+                    }
+                    return (ints);
+
                 }
                 else
                 {

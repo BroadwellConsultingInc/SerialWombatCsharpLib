@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
+using System.Security.Principal;
 using System.Text;
+using System.Threading.Tasks;
 
 /*
 Copyright 2022 Broadwell Consulting Inc.
@@ -131,7 +134,7 @@ the last button index pressed or 16 if no button is pressed, or ASCII of last bu
 		/// \param bufferMode 0: Public data is Binary of 16 keys (Default)  1:  Public data is last key index pressed  2:  Public data is last key pressed or 16 for no key index  3: Public data is Ascii of last key pressed 
 		/// \param queueMode 0: Button presses are queued as indexes 1: Button Presses are queued as ASCII
 
-		public Int16 begin(byte controlPin, byte row0pin, byte row1pin, byte row2pin, byte row3pin, byte column0pin, byte column1pin, byte column2pin, byte column3pin, byte bufferMode = 0, byte queueMode = 1)
+		public Int16 begin(byte controlPin, byte row0pin, byte row1pin, byte row2pin, byte row3pin, byte column0pin, byte column1pin, byte column2pin, byte column3pin, byte bufferMode = 0, byte queueMode = 1,byte rowDelay = 5)
 		{
 			_pin = controlPin;
 
@@ -157,7 +160,28 @@ the last button index pressed or 16 if no button is pressed, or ASCII of last bu
 						column3pin,
 						bufferMode,
 						queueMode };
-			return _sw.sendPacket(tx5);
+            result = _sw.sendPacket(tx5);
+            if (result < 0)
+            {
+                return result;
+            }
+
+            byte[] tx8 = { (byte)SerialWombatCommands.CONFIGURE_PIN_MODE8,
+                        _pin,
+                        (byte)_pinMode ,
+                        rowDelay,
+                        0x55,
+                        0x55,
+                        0x55,
+                        0x55 };
+            result = _sw.sendPacket(tx8);
+            if (result < 0)
+            {
+                return result;
+            }
+
+
+            return _sw.sendPacket(tx8);
 		}
 
 		/// \brief Set a binary mask for which keys are added to Queue
@@ -178,6 +202,15 @@ the last button index pressed or 16 if no button is pressed, or ASCII of last bu
 		(byte)(mask & 0xFF),(byte)(mask>>8),0x55,0x55,0x55 };
 			return _sw.sendPacket(tx);
 		}
+
+		public Int16 writeAsciiTable(byte tableIndex, byte asciiValue)
+		{
+            byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_MODE9,
+				_pin, (byte)_pinMode,
+				tableIndex,asciiValue,0x55,0x55,0x55 };
+            return _sw.sendPacket(tx);
+        }
+
 		/// \brief Queries the SerialWombatMatrixKeypad for number bytes available to read
 		/// \return Number of bytes available to read
 		public int available()
@@ -379,7 +412,7 @@ the last button index pressed or 16 if no button is pressed, or ASCII of last bu
 			return (0);
 		}
 
-		override public bool readTransitionsState()
+		override public bool readTransitionsState(bool resetTransitions = true)
 		{
 			return digitalRead();
 		}

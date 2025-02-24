@@ -28,167 +28,173 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PIDControl));
-            this.bUpdateTargetCI = new System.Windows.Forms.Button();
-            this.bResetIntegrator = new System.Windows.Forms.Button();
-            this.bPIDUpdateTarget = new System.Windows.Forms.Button();
-            this.sbsiKp = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.sbsiPIDTarget = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
-            this.bGenPIDCode = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.bConfigurePID = new System.Windows.Forms.Button();
-            this.sbsiKd = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
-            this.edPIDPeriod = new SerialWombatWindowsFormsLibrary.EnumDropdown();
-            this.sbsiKi = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
-            this.bShowPIDGraphs = new System.Windows.Forms.Button();
+            bUpdateTargetCI = new System.Windows.Forms.Button();
+            bResetIntegrator = new System.Windows.Forms.Button();
+            bPIDUpdateTarget = new System.Windows.Forms.Button();
+            sbsiKp = new SixteenBitSliderInput();
+            textBox2 = new System.Windows.Forms.TextBox();
+            sbsiPIDTarget = new SixteenBitSliderInput();
+            bGenPIDCode = new System.Windows.Forms.Button();
+            label6 = new System.Windows.Forms.Label();
+            bConfigurePID = new System.Windows.Forms.Button();
+            sbsiKd = new SixteenBitSliderInput();
+            edPIDPeriod = new EnumDropdown();
+            sbsiKi = new SixteenBitSliderInput();
+            bShowPIDGraphs = new System.Windows.Forms.Button();
             this.swpdcPIDTargetSource = new SerialWombatWindowsFormsLibrary.SerialWombatPublicDataControl();
-            this.label1 = new System.Windows.Forms.Label();
-            this.SuspendLayout();
+            label1 = new System.Windows.Forms.Label();
+            ckbBiDirectional = new System.Windows.Forms.CheckBox();
+            toolTip1 = new System.Windows.Forms.ToolTip(components);
+            SuspendLayout();
             // 
             // bUpdateTargetCI
             // 
-            this.bUpdateTargetCI.Location = new System.Drawing.Point(15, 237);
-            this.bUpdateTargetCI.Name = "bUpdateTargetCI";
-            this.bUpdateTargetCI.Size = new System.Drawing.Size(139, 23);
-            this.bUpdateTargetCI.TabIndex = 4;
-            this.bUpdateTargetCI.Text = "Update Target, Clear I";
-            this.bUpdateTargetCI.UseVisualStyleBackColor = true;
-            this.bUpdateTargetCI.Click += new System.EventHandler(this.bUpdateTargetCI_Click);
+            bUpdateTargetCI.Location = new System.Drawing.Point(15, 237);
+            bUpdateTargetCI.Name = "bUpdateTargetCI";
+            bUpdateTargetCI.Size = new System.Drawing.Size(139, 23);
+            bUpdateTargetCI.TabIndex = 4;
+            bUpdateTargetCI.Text = "Update Target, Clear I";
+            toolTip1.SetToolTip(bUpdateTargetCI, "Write the target value to the Serial Wombat Chip and reset integrator to 0");
+            bUpdateTargetCI.UseVisualStyleBackColor = true;
+            bUpdateTargetCI.Click += bUpdateTargetCI_Click;
             // 
             // bResetIntegrator
             // 
-            this.bResetIntegrator.Location = new System.Drawing.Point(129, 297);
-            this.bResetIntegrator.Name = "bResetIntegrator";
-            this.bResetIntegrator.Size = new System.Drawing.Size(106, 23);
-            this.bResetIntegrator.TabIndex = 8;
-            this.bResetIntegrator.Text = "Reset Integrator";
-            this.bResetIntegrator.UseVisualStyleBackColor = true;
-            this.bResetIntegrator.Click += new System.EventHandler(this.bResetIntegrator_Click);
+            bResetIntegrator.Location = new System.Drawing.Point(129, 297);
+            bResetIntegrator.Name = "bResetIntegrator";
+            bResetIntegrator.Size = new System.Drawing.Size(106, 23);
+            bResetIntegrator.TabIndex = 8;
+            bResetIntegrator.Text = "Reset Integrator";
+            toolTip1.SetToolTip(bResetIntegrator, "Reset Integrator to 0");
+            bResetIntegrator.UseVisualStyleBackColor = true;
+            bResetIntegrator.Click += bResetIntegrator_Click;
             // 
             // bPIDUpdateTarget
             // 
-            this.bPIDUpdateTarget.Location = new System.Drawing.Point(177, 237);
-            this.bPIDUpdateTarget.Name = "bPIDUpdateTarget";
-            this.bPIDUpdateTarget.Size = new System.Drawing.Size(92, 23);
-            this.bPIDUpdateTarget.TabIndex = 5;
-            this.bPIDUpdateTarget.Text = "Update Target";
-            this.bPIDUpdateTarget.UseVisualStyleBackColor = true;
-            this.bPIDUpdateTarget.Click += new System.EventHandler(this.bPIDUpdateTarget_Click);
+            bPIDUpdateTarget.Location = new System.Drawing.Point(177, 237);
+            bPIDUpdateTarget.Name = "bPIDUpdateTarget";
+            bPIDUpdateTarget.Size = new System.Drawing.Size(92, 23);
+            bPIDUpdateTarget.TabIndex = 5;
+            bPIDUpdateTarget.Text = "Update Target";
+            toolTip1.SetToolTip(bPIDUpdateTarget, "Write the target value to the Serial Wombat Chip without changing the integrator");
+            bPIDUpdateTarget.UseVisualStyleBackColor = true;
+            bPIDUpdateTarget.Click += bPIDUpdateTarget_Click;
             // 
             // sbsiKp
             // 
-            this.sbsiKp.Location = new System.Drawing.Point(3, 3);
-            this.sbsiKp.Maximum = 65535;
-            this.sbsiKp.Minimum = 0;
-            this.sbsiKp.Name = "sbsiKp";
-            this.sbsiKp.Size = new System.Drawing.Size(311, 56);
-            this.sbsiKp.TabIndex = 0;
-            this.sbsiKp.Text = "kP";
-            this.sbsiKp.TextBoxHint = "The proportional constant applied to the sum of the error, 1/ki * error sum, and " +
-    "kd * derivative.  Scaled to 1/256ths";
-            this.sbsiKp.value = ((ushort)(256));
+            sbsiKp.Location = new System.Drawing.Point(3, 3);
+            sbsiKp.Maximum = 65535;
+            sbsiKp.Minimum = 0;
+            sbsiKp.Name = "sbsiKp";
+            sbsiKp.Size = new System.Drawing.Size(311, 56);
+            sbsiKp.TabIndex = 0;
+            sbsiKp.Text = "kP";
+            sbsiKp.TextBoxHint = "The proportional constant applied to the sum of the error, 1/ki * error sum, and kd * derivative.  Scaled to 1/256ths";
+            sbsiKp.value = (ushort)256;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(20, 357);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox2.Size = new System.Drawing.Size(344, 42);
-            this.textBox2.TabIndex = 42;
-            this.textBox2.TabStop = false;
-            this.textBox2.Text = resources.GetString("textBox2.Text");
+            textBox2.Location = new System.Drawing.Point(20, 357);
+            textBox2.Multiline = true;
+            textBox2.Name = "textBox2";
+            textBox2.ReadOnly = true;
+            textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            textBox2.Size = new System.Drawing.Size(344, 42);
+            textBox2.TabIndex = 42;
+            textBox2.TabStop = false;
+            textBox2.Text = resources.GetString("textBox2.Text");
             // 
             // sbsiPIDTarget
             // 
-            this.sbsiPIDTarget.Location = new System.Drawing.Point(6, 173);
-            this.sbsiPIDTarget.Maximum = 65535;
-            this.sbsiPIDTarget.Minimum = 0;
-            this.sbsiPIDTarget.Name = "sbsiPIDTarget";
-            this.sbsiPIDTarget.Size = new System.Drawing.Size(311, 58);
-            this.sbsiPIDTarget.TabIndex = 3;
-            this.sbsiPIDTarget.Text = "Target Value";
-            this.sbsiPIDTarget.TextBoxHint = "The value the output will attempt to control the input to";
-            this.sbsiPIDTarget.value = ((ushort)(0));
+            sbsiPIDTarget.Location = new System.Drawing.Point(6, 173);
+            sbsiPIDTarget.Maximum = 65535;
+            sbsiPIDTarget.Minimum = 0;
+            sbsiPIDTarget.Name = "sbsiPIDTarget";
+            sbsiPIDTarget.Size = new System.Drawing.Size(311, 58);
+            sbsiPIDTarget.TabIndex = 3;
+            sbsiPIDTarget.Text = "Target Value";
+            sbsiPIDTarget.TextBoxHint = "The value the output will attempt to control the input to";
+            sbsiPIDTarget.value = (ushort)0;
             // 
             // bGenPIDCode
             // 
-            this.bGenPIDCode.BackColor = System.Drawing.Color.MediumPurple;
-            this.bGenPIDCode.Location = new System.Drawing.Point(290, 237);
-            this.bGenPIDCode.Name = "bGenPIDCode";
-            this.bGenPIDCode.Size = new System.Drawing.Size(74, 47);
-            this.bGenPIDCode.TabIndex = 11;
-            this.bGenPIDCode.Text = "Gen PID Code";
-            this.bGenPIDCode.UseVisualStyleBackColor = false;
-            this.bGenPIDCode.Click += new System.EventHandler(this.bGenPIDCode_Click);
+            bGenPIDCode.BackColor = System.Drawing.Color.MediumPurple;
+            bGenPIDCode.Location = new System.Drawing.Point(275, 237);
+            bGenPIDCode.Name = "bGenPIDCode";
+            bGenPIDCode.Size = new System.Drawing.Size(89, 23);
+            bGenPIDCode.TabIndex = 11;
+            bGenPIDCode.Text = "Gen PID Code";
+            toolTip1.SetToolTip(bGenPIDCode, "Generate Arduino initialization code for PID.");
+            bGenPIDCode.UseVisualStyleBackColor = false;
+            bGenPIDCode.Click += bGenPIDCode_Click;
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(37, 269);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(86, 15);
-            this.label6.TabIndex = 37;
-            this.label6.Text = "Sample Period:";
+            label6.AutoSize = true;
+            label6.Location = new System.Drawing.Point(6, 269);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(86, 15);
+            label6.TabIndex = 37;
+            label6.Text = "Sample Period:";
             // 
             // bConfigurePID
             // 
-            this.bConfigurePID.Location = new System.Drawing.Point(15, 297);
-            this.bConfigurePID.Name = "bConfigurePID";
-            this.bConfigurePID.Size = new System.Drawing.Size(108, 23);
-            this.bConfigurePID.TabIndex = 7;
-            this.bConfigurePID.Text = "Configure PID";
-            this.bConfigurePID.UseVisualStyleBackColor = true;
-            this.bConfigurePID.Click += new System.EventHandler(this.bConfigurePID_Click);
+            bConfigurePID.Location = new System.Drawing.Point(15, 297);
+            bConfigurePID.Name = "bConfigurePID";
+            bConfigurePID.Size = new System.Drawing.Size(108, 23);
+            bConfigurePID.TabIndex = 7;
+            bConfigurePID.Text = "Configure PID";
+            toolTip1.SetToolTip(bConfigurePID, "Send P,I,D,Sample Period to Serial wombat chip and enable algorithm.  Resets Integrator");
+            bConfigurePID.UseVisualStyleBackColor = true;
+            bConfigurePID.Click += bConfigurePID_Click;
             // 
             // sbsiKd
             // 
-            this.sbsiKd.Location = new System.Drawing.Point(3, 116);
-            this.sbsiKd.Maximum = 65535;
-            this.sbsiKd.Minimum = 0;
-            this.sbsiKd.Name = "sbsiKd";
-            this.sbsiKd.Size = new System.Drawing.Size(311, 61);
-            this.sbsiKd.TabIndex = 2;
-            this.sbsiKd.Text = "kD";
-            this.sbsiKd.TextBoxHint = "The derivative contant applied to the derivative.  This value is scaled to 1/1638" +
-    "4. ";
-            this.sbsiKd.value = ((ushort)(0));
+            sbsiKd.Location = new System.Drawing.Point(3, 116);
+            sbsiKd.Maximum = 65535;
+            sbsiKd.Minimum = 0;
+            sbsiKd.Name = "sbsiKd";
+            sbsiKd.Size = new System.Drawing.Size(311, 61);
+            sbsiKd.TabIndex = 2;
+            sbsiKd.Text = "kD";
+            sbsiKd.TextBoxHint = "The derivative contant applied to the derivative.  This value is scaled to 1/16384. ";
+            sbsiKd.value = (ushort)0;
             // 
             // edPIDPeriod
             // 
-            this.edPIDPeriod.DropDownToolTip = "an enumerated time for how often the PID controller updates.  This value should b" +
-    "e based on how fast the system responds to change in output so that integral and" +
-    " derivative terms work correctly.";
-            this.edPIDPeriod.dropdowntype = "SerialWombatClassLibrary.SerialWombat.ScaledOutputPeriod";
-            this.edPIDPeriod.Location = new System.Drawing.Point(129, 266);
-            this.edPIDPeriod.Name = "edPIDPeriod";
-            this.edPIDPeriod.Size = new System.Drawing.Size(140, 35);
-            this.edPIDPeriod.TabIndex = 6;
+            edPIDPeriod.DropDownToolTip = "an enumerated time for how often the PID controller updates.  This value should be based on how fast the system responds to change in output so that integral and derivative terms work correctly.";
+            edPIDPeriod.dropdowntype = "SerialWombatClassLibrary.SerialWombat.ScaledOutputPeriod";
+            edPIDPeriod.Location = new System.Drawing.Point(95, 266);
+            edPIDPeriod.Name = "edPIDPeriod";
+            edPIDPeriod.Size = new System.Drawing.Size(140, 35);
+            edPIDPeriod.TabIndex = 6;
+            toolTip1.SetToolTip(edPIDPeriod, "Time between PID control sample and calculation");
+            edPIDPeriod.Value = 0;
             // 
             // sbsiKi
             // 
-            this.sbsiKi.Location = new System.Drawing.Point(6, 65);
-            this.sbsiKi.Maximum = 65535;
-            this.sbsiKi.Minimum = 0;
-            this.sbsiKi.Name = "sbsiKi";
-            this.sbsiKi.Size = new System.Drawing.Size(311, 60);
-            this.sbsiKi.TabIndex = 1;
-            this.sbsiKi.Text = "kI";
-            this.sbsiKi.TextBoxHint = "The integral constant applied to the integral.  Scaled to 1/16384ths, as typicall" +
-    "y you want this value to be less than 1.0";
-            this.sbsiKi.value = ((ushort)(0));
+            sbsiKi.Location = new System.Drawing.Point(6, 65);
+            sbsiKi.Maximum = 65535;
+            sbsiKi.Minimum = 0;
+            sbsiKi.Name = "sbsiKi";
+            sbsiKi.Size = new System.Drawing.Size(311, 60);
+            sbsiKi.TabIndex = 1;
+            sbsiKi.Text = "kI";
+            sbsiKi.TextBoxHint = "The integral constant applied to the integral.  Scaled to 1/16384ths, as typically you want this value to be less than 1.0";
+            sbsiKi.value = (ushort)0;
             // 
             // bShowPIDGraphs
             // 
-            this.bShowPIDGraphs.Location = new System.Drawing.Point(241, 297);
-            this.bShowPIDGraphs.Name = "bShowPIDGraphs";
-            this.bShowPIDGraphs.Size = new System.Drawing.Size(91, 23);
-            this.bShowPIDGraphs.TabIndex = 9;
-            this.bShowPIDGraphs.Text = "Show Graphs";
-            this.bShowPIDGraphs.UseVisualStyleBackColor = true;
-            this.bShowPIDGraphs.Click += new System.EventHandler(this.bShowPIDGraphs_Click);
+            bShowPIDGraphs.Location = new System.Drawing.Point(241, 297);
+            bShowPIDGraphs.Name = "bShowPIDGraphs";
+            bShowPIDGraphs.Size = new System.Drawing.Size(91, 23);
+            bShowPIDGraphs.TabIndex = 9;
+            bShowPIDGraphs.Text = "Show Graphs";
+            toolTip1.SetToolTip(bShowPIDGraphs, "Open a new window designed to facilitate real-time PID tuning");
+            bShowPIDGraphs.UseVisualStyleBackColor = true;
+            bShowPIDGraphs.Click += bShowPIDGraphs_Click;
             // 
             // swpdcPIDTargetSource
             // 
@@ -201,39 +207,49 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 326);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(102, 15);
-            this.label1.TabIndex = 49;
-            this.label1.Text = "PID Target Source:";
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(21, 326);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(102, 15);
+            label1.TabIndex = 49;
+            label1.Text = "PID Target Source:";
+            // 
+            // ckbBiDirectional
+            // 
+            ckbBiDirectional.AutoSize = true;
+            ckbBiDirectional.Location = new System.Drawing.Point(260, 272);
+            ckbBiDirectional.Name = "ckbBiDirectional";
+            ckbBiDirectional.Size = new System.Drawing.Size(93, 19);
+            ckbBiDirectional.TabIndex = 50;
+            ckbBiDirectional.Text = "BiDirectional";
+            toolTip1.SetToolTip(ckbBiDirectional, "Check if neutral output is 32768, not 0 (Like H Bridge)");
+            ckbBiDirectional.UseVisualStyleBackColor = true;
             // 
             // PIDControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.swpdcPIDTargetSource);
-            this.Controls.Add(this.bShowPIDGraphs);
-            this.Controls.Add(this.bUpdateTargetCI);
-            this.Controls.Add(this.bResetIntegrator);
-            this.Controls.Add(this.bPIDUpdateTarget);
-            this.Controls.Add(this.sbsiKp);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.sbsiPIDTarget);
-            this.Controls.Add(this.bGenPIDCode);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.bConfigurePID);
-            this.Controls.Add(this.sbsiKd);
-            this.Controls.Add(this.edPIDPeriod);
-            this.Controls.Add(this.sbsiKi);
-            this.Name = "PIDControl";
-            this.Size = new System.Drawing.Size(367, 402);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            AutoSize = true;
+            AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            Controls.Add(ckbBiDirectional);
+            Controls.Add(label1);
+            Controls.Add(bShowPIDGraphs);
+            Controls.Add(bUpdateTargetCI);
+            Controls.Add(bResetIntegrator);
+            Controls.Add(bPIDUpdateTarget);
+            Controls.Add(sbsiKp);
+            Controls.Add(textBox2);
+            Controls.Add(sbsiPIDTarget);
+            Controls.Add(bGenPIDCode);
+            Controls.Add(label6);
+            Controls.Add(bConfigurePID);
+            Controls.Add(sbsiKd);
+            Controls.Add(edPIDPeriod);
+            Controls.Add(sbsiKi);
+            Name = "PIDControl";
+            Size = new System.Drawing.Size(367, 402);
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -253,5 +269,7 @@
         private System.Windows.Forms.Button bShowPIDGraphs;
         private SerialWombatPublicDataControl swpdcPIDTargetSource;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox ckbBiDirectional;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

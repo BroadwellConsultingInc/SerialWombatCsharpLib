@@ -26,9 +26,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+namespace SerialWombat
+{
 
-
-public enum SerialWombatPinStates
+    public enum SerialWombatPinStates
 {
 	SW_LOW = 0,
 	SW_HIGH = 1,
@@ -257,8 +258,7 @@ public enum SerialWombatPinModes
 }
 
 
-namespace SerialWombat
-{
+
     public partial class SerialWombatChip
     {
 		/// Stores the last value retreived by readSupplyVoltage_mV().  Used by SerialWombatAnalogInput 
