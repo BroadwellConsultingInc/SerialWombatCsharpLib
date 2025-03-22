@@ -84,6 +84,7 @@ namespace SerialWombatWindowsFormsLibrary
 
         public bool ShowConfigure { get { return gbConfigure.Visible; } set { gbConfigure.Visible = value; } }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public UInt16 Value { get { 
                 return Servo.readPublicData(); } set { 
                 sbsiPosition.value = value;

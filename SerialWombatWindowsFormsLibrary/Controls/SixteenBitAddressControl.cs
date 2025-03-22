@@ -17,6 +17,7 @@ namespace SerialWombatWindowsFormsLibrary
             InitializeComponent();
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public UInt16 Value
         {
             get
@@ -35,6 +36,7 @@ namespace SerialWombatWindowsFormsLibrary
             set { textBox1.Text = $"0x{value:X4}"; }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public override string Text
         {
             get

@@ -75,6 +75,7 @@ namespace SerialWombatWindowsFormsLibrary
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public string pinName
         {
             get { return pidControl1.PinName; }

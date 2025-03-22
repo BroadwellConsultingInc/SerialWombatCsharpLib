@@ -47,6 +47,7 @@ namespace SerialWombatWindowsFormsLibrary
         [Description("Invoked when user changes selected enum")]
         public event EventHandler SelectedEnumChanged;
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public string DropDownToolTip
         {
             get

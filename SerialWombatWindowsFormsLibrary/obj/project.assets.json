@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net6.0-windows7.0": {
+    "net9.0-windows7.0": {
       "Microsoft.NETCore.Platforms/3.1.0": {
         "type": "package",
         "compile": {
@@ -119,12 +119,12 @@
       "System.CodeDom/8.0.0": {
         "type": "package",
         "compile": {
-          "lib/net6.0/System.CodeDom.dll": {
+          "lib/net8.0/System.CodeDom.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net6.0/System.CodeDom.dll": {
+          "lib/net8.0/System.CodeDom.dll": {
             "related": ".xml"
           }
         },
@@ -192,12 +192,12 @@
           "System.CodeDom": "8.0.0"
         },
         "compile": {
-          "lib/net6.0/System.Management.dll": {
+          "lib/net8.0/System.Management.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net6.0/System.Management.dll": {
+          "lib/net8.0/System.Management.dll": {
             "related": ".xml"
           }
         },
@@ -205,7 +205,7 @@
           "buildTransitive/net6.0/_._": {}
         },
         "runtimeTargets": {
-          "runtimes/win/lib/net6.0/System.Management.dll": {
+          "runtimes/win/lib/net8.0/System.Management.dll": {
             "assetType": "runtime",
             "rid": "win"
           }
@@ -213,7 +213,7 @@
       },
       "SerialWombatClassLibrary/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
+        "framework": ".NETCoreApp,Version=v9.0",
         "dependencies": {
           "System.IO.Ports": "6.0.0"
         },
@@ -540,7 +540,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net6.0-windows7.0": [
+    "net9.0-windows7.0": [
       "ScottPlot >= 4.0.45",
       "ScottPlot.WinForms >= 4.0.45",
       "SerialWombatClassLibrary >= 1.0.0",
@@ -549,43 +549,38 @@
   },
   "packageFolders": {
     "C:\\Users\\JAB\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatWindowsFormsLibrary\\SerialWombatWindowsFormsLibrary.csproj",
+      "projectUniqueName": "F:\\keep\\github\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatWindowsFormsLibrary\\SerialWombatWindowsFormsLibrary.csproj",
       "projectName": "SerialWombatWindowsFormsLibrary",
-      "projectPath": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatWindowsFormsLibrary\\SerialWombatWindowsFormsLibrary.csproj",
+      "projectPath": "F:\\keep\\github\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatWindowsFormsLibrary\\SerialWombatWindowsFormsLibrary.csproj",
       "packagesPath": "C:\\Users\\JAB\\.nuget\\packages\\",
-      "outputPath": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatWindowsFormsLibrary\\obj\\",
+      "outputPath": "F:\\keep\\github\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatWindowsFormsLibrary\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
         "C:\\Users\\JAB\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net6.0-windows"
+        "net9.0-windows7.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net6.0-windows7.0": {
-          "targetAlias": "net6.0-windows",
+        "net9.0-windows7.0": {
+          "targetAlias": "net9.0-windows7.0",
           "projectReferences": {
-            "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatClassLibrary\\SerialWombatClassLibrary\\SerialWombatClassLibrary.csproj": {
-              "projectPath": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatClassLibrary\\SerialWombatClassLibrary\\SerialWombatClassLibrary.csproj"
+            "F:\\keep\\github\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatClassLibrary\\SerialWombatClassLibrary\\SerialWombatClassLibrary.csproj": {
+              "projectPath": "F:\\keep\\github\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatClassLibrary\\SerialWombatClassLibrary\\SerialWombatClassLibrary.csproj"
             }
           }
         }
@@ -594,11 +589,17 @@
         "warnAsError": [
           "NU1605"
         ]
-      }
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      },
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
-      "net6.0-windows7.0": {
-        "targetAlias": "net6.0-windows",
+      "net9.0-windows7.0": {
+        "targetAlias": "net9.0-windows7.0",
         "dependencies": {
           "ScottPlot": {
             "target": "Package",
@@ -632,7 +633,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

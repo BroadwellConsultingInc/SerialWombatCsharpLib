@@ -131,6 +131,8 @@ namespace SerialWombatWindowsFormsLibrary
         }
 
         byte _value = 0xFF;
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public byte value
         {
             get { return _value; }

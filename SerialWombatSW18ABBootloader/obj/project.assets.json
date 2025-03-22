@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {
+    "net9.0": {
       "runtime.linux-arm.runtime.native.System.IO.Ports/6.0.0": {
         "type": "package",
         "runtimeTargets": {
@@ -88,7 +88,7 @@
       },
       "IntelHex/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
+        "framework": ".NETCoreApp,Version=v9.0",
         "compile": {
           "bin/placeholder/IntelHex.dll": {}
         },
@@ -98,7 +98,7 @@
       },
       "SerialWombatClassLibrary/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
+        "framework": ".NETCoreApp,Version=v9.0",
         "dependencies": {
           "System.IO.Ports": "6.0.0"
         },
@@ -252,53 +252,48 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net6.0": [
+    "net9.0": [
       "IntelHex >= 1.0.0",
       "SerialWombatClassLibrary >= 1.0.0"
     ]
   },
   "packageFolders": {
     "C:\\Users\\JAB\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatSW18ABBootloader\\SerialWombatSW18ABBootloader.csproj",
+      "projectUniqueName": "F:\\keep\\github\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatSW18ABBootloader\\SerialWombatSW18ABBootloader.csproj",
       "projectName": "SerialWombatSW18ABBootloader",
-      "projectPath": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatSW18ABBootloader\\SerialWombatSW18ABBootloader.csproj",
+      "projectPath": "F:\\keep\\github\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatSW18ABBootloader\\SerialWombatSW18ABBootloader.csproj",
       "packagesPath": "C:\\Users\\JAB\\.nuget\\packages\\",
-      "outputPath": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatSW18ABBootloader\\obj\\",
+      "outputPath": "F:\\keep\\github\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatSW18ABBootloader\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
         "C:\\Users\\JAB\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net6.0"
+        "net9.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net9.0": {
+          "targetAlias": "net9.0",
           "projectReferences": {
-            "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\IntelHex\\IntelHex.csproj": {
-              "projectPath": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\IntelHex\\IntelHex.csproj"
+            "F:\\keep\\github\\broadwellconsultinginc\\SerialWombatCsharpLib\\IntelHex\\IntelHex.csproj": {
+              "projectPath": "F:\\keep\\github\\broadwellconsultinginc\\SerialWombatCsharpLib\\IntelHex\\IntelHex.csproj"
             },
-            "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatClassLibrary\\SerialWombatClassLibrary\\SerialWombatClassLibrary.csproj": {
-              "projectPath": "F:\\keep\\GitHub\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatClassLibrary\\SerialWombatClassLibrary\\SerialWombatClassLibrary.csproj"
+            "F:\\keep\\github\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatClassLibrary\\SerialWombatClassLibrary\\SerialWombatClassLibrary.csproj": {
+              "projectPath": "F:\\keep\\github\\broadwellconsultinginc\\SerialWombatCsharpLib\\SerialWombatClassLibrary\\SerialWombatClassLibrary\\SerialWombatClassLibrary.csproj"
             }
           }
         }
@@ -307,11 +302,17 @@
         "warnAsError": [
           "NU1605"
         ]
-      }
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      },
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
-      "net6.0": {
-        "targetAlias": "net6.0",
+      "net9.0": {
+        "targetAlias": "net9.0",
         "imports": [
           "net461",
           "net462",
@@ -328,7 +329,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

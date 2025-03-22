@@ -45,6 +45,7 @@ namespace SerialWombatWindowsFormsLibrary
             
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public UInt32 Address { get { return address; } set { address = value; addressLabel.Text = $"0x{value:X4}";
             } }
     }

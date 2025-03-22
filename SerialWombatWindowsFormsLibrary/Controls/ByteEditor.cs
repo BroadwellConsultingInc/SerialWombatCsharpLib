@@ -40,6 +40,9 @@ namespace SerialWombatWindowsFormsLibrary
             }
             toolTip1.SetToolTip(textBox1,s);
         }
+        
+        
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public byte Value { get { return bytevalue; }
             
             set { 

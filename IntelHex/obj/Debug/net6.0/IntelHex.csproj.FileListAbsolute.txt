@@ -1,0 +1,12 @@
+F:\keep\github\broadwellconsultinginc\SerialWombatCsharpLib\IntelHex\bin\Debug\net6.0\IntelHex.deps.json
+F:\keep\github\broadwellconsultinginc\SerialWombatCsharpLib\IntelHex\bin\Debug\net6.0\IntelHex.dll
+F:\keep\github\broadwellconsultinginc\SerialWombatCsharpLib\IntelHex\bin\Debug\net6.0\IntelHex.pdb
+F:\keep\github\broadwellconsultinginc\SerialWombatCsharpLib\IntelHex\obj\Debug\net6.0\IntelHex.GeneratedMSBuildEditorConfig.editorconfig
+F:\keep\github\broadwellconsultinginc\SerialWombatCsharpLib\IntelHex\obj\Debug\net6.0\IntelHex.AssemblyInfoInputs.cache
+F:\keep\github\broadwellconsultinginc\SerialWombatCsharpLib\IntelHex\obj\Debug\net6.0\IntelHex.AssemblyInfo.cs
+F:\keep\github\broadwellconsultinginc\SerialWombatCsharpLib\IntelHex\obj\Debug\net6.0\IntelHex.csproj.CoreCompileInputs.cache
+F:\keep\github\broadwellconsultinginc\SerialWombatCsharpLib\IntelHex\obj\Debug\net6.0\IntelHex.sourcelink.json
+F:\keep\github\broadwellconsultinginc\SerialWombatCsharpLib\IntelHex\obj\Debug\net6.0\IntelHex.dll
+F:\keep\github\broadwellconsultinginc\SerialWombatCsharpLib\IntelHex\obj\Debug\net6.0\refint\IntelHex.dll
+F:\keep\github\broadwellconsultinginc\SerialWombatCsharpLib\IntelHex\obj\Debug\net6.0\IntelHex.pdb
+F:\keep\github\broadwellconsultinginc\SerialWombatCsharpLib\IntelHex\obj\Debug\net6.0\ref\IntelHex.dll

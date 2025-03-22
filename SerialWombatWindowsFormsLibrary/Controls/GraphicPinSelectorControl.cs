@@ -832,6 +832,8 @@ namespace SerialWombatWindowsFormsLibrary
                     break;
             }
         }
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public SerialWombatModel Model
         {
             get => _model;

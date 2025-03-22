@@ -53,6 +53,7 @@ namespace SerialWombatWindowsFormsLibrary.Controls
 
         public bool ShowConfigure { get { return gbConfigure.Visible; } set { gbConfigure.Visible = value; } }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public UInt16 Value
         {
             get

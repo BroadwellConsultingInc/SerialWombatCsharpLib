@@ -59,6 +59,7 @@ namespace SerialWombatWindowsFormsLibrary
             }
             return textBoxLastValue;
         }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public UInt16 value { get { return (getValueFromTextBox()); }
             set { tbValue.Text = value.ToString();
                 trackBar1.Value = value;
@@ -73,6 +74,7 @@ namespace SerialWombatWindowsFormsLibrary
             set { groupBox1.Text = value; }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public string TextBoxHint
         {
             get

@@ -29,6 +29,7 @@ namespace SerialWombatWindowsFormsLibrary
             get { return ((SerialWombatDataSources)comboBox1.Items[comboBox1.SelectedIndex]); }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public byte DataSourceValue
         {
             get { return ((byte)(SerialWombatDataSources)comboBox1.Items[comboBox1.SelectedIndex]); }

@@ -15,7 +15,10 @@ namespace SerialWombatWindowsFormsLibrary
     public partial class QuadratureEncoderForm : Form
     {
         public SerialWombatQuadEnc QuadratureEncoder;
+        
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public byte Pin { get; set; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)] 
         public SerialWombatChip SerialWombatChip { get; private set; }
       
         UInt16 LastPublicData = 0;

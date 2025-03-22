@@ -76,6 +76,8 @@ namespace SerialWombatWindowsFormsLibrary
                 a += 16;
             }
         }
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public UInt32 Address
         {
             get { return address; }
