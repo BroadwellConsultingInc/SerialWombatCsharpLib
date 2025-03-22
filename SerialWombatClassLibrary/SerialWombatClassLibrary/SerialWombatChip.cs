@@ -69,6 +69,23 @@ namespace SerialWombat
 
 
         }
+        public void begin(ArduinoSerial port, bool reset = true)
+        {
+            IsSerial = true;
+            Serial = port;
+            sendPacket("UUUUUUUU"); // Resync
+            if (reset)
+            {
+                hardwareReset();
+                sendReadyTime = millis() + 1000;
+            }
+            else
+            {
+                initialize();
+            }
+
+
+        }
 
         /*
 		public void begin(TwoWire& wire, byte i2cAddress)
@@ -223,6 +240,11 @@ namespace SerialWombat
             if (IsSerial)
             {
                 Serial.Pool.WaitOne();
+                if (i2cAddress != 0)
+                {
+                    byte[] b = { i2cAddress };
+                    Serial.write(b,1);
+                }
                 Serial.write(tx, 8);  //TODO add addressing, CRC
                 int bytesRx = Serial.readBytes(out rx, 8);
                 Serial.Pool.Release();

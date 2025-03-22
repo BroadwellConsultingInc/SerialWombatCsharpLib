@@ -43,7 +43,8 @@ namespace SerialWombatWindowsFormsLibrary
             sltef.ShowDialog();
             if (sltef.Success)
             {
-                this.Text = $"{sltef.outputString} Debounced Input on pin {DebouncedInput.pin}";
+                debouncedInputControl1.Name = sltef.outputString;
+                this.Text = $"{sltef.outputString} Debounced Input on pin {debouncedInputControl1.debouncedInput.pin}";
 
             }
         }

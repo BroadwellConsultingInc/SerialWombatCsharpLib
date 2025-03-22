@@ -297,7 +297,8 @@ public enum SerialWombatPinModes
 		bool[] _openDrain = new bool[WOMBAT_MAXIMUM_PINS];
 		bool[] _highLow = new bool[WOMBAT_MAXIMUM_PINS] ;
 		bool _asleep = false;
-		
+
+		public byte i2cAddress = 0;  // 0 = none
 		UInt32 sendReadyTime = 0;
 
 
