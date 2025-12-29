@@ -24,7 +24,7 @@ namespace SerialWombatWindowsFormsLibrary
             Pin = pin;
             SerialWombatChip = serialWombatChip;
 
-            Text = $"Pin {pin} UltrasonicDistanceSensor";
+            Text = $"Pin {pin} UltrasonicDistanceSensor {serialWombatChip.description}";
             ultrasonicDistanceSensorControl1.begin(serialWombatChip, pin);
 
             SerialWombatAbstractProcessedInput processedInput = new SerialWombatAbstractProcessedInput(SerialWombatChip);

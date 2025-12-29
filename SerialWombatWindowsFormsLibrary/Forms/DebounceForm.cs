@@ -26,7 +26,7 @@ namespace SerialWombatWindowsFormsLibrary
             InitializeComponent();
             _serialWombat = serialWombat;
             _pin = pin;
-            Text = $"Debounce on pin {pin}, {_serialWombat}";
+            Text = $"Debounce on pin {pin} {serialWombat.description}";
             debouncedInputControl1.begin(serialWombat, _pin);
 
         }

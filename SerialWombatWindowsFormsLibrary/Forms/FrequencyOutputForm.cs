@@ -25,7 +25,7 @@ namespace SerialWombatWindowsFormsLibrary.Forms
             Pin = pin;
             this.serialWombatChip = serialWombatChip;
 
-            Text = $"Frequency Output on pin {pin}";
+            Text = $"Frequency Output on pin {pin} {serialWombatChip.description}";
             frequencyOutputControl1.begin(serialWombatChip, pin);
 
 

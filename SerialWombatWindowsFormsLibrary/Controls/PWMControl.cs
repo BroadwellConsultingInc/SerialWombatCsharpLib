@@ -28,7 +28,7 @@ namespace SerialWombatWindowsFormsLibrary.Controls
         {
             SerialWombatChip = serialWombatChip;
             Pin = pin;
-
+            Pwm = new SerialWombatPWM(SerialWombatChip);
             groupBox1.Text = $"PWM on pin {pin}";
             if (serialWombatChip.ModelEnum == SerialWombatModel.SerialWombat4A ||
                 serialWombatChip.ModelEnum == SerialWombatModel.SerialWombat4B)
@@ -54,7 +54,7 @@ namespace SerialWombatWindowsFormsLibrary.Controls
             {
                 cbWombat4ABFreq.Visible = false;
             }
-            if (serialWombatChip.ModelEnum == SerialWombatModel.SerialWombat18AB)
+            if (serialWombatChip.isSW18()  || serialWombatChip.isSW08())
             {
                 lPeriod.Visible = true;
                 tbSW18ABPeriod.Visible = true;
@@ -68,10 +68,10 @@ namespace SerialWombatWindowsFormsLibrary.Controls
         {
             try
             {
-                Pwm = new SerialWombatPWM(SerialWombatChip);
+                
                 Pwm.begin(Pin, sbsiDutyCycle.value, ckbInvertSignal.Checked ); 
        
-                if (SerialWombatChip.ModelEnum == SerialWombatModel.SerialWombat18AB)
+                if (SerialWombatChip.isSW18() || SerialWombatChip.isSW08())
                 {
                     Pwm.setPeriod_SW18AB_uS(Convert.ToUInt32(tbSW18ABPeriod.Text));
                     
@@ -97,7 +97,7 @@ namespace SerialWombatWindowsFormsLibrary.Controls
         private void button4_Click(object sender, EventArgs e)
         {
             string pwmType = "SerialWombatPWM";
-            if (Pwm._sw.isSW18())
+            if (Pwm._sw.isSW18() || Pwm._sw.isSW08())
             {
                 pwmType = "SerialWombatPWM_18AB";
             }
@@ -111,7 +111,7 @@ namespace SerialWombatWindowsFormsLibrary.Controls
                                 {ckbInvertSignal.Checked}); // Invert (subtracts duty cycle from 65535)
                                
 ";
-            if (Pwm._sw.isSW18())
+            if (Pwm._sw.isSW18() || Pwm._sw.isSW08())
             {
                 s += $@" {Name}.writePeriod_uS({Convert.ToUInt16(tbSW18ABPeriod.Text)}); // Set period in uS
 ";

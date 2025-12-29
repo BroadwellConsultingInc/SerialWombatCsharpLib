@@ -39,8 +39,8 @@ namespace SerialWombatWindowsFormsLibrary
             tsmiWS2812.Click += TsmiWS2812_Click;
             tsmiWatchdog.Click += TsmiWatchdog_Click;
             tsmiHBridge.Click += TsmiHBridge_Click;
-            
-           
+
+
 
             pictureBox1.Image = Properties.Resources.LIT00034_SW18AB_PinDiagram;
 
@@ -97,7 +97,7 @@ namespace SerialWombatWindowsFormsLibrary
 
         private void TsmiUART_Click(object sender, EventArgs e)
         {
-            UARTForm uf = new UARTForm(SerialWombatChip,_lastClickWombatPin);
+            UARTForm uf = new UARTForm(SerialWombatChip, _lastClickWombatPin);
             uf.Show();
             uf.Top = FindForm().Top + 50;
             uf.Left = FindForm().Left + 50;
@@ -113,11 +113,11 @@ namespace SerialWombatWindowsFormsLibrary
 
         private SerialWombatModel _model = SerialWombatModel.SerialWombat18AB;
         ToolTip tt = null;
-      
 
 
-            
-        
+
+
+
 
         private void TsmiMatrixKeypad_Click(object sender, EventArgs e)
         {
@@ -131,7 +131,7 @@ namespace SerialWombatWindowsFormsLibrary
         {
             PulseOnChangeForm pocf = new PulseOnChangeForm(SerialWombatChip, _lastClickWombatPin);
             pocf.Show();
-           pocf.Top  = FindForm().Top + 50;
+            pocf.Top = FindForm().Top + 50;
             pocf.Left = FindForm().Left + 50;
 
         }
@@ -233,6 +233,12 @@ namespace SerialWombatWindowsFormsLibrary
             {
                 _lastClickWombatPin = chipCalcPin4B(_lastClickLocation);
             }
+
+
+            else if (_model == SerialWombatModel.SerialWombat8B)
+            {
+                _lastClickWombatPin = chipCalcPin8B(_lastClickLocation);
+            }
         }
 
         private void Direct_Click(object sender, EventArgs e)
@@ -261,10 +267,10 @@ namespace SerialWombatWindowsFormsLibrary
         private void TsmiAnalogInput_Click(object sender, EventArgs e)
         {
             AnalogInputForm aiForm = new AnalogInputForm(SerialWombatChip, _lastClickWombatPin);
-            aiForm.Show(); 
+            aiForm.Show();
             aiForm.Top = FindForm().Top + 50;
             aiForm.Left = FindForm().Left + 50;
-            
+
         }
 
         public GroupBox GetGroupBox()
@@ -279,131 +285,191 @@ namespace SerialWombatWindowsFormsLibrary
             // Given a point, X and Y, convert the location on the chip 
             // bitmap to its equivalent pin.
 
+            // Given a point, X and Y, convert the location on the chip 
+            // bitmap to its equivalent pin.
+            double x, y;
+
+            x = (double)l.X / pictureBox1.Width;
+            y = (double)l.Y / pictureBox1.Height;
+
             clearLastClick();
-            if (l.X <= (154 / 3))
+            if (x <= (pictureBox1.Width / 3.0) / pictureBox1.Width)
             {
-                if (l.Y >= 17 && l.Y <= 32)
+                if (y  >= 17.0 / 324 && y <= 32.0 / 324)
                 {
                     _lastClickReset = true;
                 }
 
-                if (l.Y >= 40 && l.Y <= 55)
+                if (y >= 40.0 / 324 && y <= 55.0 / 324)
                 {
                     return (0);
                 }
-                if (l.Y >= 63 && l.Y <= 77)
+                if (y >= 63.0 / 324 && y <= 77.0 / 324)
                 {
                     _lastClickAddr = true;
                 }
-                if (l.Y >= 84 && l.Y <= 99)
+                if (y >= 84.0 / 324 && y <= 99.0 / 324)
                 {
                     return (1);
                 }
-                if (l.Y >= 106 && l.Y <= 121)
+                if (y >= 106.0 / 324 && y <= 121.0 / 324)
                 {
                     return (2);
                 }
-                if (l.Y >= 127 && l.Y <= 142)
+                if (y >= 127.0 / 324 && y <= 142.0 / 324)
                 {
                     return (3);
                 }
-                if (l.Y >= 149 && l.Y <= 164)
+                if (y >= 149.0 / 324 && y <= 164.0 / 324)
                 {
                     return (4);
                 }
-                if (l.Y >= 158 && l.Y <= 182)
+                if (y >= 158.0 / 324 && y <= 182.0 / 324)
                 {
                     _lastClickGnd = true;
                 }
 
-                if (l.Y >= 190 && l.Y <= 205)
+                if (y >= 190.0 / 324 && y <= 205.0 / 324)
                 {
                     return (5);
                 }
-                if (l.Y >= 212 && l.Y <= 227)
+                if (y >= 212.0 / 324 && y <= 227.0 / 324)
                 {
                     return (6);
                 }
 
-                if (l.Y >= 233 && l.Y <= 248)
+                if (y >= 233.0 / 324 && y <= 248.0 / 324)
                 {
                     _lastClickTx = true;
                     return (7);
                 }
 
-                if (l.Y >= 254 && l.Y <= 269)
+                if (y >= 254.0 / 324 && y <= 269.0 / 324)
                 {
                     return (8);
 
                 }
-                if (l.Y >= 275 && l.Y <= 290)
+                if (y >= 275.0 / 324 && y <= 290.0 / 324)
                 {
                     _lastClick33v = true;
                 }
 
-                if (l.Y >= 297 && l.Y <= 312)
+                if (y >= 297.0 / 324 && y <= 312.0 / 324)
                 {
                     _lastClickRx = true;
                     return (9);
                 }
             }
 
-            else if (l.X >= (2 * 154 / 3))
+            else if (x >= ((2.0 * pictureBox1.Width / 3) / pictureBox1.Width))
             {
-                if (l.Y >= 17 && l.Y <= 32)
+                if (y >= 17.0 / 324 && y <= 32.0 / 324)
                 {
                     _lastClick33v = true;
                 }
 
-                if (l.Y >= 63 && l.Y <= 77)
+                if (y >= 63.0 / 324 && y <= 77.0 / 324)
                 {
                     return (19);
                 }
-                if (l.Y >= 84 && l.Y <= 99)
+                if (y >= 84.0 / 324 && y <= 99.0 / 324)
                 {
                     return (18);
                 }
-                if (l.Y >= 106 && l.Y <= 121)
+                if (y >= 106.0 / 324 && y <= 121.0 / 324)
                 {
                     return (17);
                 }
-                if (l.Y >= 127 && l.Y <= 142)
+                if (y >= 127.0 / 324 && y <= 142.0 / 324)
                 {
                     return (16);
                 }
-                if (l.Y >= 149 && l.Y <= 164)
+                if (y >= 149.0 / 324 && y <= 164.0 / 324)
                 {
                     return (15);
                 }
-                if (l.Y >= 169 && l.Y <= 184)
+                if (y >= 169.0 / 324 && y <= 184.0 / 324)
                 {
                     return (14);
                 }
-                if (l.Y >= 190 && l.Y <= 205)
+                if (y >= 190.0 / 324 && y <= 205.0 / 324)
                 {
                     _lastClickVCAP = true;
                 }
-                if (l.Y >= 212 && l.Y <= 227)
+                if (y >= 212.0 / 324 && y <= 227.0 / 324)
                 {
                     _lastClickGnd = true;
                 }
 
-                if (l.Y >= 233 && l.Y <= 248)
+                if (y >= 233.0 / 324 && y <= 248.0 / 324)
                 {
                     return (13);
                 }
-                if (l.Y >= 254 && l.Y <= 269)
+                if (y >= 254.0/324 && y <= 269.0 / 324)
                 {
                     return (12);
                 }
-                if (l.Y >= 275 && l.Y <= 290)
+                if (y >= 275.0 / 324 && y <= 290.0 / 324)
                 {
                     return (11);
                 }
-                if (l.Y >= 297 && l.Y <= 312)
+                if (y >= 297.0 / 324 && y <= 312.0 / 324)
                 {
                     return (10);
                 }
+            }
+            return (255);
+        }
+        byte chipCalcPin8B(Point l)
+        {
+
+            // Given a point, X and Y, convert the location on the chip 
+            // bitmap to its equivalent pin.
+            double x, y;
+
+            x = (double)l.X / pictureBox1.Width;
+            y = (double)l.Y / pictureBox1.Height;
+
+            clearLastClick();
+
+            if (x < .5)
+            {
+                if (y >= .48 && y <= .54)
+                {
+                    return (0);
+                }
+                if (y >= .54 && y <= .6)
+                {
+                    return (1);
+                }
+                if (y >= .6 && y <= .67)
+                {
+                    return (2);
+                }
+                if (y >= .67 && y <= .75)
+                {
+                    return (3);
+                }
+            }
+            else
+            {
+                if (y >= .48 && y <= .54)
+                {
+                    return (7);
+                }
+                if (y >= .54 && y <= .6)
+                {
+                    return (6);
+                }
+                if (y >= .6 && y <= .67)
+                {
+                    return (5);
+                }
+                if (y >= .67 && y <= .75)
+                {
+                    return (4);
+                }
+
             }
             return (255);
         }
@@ -830,6 +896,13 @@ namespace SerialWombatWindowsFormsLibrary
                         pictureBox1.Refresh();
                     }
                     break;
+                case 4:
+                    {
+                        _model = SerialWombatModel.SerialWombat8B;
+                        pictureBox1.Image = Properties.Resources.LIT00149_SW8B_PinDiagram;
+                        pictureBox1.Refresh();
+                    }
+                    break;
             }
         }
 
@@ -855,6 +928,11 @@ namespace SerialWombatWindowsFormsLibrary
                     case SerialWombatModel.SerialWombat4B:
                         {
                             cbModel.SelectedIndex = 1;
+                        }
+                        break;
+                    case SerialWombatModel.SerialWombat8B:
+                        {
+                            cbModel.SelectedIndex = 4;
                         }
                         break;
 
@@ -933,12 +1011,12 @@ namespace SerialWombatWindowsFormsLibrary
 
         private void highSpeedClockToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
             HSClockForm HSCF = new HSClockForm(SerialWombatChip, _lastClickWombatPin);
             HSCF.Show();
             HSCF.Top = FindForm().Top + 50;
             HSCF.Left = FindForm().Left + 50;
-            
+
         }
 
         private void highSpeedCounterToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1001,6 +1079,22 @@ namespace SerialWombatWindowsFormsLibrary
             dlf.Show();
             dlf.Top = FindForm().Top + 50;
             dlf.Left = FindForm().Left + 50;
+        }
+
+        private void toolStripMenuItem7_Click(object sender, EventArgs e)
+        {
+            DigitalIOForm diof = new DigitalIOForm(SerialWombatChip, _lastClickWombatPin);
+            diof.Show();
+            diof.Top = FindForm().Top + 50;
+            diof.Left = FindForm().Left + 50;
+        }
+
+        private void iRRxToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            IRRxForm irrxf = new IRRxForm(SerialWombatChip, _lastClickWombatPin);
+            irrxf.Show();
+            irrxf.Top = FindForm().Top + 50;
+            irrxf.Left = FindForm().Left + 50;
         }
     }
 }

@@ -21,7 +21,7 @@ namespace SerialWombatWindowsFormsLibrary
         {
             InitializeComponent();
             SerialWombatChip = serialWombatChip;
-            Text = $"High Speed Counter Input on Pin {pin}";
+            Text = $"Pin {pin} High Speed Counter Input {serialWombatChip.description}";
             hsCounterControl1.begin(SerialWombatChip, pin);
             hsCounterControl1.Name = $"Pin{pin}_HSCounter";
             if (serialWombatChip.isSW18())

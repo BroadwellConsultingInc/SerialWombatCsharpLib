@@ -77,8 +77,14 @@ namespace WombatPanelWindowsForms
                     progressUpdate();
                     Thread.Sleep(200);
                 }
+                Thread.Sleep(200);
+                pctDone = bl18.PercentDone;
+                status = bl18.Status;
+                statusUpdate();
+                progressUpdate();
             }
-            else if (bl08!= null)
+            else if (bl08 != null)
+            {
                 while (bl08.Bootloading)
                 {
                     status = bl08.Status;
@@ -88,6 +94,12 @@ namespace WombatPanelWindowsForms
                     progressUpdate();
                     Thread.Sleep(200);
                 }
+                Thread.Sleep(200);
+                pctDone = bl08.PercentDone;
+                status = bl08.Status;
+                statusUpdate();
+                progressUpdate();
+            }
         }
 
         void statusUpdate()
@@ -108,7 +120,7 @@ namespace WombatPanelWindowsForms
         {
             if (progressBar1.InvokeRequired)
             {
-                var d = new SafeCallDelegate(statusUpdate);
+                var d = new SafeCallDelegate(progressUpdate);
                 progressBar1.Invoke(d, new object[] { });
                 return;
             }

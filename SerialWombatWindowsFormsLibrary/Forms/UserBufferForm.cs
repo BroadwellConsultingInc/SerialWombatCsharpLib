@@ -20,7 +20,7 @@ namespace SerialWombatWindowsFormsLibrary
             this.SerialWombatChip = serialWombatChip;
 
             
-            Text = "Serial Wombat Chip User Buffer";
+            Text = $"Serial Wombat Chip User Buffer {serialWombatChip.description}";
 
             
             memoryPageEditor1.TypedChange += typedChange;

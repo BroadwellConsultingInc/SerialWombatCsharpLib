@@ -34,7 +34,7 @@
             linkLabel2 = new System.Windows.Forms.LinkLabel();
             linkLabel1 = new System.Windows.Forms.LinkLabel();
             bGenCode = new System.Windows.Forms.Button();
-            realTimeScottPlot1 = new Controls.RealTimeScottPlot();
+            realTimeScottPlot1 = new SerialWombatWindowsFormsLibrary.Controls.RealTimeScottPlot();
             ckbVolts = new System.Windows.Forms.CheckBox();
             ckbAllValues = new System.Windows.Forms.CheckBox();
             comboBox1 = new System.Windows.Forms.ComboBox();
@@ -106,7 +106,7 @@
             linkLabel2.AutoSize = true;
             linkLabel2.Location = new System.Drawing.Point(403, 43);
             linkLabel2.Name = "linkLabel2";
-            linkLabel2.Size = new System.Drawing.Size(80, 15);
+            linkLabel2.Size = new System.Drawing.Size(81, 15);
             linkLabel2.TabIndex = 32;
             linkLabel2.TabStop = true;
             linkLabel2.Text = "Tutorial Video";
@@ -126,7 +126,6 @@
             // bGenCode
             // 
             bGenCode.BackColor = System.Drawing.Color.MediumPurple;
-            bGenCode.Enabled = false;
             bGenCode.Location = new System.Drawing.Point(216, 11);
             bGenCode.Name = "bGenCode";
             bGenCode.Size = new System.Drawing.Size(45, 47);
@@ -235,7 +234,7 @@
             label8.AutoSize = true;
             label8.Location = new System.Drawing.Point(364, 437);
             label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(33, 15);
+            label8.Size = new System.Drawing.Size(32, 15);
             label8.TabIndex = 4;
             label8.Text = "Max:";
             // 
@@ -297,7 +296,7 @@
             label1.AutoSize = true;
             label1.Location = new System.Drawing.Point(0, 63);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(115, 15);
+            label1.Size = new System.Drawing.Size(116, 15);
             label1.TabIndex = 4;
             label1.Text = "Samples To Average:";
             // 

@@ -24,7 +24,7 @@ namespace SerialWombatWindowsFormsLibrary
             StartPosition = FormStartPosition.CenterParent;
             this.SerialWombatChip = serialWombatChip;
             this.Pin = pin;
-            this.Text = $"Pin {pin} TM1637";
+            this.Text = $"Pin {pin} TM1637 {serialWombatChip.description}";
             CodeGenerationDelegate = codeGenerationDelegate;
             tM1637Control1.CodeGeneration += TM1637Control1_CodeGeneration;
         }

@@ -24,6 +24,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 
 using System;
 using System.Collections.Generic;
+using System.Net.Sockets;
 using System.Text;
 
 namespace SerialWombat
@@ -254,6 +255,7 @@ public enum SerialWombatPinModes
 	PIN_MODE_I2C_CONTROLLER = 33,
 	PIN_MODE_QUEUED_PULSE_OUTPUT = 34,
 	PIN_MODE_FREQUENCY_OUTPUT = 36,
+	PIN_MODE_IR_RX = 37,
 	PIN_MODE_UNKNOWN = 255
 }
 
@@ -275,6 +277,11 @@ public enum SerialWombatPinModes
 
 		public byte[] uniqueIdentifier = new byte[16];
 		public byte uniqueIdentifierLength = 0;
+
+		public UInt32 readVersion_uint32()
+		{
+			return (((UInt32)(100 * (fwVersion[0] - 0x30) + 10 * (fwVersion[1] - 0x30) + fwVersion[2] - 0x30)));
+		}
 
 		public UInt16 deviceIdentifier;
 		public UInt16 deviceRevision;
@@ -303,7 +310,10 @@ public enum SerialWombatPinModes
 
 
 		public bool IsSerial = false;
-	}
+		public bool IsTCP = false;
+        NetworkStream networkStream = null;
+
+    }
 }
 
 

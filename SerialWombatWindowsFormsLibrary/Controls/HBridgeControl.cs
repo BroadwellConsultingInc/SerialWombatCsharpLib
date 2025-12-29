@@ -84,9 +84,11 @@ namespace SerialWombatWindowsFormsLibrary.Controls
         {
             hBridge = new SerialWombatHBridge_18AB(SerialWombatChip);
 
-            hBridge.begin(Pin, pddSecondPin.Pin);
+            hBridge.begin(Pin, pddSecondPin.Pin,(SerialWombatHBridgeDriverMode)edDriver.selectedItem);
+            hBridge.setPeriod_SW18AB_uS(Convert.ToUInt32(textBox1.Text));
             sbsiPower.Enabled= true;
             bOff.Enabled= true;
+            hBridge.writePublicData(sbsiPower.value);
 
         }
 

@@ -21,7 +21,7 @@ namespace SerialWombatWindowsFormsLibrary
             liquidCrystalControl1.begin(serialWombatChip, pin);
             CodeGenerationDelegate = codeGeneration;
             liquidCrystalControl1.CodeGeneration += LiquidCrystalControl1_CodeGeneration;
-            Text = $"Liquid Crystal on pin {pin}";
+            Text = $"pin {pin} Liquid Crystal {serialWombatChip.description}";
         }
 
         private void LiquidCrystalControl1_CodeGeneration(object sender, EventArgs e)

@@ -80,10 +80,10 @@ https://youtu.be/_EKlrEVaEhg
 		/// \brief Constructor for the SerialWombatAnalogInput class.
 		/// 
 		/// \param SerialWombat a reference to the Serial Wombat on which the Analog Input will be measured
-		public SerialWombatAnalogInput(SerialWombatChip serialWombatChip) : base(serialWombatChip)
+		public SerialWombatAnalogInput(SerialWombatChip serialWombatChip,byte pin = 255) : base(serialWombatChip,pin)
 		{
-
-		}
+			
+        }
 
 
 		/// \brief Initialize an analog input on a given pin.

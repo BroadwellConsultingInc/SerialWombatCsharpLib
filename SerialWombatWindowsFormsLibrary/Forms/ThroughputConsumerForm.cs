@@ -20,7 +20,7 @@ namespace SerialWombatWindowsFormsLibrary.Forms
         {
             InitializeComponent();
             SerialWombatChip = serialWombatChip;
-            Text = $"Throughput Consumer on Pin {pin}";
+            Text = $"Pin {pin} Throughput Consumer {serialWombatChip.description}";
             throughputConsumerControl1.begin(SerialWombatChip, pin);
         }
     }

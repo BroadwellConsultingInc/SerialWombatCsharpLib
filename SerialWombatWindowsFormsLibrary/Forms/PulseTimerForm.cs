@@ -1,14 +1,15 @@
-﻿using System;
+﻿using ScottPlot;
+using SerialWombat;
+using SerialWombatWindowsFormsLibrary.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Security.Policy;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
-using ScottPlot;
-using SerialWombat;
-using SerialWombatWindowsFormsLibrary.Forms;
 
 namespace SerialWombatWindowsFormsLibrary
 {
@@ -33,8 +34,9 @@ namespace SerialWombatWindowsFormsLibrary
         {
             InitializeComponent();
             SerialWombatChip = serialWombatChip;
-            Text = $"Pulse Timer Input on Pin {pin}";
+            Text = $"Pin {pin} Pulse Timer Input {serialWombatChip.description}";
             pulseTimerControl1.begin(SerialWombatChip, pin);
+            pulseTimerControl1.Name = $"Pin{pin}PulseTimer";
 
             if (serialWombatChip.isSW18())
             {

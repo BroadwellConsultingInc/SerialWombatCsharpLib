@@ -34,7 +34,7 @@ namespace SerialWombatWindowsFormsLibrary.Controls
             Pin = pin;
 
             groupBox1.Text = $"Quad Enc on pin {pin}";
-            if (serialWombatChip.ModelEnum == SerialWombatModel.SerialWombat18AB)
+            if (serialWombatChip.ModelEnum == SerialWombatModel.SerialWombat18AB  || serialWombatChip.ModelEnum == SerialWombatModel.SerialWombat8B)
             {
                 sbsiFreqPeriod.Enabled = true;
                 sbsiIncrement.Enabled = true;
@@ -98,7 +98,7 @@ namespace SerialWombatWindowsFormsLibrary.Controls
             quadEnc.begin(Pin, swpdSecondPin.Pin, sbsiDebounce.value,
                 ckbPullUps.Checked,(QuadEncReadModes) eddAction.selectedItem);
 
-            if (SerialWombatChip.isSW18())
+            if (SerialWombatChip.isSW18()  || SerialWombatChip.isSW08())
             {
                 quadEnc.writeMinMaxIncrementTargetPin(sbsiLowLimit.value,
                     sbsiHighLimit.value, sbsiIncrement.value, swpdTargetPin.Pin);
@@ -164,7 +164,7 @@ namespace SerialWombatWindowsFormsLibrary.Controls
         private void bGenCode_Click(object sender, EventArgs e)
         {
             string type = "SerialWombatQuadEnc";
-            if (quadEnc._sw.isSW18())
+            if (quadEnc._sw.isSW18() || quadEnc._sw.isSW08())
             {
                 type = "SerialWombatQuadEnc_18AB";
             }

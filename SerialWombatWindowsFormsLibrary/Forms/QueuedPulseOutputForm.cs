@@ -25,8 +25,8 @@ namespace SerialWombatWindowsFormsLibrary.Forms
             InitializeComponent();
             Pin = pin;
             SerialWombatChip = serialWombatChip;
-            this.Text = $"Queued Pulse Output on pin {pin} on Serial Wombat Chip on {serialWombatChip.Serial.Port.PortName}";
-            queuedPulseOutputControl1.Name = $"Pin{pin}HBridge";
+            this.Text = $"Pin {pin} Queued Pulse Output {serialWombatChip.description}";
+            queuedPulseOutputControl1.Name = $"Pin{pin}QueuedPulseOutput";
             queuedPulseOutputControl1.begin(serialWombatChip, pin);
 
         }

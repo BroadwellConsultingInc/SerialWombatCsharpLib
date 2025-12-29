@@ -20,7 +20,7 @@ namespace SerialWombatWindowsFormsLibrary.Forms
             SerialWombatChip = serialWombatChip;
             Pin = pin;
             InitializeComponent();
-            this.Text = $"Pin {pin} HS Clock";
+            this.Text = $"Pin {pin} HS Clock {serialWombatChip.description}";
         }
 
         private void HSClockForm_Load(object sender, EventArgs e)

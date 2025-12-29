@@ -19,6 +19,9 @@
     <Compile Update="Controls\DebouncedInputControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Controls\DigitalIOControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Controls\EnumDropdown.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -79,6 +82,9 @@
     <Compile Update="Controls\QueuedPulseOutputControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Controls\RampOutputScaleControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Controls\RealTimeScottPlot.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -89,6 +95,9 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Controls\SerialWombatCodeGenerationControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\IRRxControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Controls\SerialWombatPinDropdown.cs">
@@ -142,6 +151,9 @@
     <Compile Update="Forms\DebounceForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\DigitalIOForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\FrequencyOutputForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +161,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\HSClockForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\IRRxForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\LiquidCrystalForm.cs">
@@ -222,6 +237,9 @@
     </Compile>
     <Compile Update="Forms\ServoForm.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SerialPortSelectorControl.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="TCPPortSelector.cs">
       <SubType>Form</SubType>

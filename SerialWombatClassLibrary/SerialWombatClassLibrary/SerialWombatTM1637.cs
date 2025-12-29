@@ -93,6 +93,16 @@ namespace SerialWombat
             return _sw.sendPacket(tx_202);
         }
 
+        public Int16 writeArray(string s)
+        {
+            
+            while (s.Length < 6)
+            {
+                s = s + ' ';
+            }
+            return writeArray(Encoding.ASCII.GetBytes(s));
+
+        }
         public Int16 writeArray(byte[] data)
         {
             byte[] tx_204 = {
@@ -269,6 +279,21 @@ namespace SerialWombat
                 _sw.sendPacket(tx);
             }
             return (initialSize);
+        }
+
+        public int write(string s)
+        {
+            byte[] b = Encoding.ASCII.GetBytes(s);
+
+            byte[] b6 = { 0x20, 0x20, 0x20, 0x20, 0x20, 0x20 };
+            for (int i = 0; i < 6 && i < b.Length; ++i)
+            {
+                b6[i] = b[i];
+            }
+            int len = s.Length;
+            if (len > 6) len = 6;
+            return (write(b6, (short) len));
+
         }
     }
 

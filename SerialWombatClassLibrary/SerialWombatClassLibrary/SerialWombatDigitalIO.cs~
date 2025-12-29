@@ -1,0 +1,49 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SerialWombat
+{
+    public class SerialWombatDigitalIO:SerialWombatPin
+    {
+        
+
+       
+        public SerialWombatDigitalIO(SerialWombatChip serialWombatChip) : base(serialWombatChip)
+        {
+            _sw = serialWombatChip;
+            _pinMode = (byte)SerialWombatPinModes.PIN_MODE_DIGITALIO;
+        }
+
+        public Int16 begin(byte pin, SerialWombatPinStates pinState)
+        {
+            _pin = pin;
+         //TODO   byte[] tx = { 200, _pin, (byte)_pinMode,  secondPin,(byte)mode,0x55,0x55,0x55};
+            return _sw.sendPacket(tx);
+        }
+    }
+
+    public class SerialWombatDigitalIO_18AB : SerialWombatDigitalIO
+    {
+        public SerialWombatAbstractScaledOutput scaledOutput;
+        public SerialWombatDigitalIO_18AB(SerialWombatChip serialWombatChip) : base(serialWombatChip)
+        {
+            scaledOutput = new SerialWombatAbstractScaledOutput(serialWombatChip);
+        }
+
+        public new Int16 begin(byte pin, SerialWombatPinStates pinState)
+        {
+            Int16 result = base.begin(pin, secondPin, mode);
+            if (result < 0) return result;
+	    TODO input vs output
+            scaledOutput.begin(_pin, _pinMode);
+            return 0;
+        }
+
+
+    }
+}
+

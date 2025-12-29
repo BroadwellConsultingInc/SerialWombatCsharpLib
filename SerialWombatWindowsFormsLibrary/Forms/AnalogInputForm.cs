@@ -27,7 +27,7 @@ namespace SerialWombatWindowsFormsLibrary
             Pin = pin;
             SerialWombatChip = serialWombatChip;
             
-            Text = $"Pin {pin} Analog Input";
+            Text = $"Pin {pin} Analog Input {serialWombatChip.description}";
             analogInputControl1.begin(serialWombatChip, pin);
             analogInputControl1.Name = $"Pin{pin}_AnalogInput";
 

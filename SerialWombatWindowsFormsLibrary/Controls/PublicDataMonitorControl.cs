@@ -24,7 +24,7 @@ namespace SerialWombatWindowsFormsLibrary.Controls
 
             InitializeComponent();
         }
-            public Int16 begin(SerialWombatChip serialWombatChip, byte pin)
+        public Int16 begin(SerialWombatChip serialWombatChip, byte pin)
         {
 
             SerialWombatChip = serialWombatChip;
@@ -37,15 +37,7 @@ namespace SerialWombatWindowsFormsLibrary.Controls
                 if (s == ((SerialWombatDataSources)pin))
                 {
                     comboBox1.SelectedIndex = i;
-                    if (!monitoredSources.Contains((SerialWombatDataSources)comboBox1.Items[comboBox1.SelectedIndex]))
-                    {
-                        monitoredSources.Add((SerialWombatDataSources)comboBox1.Items[comboBox1.SelectedIndex]);
-                        if (monitoredSources.Count > 1)
-                        {
-                            realTimeScottPlot1.addPlot();
-                        }
-                    }
-                    break;
+
                 }
                 ++i;
             }
@@ -84,10 +76,7 @@ namespace SerialWombatWindowsFormsLibrary.Controls
                     for (int i = 0; i < monitoredSources.Count; ++i)
                     {
                         LastResult = SerialWombatChip.readPublicData(monitoredSources[i]);
-                        if (LastResult == 0)
-                        {
-                            LastResult = 1; //TODO Remove
-                        }
+                        
                         realTimeScottPlot1.PlotData(LastResult, i);
                     }
                 }
@@ -96,7 +85,7 @@ namespace SerialWombatWindowsFormsLibrary.Controls
             }
         }
 
-        
+
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -113,11 +102,17 @@ namespace SerialWombatWindowsFormsLibrary.Controls
                 realTimeScottPlot1.addPlot();
             }
             ckbAutosample.Checked = true;
+            try { ++comboBox1.SelectedIndex; }
+            catch { }
 
         }
         public void end()
         {
             ckbAutosample.Checked = false;
+        }
+
+        private void PublicDataMonitorControl_Resize(object sender, EventArgs e)
+        {
         }
     }
 }

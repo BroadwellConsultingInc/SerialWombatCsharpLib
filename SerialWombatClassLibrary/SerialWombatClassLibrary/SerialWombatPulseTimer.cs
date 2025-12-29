@@ -44,7 +44,7 @@ public UInt16 LowCounts = 0;
 public UInt16 Pulses = 0;
 public	bool MeasurementOverflowOccurred = false;
 
-public 		 SerialWombatPulseTimer(SerialWombatChip serialWombatChip): base(serialWombatChip)
+public 		 SerialWombatPulseTimer(SerialWombatChip serialWombatChip,byte pin = 255): base(serialWombatChip, pin)
 		{
 			_sw = serialWombatChip;
 
@@ -121,7 +121,7 @@ public 		UInt16  readPulses()
 
 			public SerialWombatAbstractProcessedInput processedInput;
 
-		public SerialWombatPulseTimer_18AB(SerialWombatChip serialWombatChip) : base(serialWombatChip)
+		public SerialWombatPulseTimer_18AB(SerialWombatChip serialWombatChip, byte pin = 255) : base(serialWombatChip,pin)
 			{ }
 
 			new public void begin(byte pin, SerialWombatPulseTimerUnits units = SerialWombatPulseTimerUnits.SW_PULSETIMER_uS, bool pullUpsEnabled = false)

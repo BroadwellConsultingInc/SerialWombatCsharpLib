@@ -22,7 +22,7 @@ namespace SerialWombatWindowsFormsLibrary.Forms
             InitializeComponent();
             SerialWombatChip = serialWombatChip; 
             Pin = pin;
-            Text = $"Pin {pin} Cap Touch Input";
+            Text = $"Pin {pin} Cap Touch Input {serialWombatChip.description}";
             capTouch18abControl1.begin(serialWombatChip, pin);
             if (serialWombatChip.isSW18())
             {

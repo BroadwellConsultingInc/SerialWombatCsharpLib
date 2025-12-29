@@ -16,13 +16,13 @@ namespace SerialWombatWindowsFormsLibrary
             InitializeComponent();
         }
 
-        public IPAddress ipAddress = null;
+        public string host = "";
         public Int32 port;
         private void bOpen_Click(object sender, EventArgs e)
         {
             try
             {
-                ipAddress = IPAddress.Parse(tbIP.Text);
+                host = tbIP.Text;
                 port = Convert.ToInt32(tbPort.Text);
             }
             catch (Exception ex)

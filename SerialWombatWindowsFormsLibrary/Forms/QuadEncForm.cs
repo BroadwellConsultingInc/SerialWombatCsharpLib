@@ -20,7 +20,7 @@ namespace SerialWombatWindowsFormsLibrary.Forms
         {
             InitializeComponent();
             SerialWombatChip = serialWombatChip;
-            Text = $"Quadrature Encoder Input on Pin {pin}";
+            Text = $"Pin {pin} Quadrature Encoder Input {serialWombatChip.description}";
             quadEncControl1.begin(SerialWombatChip, pin);
 
             if (serialWombatChip.isSW18())

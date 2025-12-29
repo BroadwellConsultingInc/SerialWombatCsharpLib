@@ -121,8 +121,8 @@
                 {
                     SerialWombatChip.writeUserBuffer(0, page, 64);
                     SerialWombatChip.writeFlashRow((UInt32)address + 0x08000000);
-                    status = $"Programming address: 0x{address:X8}";
-                    Thread.Sleep(10);
+                    status = $"Programming address: 0x{address:X4} / 0x4000";
+                    Thread.Sleep(0);
                 }
                 else
                 {
@@ -145,6 +145,7 @@
                         0x55,0x55,0x55
                     };
                     byte[] a = BitConverter.GetBytes((UInt32)(address + i + 0x08000000));
+                    status = $"Verifying Address  0x{address:X4}";
                     a.CopyTo(tx, 1);
                     byte[] rx = new byte[8];
                     SerialWombatChip.sendPacket(tx, out rx);
@@ -167,7 +168,7 @@
                 {
 
                     status = $"Programming verify failed at: line 0x{address:X8}";
-                    Thread.Sleep(10);
+                    Thread.Sleep(0);
                 }
 
                 PercentDone = ((double)(address - baseAddr)) / length;
@@ -181,7 +182,7 @@
                 Thread.Sleep(100);
                 SerialWombatChip.hardwareReset();
                 Bootloading = false;
-                status = $"Done";
+                status = $"Done. Success.";
             }
         }
         HexData loadFile(string hexFile)

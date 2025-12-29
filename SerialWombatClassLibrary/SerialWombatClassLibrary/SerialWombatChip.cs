@@ -1,5 +1,5 @@
 ﻿/*
-Copyright 2021-2024 Broadwell Consulting Inc.
+Copyright 2021-2025 Broadwell Consulting Inc.
 
 Serial Wombat is a registered trademark in the US of Broadwell Consulting Inc.
 
@@ -28,6 +28,8 @@ using System.Threading;
 using System.IO.Ports;
 using System.Text;
 using System.Collections.Generic;
+using System.Net.Sockets;
+using System.IO;
 
 namespace SerialWombat
 {
@@ -73,6 +75,24 @@ namespace SerialWombat
         {
             IsSerial = true;
             Serial = port;
+            byte[] b = { 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55 };
+            port.write(b,8); // Resync
+            if (reset)
+            {
+                hardwareReset();
+                sendReadyTime = millis() + 1000;
+            }
+            else
+            {
+                initialize();
+            }
+
+
+        }
+        public void begin(NetworkStream ns, bool reset = true)
+        {
+            IsTCP = true;
+            networkStream = ns;
             sendPacket("UUUUUUUU"); // Resync
             if (reset)
             {
@@ -86,37 +106,7 @@ namespace SerialWombat
 
 
         }
-
-        /*
-		public void begin(TwoWire& wire, byte i2cAddress)
-		{
-			begin(wire, i2cAddress, true);
-
-		}
-		public void begin(TwoWire& wire, byte i2cAddress, bool reset)
-		{
-			i2cInterface = &wire;
-			address = i2cAddress;
-			if (reset)
-			{
-				hardwareReset();
-				sendReadyTime = millis() + 1000;
-			}
-			else
-			{
-				sendReadyTime = 0;
-				initialize();
-
-			}
-		}
-
-		public void begin(byte i2cAddress)
-		{
-			//i2cInterface = &Wire;
-			//address = i2cAddress;
-			begin(Wire, i2cAddress);
-		}
-		*/
+        
         public Int16 initialize()
         {
             lastErrorCode = 0;
@@ -127,6 +117,17 @@ namespace SerialWombat
             return (lastErrorCode);
         }
 
+        public string description
+        {
+            get
+            {
+                if (i2cAddress == 0)
+                {
+                    return $"{ModelEnum.ToString()} {Serial.Port.PortName}";
+                }
+                return $"{ModelEnum.ToString()} 0x{i2cAddress:X2} {Serial.Port.PortName}";
+            }
+        }
         public void readUniqueIdentifier()
         {
             uniqueIdentifierLength = 0;
@@ -198,16 +199,78 @@ namespace SerialWombat
 
         public int sendPacketNoResponse(byte[] tx)
         {
+            if (IsSerial)
+
+            {
+                Serial.Port.DiscardInBuffer();
+            }
+            if (IsTCP)
+            {
+                //TODO flush
+            }
+            
             if (tx.Length < 8)
             {
                 byte[] newtx = { 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55 };
                 tx.CopyTo(newtx, 0);
                 tx = newtx;
             }
-            Serial.Pool.WaitOne();
-            Serial.write(tx, 8);
-            Serial.Pool.Release();
-            return (8);
+            if (sendReadyTime != 0)
+            {
+                UInt32 currentTime = millis();
+                if (currentTime < sendReadyTime)
+                {
+                    delay(sendReadyTime - currentTime);
+
+                }
+                sendReadyTime = 0;
+                initialize();
+            }
+
+
+            {
+                if (IsSerial)
+                {
+                    Serial.Pool.WaitOne();
+                }
+                if (i2cAddress != 0)
+                {
+                    byte[] b = { i2cAddress };
+                    if (IsSerial)
+                    {
+                        Serial.write(b, 1);
+                    }
+                    else if (IsTCP)
+                    {
+                        networkStream.Write(b, 0, 1);
+                    }
+                }
+                if (IsSerial)
+                {
+                    Serial.write(tx, 8);  //TODO add addressing, CRC
+                    
+                    Serial.Pool.Release();
+                }
+                else if (IsTCP)
+                {
+
+                    networkStream.Write(tx, 0, 8);
+
+                    
+
+                }
+                {
+                    SerialWombatPacket txPacket = new SerialWombatPacket(tx);
+                    SerialWombatPacket rxPacket = new SerialWombatPacket();
+                    foreach (SendDelegate sd in SendDelegates)
+                    {
+                        sd(txPacket, rxPacket,i2cAddress);
+                    }
+                }
+
+                
+                return (8);
+            }
         }
         public int sendPacket(string s, out byte[] rx)
         {
@@ -217,7 +280,15 @@ namespace SerialWombat
         }
         public Int16 sendPacket(byte[] tx, out byte[] rx)
         {
-            Serial.Port.DiscardInBuffer();
+            if (IsSerial)
+
+            {
+                Serial.Port.DiscardInBuffer();
+            }
+            if (IsTCP)
+            {
+                //TODO flush
+            }
             rx = new byte[] { (byte)'E', 0, 0, 0, 0, 0, 0, 0 };
             if (tx.Length < 8)
             {
@@ -237,24 +308,54 @@ namespace SerialWombat
                 initialize();
             }
 
-            if (IsSerial)
+
             {
-                Serial.Pool.WaitOne();
+                int bytesRx = 0;
+                if (IsSerial)
+                {
+                    Serial.Pool.WaitOne();
+                }
                 if (i2cAddress != 0)
                 {
                     byte[] b = { i2cAddress };
-                    Serial.write(b,1);
+                    if (IsSerial)
+                    {
+                        Serial.write(b, 1);
+                    }
+                    else if (IsTCP)
+                    {
+                        networkStream.Write(b,0, 1);
+                    }
                 }
-                Serial.write(tx, 8);  //TODO add addressing, CRC
-                int bytesRx = Serial.readBytes(out rx, 8);
-                Serial.Pool.Release();
+                if (IsSerial)
+                {
+                    Serial.write(tx, 8);  //TODO add addressing, CRC
+                    bytesRx = Serial.readBytes(out rx, 8);
+                    Serial.Pool.Release();
+                }
+                else if (IsTCP)
+                {
+                   
+                        networkStream.Write(tx, 0, 8);
 
+                    try
+                    {
+                        networkStream.ReadExactly(rx, 0, 8);
+                    }
+                    catch
+                    {
+                        
+                    }
+                    
+                   
+                   
+                }    
                 {
                     SerialWombatPacket txPacket = new SerialWombatPacket(tx);
                     SerialWombatPacket rxPacket = new SerialWombatPacket(rx);
                     foreach (SendDelegate sd in SendDelegates)
                     {
-                        sd(txPacket, rxPacket);
+                        sd(txPacket, rxPacket, i2cAddress);
                     }
                 }
 
@@ -283,7 +384,6 @@ namespace SerialWombat
                 }
                 return (8);
             }
-            return (0);
 
         }
 
@@ -363,8 +463,15 @@ namespace SerialWombat
             else
             {
                 UInt16 counts = readPublicData(66); // Get FVR counts (1.024 v)
-                UInt32 mv = (UInt32)(1024 * 65536 / counts);
-                _supplyVoltagemV = (UInt16)mv;
+                try
+                {
+                    UInt32 mv = (UInt32)(1024 * 65536 / counts);
+                    _supplyVoltagemV = (UInt16)mv;
+                }
+                catch
+                {
+                    return 0;
+                }
             }
             return (_supplyVoltagemV);
         }
@@ -390,7 +497,7 @@ namespace SerialWombat
         {
             if (waitForResponse)
             {
-                sendPacket("ReSeT!#*");
+                sendPacketNoResponse("ReSeT!#*");
             }
         }
 
@@ -674,7 +781,11 @@ namespace SerialWombat
             {
                 if (rx[1] != pin)
                 {
-                    Serial.Port.DiscardInBuffer();
+                    if (IsSerial)
+                    {
+                        Serial.Port.DiscardInBuffer();
+                    }
+                    //TODO Flush TCP?
                     
                 }
                 else
@@ -683,7 +794,8 @@ namespace SerialWombat
                 }
                 sendPacket(tx, out rx);
             }
-            return (UInt16)(rx[2] + (UInt16)rx[3] * 256);
+            UInt16 result = (UInt16)(rx[2] + (UInt16)rx[3] * 256);
+            return result;
         }
 
         public UInt16 writePublicData(byte pin, UInt16 value)
@@ -819,6 +931,12 @@ namespace SerialWombat
                     return SerialWombatModel.SerialWombat18AB;
 
                 }
+                else if (version[0] == 'S' &&
+                 version[1] == '0' &&
+                  version[2] == '8' && version[3] == 'B')
+                {
+                    return SerialWombatModel.SerialWombat8B;
+                }
                 else
                 {
 
@@ -869,7 +987,7 @@ namespace SerialWombat
             return (output);
         }
 
-        public delegate void SendDelegate(SerialWombatPacket sent, SerialWombatPacket received);
+        public delegate void SendDelegate(SerialWombatPacket sent, SerialWombatPacket received, byte i2CAddress);
         public List<SendDelegate> SendDelegates = new List<SendDelegate>();
 
 
@@ -1056,6 +1174,16 @@ namespace SerialWombat
                     int[] ints = { 0, 1, 2, 3, 4, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 };
                     return (ints);
                 }
+                else if (isSW08())
+                {
+                    int[] ints = new int[8];
+                    for (int i = 0; i < 8; ++i)
+                    {
+                        ints[i] = i;
+                    }
+                    return (ints);
+
+                }
                 else
                 {
                     int[] ints = { 0, 1, 2, 3 };
@@ -1071,6 +1199,16 @@ namespace SerialWombat
                 {
                     int[] ints = { 0, 1, 2, 3, 4, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 };
                     return (ints);
+                }
+                else if (isSW08())
+                {
+                    int[] ints = new int[8];
+                    for (int i = 0; i < 8; ++i)
+                    {
+                        ints[i] = i;
+                    }
+                    return (ints);
+
                 }
                 else
                 {
@@ -1318,6 +1456,33 @@ namespace SerialWombat
             byte[] tx = { (byte)(200 + packetNumber), _pin, _pinMode, (byte)(param0 & 0xFF), (byte)((param0 >> 8) & 0xFF), (byte)(param1 & 0xFF), (byte)((param1 >> 8) & 0xFF), param3};
             return (_sw.sendPacket(tx));
         }
+
+        public Int16 enablePullup(bool enabled)
+        {
+            byte[] tx = { 0xB8, _pin,(byte)( enabled?1:0), 0x55, 0x55, 0x55, 0x55, 0x55 };
+            return (_sw.sendPacket(tx));
+        }
+       
+        public Int16 enablePulldown(bool enabled)
+        {
+            byte[] tx = { 0xB8, _pin, 0x55, (byte)(enabled ? 1 : 0), 0x55, 0x55, 0x55, 0x55};
+            return (_sw.sendPacket(tx));
+        }
+      
+        public Int16 enableOpenDrain(bool enabled)
+        {
+            byte[] tx = { 0xB8, _pin, 0x55,0x55, (byte)(enabled ? 1 : 0), 0x55, 0x55, 0x55};
+            return (_sw.sendPacket(tx));
+        }
+       
+
+        public Int16 forceDMA(bool enabled)
+        {
+            byte[] tx = { 0xB8, _pin, 0x55, 0x55, 0x55, (byte)(enabled ? 1 : 0), 0x55, 0x55 };
+            return (_sw.sendPacket(tx));
+        }
+
+        
     }
 }
 namespace SerialWombatClassLibrary

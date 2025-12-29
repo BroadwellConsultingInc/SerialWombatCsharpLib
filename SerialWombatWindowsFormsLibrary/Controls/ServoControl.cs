@@ -101,7 +101,7 @@ namespace SerialWombatWindowsFormsLibrary
         private void button4_Click(object sender, EventArgs e)
         {
             string servoType = "SerialWombatServo";
-            if (Servo._sw.isSW18())
+            if (Servo._sw.isSW18() || Servo._sw.isSW08())
             {
                 servoType = "SerialWombatServo_18AB";
             }

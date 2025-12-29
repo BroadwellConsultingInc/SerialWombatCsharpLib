@@ -91,7 +91,7 @@
             // bGenCode
             // 
             bGenCode.BackColor = System.Drawing.Color.MediumPurple;
-            bGenCode.Location = new System.Drawing.Point(259, 22);
+            bGenCode.Location = new System.Drawing.Point(259, 6);
             bGenCode.Name = "bGenCode";
             bGenCode.Size = new System.Drawing.Size(45, 47);
             bGenCode.TabIndex = 5;
@@ -104,7 +104,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new System.Drawing.Point(13, 64);
+            label3.Location = new System.Drawing.Point(6, 63);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(72, 15);
             label3.TabIndex = 10;
@@ -116,7 +116,7 @@
             edDriver.dropdowntype = "SerialWombatClassLibrary.SerialWombat.SerialWombatHBridgeDriverMode";
             edDriver.Location = new System.Drawing.Point(77, 54);
             edDriver.Name = "edDriver";
-            edDriver.Size = new System.Drawing.Size(136, 35);
+            edDriver.Size = new System.Drawing.Size(214, 35);
             edDriver.TabIndex = 2;
             toolTip1.SetToolTip(edDriver, "Operation mode (Consult datasheet of H Bridge to deterine slow decay mode)");
             edDriver.Value = -1;
@@ -146,7 +146,7 @@
             pddSecondPin.Location = new System.Drawing.Point(102, 11);
             pddSecondPin.Name = "pddSecondPin";
             pddSecondPin.Pin = 255;
-            pddSecondPin.PinType = SerialWombat.SerialWombatPinType.EnhancedPerformanceOutputPin;
+            pddSecondPin.PinType = SerialWombat.SerialWombatPinType.OutputPin;
             pddSecondPin.Size = new System.Drawing.Size(66, 26);
             pddSecondPin.TabIndex = 0;
             toolTip1.SetToolTip(pddSecondPin, "Second Pin to configure as H Bridge PWM");

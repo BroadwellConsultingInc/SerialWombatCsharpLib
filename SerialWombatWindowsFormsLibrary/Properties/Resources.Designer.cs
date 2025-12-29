@@ -99,5 +99,14 @@ namespace SerialWombatWindowsFormsLibrary.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LIT00149_SW8B_PinDiagram {
+            get {
+                object obj = ResourceManager.GetObject("LIT00149_SW8B_PinDiagram", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

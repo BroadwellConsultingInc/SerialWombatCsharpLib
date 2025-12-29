@@ -250,11 +250,22 @@ namespace IntelHex
             {
                 if (!Memory.ContainsKey(address))
                 {
-                    Memory[address] = (byte)(value & 0xFF);
-                    Memory[address + 1] = (byte)(value >> 8);
-                    Memory[address + 2] = (byte)(value >> 16);
-                    Memory[address + 3] = (byte)(value >> 24);
+                    Memory[(UInt32)(address)] = (byte)(value & 0xFF);
+                 }
+                if (!Memory.ContainsKey((UInt32)(address + 1)))
+                    {
+                    Memory[(UInt32)(address + 1)] = (byte)(value >> 8);
                 }
+                if (!Memory.ContainsKey((UInt32)(address + 2)))
+                {
+                    Memory[(UInt32)(address + 2)] = (byte)(value >> 16);
+                }
+                if (!Memory.ContainsKey((UInt32)(address + 3)))
+                {
+
+                    Memory[(UInt32)(address + 3)] = (byte)(value >> 24);
+                }
+
             }
         }
 
@@ -573,8 +584,8 @@ namespace IntelHex
             {
                 UInt32 newData = (byte)Memory[(UInt32)i];
                 newData += (UInt32)((byte)Memory[(UInt32)(i + 1)]) << 8;
-                newData += (UInt32)((byte)Memory[(UInt32)i + 2]) << 16;
-                newData += (UInt32)((byte)Memory[(UInt32)i + 3]) << 24;
+                newData += (UInt32)((byte)Memory[(UInt32)(i + 2)]) << 16;
+                newData += (UInt32)((byte)Memory[(UInt32)(i + 3)]) << 24;
                 s += $"0x{(newData ):X8},";
                     if (CommentAddresses)
                     {
@@ -590,6 +601,43 @@ namespace IntelHex
             return (s);
         }
 
+        /// <summary>
+        /// Create a c array of 32 bit values in a C array
+        /// </summary>
+        /// <param name="InclusiveStartAddress"></param>
+        /// <param name="ExclusiveEndAddress"></param>
+        /// <returns></returns>
+        public string to16BitArray(UInt32 InclusiveStartAddress, UInt32 ExclusiveEndAddress, bool CommentAddresses = false)
+        {
+            if ((InclusiveStartAddress & 0x03) != 0)
+            {
+                return ($"Inclusive Start address 0x{InclusiveStartAddress:X8} is not on word boundary.");
+            }
+            else if ((ExclusiveEndAddress & 0x03) != 0)
+            {
+                return ($"Inclusive Start address 0x{ExclusiveEndAddress:X8} is not on word boundary.");
+            }
 
+            string s = "";// $"#include <std_int.h>{Environment.NewLine}uint32_t appStartAddress = 0x{InclusiveStartAddress:X8};{Environment.NewLine}";
+            //s += $"const uint32_t appImage[] = {{ {Environment.NewLine}";
+            //final byte is zero.
+
+            for (UInt32 i = InclusiveStartAddress; i < ExclusiveEndAddress; i +=2)
+            {
+                UInt16 newData = (byte)Memory[(UInt32)i];
+                newData += (UInt16)(((byte)Memory[(UInt32)(i + 1)]) << 8);
+              
+                s += $"0x{(newData):X4},";
+                if (CommentAddresses)
+                {
+                    s += $" // {i:X8}";
+
+                }
+                s += Environment.NewLine;
+            }
+
+           // s += "};" + Environment.NewLine;
+            return (s);
+        }
     }
 }

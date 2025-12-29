@@ -40,14 +40,14 @@ namespace SerialWombatWindowsFormsLibrary.Controls
             SerialWombatChip = serialWombatChip;
             Pin = pin;
             groupBox1.Text = $"Pulse Timer Input on pin {pin}";
-            enumDropdown1.Enabled = serialWombatChip.isSW18();
-            if (serialWombatChip.isSW18())
+            enumDropdown1.Enabled = serialWombatChip.isSW18() || serialWombatChip.isSW08();
+            if (serialWombatChip.isSW18() || serialWombatChip.isSW08())
             {
-                PulseTimer = new SerialWombatPulseTimer_18AB(SerialWombatChip);
+                PulseTimer = new SerialWombatPulseTimer_18AB(SerialWombatChip,pin);
             }
             else
             {
-                PulseTimer = new SerialWombatPulseTimer(serialWombatChip);
+                PulseTimer = new SerialWombatPulseTimer(serialWombatChip,pin);
             }
             PulseTimer.begin(pin);
         }
@@ -160,7 +160,7 @@ namespace SerialWombatWindowsFormsLibrary.Controls
             try
             {
                 PulseTimer.begin(PulseTimer.Pin, ckbUseMs.Checked? SerialWombatPulseTimerUnits.SW_PULSETIMER_mS: SerialWombatPulseTimerUnits.SW_PULSETIMER_uS, ckbPullUp.Checked);
-                if (SerialWombatChip.isSW18())
+                if (SerialWombatChip.isSW18() || SerialWombatChip.isSW08())
                 {
                     ((SerialWombatPulseTimer_18AB)PulseTimer).configurePublicDataOutput((SerialWombatPulseTimerPublicData)enumDropdown1.selectedItem);
                 }
@@ -179,7 +179,7 @@ namespace SerialWombatWindowsFormsLibrary.Controls
         private void bGenCode_Click(object sender, EventArgs e)
         {
             string pt = "SerialWombatPulseTimer";
-            if (SerialWombatChip.isSW18())
+            if (SerialWombatChip.isSW18() || SerialWombatChip.isSW08())
             {
 
                 pt = "SerialWombatPulseTimer_18AB";
@@ -189,10 +189,10 @@ namespace SerialWombatWindowsFormsLibrary.Controls
                 {pt} {Name}(sw); // Your serial wombat chip may be named something else than sw
                 //Add this line to  setup():
                  {Name}.begin({PulseTimer.Pin},  //Pin
-                            SerialWombatPulseTimerUnits.SW_PULSETIMER_uS, //Units
+                            SW_PULSETIMER_uS, //Units
                             {ckbPullUp.Checked}); // Pull Up enabled
 ";
-                if (SerialWombatChip.isSW18())
+                if (SerialWombatChip.isSW18() || SerialWombatChip.isSW08()  )
                 {
                 s += @$"{Name}.configurePublicDataOutput(SerialWombatPulseTimer_18AB::publicDataOutput::{(SerialWombatPulseTimerPublicData)enumDropdown1.selectedItem});
 ";

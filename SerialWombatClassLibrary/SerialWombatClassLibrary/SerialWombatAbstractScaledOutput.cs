@@ -174,6 +174,42 @@ namespace SerialWombat
 			}
 		}
 
+
+		public Int16 writeRamp(UInt16 slowIncrement, UInt16 incrementThreshold, UInt16 fastIncrement, ScaledOutputRampMode rampMode, ScaledOutputPeriod sampleRate)
+		{
+            {
+                byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_OUTPUTSCALE,
+        _pin,
+        _pinMode,
+        7, // Set Sample Rate
+		(byte)sampleRate,
+        0x55,0x55,0x55,
+        };
+                Int16 result = _sw.sendPacket(tx); if (result < 0) { return (result); }
+            }
+            {
+                byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_OUTPUTSCALE,
+            _pin,
+            _pinMode,
+            60, // Set ramp slow increment, threshold
+			(byte)(slowIncrement & 0xFF), ((byte)(slowIncrement >>8)),
+            (byte)(incrementThreshold & 0xFF), ((byte)(incrementThreshold >>8))
+        };
+                Int16 result = _sw.sendPacket(tx); if (result < 0) { return (result); }
+            }
+            {
+                byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_OUTPUTSCALE,
+        _pin,
+        _pinMode,
+        61,
+        (byte)(fastIncrement & 0xFF), ((byte)(fastIncrement >>8)),
+        (byte)rampMode,
+        0x55
+        };
+                return (_sw.sendPacket(tx));
+            }
+
+        }
 		public Int16 writeHysteresis(UInt16 lowLimit, UInt16 lowOutputValue, UInt16 highLimit, UInt16 highOutputValue, UInt16 initialOutputValue)
 		{
 			{
@@ -404,7 +440,16 @@ namespace SerialWombat
 			(byte)(IndexInUserMemory & 0xFF), (byte)(IndexInUserMemory >>8),0x55,0x55};
 			return _sw.sendPacket(tx);
 		}
-	}
+
+		public Int16 writeTargetValuePin(byte pin) { 
+			byte[] tx = { (byte)SerialWombatCommands.CONFIGURE_PIN_OUTPUTSCALE,
+			_pin,
+			_pinMode,
+			109, // Set Target Value Pin
+			pin,0,0x55,0x55};
+			return _sw.sendPacket(tx);
+        }
+    }
 
 
 
@@ -422,4 +467,11 @@ namespace SerialWombat
 		PERIOD_512mS = 9,
 		PERIOD_1024mS = 10,
 	};
+
+	public enum ScaledOutputRampMode
+	{
+		RAMP_MODE_BOTH = 0,
+		RAMP_MODE_INCREMENT = 1,
+		RAMP_MODE_DECREMENT = 2
+	}
 }

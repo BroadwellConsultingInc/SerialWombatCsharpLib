@@ -23,7 +23,7 @@ namespace SerialWombatWindowsFormsLibrary
             SerialWombatChip = serialWombatChip;
             Pin = pin;
             matrixKeypadControl1.begin(serialWombatChip, pin);
-            Text = $"Pin {pin} Matrix Keypad";
+            Text = $"Pin {pin} Matrix Keypad {serialWombatChip.description}";
 
             matrixKeypadControl1.Name = $"Pin{pin}Keypad";
         }

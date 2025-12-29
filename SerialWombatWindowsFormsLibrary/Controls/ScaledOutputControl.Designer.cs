@@ -28,821 +28,894 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ScaledOutputControl));
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.bGenInputScalingCode = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.sbsiInputMax = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
-            this.sbsiInputMin = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
-            this.bConfigureInputScaling = new System.Windows.Forms.Button();
-            this.ckbInvert = new System.Windows.Forms.CheckBox();
-            this.tpPID = new System.Windows.Forms.TabPage();
-            this.tabControl4 = new System.Windows.Forms.TabControl();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.bGenHysteresisCode = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.bConfigureHysteresis = new System.Windows.Forms.Button();
-            this.sbsiHysLowOutput = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
-            this.sbsiHysInitialOutputValue = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
-            this.sbsiHysHighOutputValue = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
-            this.sbsiHysHighLimit = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
-            this.sbsiHysLowLimit = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
-            this.tpPID1 = new System.Windows.Forms.TabPage();
-            this.pidControl1 = new SerialWombatWindowsFormsLibrary.PIDControl();
-            this.tpTimeout = new System.Windows.Forms.TabPage();
-            this.bGenTimeoutCode = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.bConfigureTimeout = new System.Windows.Forms.Button();
-            this.sbsiTimeoutOutputValue = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
-            this.sbsiTimeout_mS = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
-            this.tpFiltering = new System.Windows.Forms.TabPage();
-            this.tabControl2 = new System.Windows.Forms.TabControl();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.bGenFilterCode = new System.Windows.Forms.Button();
-            this.sbsiFilterConstant = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
-            this.bConfigureFiltering = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.bGenRateLimit = new System.Windows.Forms.Button();
-            this.sbsiMaxChangeUp = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
-            this.sbsiFilterConstant2 = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
-            this.bConfigureMaximumRate = new System.Windows.Forms.Button();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.edFilteringPeriod = new SerialWombatWindowsFormsLibrary.EnumDropdown();
-            this.tpOutputScaling = new System.Windows.Forms.TabPage();
-            this.tabControl3 = new System.Windows.Forms.TabControl();
-            this.MinMax = new System.Windows.Forms.TabPage();
-            this.sbsiOutputScalingMin = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
-            this.bGenOutputScalingcode = new System.Windows.Forms.Button();
-            this.sbsiOutputScalingMax = new SerialWombatWindowsFormsLibrary.SixteenBitSliderInput();
-            this.bConfigureOutputScaling = new System.Windows.Forms.Button();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
-            this.sbac2DIndex = new SerialWombatWindowsFormsLibrary.SixteenBitAddressControl();
-            this.button1 = new System.Windows.Forms.Button();
-            this.b2DConfigure = new System.Windows.Forms.Button();
-            this.gb2DData = new System.Windows.Forms.GroupBox();
-            this.l2DWarning = new System.Windows.Forms.Label();
-            this.pXY = new System.Windows.Forms.Panel();
-            this.formsPlot1 = new ScottPlot.FormsPlot();
-            this.swpdsInput = new SerialWombatWindowsFormsLibrary.SerialWombatPublicDataControl();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.ckbScaledOutputEnable = new System.Windows.Forms.CheckBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tpPID.SuspendLayout();
-            this.tabControl4.SuspendLayout();
-            this.tabPage7.SuspendLayout();
-            this.tpPID1.SuspendLayout();
-            this.tpTimeout.SuspendLayout();
-            this.tpFiltering.SuspendLayout();
-            this.tabControl2.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            this.tpOutputScaling.SuspendLayout();
-            this.tabControl3.SuspendLayout();
-            this.MinMax.SuspendLayout();
-            this.tabPage5.SuspendLayout();
-            this.gb2DData.SuspendLayout();
-            this.SuspendLayout();
+            tabControl1 = new System.Windows.Forms.TabControl();
+            tabPage1 = new System.Windows.Forms.TabPage();
+            bGenInputScalingCode = new System.Windows.Forms.Button();
+            textBox1 = new System.Windows.Forms.TextBox();
+            sbsiInputMax = new SixteenBitSliderInput();
+            sbsiInputMin = new SixteenBitSliderInput();
+            bConfigureInputScaling = new System.Windows.Forms.Button();
+            ckbInvert = new System.Windows.Forms.CheckBox();
+            tpPID = new System.Windows.Forms.TabPage();
+            tabControl4 = new System.Windows.Forms.TabControl();
+            tabPage7 = new System.Windows.Forms.TabPage();
+            bGenHysteresisCode = new System.Windows.Forms.Button();
+            textBox3 = new System.Windows.Forms.TextBox();
+            bConfigureHysteresis = new System.Windows.Forms.Button();
+            sbsiHysLowOutput = new SixteenBitSliderInput();
+            sbsiHysInitialOutputValue = new SixteenBitSliderInput();
+            sbsiHysHighOutputValue = new SixteenBitSliderInput();
+            sbsiHysHighLimit = new SixteenBitSliderInput();
+            sbsiHysLowLimit = new SixteenBitSliderInput();
+            tpPID1 = new System.Windows.Forms.TabPage();
+            pidControl1 = new PIDControl();
+            tpRamp = new System.Windows.Forms.TabPage();
+            rampOutputScaleControl1 = new RampOutputScaleControl();
+            tpTimeout = new System.Windows.Forms.TabPage();
+            bGenTimeoutCode = new System.Windows.Forms.Button();
+            textBox4 = new System.Windows.Forms.TextBox();
+            bConfigureTimeout = new System.Windows.Forms.Button();
+            sbsiTimeoutOutputValue = new SixteenBitSliderInput();
+            sbsiTimeout_mS = new SixteenBitSliderInput();
+            tpFiltering = new System.Windows.Forms.TabPage();
+            tabControl2 = new System.Windows.Forms.TabControl();
+            tabPage2 = new System.Windows.Forms.TabPage();
+            bGenFilterCode = new System.Windows.Forms.Button();
+            sbsiFilterConstant = new SixteenBitSliderInput();
+            bConfigureFiltering = new System.Windows.Forms.Button();
+            textBox5 = new System.Windows.Forms.TextBox();
+            tabPage3 = new System.Windows.Forms.TabPage();
+            bGenRateLimit = new System.Windows.Forms.Button();
+            sbsiMaxChangeUp = new SixteenBitSliderInput();
+            sbsiFilterConstant2 = new SixteenBitSliderInput();
+            bConfigureMaximumRate = new System.Windows.Forms.Button();
+            textBox6 = new System.Windows.Forms.TextBox();
+            edFilteringPeriod = new EnumDropdown();
+            tpOutputScaling = new System.Windows.Forms.TabPage();
+            tabControl3 = new System.Windows.Forms.TabControl();
+            MinMax = new System.Windows.Forms.TabPage();
+            sbsiOutputScalingMin = new SixteenBitSliderInput();
+            bGenOutputScalingcode = new System.Windows.Forms.Button();
+            sbsiOutputScalingMax = new SixteenBitSliderInput();
+            bConfigureOutputScaling = new System.Windows.Forms.Button();
+            tabPage5 = new System.Windows.Forms.TabPage();
+            label1 = new System.Windows.Forms.Label();
+            sbac2DIndex = new SixteenBitAddressControl();
+            button1 = new System.Windows.Forms.Button();
+            b2DConfigure = new System.Windows.Forms.Button();
+            gb2DData = new System.Windows.Forms.GroupBox();
+            l2DWarning = new System.Windows.Forms.Label();
+            pXY = new System.Windows.Forms.Panel();
+            formsPlot1 = new ScottPlot.FormsPlot();
+            swpdsInput = new SerialWombatPublicDataControl();
+            toolTip1 = new System.Windows.Forms.ToolTip(components);
+            ckbScaledOutputEnable = new System.Windows.Forms.CheckBox();
+            button4 = new System.Windows.Forms.Button();
+            tabPage4 = new System.Windows.Forms.TabPage();
+            swpdTargetValuePin = new SerialWombatPinDropdown();
+            label2 = new System.Windows.Forms.Label();
+            bSetCATVP = new System.Windows.Forms.Button();
+            tabControl1.SuspendLayout();
+            tabPage1.SuspendLayout();
+            tpPID.SuspendLayout();
+            tabControl4.SuspendLayout();
+            tabPage7.SuspendLayout();
+            tpPID1.SuspendLayout();
+            tpRamp.SuspendLayout();
+            tpTimeout.SuspendLayout();
+            tpFiltering.SuspendLayout();
+            tabControl2.SuspendLayout();
+            tabPage2.SuspendLayout();
+            tabPage3.SuspendLayout();
+            tpOutputScaling.SuspendLayout();
+            tabControl3.SuspendLayout();
+            MinMax.SuspendLayout();
+            tabPage5.SuspendLayout();
+            gb2DData.SuspendLayout();
+            tabPage4.SuspendLayout();
+            SuspendLayout();
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tpPID);
-            this.tabControl1.Controls.Add(this.tpTimeout);
-            this.tabControl1.Controls.Add(this.tpFiltering);
-            this.tabControl1.Controls.Add(this.tpOutputScaling);
-            this.tabControl1.Location = new System.Drawing.Point(3, 3);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(401, 496);
-            this.tabControl1.TabIndex = 0;
+            tabControl1.Controls.Add(tabPage1);
+            tabControl1.Controls.Add(tpPID);
+            tabControl1.Controls.Add(tpTimeout);
+            tabControl1.Controls.Add(tpFiltering);
+            tabControl1.Controls.Add(tpOutputScaling);
+            tabControl1.Location = new System.Drawing.Point(3, 3);
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new System.Drawing.Size(401, 496);
+            tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.bGenInputScalingCode);
-            this.tabPage1.Controls.Add(this.textBox1);
-            this.tabPage1.Controls.Add(this.sbsiInputMax);
-            this.tabPage1.Controls.Add(this.sbsiInputMin);
-            this.tabPage1.Controls.Add(this.bConfigureInputScaling);
-            this.tabPage1.Controls.Add(this.ckbInvert);
-            this.tabPage1.Location = new System.Drawing.Point(4, 24);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(393, 468);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Input Scaling";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            tabPage1.Controls.Add(bGenInputScalingCode);
+            tabPage1.Controls.Add(textBox1);
+            tabPage1.Controls.Add(sbsiInputMax);
+            tabPage1.Controls.Add(sbsiInputMin);
+            tabPage1.Controls.Add(bConfigureInputScaling);
+            tabPage1.Controls.Add(ckbInvert);
+            tabPage1.Location = new System.Drawing.Point(4, 24);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            tabPage1.Size = new System.Drawing.Size(393, 468);
+            tabPage1.TabIndex = 0;
+            tabPage1.Text = "Input Scaling";
+            tabPage1.UseVisualStyleBackColor = true;
             // 
             // bGenInputScalingCode
             // 
-            this.bGenInputScalingCode.BackColor = System.Drawing.Color.MediumPurple;
-            this.bGenInputScalingCode.Location = new System.Drawing.Point(283, 193);
-            this.bGenInputScalingCode.Name = "bGenInputScalingCode";
-            this.bGenInputScalingCode.Size = new System.Drawing.Size(91, 47);
-            this.bGenInputScalingCode.TabIndex = 30;
-            this.bGenInputScalingCode.Text = "Gen Input Scaling Code";
-            this.bGenInputScalingCode.UseVisualStyleBackColor = false;
-            this.bGenInputScalingCode.Click += new System.EventHandler(this.bGenInputScalingCode_Click);
+            bGenInputScalingCode.BackColor = System.Drawing.Color.MediumPurple;
+            bGenInputScalingCode.Location = new System.Drawing.Point(283, 193);
+            bGenInputScalingCode.Name = "bGenInputScalingCode";
+            bGenInputScalingCode.Size = new System.Drawing.Size(91, 47);
+            bGenInputScalingCode.TabIndex = 30;
+            bGenInputScalingCode.Text = "Gen Input Scaling Code";
+            bGenInputScalingCode.UseVisualStyleBackColor = false;
+            bGenInputScalingCode.Click += bGenInputScalingCode_Click;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(6, 265);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(344, 160);
-            this.textBox1.TabIndex = 14;
-            this.textBox1.Text = resources.GetString("textBox1.Text");
+            textBox1.Location = new System.Drawing.Point(6, 265);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.ReadOnly = true;
+            textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            textBox1.Size = new System.Drawing.Size(344, 160);
+            textBox1.TabIndex = 14;
+            textBox1.Text = resources.GetString("textBox1.Text");
             // 
             // sbsiInputMax
             // 
-            this.sbsiInputMax.Location = new System.Drawing.Point(25, 75);
-            this.sbsiInputMax.Maximum = 65535;
-            this.sbsiInputMax.Minimum = 0;
-            this.sbsiInputMax.Name = "sbsiInputMax";
-            this.sbsiInputMax.Size = new System.Drawing.Size(328, 76);
-            this.sbsiInputMax.TabIndex = 13;
-            this.sbsiInputMax.Text = "inputMax";
-            this.sbsiInputMax.TextBoxHint = "The maximum value of the input range.  Input values greater or equal to that will" +
-    " be scaled to 65535";
-            this.sbsiInputMax.value = ((ushort)(65535));
+            sbsiInputMax.Location = new System.Drawing.Point(25, 75);
+            sbsiInputMax.Maximum = 65535;
+            sbsiInputMax.Minimum = 0;
+            sbsiInputMax.Name = "sbsiInputMax";
+            sbsiInputMax.Size = new System.Drawing.Size(328, 76);
+            sbsiInputMax.TabIndex = 13;
+            sbsiInputMax.Text = "inputMax";
+            sbsiInputMax.TextBoxHint = "The maximum value of the input range.  Input values greater or equal to that will be scaled to 65535";
+            sbsiInputMax.value = ushort.MaxValue;
             // 
             // sbsiInputMin
             // 
-            this.sbsiInputMin.Location = new System.Drawing.Point(22, 6);
-            this.sbsiInputMin.Maximum = 65535;
-            this.sbsiInputMin.Minimum = 0;
-            this.sbsiInputMin.Name = "sbsiInputMin";
-            this.sbsiInputMin.Size = new System.Drawing.Size(328, 76);
-            this.sbsiInputMin.TabIndex = 12;
-            this.sbsiInputMin.Text = "inputMin";
-            this.sbsiInputMin.TextBoxHint = "The minimum value of the input range.  Input values less than or equal to that wi" +
-    "ll be scaled to 0";
-            this.sbsiInputMin.value = ((ushort)(0));
+            sbsiInputMin.Location = new System.Drawing.Point(22, 6);
+            sbsiInputMin.Maximum = 65535;
+            sbsiInputMin.Minimum = 0;
+            sbsiInputMin.Name = "sbsiInputMin";
+            sbsiInputMin.Size = new System.Drawing.Size(328, 76);
+            sbsiInputMin.TabIndex = 12;
+            sbsiInputMin.Text = "inputMin";
+            sbsiInputMin.TextBoxHint = "The minimum value of the input range.  Input values less than or equal to that will be scaled to 0";
+            sbsiInputMin.value = (ushort)0;
             // 
             // bConfigureInputScaling
             // 
-            this.bConfigureInputScaling.Location = new System.Drawing.Point(77, 205);
-            this.bConfigureInputScaling.Name = "bConfigureInputScaling";
-            this.bConfigureInputScaling.Size = new System.Drawing.Size(167, 23);
-            this.bConfigureInputScaling.TabIndex = 5;
-            this.bConfigureInputScaling.Text = "Configure Input Scaling";
-            this.bConfigureInputScaling.UseVisualStyleBackColor = true;
-            this.bConfigureInputScaling.Click += new System.EventHandler(this.bConfigureInputScaling_Click);
+            bConfigureInputScaling.Location = new System.Drawing.Point(77, 205);
+            bConfigureInputScaling.Name = "bConfigureInputScaling";
+            bConfigureInputScaling.Size = new System.Drawing.Size(167, 23);
+            bConfigureInputScaling.TabIndex = 5;
+            bConfigureInputScaling.Text = "Configure Input Scaling";
+            bConfigureInputScaling.UseVisualStyleBackColor = true;
+            bConfigureInputScaling.Click += bConfigureInputScaling_Click;
             // 
             // ckbInvert
             // 
-            this.ckbInvert.AutoSize = true;
-            this.ckbInvert.Location = new System.Drawing.Point(119, 157);
-            this.ckbInvert.Name = "ckbInvert";
-            this.ckbInvert.Size = new System.Drawing.Size(87, 19);
-            this.ckbInvert.TabIndex = 4;
-            this.ckbInvert.Text = "Invert Input";
-            this.toolTip1.SetToolTip(this.ckbInvert, "inverted False - input value isn\'t changed.  True- input value is subtracted from" +
-        " 65535");
-            this.ckbInvert.UseVisualStyleBackColor = true;
-            this.ckbInvert.CheckedChanged += new System.EventHandler(this.ckbInvert_CheckedChanged);
+            ckbInvert.AutoSize = true;
+            ckbInvert.Location = new System.Drawing.Point(119, 157);
+            ckbInvert.Name = "ckbInvert";
+            ckbInvert.Size = new System.Drawing.Size(87, 19);
+            ckbInvert.TabIndex = 4;
+            ckbInvert.Text = "Invert Input";
+            toolTip1.SetToolTip(ckbInvert, "inverted False - input value isn't changed.  True- input value is subtracted from 65535");
+            ckbInvert.UseVisualStyleBackColor = true;
+            ckbInvert.CheckedChanged += ckbInvert_CheckedChanged;
             // 
             // tpPID
             // 
-            this.tpPID.Controls.Add(this.tabControl4);
-            this.tpPID.Location = new System.Drawing.Point(4, 24);
-            this.tpPID.Name = "tpPID";
-            this.tpPID.Padding = new System.Windows.Forms.Padding(3);
-            this.tpPID.Size = new System.Drawing.Size(393, 468);
-            this.tpPID.TabIndex = 1;
-            this.tpPID.Text = "Feedback Control";
-            this.tpPID.UseVisualStyleBackColor = true;
+            tpPID.Controls.Add(tabControl4);
+            tpPID.Location = new System.Drawing.Point(4, 24);
+            tpPID.Name = "tpPID";
+            tpPID.Padding = new System.Windows.Forms.Padding(3);
+            tpPID.Size = new System.Drawing.Size(393, 468);
+            tpPID.TabIndex = 1;
+            tpPID.Text = "Feedback Control";
+            tpPID.UseVisualStyleBackColor = true;
             // 
             // tabControl4
             // 
-            this.tabControl4.Controls.Add(this.tabPage7);
-            this.tabControl4.Controls.Add(this.tpPID1);
-            this.tabControl4.Location = new System.Drawing.Point(6, 6);
-            this.tabControl4.Name = "tabControl4";
-            this.tabControl4.SelectedIndex = 0;
-            this.tabControl4.Size = new System.Drawing.Size(381, 456);
-            this.tabControl4.TabIndex = 33;
+            tabControl4.Controls.Add(tabPage7);
+            tabControl4.Controls.Add(tpPID1);
+            tabControl4.Controls.Add(tpRamp);
+            tabControl4.Controls.Add(tabPage4);
+            tabControl4.Location = new System.Drawing.Point(6, 6);
+            tabControl4.Name = "tabControl4";
+            tabControl4.SelectedIndex = 0;
+            tabControl4.Size = new System.Drawing.Size(381, 418);
+            tabControl4.TabIndex = 33;
             // 
             // tabPage7
             // 
-            this.tabPage7.Controls.Add(this.bGenHysteresisCode);
-            this.tabPage7.Controls.Add(this.textBox3);
-            this.tabPage7.Controls.Add(this.bConfigureHysteresis);
-            this.tabPage7.Controls.Add(this.sbsiHysLowOutput);
-            this.tabPage7.Controls.Add(this.sbsiHysInitialOutputValue);
-            this.tabPage7.Controls.Add(this.sbsiHysHighOutputValue);
-            this.tabPage7.Controls.Add(this.sbsiHysHighLimit);
-            this.tabPage7.Controls.Add(this.sbsiHysLowLimit);
-            this.tabPage7.Location = new System.Drawing.Point(4, 24);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(373, 428);
-            this.tabPage7.TabIndex = 1;
-            this.tabPage7.Text = "Hysteresis";
-            this.tabPage7.UseVisualStyleBackColor = true;
+            tabPage7.AutoScroll = true;
+            tabPage7.Controls.Add(bGenHysteresisCode);
+            tabPage7.Controls.Add(textBox3);
+            tabPage7.Controls.Add(bConfigureHysteresis);
+            tabPage7.Controls.Add(sbsiHysLowOutput);
+            tabPage7.Controls.Add(sbsiHysInitialOutputValue);
+            tabPage7.Controls.Add(sbsiHysHighOutputValue);
+            tabPage7.Controls.Add(sbsiHysHighLimit);
+            tabPage7.Controls.Add(sbsiHysLowLimit);
+            tabPage7.Location = new System.Drawing.Point(4, 24);
+            tabPage7.Name = "tabPage7";
+            tabPage7.Padding = new System.Windows.Forms.Padding(3);
+            tabPage7.Size = new System.Drawing.Size(373, 390);
+            tabPage7.TabIndex = 1;
+            tabPage7.Text = "Hysteresis";
+            tabPage7.UseVisualStyleBackColor = true;
             // 
             // bGenHysteresisCode
             // 
-            this.bGenHysteresisCode.BackColor = System.Drawing.Color.MediumPurple;
-            this.bGenHysteresisCode.Location = new System.Drawing.Point(189, 317);
-            this.bGenHysteresisCode.Name = "bGenHysteresisCode";
-            this.bGenHysteresisCode.Size = new System.Drawing.Size(106, 47);
-            this.bGenHysteresisCode.TabIndex = 40;
-            this.bGenHysteresisCode.Text = "Gen Hysteresis Code";
-            this.bGenHysteresisCode.UseVisualStyleBackColor = false;
-            this.bGenHysteresisCode.Click += new System.EventHandler(this.bGenHysteresisCode_Click);
+            bGenHysteresisCode.BackColor = System.Drawing.Color.MediumPurple;
+            bGenHysteresisCode.Location = new System.Drawing.Point(189, 317);
+            bGenHysteresisCode.Name = "bGenHysteresisCode";
+            bGenHysteresisCode.Size = new System.Drawing.Size(106, 47);
+            bGenHysteresisCode.TabIndex = 40;
+            bGenHysteresisCode.Text = "Gen Hysteresis Code";
+            bGenHysteresisCode.UseVisualStyleBackColor = false;
+            bGenHysteresisCode.Click += bGenHysteresisCode_Click;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(17, 371);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox3.Size = new System.Drawing.Size(344, 57);
-            this.textBox3.TabIndex = 39;
-            this.textBox3.Text = resources.GetString("textBox3.Text");
+            textBox3.Location = new System.Drawing.Point(17, 371);
+            textBox3.Multiline = true;
+            textBox3.Name = "textBox3";
+            textBox3.ReadOnly = true;
+            textBox3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            textBox3.Size = new System.Drawing.Size(344, 57);
+            textBox3.TabIndex = 39;
+            textBox3.Text = resources.GetString("textBox3.Text");
             // 
             // bConfigureHysteresis
             // 
-            this.bConfigureHysteresis.Location = new System.Drawing.Point(17, 317);
-            this.bConfigureHysteresis.Name = "bConfigureHysteresis";
-            this.bConfigureHysteresis.Size = new System.Drawing.Size(144, 23);
-            this.bConfigureHysteresis.TabIndex = 38;
-            this.bConfigureHysteresis.Text = "Configure Hysteresis";
-            this.bConfigureHysteresis.UseVisualStyleBackColor = true;
-            this.bConfigureHysteresis.Click += new System.EventHandler(this.bConfigureHysteresis_Click_1);
+            bConfigureHysteresis.Location = new System.Drawing.Point(17, 317);
+            bConfigureHysteresis.Name = "bConfigureHysteresis";
+            bConfigureHysteresis.Size = new System.Drawing.Size(144, 23);
+            bConfigureHysteresis.TabIndex = 38;
+            bConfigureHysteresis.Text = "Configure Hysteresis";
+            bConfigureHysteresis.UseVisualStyleBackColor = true;
+            bConfigureHysteresis.Click += bConfigureHysteresis_Click_1;
             // 
             // sbsiHysLowOutput
             // 
-            this.sbsiHysLowOutput.Location = new System.Drawing.Point(11, 63);
-            this.sbsiHysLowOutput.Maximum = 65535;
-            this.sbsiHysLowOutput.Minimum = 0;
-            this.sbsiHysLowOutput.Name = "sbsiHysLowOutput";
-            this.sbsiHysLowOutput.Size = new System.Drawing.Size(328, 60);
-            this.sbsiHysLowOutput.TabIndex = 37;
-            this.sbsiHysLowOutput.Text = "lowOutputValue";
-            this.sbsiHysLowOutput.TextBoxHint = "if the input source is at or below lowLimit then this value becomes the output";
-            this.toolTip1.SetToolTip(this.sbsiHysLowOutput, "if the input source is at or below lowLimit then this value becomes the output");
-            this.sbsiHysLowOutput.value = ((ushort)(0));
+            sbsiHysLowOutput.Location = new System.Drawing.Point(11, 63);
+            sbsiHysLowOutput.Maximum = 65535;
+            sbsiHysLowOutput.Minimum = 0;
+            sbsiHysLowOutput.Name = "sbsiHysLowOutput";
+            sbsiHysLowOutput.Size = new System.Drawing.Size(328, 60);
+            sbsiHysLowOutput.TabIndex = 37;
+            sbsiHysLowOutput.Text = "lowOutputValue";
+            sbsiHysLowOutput.TextBoxHint = "if the input source is at or below lowLimit then this value becomes the output";
+            toolTip1.SetToolTip(sbsiHysLowOutput, "if the input source is at or below lowLimit then this value becomes the output");
+            sbsiHysLowOutput.value = (ushort)0;
             // 
             // sbsiHysInitialOutputValue
             // 
-            this.sbsiHysInitialOutputValue.Location = new System.Drawing.Point(11, 248);
-            this.sbsiHysInitialOutputValue.Maximum = 65535;
-            this.sbsiHysInitialOutputValue.Minimum = 0;
-            this.sbsiHysInitialOutputValue.Name = "sbsiHysInitialOutputValue";
-            this.sbsiHysInitialOutputValue.Size = new System.Drawing.Size(328, 63);
-            this.sbsiHysInitialOutputValue.TabIndex = 33;
-            this.sbsiHysInitialOutputValue.Text = "initialOutputValue";
-            this.sbsiHysInitialOutputValue.TextBoxHint = "if the input source is between lowLimit and highLimit at initialization then this" +
-    " value is output";
-            this.sbsiHysInitialOutputValue.value = ((ushort)(0));
+            sbsiHysInitialOutputValue.Location = new System.Drawing.Point(11, 248);
+            sbsiHysInitialOutputValue.Maximum = 65535;
+            sbsiHysInitialOutputValue.Minimum = 0;
+            sbsiHysInitialOutputValue.Name = "sbsiHysInitialOutputValue";
+            sbsiHysInitialOutputValue.Size = new System.Drawing.Size(328, 63);
+            sbsiHysInitialOutputValue.TabIndex = 33;
+            sbsiHysInitialOutputValue.Text = "initialOutputValue";
+            sbsiHysInitialOutputValue.TextBoxHint = "if the input source is between lowLimit and highLimit at initialization then this value is output";
+            sbsiHysInitialOutputValue.value = (ushort)0;
             // 
             // sbsiHysHighOutputValue
             // 
-            this.sbsiHysHighOutputValue.Location = new System.Drawing.Point(14, 191);
-            this.sbsiHysHighOutputValue.Maximum = 65535;
-            this.sbsiHysHighOutputValue.Minimum = 0;
-            this.sbsiHysHighOutputValue.Name = "sbsiHysHighOutputValue";
-            this.sbsiHysHighOutputValue.Size = new System.Drawing.Size(328, 62);
-            this.sbsiHysHighOutputValue.TabIndex = 34;
-            this.sbsiHysHighOutputValue.Text = "highOutputValue";
-            this.sbsiHysHighOutputValue.TextBoxHint = "if the input source is at or above highLimit then this value becomes the output";
-            this.sbsiHysHighOutputValue.value = ((ushort)(0));
+            sbsiHysHighOutputValue.Location = new System.Drawing.Point(14, 191);
+            sbsiHysHighOutputValue.Maximum = 65535;
+            sbsiHysHighOutputValue.Minimum = 0;
+            sbsiHysHighOutputValue.Name = "sbsiHysHighOutputValue";
+            sbsiHysHighOutputValue.Size = new System.Drawing.Size(328, 62);
+            sbsiHysHighOutputValue.TabIndex = 34;
+            sbsiHysHighOutputValue.Text = "highOutputValue";
+            sbsiHysHighOutputValue.TextBoxHint = "if the input source is at or above highLimit then this value becomes the output";
+            sbsiHysHighOutputValue.value = (ushort)0;
             // 
             // sbsiHysHighLimit
             // 
-            this.sbsiHysHighLimit.Location = new System.Drawing.Point(14, 129);
-            this.sbsiHysHighLimit.Maximum = 65535;
-            this.sbsiHysHighLimit.Minimum = 0;
-            this.sbsiHysHighLimit.Name = "sbsiHysHighLimit";
-            this.sbsiHysHighLimit.Size = new System.Drawing.Size(328, 53);
-            this.sbsiHysHighLimit.TabIndex = 35;
-            this.sbsiHysHighLimit.Text = "highLimit";
-            this.sbsiHysHighLimit.TextBoxHint = "if the input source is at or above this level then the output value is highOutput" +
-    "Value";
-            this.sbsiHysHighLimit.value = ((ushort)(0));
+            sbsiHysHighLimit.Location = new System.Drawing.Point(14, 129);
+            sbsiHysHighLimit.Maximum = 65535;
+            sbsiHysHighLimit.Minimum = 0;
+            sbsiHysHighLimit.Name = "sbsiHysHighLimit";
+            sbsiHysHighLimit.Size = new System.Drawing.Size(328, 53);
+            sbsiHysHighLimit.TabIndex = 35;
+            sbsiHysHighLimit.Text = "highLimit";
+            sbsiHysHighLimit.TextBoxHint = "if the input source is at or above this level then the output value is highOutputValue";
+            sbsiHysHighLimit.value = (ushort)0;
             // 
             // sbsiHysLowLimit
             // 
-            this.sbsiHysLowLimit.Location = new System.Drawing.Point(14, 6);
-            this.sbsiHysLowLimit.Maximum = 65535;
-            this.sbsiHysLowLimit.Minimum = 0;
-            this.sbsiHysLowLimit.Name = "sbsiHysLowLimit";
-            this.sbsiHysLowLimit.Size = new System.Drawing.Size(328, 64);
-            this.sbsiHysLowLimit.TabIndex = 36;
-            this.sbsiHysLowLimit.Text = "lowLimit";
-            this.sbsiHysLowLimit.TextBoxHint = "If the input source is at or below this level the output value is lowOutputValue";
-            this.sbsiHysLowLimit.value = ((ushort)(0));
+            sbsiHysLowLimit.Location = new System.Drawing.Point(14, 6);
+            sbsiHysLowLimit.Maximum = 65535;
+            sbsiHysLowLimit.Minimum = 0;
+            sbsiHysLowLimit.Name = "sbsiHysLowLimit";
+            sbsiHysLowLimit.Size = new System.Drawing.Size(328, 64);
+            sbsiHysLowLimit.TabIndex = 36;
+            sbsiHysLowLimit.Text = "lowLimit";
+            sbsiHysLowLimit.TextBoxHint = "If the input source is at or below this level the output value is lowOutputValue";
+            sbsiHysLowLimit.value = (ushort)0;
             // 
             // tpPID1
             // 
-            this.tpPID1.Controls.Add(this.pidControl1);
-            this.tpPID1.Location = new System.Drawing.Point(4, 24);
-            this.tpPID1.Name = "tpPID1";
-            this.tpPID1.Padding = new System.Windows.Forms.Padding(3);
-            this.tpPID1.Size = new System.Drawing.Size(373, 428);
-            this.tpPID1.TabIndex = 2;
-            this.tpPID1.Text = "PID";
-            this.tpPID1.UseVisualStyleBackColor = true;
+            tpPID1.AutoScroll = true;
+            tpPID1.Controls.Add(pidControl1);
+            tpPID1.Location = new System.Drawing.Point(4, 24);
+            tpPID1.Name = "tpPID1";
+            tpPID1.Padding = new System.Windows.Forms.Padding(3);
+            tpPID1.Size = new System.Drawing.Size(373, 390);
+            tpPID1.TabIndex = 2;
+            tpPID1.Text = "PID";
+            tpPID1.UseVisualStyleBackColor = true;
             // 
             // pidControl1
             // 
-            this.pidControl1.AutoSize = true;
-            this.pidControl1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.pidControl1.Location = new System.Drawing.Point(6, 6);
-            this.pidControl1.Name = "pidControl1";
-            this.pidControl1.Size = new System.Drawing.Size(367, 402);
-            this.pidControl1.TabIndex = 0;
-
+            pidControl1.AutoScroll = true;
+            pidControl1.AutoSize = true;
+            pidControl1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            pidControl1.Location = new System.Drawing.Point(6, 6);
+            pidControl1.Name = "pidControl1";
+            pidControl1.Size = new System.Drawing.Size(367, 402);
+            pidControl1.TabIndex = 0;
+            pidControl1.Load += pidControl1_Load;
+            // 
+            // tpRamp
+            // 
+            tpRamp.AutoScroll = true;
+            tpRamp.Controls.Add(rampOutputScaleControl1);
+            tpRamp.Location = new System.Drawing.Point(4, 24);
+            tpRamp.Name = "tpRamp";
+            tpRamp.Padding = new System.Windows.Forms.Padding(3);
+            tpRamp.Size = new System.Drawing.Size(373, 390);
+            tpRamp.TabIndex = 3;
+            tpRamp.Text = "Ramp";
+            tpRamp.UseVisualStyleBackColor = true;
+            // 
+            // rampOutputScaleControl1
+            // 
+            rampOutputScaleControl1.AutoSize = true;
+            rampOutputScaleControl1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            rampOutputScaleControl1.Location = new System.Drawing.Point(6, 6);
+            rampOutputScaleControl1.Name = "rampOutputScaleControl1";
+            rampOutputScaleControl1.Size = new System.Drawing.Size(349, 379);
+            rampOutputScaleControl1.TabIndex = 0;
             // 
             // tpTimeout
             // 
-            this.tpTimeout.Controls.Add(this.bGenTimeoutCode);
-            this.tpTimeout.Controls.Add(this.textBox4);
-            this.tpTimeout.Controls.Add(this.bConfigureTimeout);
-            this.tpTimeout.Controls.Add(this.sbsiTimeoutOutputValue);
-            this.tpTimeout.Controls.Add(this.sbsiTimeout_mS);
-            this.tpTimeout.Location = new System.Drawing.Point(4, 24);
-            this.tpTimeout.Name = "tpTimeout";
-            this.tpTimeout.Padding = new System.Windows.Forms.Padding(3);
-            this.tpTimeout.Size = new System.Drawing.Size(393, 468);
-            this.tpTimeout.TabIndex = 3;
-            this.tpTimeout.Text = "Timeout";
-            this.tpTimeout.UseVisualStyleBackColor = true;
+            tpTimeout.Controls.Add(bGenTimeoutCode);
+            tpTimeout.Controls.Add(textBox4);
+            tpTimeout.Controls.Add(bConfigureTimeout);
+            tpTimeout.Controls.Add(sbsiTimeoutOutputValue);
+            tpTimeout.Controls.Add(sbsiTimeout_mS);
+            tpTimeout.Location = new System.Drawing.Point(4, 24);
+            tpTimeout.Name = "tpTimeout";
+            tpTimeout.Padding = new System.Windows.Forms.Padding(3);
+            tpTimeout.Size = new System.Drawing.Size(393, 468);
+            tpTimeout.TabIndex = 3;
+            tpTimeout.Text = "Timeout";
+            tpTimeout.UseVisualStyleBackColor = true;
             // 
             // bGenTimeoutCode
             // 
-            this.bGenTimeoutCode.BackColor = System.Drawing.Color.MediumPurple;
-            this.bGenTimeoutCode.Location = new System.Drawing.Point(255, 187);
-            this.bGenTimeoutCode.Name = "bGenTimeoutCode";
-            this.bGenTimeoutCode.Size = new System.Drawing.Size(106, 47);
-            this.bGenTimeoutCode.TabIndex = 33;
-            this.bGenTimeoutCode.Text = "Gen Timeout Code";
-            this.bGenTimeoutCode.UseVisualStyleBackColor = false;
-            this.bGenTimeoutCode.Click += new System.EventHandler(this.bGenTimeoutCode_Click);
+            bGenTimeoutCode.BackColor = System.Drawing.Color.MediumPurple;
+            bGenTimeoutCode.Location = new System.Drawing.Point(255, 187);
+            bGenTimeoutCode.Name = "bGenTimeoutCode";
+            bGenTimeoutCode.Size = new System.Drawing.Size(106, 47);
+            bGenTimeoutCode.TabIndex = 33;
+            bGenTimeoutCode.Text = "Gen Timeout Code";
+            bGenTimeoutCode.UseVisualStyleBackColor = false;
+            bGenTimeoutCode.Click += bGenTimeoutCode_Click;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(6, 250);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox4.Size = new System.Drawing.Size(344, 217);
-            this.textBox4.TabIndex = 20;
-            this.textBox4.Text = resources.GetString("textBox4.Text");
+            textBox4.Location = new System.Drawing.Point(6, 250);
+            textBox4.Multiline = true;
+            textBox4.Name = "textBox4";
+            textBox4.ReadOnly = true;
+            textBox4.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            textBox4.Size = new System.Drawing.Size(344, 217);
+            textBox4.TabIndex = 20;
+            textBox4.Text = resources.GetString("textBox4.Text");
             // 
             // bConfigureTimeout
             // 
-            this.bConfigureTimeout.Location = new System.Drawing.Point(101, 192);
-            this.bConfigureTimeout.Name = "bConfigureTimeout";
-            this.bConfigureTimeout.Size = new System.Drawing.Size(128, 36);
-            this.bConfigureTimeout.TabIndex = 2;
-            this.bConfigureTimeout.Text = "Configure Timeout";
-            this.bConfigureTimeout.UseVisualStyleBackColor = true;
-            this.bConfigureTimeout.Click += new System.EventHandler(this.bConfigureTimeout_Click);
+            bConfigureTimeout.Location = new System.Drawing.Point(101, 192);
+            bConfigureTimeout.Name = "bConfigureTimeout";
+            bConfigureTimeout.Size = new System.Drawing.Size(128, 36);
+            bConfigureTimeout.TabIndex = 2;
+            bConfigureTimeout.Text = "Configure Timeout";
+            bConfigureTimeout.UseVisualStyleBackColor = true;
+            bConfigureTimeout.Click += bConfigureTimeout_Click;
             // 
             // sbsiTimeoutOutputValue
             // 
-            this.sbsiTimeoutOutputValue.Location = new System.Drawing.Point(6, 98);
-            this.sbsiTimeoutOutputValue.Maximum = 65535;
-            this.sbsiTimeoutOutputValue.Minimum = 0;
-            this.sbsiTimeoutOutputValue.Name = "sbsiTimeoutOutputValue";
-            this.sbsiTimeoutOutputValue.Size = new System.Drawing.Size(328, 76);
-            this.sbsiTimeoutOutputValue.TabIndex = 1;
-            this.sbsiTimeoutOutputValue.Text = "timeoutOutputValue";
-            this.sbsiTimeoutOutputValue.TextBoxHint = "The 16 bit value that should be output if a timeout occurs";
-            this.sbsiTimeoutOutputValue.value = ((ushort)(0));
+            sbsiTimeoutOutputValue.Location = new System.Drawing.Point(6, 98);
+            sbsiTimeoutOutputValue.Maximum = 65535;
+            sbsiTimeoutOutputValue.Minimum = 0;
+            sbsiTimeoutOutputValue.Name = "sbsiTimeoutOutputValue";
+            sbsiTimeoutOutputValue.Size = new System.Drawing.Size(328, 76);
+            sbsiTimeoutOutputValue.TabIndex = 1;
+            sbsiTimeoutOutputValue.Text = "timeoutOutputValue";
+            sbsiTimeoutOutputValue.TextBoxHint = "The 16 bit value that should be output if a timeout occurs";
+            sbsiTimeoutOutputValue.value = (ushort)0;
             // 
             // sbsiTimeout_mS
             // 
-            this.sbsiTimeout_mS.Location = new System.Drawing.Point(6, 16);
-            this.sbsiTimeout_mS.Maximum = 65535;
-            this.sbsiTimeout_mS.Minimum = 0;
-            this.sbsiTimeout_mS.Name = "sbsiTimeout_mS";
-            this.sbsiTimeout_mS.Size = new System.Drawing.Size(328, 76);
-            this.sbsiTimeout_mS.TabIndex = 0;
-            this.sbsiTimeout_mS.Text = "timeout_mS";
-            this.sbsiTimeout_mS.TextBoxHint = "How long in mS before the timeout occurs.  Set to zero to disable the timeout";
-            this.sbsiTimeout_mS.value = ((ushort)(0));
+            sbsiTimeout_mS.Location = new System.Drawing.Point(6, 16);
+            sbsiTimeout_mS.Maximum = 65535;
+            sbsiTimeout_mS.Minimum = 0;
+            sbsiTimeout_mS.Name = "sbsiTimeout_mS";
+            sbsiTimeout_mS.Size = new System.Drawing.Size(328, 76);
+            sbsiTimeout_mS.TabIndex = 0;
+            sbsiTimeout_mS.Text = "timeout_mS";
+            sbsiTimeout_mS.TextBoxHint = "How long in mS before the timeout occurs.  Set to zero to disable the timeout";
+            sbsiTimeout_mS.value = (ushort)0;
             // 
             // tpFiltering
             // 
-            this.tpFiltering.Controls.Add(this.tabControl2);
-            this.tpFiltering.Controls.Add(this.edFilteringPeriod);
-            this.tpFiltering.Location = new System.Drawing.Point(4, 24);
-            this.tpFiltering.Name = "tpFiltering";
-            this.tpFiltering.Padding = new System.Windows.Forms.Padding(3);
-            this.tpFiltering.Size = new System.Drawing.Size(393, 468);
-            this.tpFiltering.TabIndex = 4;
-            this.tpFiltering.Text = "Filtering";
-            this.tpFiltering.UseVisualStyleBackColor = true;
+            tpFiltering.Controls.Add(tabControl2);
+            tpFiltering.Controls.Add(edFilteringPeriod);
+            tpFiltering.Location = new System.Drawing.Point(4, 24);
+            tpFiltering.Name = "tpFiltering";
+            tpFiltering.Padding = new System.Windows.Forms.Padding(3);
+            tpFiltering.Size = new System.Drawing.Size(393, 468);
+            tpFiltering.TabIndex = 4;
+            tpFiltering.Text = "Filtering";
+            tpFiltering.UseVisualStyleBackColor = true;
             // 
             // tabControl2
             // 
-            this.tabControl2.Controls.Add(this.tabPage2);
-            this.tabControl2.Controls.Add(this.tabPage3);
-            this.tabControl2.Location = new System.Drawing.Point(6, 6);
-            this.tabControl2.Name = "tabControl2";
-            this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(381, 405);
-            this.tabControl2.TabIndex = 24;
+            tabControl2.Controls.Add(tabPage2);
+            tabControl2.Controls.Add(tabPage3);
+            tabControl2.Location = new System.Drawing.Point(6, 6);
+            tabControl2.Name = "tabControl2";
+            tabControl2.SelectedIndex = 0;
+            tabControl2.Size = new System.Drawing.Size(381, 405);
+            tabControl2.TabIndex = 24;
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.bGenFilterCode);
-            this.tabPage2.Controls.Add(this.sbsiFilterConstant);
-            this.tabPage2.Controls.Add(this.bConfigureFiltering);
-            this.tabPage2.Controls.Add(this.textBox5);
-            this.tabPage2.Location = new System.Drawing.Point(4, 24);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(373, 377);
-            this.tabPage2.TabIndex = 0;
-            this.tabPage2.Text = "Filtering";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            tabPage2.Controls.Add(bGenFilterCode);
+            tabPage2.Controls.Add(sbsiFilterConstant);
+            tabPage2.Controls.Add(bConfigureFiltering);
+            tabPage2.Controls.Add(textBox5);
+            tabPage2.Location = new System.Drawing.Point(4, 24);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            tabPage2.Size = new System.Drawing.Size(373, 377);
+            tabPage2.TabIndex = 0;
+            tabPage2.Text = "Filtering";
+            tabPage2.UseVisualStyleBackColor = true;
             // 
             // bGenFilterCode
             // 
-            this.bGenFilterCode.BackColor = System.Drawing.Color.MediumPurple;
-            this.bGenFilterCode.Location = new System.Drawing.Point(227, 88);
-            this.bGenFilterCode.Name = "bGenFilterCode";
-            this.bGenFilterCode.Size = new System.Drawing.Size(90, 47);
-            this.bGenFilterCode.TabIndex = 30;
-            this.bGenFilterCode.Text = "Gen Filter Code";
-            this.bGenFilterCode.UseVisualStyleBackColor = false;
-            this.bGenFilterCode.Click += new System.EventHandler(this.bGenFilterCode_Click);
+            bGenFilterCode.BackColor = System.Drawing.Color.MediumPurple;
+            bGenFilterCode.Location = new System.Drawing.Point(227, 88);
+            bGenFilterCode.Name = "bGenFilterCode";
+            bGenFilterCode.Size = new System.Drawing.Size(90, 47);
+            bGenFilterCode.TabIndex = 30;
+            bGenFilterCode.Text = "Gen Filter Code";
+            bGenFilterCode.UseVisualStyleBackColor = false;
+            bGenFilterCode.Click += bGenFilterCode_Click;
             // 
             // sbsiFilterConstant
             // 
-            this.sbsiFilterConstant.Location = new System.Drawing.Point(6, 6);
-            this.sbsiFilterConstant.Maximum = 65535;
-            this.sbsiFilterConstant.Minimum = 0;
-            this.sbsiFilterConstant.Name = "sbsiFilterConstant";
-            this.sbsiFilterConstant.Size = new System.Drawing.Size(328, 76);
-            this.sbsiFilterConstant.TabIndex = 0;
-            this.sbsiFilterConstant.Text = "filterConstant";
-            this.sbsiFilterConstant.TextBoxHint = "";
-            this.sbsiFilterConstant.value = ((ushort)(0));
+            sbsiFilterConstant.Location = new System.Drawing.Point(6, 6);
+            sbsiFilterConstant.Maximum = 65535;
+            sbsiFilterConstant.Minimum = 0;
+            sbsiFilterConstant.Name = "sbsiFilterConstant";
+            sbsiFilterConstant.Size = new System.Drawing.Size(328, 76);
+            sbsiFilterConstant.TabIndex = 0;
+            sbsiFilterConstant.Text = "filterConstant";
+            sbsiFilterConstant.TextBoxHint = "";
+            sbsiFilterConstant.value = (ushort)0;
             // 
             // bConfigureFiltering
             // 
-            this.bConfigureFiltering.Location = new System.Drawing.Point(6, 88);
-            this.bConfigureFiltering.Name = "bConfigureFiltering";
-            this.bConfigureFiltering.Size = new System.Drawing.Size(156, 23);
-            this.bConfigureFiltering.TabIndex = 2;
-            this.bConfigureFiltering.Text = "Configure 1st order Filtering";
-            this.bConfigureFiltering.UseVisualStyleBackColor = true;
-            this.bConfigureFiltering.Click += new System.EventHandler(this.bConfigureFiltering_Click);
+            bConfigureFiltering.Location = new System.Drawing.Point(6, 88);
+            bConfigureFiltering.Name = "bConfigureFiltering";
+            bConfigureFiltering.Size = new System.Drawing.Size(156, 23);
+            bConfigureFiltering.TabIndex = 2;
+            bConfigureFiltering.Text = "Configure 1st order Filtering";
+            bConfigureFiltering.UseVisualStyleBackColor = true;
+            bConfigureFiltering.Click += bConfigureFiltering_Click;
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(6, 182);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox5.Size = new System.Drawing.Size(344, 189);
-            this.textBox5.TabIndex = 20;
-            this.textBox5.Text = resources.GetString("textBox5.Text");
+            textBox5.Location = new System.Drawing.Point(6, 182);
+            textBox5.Multiline = true;
+            textBox5.Name = "textBox5";
+            textBox5.ReadOnly = true;
+            textBox5.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            textBox5.Size = new System.Drawing.Size(344, 189);
+            textBox5.TabIndex = 20;
+            textBox5.Text = resources.GetString("textBox5.Text");
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.bGenRateLimit);
-            this.tabPage3.Controls.Add(this.sbsiMaxChangeUp);
-            this.tabPage3.Controls.Add(this.sbsiFilterConstant2);
-            this.tabPage3.Controls.Add(this.bConfigureMaximumRate);
-            this.tabPage3.Controls.Add(this.textBox6);
-            this.tabPage3.Location = new System.Drawing.Point(4, 24);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(373, 377);
-            this.tabPage3.TabIndex = 1;
-            this.tabPage3.Text = "Rate Limit";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            tabPage3.Controls.Add(bGenRateLimit);
+            tabPage3.Controls.Add(sbsiMaxChangeUp);
+            tabPage3.Controls.Add(sbsiFilterConstant2);
+            tabPage3.Controls.Add(bConfigureMaximumRate);
+            tabPage3.Controls.Add(textBox6);
+            tabPage3.Location = new System.Drawing.Point(4, 24);
+            tabPage3.Name = "tabPage3";
+            tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            tabPage3.Size = new System.Drawing.Size(373, 377);
+            tabPage3.TabIndex = 1;
+            tabPage3.Text = "Rate Limit";
+            tabPage3.UseVisualStyleBackColor = true;
             // 
             // bGenRateLimit
             // 
-            this.bGenRateLimit.BackColor = System.Drawing.Color.MediumPurple;
-            this.bGenRateLimit.Location = new System.Drawing.Point(227, 163);
-            this.bGenRateLimit.Name = "bGenRateLimit";
-            this.bGenRateLimit.Size = new System.Drawing.Size(90, 47);
-            this.bGenRateLimit.TabIndex = 31;
-            this.bGenRateLimit.Text = "Gen Rate Limit Code";
-            this.bGenRateLimit.UseVisualStyleBackColor = false;
-            this.bGenRateLimit.Click += new System.EventHandler(this.bGenRateLimit_Click);
+            bGenRateLimit.BackColor = System.Drawing.Color.MediumPurple;
+            bGenRateLimit.Location = new System.Drawing.Point(227, 163);
+            bGenRateLimit.Name = "bGenRateLimit";
+            bGenRateLimit.Size = new System.Drawing.Size(90, 47);
+            bGenRateLimit.TabIndex = 31;
+            bGenRateLimit.Text = "Gen Rate Limit Code";
+            bGenRateLimit.UseVisualStyleBackColor = false;
+            bGenRateLimit.Click += bGenRateLimit_Click;
             // 
             // sbsiMaxChangeUp
             // 
-            this.sbsiMaxChangeUp.Location = new System.Drawing.Point(16, 3);
-            this.sbsiMaxChangeUp.Maximum = 65535;
-            this.sbsiMaxChangeUp.Minimum = 0;
-            this.sbsiMaxChangeUp.Name = "sbsiMaxChangeUp";
-            this.sbsiMaxChangeUp.Size = new System.Drawing.Size(328, 76);
-            this.sbsiMaxChangeUp.TabIndex = 22;
-            this.sbsiMaxChangeUp.Text = "maximumChangeCountsUp";
-            this.sbsiMaxChangeUp.TextBoxHint = "";
-            this.sbsiMaxChangeUp.value = ((ushort)(100));
+            sbsiMaxChangeUp.Location = new System.Drawing.Point(16, 3);
+            sbsiMaxChangeUp.Maximum = 65535;
+            sbsiMaxChangeUp.Minimum = 0;
+            sbsiMaxChangeUp.Name = "sbsiMaxChangeUp";
+            sbsiMaxChangeUp.Size = new System.Drawing.Size(328, 76);
+            sbsiMaxChangeUp.TabIndex = 22;
+            sbsiMaxChangeUp.Text = "maximumChangeCountsUp";
+            sbsiMaxChangeUp.TextBoxHint = "";
+            sbsiMaxChangeUp.value = (ushort)100;
             // 
             // sbsiFilterConstant2
             // 
-            this.sbsiFilterConstant2.Location = new System.Drawing.Point(16, 81);
-            this.sbsiFilterConstant2.Maximum = 65535;
-            this.sbsiFilterConstant2.Minimum = 0;
-            this.sbsiFilterConstant2.Name = "sbsiFilterConstant2";
-            this.sbsiFilterConstant2.Size = new System.Drawing.Size(328, 76);
-            this.sbsiFilterConstant2.TabIndex = 0;
-            this.sbsiFilterConstant2.Text = "maximumChangeCountsDown";
-            this.sbsiFilterConstant2.TextBoxHint = "";
-            this.sbsiFilterConstant2.value = ((ushort)(100));
+            sbsiFilterConstant2.Location = new System.Drawing.Point(16, 81);
+            sbsiFilterConstant2.Maximum = 65535;
+            sbsiFilterConstant2.Minimum = 0;
+            sbsiFilterConstant2.Name = "sbsiFilterConstant2";
+            sbsiFilterConstant2.Size = new System.Drawing.Size(328, 76);
+            sbsiFilterConstant2.TabIndex = 0;
+            sbsiFilterConstant2.Text = "maximumChangeCountsDown";
+            sbsiFilterConstant2.TextBoxHint = "";
+            sbsiFilterConstant2.value = (ushort)100;
             // 
             // bConfigureMaximumRate
             // 
-            this.bConfigureMaximumRate.Location = new System.Drawing.Point(16, 163);
-            this.bConfigureMaximumRate.Name = "bConfigureMaximumRate";
-            this.bConfigureMaximumRate.Size = new System.Drawing.Size(156, 23);
-            this.bConfigureMaximumRate.TabIndex = 4;
-            this.bConfigureMaximumRate.Text = "Configure Rate Limit";
-            this.bConfigureMaximumRate.UseVisualStyleBackColor = true;
-            this.bConfigureMaximumRate.Click += new System.EventHandler(this.bConfigureMaximumRate_Click);
+            bConfigureMaximumRate.Location = new System.Drawing.Point(16, 163);
+            bConfigureMaximumRate.Name = "bConfigureMaximumRate";
+            bConfigureMaximumRate.Size = new System.Drawing.Size(156, 23);
+            bConfigureMaximumRate.TabIndex = 4;
+            bConfigureMaximumRate.Text = "Configure Rate Limit";
+            bConfigureMaximumRate.UseVisualStyleBackColor = true;
+            bConfigureMaximumRate.Click += bConfigureMaximumRate_Click;
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(16, 263);
-            this.textBox6.Multiline = true;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox6.Size = new System.Drawing.Size(344, 108);
-            this.textBox6.TabIndex = 21;
-            this.textBox6.Text = resources.GetString("textBox6.Text");
+            textBox6.Location = new System.Drawing.Point(16, 263);
+            textBox6.Multiline = true;
+            textBox6.Name = "textBox6";
+            textBox6.ReadOnly = true;
+            textBox6.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            textBox6.Size = new System.Drawing.Size(344, 108);
+            textBox6.TabIndex = 21;
+            textBox6.Text = resources.GetString("textBox6.Text");
             // 
             // edFilteringPeriod
             // 
-            this.edFilteringPeriod.DropDownToolTip = "";
-            this.edFilteringPeriod.dropdowntype = "SerialWombatClassLibrary.SerialWombat.ScaledOutputPeriod";
-            this.edFilteringPeriod.Location = new System.Drawing.Point(53, 417);
-            this.edFilteringPeriod.Name = "edFilteringPeriod";
-            this.edFilteringPeriod.Size = new System.Drawing.Size(274, 35);
-            this.edFilteringPeriod.TabIndex = 1;
-            this.edFilteringPeriod.Value = 0;
+            edFilteringPeriod.DropDownToolTip = "";
+            edFilteringPeriod.dropdowntype = "SerialWombatClassLibrary.SerialWombat.ScaledOutputPeriod";
+            edFilteringPeriod.Location = new System.Drawing.Point(53, 417);
+            edFilteringPeriod.Name = "edFilteringPeriod";
+            edFilteringPeriod.Size = new System.Drawing.Size(274, 35);
+            edFilteringPeriod.TabIndex = 1;
+            edFilteringPeriod.Value = 0;
             // 
             // tpOutputScaling
             // 
-            this.tpOutputScaling.Controls.Add(this.tabControl3);
-            this.tpOutputScaling.Location = new System.Drawing.Point(4, 24);
-            this.tpOutputScaling.Name = "tpOutputScaling";
-            this.tpOutputScaling.Padding = new System.Windows.Forms.Padding(3);
-            this.tpOutputScaling.Size = new System.Drawing.Size(393, 468);
-            this.tpOutputScaling.TabIndex = 5;
-            this.tpOutputScaling.Text = "Output Scaling";
-            this.tpOutputScaling.UseVisualStyleBackColor = true;
+            tpOutputScaling.Controls.Add(tabControl3);
+            tpOutputScaling.Location = new System.Drawing.Point(4, 24);
+            tpOutputScaling.Name = "tpOutputScaling";
+            tpOutputScaling.Padding = new System.Windows.Forms.Padding(3);
+            tpOutputScaling.Size = new System.Drawing.Size(393, 468);
+            tpOutputScaling.TabIndex = 5;
+            tpOutputScaling.Text = "Output Scaling";
+            tpOutputScaling.UseVisualStyleBackColor = true;
             // 
             // tabControl3
             // 
-            this.tabControl3.Controls.Add(this.MinMax);
-            this.tabControl3.Controls.Add(this.tabPage5);
-            this.tabControl3.Location = new System.Drawing.Point(6, 6);
-            this.tabControl3.Name = "tabControl3";
-            this.tabControl3.SelectedIndex = 0;
-            this.tabControl3.Size = new System.Drawing.Size(381, 456);
-            this.tabControl3.TabIndex = 33;
+            tabControl3.Controls.Add(MinMax);
+            tabControl3.Controls.Add(tabPage5);
+            tabControl3.Location = new System.Drawing.Point(6, 6);
+            tabControl3.Name = "tabControl3";
+            tabControl3.SelectedIndex = 0;
+            tabControl3.Size = new System.Drawing.Size(381, 456);
+            tabControl3.TabIndex = 33;
             // 
             // MinMax
             // 
-            this.MinMax.Controls.Add(this.sbsiOutputScalingMin);
-            this.MinMax.Controls.Add(this.bGenOutputScalingcode);
-            this.MinMax.Controls.Add(this.sbsiOutputScalingMax);
-            this.MinMax.Controls.Add(this.bConfigureOutputScaling);
-            this.MinMax.Location = new System.Drawing.Point(4, 24);
-            this.MinMax.Name = "MinMax";
-            this.MinMax.Padding = new System.Windows.Forms.Padding(3);
-            this.MinMax.Size = new System.Drawing.Size(373, 428);
-            this.MinMax.TabIndex = 0;
-            this.MinMax.Text = "MinMax";
-            this.MinMax.UseVisualStyleBackColor = true;
+            MinMax.Controls.Add(sbsiOutputScalingMin);
+            MinMax.Controls.Add(bGenOutputScalingcode);
+            MinMax.Controls.Add(sbsiOutputScalingMax);
+            MinMax.Controls.Add(bConfigureOutputScaling);
+            MinMax.Location = new System.Drawing.Point(4, 24);
+            MinMax.Name = "MinMax";
+            MinMax.Padding = new System.Windows.Forms.Padding(3);
+            MinMax.Size = new System.Drawing.Size(373, 428);
+            MinMax.TabIndex = 0;
+            MinMax.Text = "MinMax";
+            MinMax.UseVisualStyleBackColor = true;
             // 
             // sbsiOutputScalingMin
             // 
-            this.sbsiOutputScalingMin.Location = new System.Drawing.Point(6, 6);
-            this.sbsiOutputScalingMin.Maximum = 65535;
-            this.sbsiOutputScalingMin.Minimum = 0;
-            this.sbsiOutputScalingMin.Name = "sbsiOutputScalingMin";
-            this.sbsiOutputScalingMin.Size = new System.Drawing.Size(328, 76);
-            this.sbsiOutputScalingMin.TabIndex = 14;
-            this.sbsiOutputScalingMin.Text = "outputMin";
-            this.sbsiOutputScalingMin.TextBoxHint = "";
-            this.sbsiOutputScalingMin.value = ((ushort)(0));
+            sbsiOutputScalingMin.Location = new System.Drawing.Point(6, 6);
+            sbsiOutputScalingMin.Maximum = 65535;
+            sbsiOutputScalingMin.Minimum = 0;
+            sbsiOutputScalingMin.Name = "sbsiOutputScalingMin";
+            sbsiOutputScalingMin.Size = new System.Drawing.Size(328, 76);
+            sbsiOutputScalingMin.TabIndex = 14;
+            sbsiOutputScalingMin.Text = "outputMin";
+            sbsiOutputScalingMin.TextBoxHint = "";
+            sbsiOutputScalingMin.value = (ushort)0;
             // 
             // bGenOutputScalingcode
             // 
-            this.bGenOutputScalingcode.BackColor = System.Drawing.Color.MediumPurple;
-            this.bGenOutputScalingcode.Location = new System.Drawing.Point(274, 166);
-            this.bGenOutputScalingcode.Name = "bGenOutputScalingcode";
-            this.bGenOutputScalingcode.Size = new System.Drawing.Size(90, 47);
-            this.bGenOutputScalingcode.TabIndex = 32;
-            this.bGenOutputScalingcode.Text = "Gen Output Scaling Code";
-            this.bGenOutputScalingcode.UseVisualStyleBackColor = false;
-            this.bGenOutputScalingcode.Click += new System.EventHandler(this.bGenOutputScalingcode_Click);
+            bGenOutputScalingcode.BackColor = System.Drawing.Color.MediumPurple;
+            bGenOutputScalingcode.Location = new System.Drawing.Point(274, 166);
+            bGenOutputScalingcode.Name = "bGenOutputScalingcode";
+            bGenOutputScalingcode.Size = new System.Drawing.Size(90, 47);
+            bGenOutputScalingcode.TabIndex = 32;
+            bGenOutputScalingcode.Text = "Gen Output Scaling Code";
+            bGenOutputScalingcode.UseVisualStyleBackColor = false;
+            bGenOutputScalingcode.Click += bGenOutputScalingcode_Click;
             // 
             // sbsiOutputScalingMax
             // 
-            this.sbsiOutputScalingMax.Location = new System.Drawing.Point(9, 75);
-            this.sbsiOutputScalingMax.Maximum = 65535;
-            this.sbsiOutputScalingMax.Minimum = 0;
-            this.sbsiOutputScalingMax.Name = "sbsiOutputScalingMax";
-            this.sbsiOutputScalingMax.Size = new System.Drawing.Size(328, 76);
-            this.sbsiOutputScalingMax.TabIndex = 15;
-            this.sbsiOutputScalingMax.Text = "outputMax";
-            this.sbsiOutputScalingMax.TextBoxHint = "";
-            this.sbsiOutputScalingMax.value = ((ushort)(65535));
+            sbsiOutputScalingMax.Location = new System.Drawing.Point(9, 75);
+            sbsiOutputScalingMax.Maximum = 65535;
+            sbsiOutputScalingMax.Minimum = 0;
+            sbsiOutputScalingMax.Name = "sbsiOutputScalingMax";
+            sbsiOutputScalingMax.Size = new System.Drawing.Size(328, 76);
+            sbsiOutputScalingMax.TabIndex = 15;
+            sbsiOutputScalingMax.Text = "outputMax";
+            sbsiOutputScalingMax.TextBoxHint = "";
+            sbsiOutputScalingMax.value = ushort.MaxValue;
             // 
             // bConfigureOutputScaling
             // 
-            this.bConfigureOutputScaling.Location = new System.Drawing.Point(77, 166);
-            this.bConfigureOutputScaling.Name = "bConfigureOutputScaling";
-            this.bConfigureOutputScaling.Size = new System.Drawing.Size(167, 23);
-            this.bConfigureOutputScaling.TabIndex = 16;
-            this.bConfigureOutputScaling.Text = "Configure Output Scaling";
-            this.bConfigureOutputScaling.UseVisualStyleBackColor = true;
-            this.bConfigureOutputScaling.Click += new System.EventHandler(this.bConfigureOutputScaling_Click);
+            bConfigureOutputScaling.Location = new System.Drawing.Point(77, 166);
+            bConfigureOutputScaling.Name = "bConfigureOutputScaling";
+            bConfigureOutputScaling.Size = new System.Drawing.Size(167, 23);
+            bConfigureOutputScaling.TabIndex = 16;
+            bConfigureOutputScaling.Text = "Configure Output Scaling";
+            bConfigureOutputScaling.UseVisualStyleBackColor = true;
+            bConfigureOutputScaling.Click += bConfigureOutputScaling_Click;
             // 
             // tabPage5
             // 
-            this.tabPage5.Controls.Add(this.label1);
-            this.tabPage5.Controls.Add(this.sbac2DIndex);
-            this.tabPage5.Controls.Add(this.button1);
-            this.tabPage5.Controls.Add(this.b2DConfigure);
-            this.tabPage5.Controls.Add(this.gb2DData);
-            this.tabPage5.Controls.Add(this.formsPlot1);
-            this.tabPage5.Location = new System.Drawing.Point(4, 24);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(373, 428);
-            this.tabPage5.TabIndex = 1;
-            this.tabPage5.Text = "2DLookup";
-            this.tabPage5.UseVisualStyleBackColor = true;
+            tabPage5.Controls.Add(label1);
+            tabPage5.Controls.Add(sbac2DIndex);
+            tabPage5.Controls.Add(button1);
+            tabPage5.Controls.Add(b2DConfigure);
+            tabPage5.Controls.Add(gb2DData);
+            tabPage5.Controls.Add(formsPlot1);
+            tabPage5.Location = new System.Drawing.Point(4, 24);
+            tabPage5.Name = "tabPage5";
+            tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            tabPage5.Size = new System.Drawing.Size(373, 428);
+            tabPage5.TabIndex = 1;
+            tabPage5.Text = "2DLookup";
+            tabPage5.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 15);
-            this.label1.TabIndex = 33;
-            this.label1.Text = "Index:";
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(25, 23);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(38, 15);
+            label1.TabIndex = 33;
+            label1.Text = "Index:";
             // 
             // sbac2DIndex
             // 
-            this.sbac2DIndex.AutoSize = true;
-            this.sbac2DIndex.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.sbac2DIndex.Location = new System.Drawing.Point(84, 18);
-            this.sbac2DIndex.Name = "sbac2DIndex";
-            this.sbac2DIndex.Size = new System.Drawing.Size(56, 26);
-            this.sbac2DIndex.TabIndex = 32;
-            this.toolTip1.SetToolTip(this.sbac2DIndex, "The location in User Memory to place the table of lookup data (4 bytes per point)" +
-        "");
-            this.sbac2DIndex.Value = ((ushort)(0));
+            sbac2DIndex.AutoSize = true;
+            sbac2DIndex.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            sbac2DIndex.Location = new System.Drawing.Point(84, 18);
+            sbac2DIndex.Name = "sbac2DIndex";
+            sbac2DIndex.Size = new System.Drawing.Size(56, 26);
+            sbac2DIndex.TabIndex = 32;
+            sbac2DIndex.Text = "0x0000";
+            toolTip1.SetToolTip(sbac2DIndex, "The location in User Memory to place the table of lookup data (4 bytes per point)");
+            sbac2DIndex.Value = (ushort)0;
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.MediumPurple;
-            this.button1.Location = new System.Drawing.Point(307, 6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(57, 47);
-            this.button1.TabIndex = 31;
-            this.button1.Text = "Gen Code";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            button1.BackColor = System.Drawing.Color.MediumPurple;
+            button1.Location = new System.Drawing.Point(307, 6);
+            button1.Name = "button1";
+            button1.Size = new System.Drawing.Size(57, 47);
+            button1.TabIndex = 31;
+            button1.Text = "Gen Code";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // b2DConfigure
             // 
-            this.b2DConfigure.Location = new System.Drawing.Point(226, 18);
-            this.b2DConfigure.Name = "b2DConfigure";
-            this.b2DConfigure.Size = new System.Drawing.Size(75, 23);
-            this.b2DConfigure.TabIndex = 2;
-            this.b2DConfigure.Text = "Configure";
-            this.b2DConfigure.UseVisualStyleBackColor = true;
-            this.b2DConfigure.Click += new System.EventHandler(this.b2DConfigure_Click);
+            b2DConfigure.Location = new System.Drawing.Point(226, 18);
+            b2DConfigure.Name = "b2DConfigure";
+            b2DConfigure.Size = new System.Drawing.Size(75, 23);
+            b2DConfigure.TabIndex = 2;
+            b2DConfigure.Text = "Configure";
+            b2DConfigure.UseVisualStyleBackColor = true;
+            b2DConfigure.Click += b2DConfigure_Click;
             // 
             // gb2DData
             // 
-            this.gb2DData.Controls.Add(this.l2DWarning);
-            this.gb2DData.Controls.Add(this.pXY);
-            this.gb2DData.Location = new System.Drawing.Point(7, 56);
-            this.gb2DData.Name = "gb2DData";
-            this.gb2DData.Size = new System.Drawing.Size(363, 182);
-            this.gb2DData.TabIndex = 1;
-            this.gb2DData.TabStop = false;
-            this.gb2DData.Text = "Data (Last X == 65535)";
+            gb2DData.Controls.Add(l2DWarning);
+            gb2DData.Controls.Add(pXY);
+            gb2DData.Location = new System.Drawing.Point(7, 56);
+            gb2DData.Name = "gb2DData";
+            gb2DData.Size = new System.Drawing.Size(363, 182);
+            gb2DData.TabIndex = 1;
+            gb2DData.TabStop = false;
+            gb2DData.Text = "Data (Last X == 65535)";
             // 
             // l2DWarning
             // 
-            this.l2DWarning.AutoSize = true;
-            this.l2DWarning.ForeColor = System.Drawing.Color.Red;
-            this.l2DWarning.Location = new System.Drawing.Point(16, 97);
-            this.l2DWarning.Name = "l2DWarning";
-            this.l2DWarning.Size = new System.Drawing.Size(0, 15);
-            this.l2DWarning.TabIndex = 1;
+            l2DWarning.AutoSize = true;
+            l2DWarning.ForeColor = System.Drawing.Color.Red;
+            l2DWarning.Location = new System.Drawing.Point(16, 97);
+            l2DWarning.Name = "l2DWarning";
+            l2DWarning.Size = new System.Drawing.Size(0, 15);
+            l2DWarning.TabIndex = 1;
             // 
             // pXY
             // 
-            this.pXY.AutoScroll = true;
-            this.pXY.Location = new System.Drawing.Point(6, 12);
-            this.pXY.Name = "pXY";
-            this.pXY.Size = new System.Drawing.Size(353, 164);
-            this.pXY.TabIndex = 0;
+            pXY.AutoScroll = true;
+            pXY.Location = new System.Drawing.Point(6, 12);
+            pXY.Name = "pXY";
+            pXY.Size = new System.Drawing.Size(353, 164);
+            pXY.TabIndex = 0;
             // 
             // formsPlot1
             // 
-            this.formsPlot1.Location = new System.Drawing.Point(7, 244);
-            this.formsPlot1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.formsPlot1.Name = "formsPlot1";
-            this.formsPlot1.Size = new System.Drawing.Size(359, 178);
-            this.formsPlot1.TabIndex = 0;
+            formsPlot1.Location = new System.Drawing.Point(7, 244);
+            formsPlot1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            formsPlot1.Name = "formsPlot1";
+            formsPlot1.Size = new System.Drawing.Size(359, 178);
+            formsPlot1.TabIndex = 0;
             // 
             // swpdsInput
             // 
-            this.swpdsInput.DataSourceValue = ((byte)(0));
-            this.swpdsInput.DropDownToolTip = "The pin or public data id that should be read to drive the output value.  Only us" +
-    "ed when enabled is set to true";
-            this.swpdsInput.Location = new System.Drawing.Point(70, 505);
-            this.swpdsInput.Name = "swpdsInput";
-            this.swpdsInput.Size = new System.Drawing.Size(231, 35);
-            this.swpdsInput.TabIndex = 11;
+            swpdsInput.DataSourceValue = 0;
+            swpdsInput.DropDownToolTip = "The pin or public data id that should be read to drive the output value.  Only used when enabled is set to true";
+            swpdsInput.Location = new System.Drawing.Point(70, 505);
+            swpdsInput.Name = "swpdsInput";
+            swpdsInput.Size = new System.Drawing.Size(231, 35);
+            swpdsInput.TabIndex = 11;
             // 
             // ckbScaledOutputEnable
             // 
-            this.ckbScaledOutputEnable.AutoSize = true;
-            this.ckbScaledOutputEnable.Location = new System.Drawing.Point(6, 523);
-            this.ckbScaledOutputEnable.Name = "ckbScaledOutputEnable";
-            this.ckbScaledOutputEnable.Size = new System.Drawing.Size(61, 19);
-            this.ckbScaledOutputEnable.TabIndex = 12;
-            this.ckbScaledOutputEnable.Text = "Enable";
-            this.toolTip1.SetToolTip(this.ckbScaledOutputEnable, "Enables the Scaled Output block.  If false then the current pin\'s public data val" +
-        "ue is used as the setting for the output");
-            this.ckbScaledOutputEnable.UseVisualStyleBackColor = true;
-            this.ckbScaledOutputEnable.CheckedChanged += new System.EventHandler(this.ckbScaledOutputEnable_CheckedChanged);
+            ckbScaledOutputEnable.AutoSize = true;
+            ckbScaledOutputEnable.Location = new System.Drawing.Point(6, 523);
+            ckbScaledOutputEnable.Name = "ckbScaledOutputEnable";
+            ckbScaledOutputEnable.Size = new System.Drawing.Size(61, 19);
+            ckbScaledOutputEnable.TabIndex = 12;
+            ckbScaledOutputEnable.Text = "Enable";
+            toolTip1.SetToolTip(ckbScaledOutputEnable, "Enables the Scaled Output block.  If false then the current pin's public data value is used as the setting for the output");
+            ckbScaledOutputEnable.UseVisualStyleBackColor = true;
+            ckbScaledOutputEnable.CheckedChanged += ckbScaledOutputEnable_CheckedChanged;
             // 
             // button4
             // 
-            this.button4.BackColor = System.Drawing.Color.MediumPurple;
-            this.button4.Location = new System.Drawing.Point(307, 501);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(90, 47);
-            this.button4.TabIndex = 30;
-            this.button4.Text = "Gen Enable  Code";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            button4.BackColor = System.Drawing.Color.MediumPurple;
+            button4.Location = new System.Drawing.Point(307, 501);
+            button4.Name = "button4";
+            button4.Size = new System.Drawing.Size(90, 47);
+            button4.TabIndex = 30;
+            button4.Text = "Gen Enable  Code";
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
+            // 
+            // tabPage4
+            // 
+            tabPage4.Controls.Add(bSetCATVP);
+            tabPage4.Controls.Add(label2);
+            tabPage4.Controls.Add(swpdTargetValuePin);
+            tabPage4.Location = new System.Drawing.Point(4, 24);
+            tabPage4.Name = "tabPage4";
+            tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            tabPage4.Size = new System.Drawing.Size(373, 390);
+            tabPage4.TabIndex = 4;
+            tabPage4.Text = "tpOptions";
+            tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // swpdTargetValuePin
+            // 
+            swpdTargetValuePin.IncludeNAPin = false;
+            swpdTargetValuePin.Location = new System.Drawing.Point(173, 7);
+            swpdTargetValuePin.Name = "swpdTargetValuePin";
+            swpdTargetValuePin.Pin = 255;
+            swpdTargetValuePin.PinType = SerialWombat.SerialWombatPinType.SerialWombatPin;
+            swpdTargetValuePin.Size = new System.Drawing.Size(94, 25);
+            swpdTargetValuePin.TabIndex = 0;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(12, 17);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(155, 15);
+            label2.TabIndex = 1;
+            label2.Text = "Control Alg Target Value Pin";
+            // 
+            // bSetCATVP
+            // 
+            bSetCATVP.Location = new System.Drawing.Point(273, 7);
+            bSetCATVP.Name = "bSetCATVP";
+            bSetCATVP.Size = new System.Drawing.Size(75, 23);
+            bSetCATVP.TabIndex = 2;
+            bSetCATVP.Text = "Set";
+            bSetCATVP.UseVisualStyleBackColor = true;
+            bSetCATVP.Click += bSetCATVP_Click;
             // 
             // ScaledOutputControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.ckbScaledOutputEnable);
-            this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.swpdsInput);
-            this.Name = "ScaledOutputControl";
-            this.Size = new System.Drawing.Size(407, 551);
-            this.Load += new System.EventHandler(this.ScaledOutputControl_Load);
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            this.tpPID.ResumeLayout(false);
-            this.tabControl4.ResumeLayout(false);
-            this.tabPage7.ResumeLayout(false);
-            this.tabPage7.PerformLayout();
-            this.tpPID1.ResumeLayout(false);
-            this.tpPID1.PerformLayout();
-            this.tpTimeout.ResumeLayout(false);
-            this.tpTimeout.PerformLayout();
-            this.tpFiltering.ResumeLayout(false);
-            this.tabControl2.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
-            this.tpOutputScaling.ResumeLayout(false);
-            this.tabControl3.ResumeLayout(false);
-            this.MinMax.ResumeLayout(false);
-            this.tabPage5.ResumeLayout(false);
-            this.tabPage5.PerformLayout();
-            this.gb2DData.ResumeLayout(false);
-            this.gb2DData.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            AutoSize = true;
+            AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            Controls.Add(button4);
+            Controls.Add(ckbScaledOutputEnable);
+            Controls.Add(tabControl1);
+            Controls.Add(swpdsInput);
+            Name = "ScaledOutputControl";
+            Size = new System.Drawing.Size(407, 551);
+            Load += ScaledOutputControl_Load;
+            tabControl1.ResumeLayout(false);
+            tabPage1.ResumeLayout(false);
+            tabPage1.PerformLayout();
+            tpPID.ResumeLayout(false);
+            tabControl4.ResumeLayout(false);
+            tabPage7.ResumeLayout(false);
+            tabPage7.PerformLayout();
+            tpPID1.ResumeLayout(false);
+            tpPID1.PerformLayout();
+            tpRamp.ResumeLayout(false);
+            tpRamp.PerformLayout();
+            tpTimeout.ResumeLayout(false);
+            tpTimeout.PerformLayout();
+            tpFiltering.ResumeLayout(false);
+            tabControl2.ResumeLayout(false);
+            tabPage2.ResumeLayout(false);
+            tabPage2.PerformLayout();
+            tabPage3.ResumeLayout(false);
+            tabPage3.PerformLayout();
+            tpOutputScaling.ResumeLayout(false);
+            tabControl3.ResumeLayout(false);
+            MinMax.ResumeLayout(false);
+            tabPage5.ResumeLayout(false);
+            tabPage5.PerformLayout();
+            gb2DData.ResumeLayout(false);
+            gb2DData.PerformLayout();
+            tabPage4.ResumeLayout(false);
+            tabPage4.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 
@@ -909,5 +982,11 @@
         private System.Windows.Forms.Button b2DConfigure;
         private System.Windows.Forms.TabPage tpPID1;
         private PIDControl pidControl1;
+        private System.Windows.Forms.TabPage tpRamp;
+        private RampOutputScaleControl rampOutputScaleControl1;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.Label label2;
+        private SerialWombatPinDropdown swpdTargetValuePin;
+        private System.Windows.Forms.Button bSetCATVP;
     }
 }

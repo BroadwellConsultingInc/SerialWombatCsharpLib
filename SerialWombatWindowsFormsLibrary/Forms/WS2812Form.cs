@@ -20,6 +20,7 @@ namespace SerialWombatWindowsFormsLibrary
             wS2812Control1.begin(serialWombatChip, pin);
             CodeGenerationDelegate = codeGeneration;
             wS2812Control1.CodeGeneration += WS2812Control1_CodeGeneration;
+            Text = $"Pin {pin} WS2812 {serialWombatChip.description}";
         }
 
         private void WS2812Control1_CodeGeneration(object sender, EventArgs e)

@@ -9,7 +9,6 @@ namespace SerialWombatWindowsFormsLibrary
 {
     public partial class PWMForm : Form
     {
-        public SerialWombatPWM Pwm;
         public byte Pin = 0;
         public SerialWombatChip serialWombatChip;
         public SerialWombatAbstractScaledOutput scaledOutput;
@@ -20,11 +19,11 @@ namespace SerialWombatWindowsFormsLibrary
             Pin = pin;
             this.serialWombatChip = serialWombatChip;
           
-            Text = $"PWM on pin {pin}";
+            Text = $"pin {pin} PWM {serialWombatChip.description}";
             pwmControl1.begin(serialWombatChip, pin);
 
 
-            if (serialWombatChip.ModelEnum == SerialWombatModel.SerialWombat18AB)
+            if (serialWombatChip.isSW18() || serialWombatChip.isSW08())
             {
 
                 this.AutoSize = true;
@@ -54,7 +53,12 @@ namespace SerialWombatWindowsFormsLibrary
             sltef.ShowDialog();
             if (sltef.Success)
             {
-                this.Text = $"{sltef.outputString} PWM on pin {Pwm.Pin}";
+                this.Text = $"{sltef.outputString} PWM on pin {pwmControl1.Pwm.Pin}";
+                pwmControl1.Name = sltef.outputString;
+                if (scaledOutputControl != null)
+                {
+                    scaledOutputControl.PinName = sltef.outputString;
+                }
             }
         }
 

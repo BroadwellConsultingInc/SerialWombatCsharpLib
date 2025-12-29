@@ -28,55 +28,56 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.bRename = new System.Windows.Forms.Button();
-            this.ckbOutputScalingVisible = new System.Windows.Forms.CheckBox();
-            this.hBridgeControl1 = new SerialWombatWindowsFormsLibrary.Controls.HBridgeControl();
-            this.SuspendLayout();
+            bRename = new System.Windows.Forms.Button();
+            ckbOutputScalingVisible = new System.Windows.Forms.CheckBox();
+            hBridgeControl1 = new SerialWombatWindowsFormsLibrary.Controls.HBridgeControl();
+            SuspendLayout();
             // 
             // bRename
             // 
-            this.bRename.Location = new System.Drawing.Point(16, 281);
-            this.bRename.Name = "bRename";
-            this.bRename.Size = new System.Drawing.Size(75, 23);
-            this.bRename.TabIndex = 4;
-            this.bRename.Text = "Rename";
-            this.bRename.UseVisualStyleBackColor = true;
+            bRename.Location = new System.Drawing.Point(25, 409);
+            bRename.Name = "bRename";
+            bRename.Size = new System.Drawing.Size(75, 23);
+            bRename.TabIndex = 4;
+            bRename.Text = "Rename";
+            bRename.UseVisualStyleBackColor = true;
+            bRename.Click += bRename_Click;
             // 
             // ckbOutputScalingVisible
             // 
-            this.ckbOutputScalingVisible.AutoSize = true;
-            this.ckbOutputScalingVisible.Checked = true;
-            this.ckbOutputScalingVisible.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ckbOutputScalingVisible.Location = new System.Drawing.Point(12, 257);
-            this.ckbOutputScalingVisible.Name = "ckbOutputScalingVisible";
-            this.ckbOutputScalingVisible.Size = new System.Drawing.Size(182, 19);
-            this.ckbOutputScalingVisible.TabIndex = 3;
-            this.ckbOutputScalingVisible.Text = "Show Output Scaling Options";
-            this.ckbOutputScalingVisible.UseVisualStyleBackColor = true;
-            this.ckbOutputScalingVisible.Visible = false;
+            ckbOutputScalingVisible.AutoSize = true;
+            ckbOutputScalingVisible.Checked = true;
+            ckbOutputScalingVisible.CheckState = System.Windows.Forms.CheckState.Checked;
+            ckbOutputScalingVisible.Location = new System.Drawing.Point(21, 385);
+            ckbOutputScalingVisible.Name = "ckbOutputScalingVisible";
+            ckbOutputScalingVisible.Size = new System.Drawing.Size(182, 19);
+            ckbOutputScalingVisible.TabIndex = 3;
+            ckbOutputScalingVisible.Text = "Show Output Scaling Options";
+            ckbOutputScalingVisible.UseVisualStyleBackColor = true;
+            ckbOutputScalingVisible.Visible = false;
             // 
             // hBridgeControl1
             // 
-            this.hBridgeControl1.AutoSize = true;
-            this.hBridgeControl1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.hBridgeControl1.Location = new System.Drawing.Point(12, 12);
-            this.hBridgeControl1.Name = "hBridgeControl1";
-            this.hBridgeControl1.ShowConfigure = true;
-            this.hBridgeControl1.Size = new System.Drawing.Size(366, 224);
-            this.hBridgeControl1.TabIndex = 5;
+            hBridgeControl1.AutoSize = true;
+            hBridgeControl1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            hBridgeControl1.Location = new System.Drawing.Point(3, 2);
+            hBridgeControl1.Name = "hBridgeControl1";
+            hBridgeControl1.ShowConfigure = true;
+            hBridgeControl1.Size = new System.Drawing.Size(366, 377);
+            hBridgeControl1.TabIndex = 5;
             // 
             // HBridgeForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.hBridgeControl1);
-            this.Controls.Add(this.bRename);
-            this.Controls.Add(this.ckbOutputScalingVisible);
-            this.Name = "HBridgeForm";
-            this.Text = "HBridgeForm";
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(418, 527);
+            Controls.Add(hBridgeControl1);
+            Controls.Add(bRename);
+            Controls.Add(ckbOutputScalingVisible);
+            Name = "HBridgeForm";
+            Text = "HBridgeForm";
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 

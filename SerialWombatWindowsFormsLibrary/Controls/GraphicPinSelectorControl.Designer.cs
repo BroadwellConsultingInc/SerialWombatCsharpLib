@@ -28,355 +28,339 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cbModel = new System.Windows.Forms.ComboBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.tsmiInput = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiHigh = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiLow = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiAnalogInput = new System.Windows.Forms.ToolStripMenuItem();
-            this.sW18ABCapTouchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiResistanceInput = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiThroughputConsumer = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiUART = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiPinStateViewer = new System.Windows.Forms.ToolStripMenuItem();
-            this.queueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.monitorPublicDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataLoggerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiDebounce = new System.Windows.Forms.ToolStripMenuItem();
-            this.highSpeedCounterToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiMatrixKeypad = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiPulseTimer = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiQuadratureEncoder = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiUltrasonicDistanceSensor = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiHBridge = new System.Windows.Forms.ToolStripMenuItem();
-            this.highSpeedClockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiPWM = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiPulseOnChange = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiServo = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiWatchdog = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiLiquidCrystal = new System.Windows.Forms.ToolStripMenuItem();
-            this.tmsiTM1637 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiWS2812 = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
-            this.SuspendLayout();
+            components = new System.ComponentModel.Container();
+            groupBox1 = new System.Windows.Forms.GroupBox();
+            cbModel = new System.Windows.Forms.ComboBox();
+            pictureBox1 = new System.Windows.Forms.PictureBox();
+            contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(components);
+            tsmiInput = new System.Windows.Forms.ToolStripMenuItem();
+            tsmiHigh = new System.Windows.Forms.ToolStripMenuItem();
+            tsmiLow = new System.Windows.Forms.ToolStripMenuItem();
+            toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
+            tsmiAnalogInput = new System.Windows.Forms.ToolStripMenuItem();
+            sW18ABCapTouchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            tsmiResistanceInput = new System.Windows.Forms.ToolStripMenuItem();
+            tsmiThroughputConsumer = new System.Windows.Forms.ToolStripMenuItem();
+            tsmiUART = new System.Windows.Forms.ToolStripMenuItem();
+            tsmiPinStateViewer = new System.Windows.Forms.ToolStripMenuItem();
+            queueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            monitorPublicDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            dataLoggerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            tsmiDebounce = new System.Windows.Forms.ToolStripMenuItem();
+            highSpeedCounterToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            tsmiMatrixKeypad = new System.Windows.Forms.ToolStripMenuItem();
+            tsmiPulseTimer = new System.Windows.Forms.ToolStripMenuItem();
+            tsmiQuadratureEncoder = new System.Windows.Forms.ToolStripMenuItem();
+            tsmiUltrasonicDistanceSensor = new System.Windows.Forms.ToolStripMenuItem();
+            toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            tsmiHBridge = new System.Windows.Forms.ToolStripMenuItem();
+            highSpeedClockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            tsmiPWM = new System.Windows.Forms.ToolStripMenuItem();
+            tsmiPulseOnChange = new System.Windows.Forms.ToolStripMenuItem();
+            toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            tsmiServo = new System.Windows.Forms.ToolStripMenuItem();
+            tsmiWatchdog = new System.Windows.Forms.ToolStripMenuItem();
+            toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            tsmiLiquidCrystal = new System.Windows.Forms.ToolStripMenuItem();
+            tmsiTM1637 = new System.Windows.Forms.ToolStripMenuItem();
+            toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            tsmiWS2812 = new System.Windows.Forms.ToolStripMenuItem();
+            label1 = new System.Windows.Forms.Label();
+            iRRxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            contextMenuStrip1.SuspendLayout();
+            SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.cbModel);
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(202, 438);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Graphic Pin Selector";
+            groupBox1.Controls.Add(cbModel);
+            groupBox1.Controls.Add(pictureBox1);
+            groupBox1.Controls.Add(label1);
+            groupBox1.Location = new System.Drawing.Point(3, 3);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new System.Drawing.Size(202, 438);
+            groupBox1.TabIndex = 2;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Graphic Pin Selector";
             // 
             // cbModel
             // 
-            this.cbModel.FormattingEnabled = true;
-            this.cbModel.Location = new System.Drawing.Point(19, 384);
-            this.cbModel.Name = "cbModel";
-            this.cbModel.Size = new System.Drawing.Size(157, 23);
-            this.cbModel.TabIndex = 2;
+            cbModel.FormattingEnabled = true;
+            cbModel.Location = new System.Drawing.Point(19, 384);
+            cbModel.Name = "cbModel";
+            cbModel.Size = new System.Drawing.Size(157, 23);
+            cbModel.TabIndex = 2;
+            cbModel.SelectedIndexChanged += cbModel_SelectedIndexChanged;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.ContextMenuStrip = this.contextMenuStrip1;
-            this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(19, 53);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(157, 324);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
-            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
+            pictureBox1.ContextMenuStrip = contextMenuStrip1;
+            pictureBox1.InitialImage = null;
+            pictureBox1.Location = new System.Drawing.Point(19, 53);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new System.Drawing.Size(157, 324);
+            pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+            pictureBox1.MouseClick += pictureBox1_MouseClick;
+            pictureBox1.MouseDown += pictureBox1_MouseDown;
             // 
             // contextMenuStrip1
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmiInput,
-            this.tsmiHigh,
-            this.tsmiLow,
-            this.tsmiAnalogInput,
-            this.sW18ABCapTouchToolStripMenuItem,
-            this.tsmiResistanceInput,
-            this.tsmiThroughputConsumer,
-            this.tsmiUART,
-            this.tsmiPinStateViewer,
-            this.queueToolStripMenuItem,
-            this.monitorPublicDataToolStripMenuItem,
-            this.dataLoggerToolStripMenuItem,
-            this.toolStripMenuItem4,
-            this.toolStripMenuItem5,
-            this.toolStripMenuItem6});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(193, 356);
-            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
+            contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { tsmiInput, tsmiHigh, tsmiLow, toolStripMenuItem7, tsmiAnalogInput, sW18ABCapTouchToolStripMenuItem, tsmiResistanceInput, tsmiThroughputConsumer, tsmiUART, tsmiPinStateViewer, queueToolStripMenuItem, monitorPublicDataToolStripMenuItem, dataLoggerToolStripMenuItem, toolStripMenuItem4, toolStripMenuItem5, toolStripMenuItem6 });
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new System.Drawing.Size(193, 378);
+            contextMenuStrip1.Opening += contextMenuStrip1_Opening;
             // 
             // tsmiInput
             // 
-            this.tsmiInput.Name = "tsmiInput";
-            this.tsmiInput.Size = new System.Drawing.Size(192, 22);
-            this.tsmiInput.Text = "Input";
-            this.tsmiInput.Click += new System.EventHandler(this.tsmiInput_Click);
+            tsmiInput.Name = "tsmiInput";
+            tsmiInput.Size = new System.Drawing.Size(192, 22);
+            tsmiInput.Text = "Input";
+            tsmiInput.Click += tsmiInput_Click;
             // 
             // tsmiHigh
             // 
-            this.tsmiHigh.Name = "tsmiHigh";
-            this.tsmiHigh.Size = new System.Drawing.Size(192, 22);
-            this.tsmiHigh.Text = "High";
-            this.tsmiHigh.Click += new System.EventHandler(this.tsmiHigh_Click);
+            tsmiHigh.Name = "tsmiHigh";
+            tsmiHigh.Size = new System.Drawing.Size(192, 22);
+            tsmiHigh.Text = "High";
+            tsmiHigh.Click += tsmiHigh_Click;
             // 
             // tsmiLow
             // 
-            this.tsmiLow.Name = "tsmiLow";
-            this.tsmiLow.Size = new System.Drawing.Size(192, 22);
-            this.tsmiLow.Text = "Low";
-            this.tsmiLow.Click += new System.EventHandler(this.tsmiLow_Click);
+            tsmiLow.Name = "tsmiLow";
+            tsmiLow.Size = new System.Drawing.Size(192, 22);
+            tsmiLow.Text = "Low";
+            tsmiLow.Click += tsmiLow_Click;
+            // 
+            // toolStripMenuItem7
+            // 
+            toolStripMenuItem7.Name = "toolStripMenuItem7";
+            toolStripMenuItem7.Size = new System.Drawing.Size(192, 22);
+            toolStripMenuItem7.Text = "DigitalIO";
+            toolStripMenuItem7.Click += toolStripMenuItem7_Click;
             // 
             // tsmiAnalogInput
             // 
-            this.tsmiAnalogInput.Name = "tsmiAnalogInput";
-            this.tsmiAnalogInput.Size = new System.Drawing.Size(192, 22);
-            this.tsmiAnalogInput.Text = "AnalogInput";
+            tsmiAnalogInput.Name = "tsmiAnalogInput";
+            tsmiAnalogInput.Size = new System.Drawing.Size(192, 22);
+            tsmiAnalogInput.Text = "AnalogInput";
             // 
             // sW18ABCapTouchToolStripMenuItem
             // 
-            this.sW18ABCapTouchToolStripMenuItem.Name = "sW18ABCapTouchToolStripMenuItem";
-            this.sW18ABCapTouchToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
-            this.sW18ABCapTouchToolStripMenuItem.Text = "SW18ABCapTouch";
-            this.sW18ABCapTouchToolStripMenuItem.Click += new System.EventHandler(this.sW18ABCapTouchToolStripMenuItem_Click);
+            sW18ABCapTouchToolStripMenuItem.Name = "sW18ABCapTouchToolStripMenuItem";
+            sW18ABCapTouchToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            sW18ABCapTouchToolStripMenuItem.Text = "SW18ABCapTouch";
+            sW18ABCapTouchToolStripMenuItem.Click += sW18ABCapTouchToolStripMenuItem_Click;
             // 
             // tsmiResistanceInput
             // 
-            this.tsmiResistanceInput.Name = "tsmiResistanceInput";
-            this.tsmiResistanceInput.Size = new System.Drawing.Size(192, 22);
-            this.tsmiResistanceInput.Text = "Resistance Input";
+            tsmiResistanceInput.Name = "tsmiResistanceInput";
+            tsmiResistanceInput.Size = new System.Drawing.Size(192, 22);
+            tsmiResistanceInput.Text = "Resistance Input";
             // 
             // tsmiThroughputConsumer
             // 
-            this.tsmiThroughputConsumer.Name = "tsmiThroughputConsumer";
-            this.tsmiThroughputConsumer.Size = new System.Drawing.Size(192, 22);
-            this.tsmiThroughputConsumer.Text = "ThroughputConsumer";
-            this.tsmiThroughputConsumer.Click += new System.EventHandler(this.tsmiThroughputConsumer_Click);
+            tsmiThroughputConsumer.Name = "tsmiThroughputConsumer";
+            tsmiThroughputConsumer.Size = new System.Drawing.Size(192, 22);
+            tsmiThroughputConsumer.Text = "ThroughputConsumer";
+            tsmiThroughputConsumer.Click += tsmiThroughputConsumer_Click;
             // 
             // tsmiUART
             // 
-            this.tsmiUART.Name = "tsmiUART";
-            this.tsmiUART.Size = new System.Drawing.Size(192, 22);
-            this.tsmiUART.Text = "UART";
+            tsmiUART.Name = "tsmiUART";
+            tsmiUART.Size = new System.Drawing.Size(192, 22);
+            tsmiUART.Text = "UART";
             // 
             // tsmiPinStateViewer
             // 
-            this.tsmiPinStateViewer.Name = "tsmiPinStateViewer";
-            this.tsmiPinStateViewer.Size = new System.Drawing.Size(192, 22);
-            this.tsmiPinStateViewer.Text = "PinStateViewer";
+            tsmiPinStateViewer.Name = "tsmiPinStateViewer";
+            tsmiPinStateViewer.Size = new System.Drawing.Size(192, 22);
+            tsmiPinStateViewer.Text = "PinStateViewer";
             // 
             // queueToolStripMenuItem
             // 
-            this.queueToolStripMenuItem.Name = "queueToolStripMenuItem";
-            this.queueToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
-            this.queueToolStripMenuItem.Text = "Queue";
-            this.queueToolStripMenuItem.Click += new System.EventHandler(this.queueToolStripMenuItem_Click_1);
+            queueToolStripMenuItem.Name = "queueToolStripMenuItem";
+            queueToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            queueToolStripMenuItem.Text = "Queue";
+            queueToolStripMenuItem.Click += queueToolStripMenuItem_Click_1;
             // 
             // monitorPublicDataToolStripMenuItem
             // 
-            this.monitorPublicDataToolStripMenuItem.Name = "monitorPublicDataToolStripMenuItem";
-            this.monitorPublicDataToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
-            this.monitorPublicDataToolStripMenuItem.Text = "Monitor Public Data";
+            monitorPublicDataToolStripMenuItem.Name = "monitorPublicDataToolStripMenuItem";
+            monitorPublicDataToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            monitorPublicDataToolStripMenuItem.Text = "Monitor Public Data";
             // 
             // dataLoggerToolStripMenuItem
             // 
-            this.dataLoggerToolStripMenuItem.Name = "dataLoggerToolStripMenuItem";
-            this.dataLoggerToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
-            this.dataLoggerToolStripMenuItem.Text = "Data Logger";
-            this.dataLoggerToolStripMenuItem.Click += new System.EventHandler(this.dataLoggerToolStripMenuItem_Click);
+            dataLoggerToolStripMenuItem.Name = "dataLoggerToolStripMenuItem";
+            dataLoggerToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            dataLoggerToolStripMenuItem.Text = "Data Logger";
+            dataLoggerToolStripMenuItem.Click += dataLoggerToolStripMenuItem_Click;
             // 
             // toolStripMenuItem4
             // 
-            this.toolStripMenuItem4.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmiDebounce,
-            this.highSpeedCounterToolStripMenuItem1,
-            this.tsmiMatrixKeypad,
-            this.tsmiPulseTimer,
-            this.tsmiQuadratureEncoder,
-            this.tsmiUltrasonicDistanceSensor});
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(192, 22);
-            this.toolStripMenuItem4.Text = "Digital Input Modes";
+            toolStripMenuItem4.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { tsmiDebounce, highSpeedCounterToolStripMenuItem1, iRRxToolStripMenuItem, tsmiMatrixKeypad, tsmiPulseTimer, tsmiQuadratureEncoder, tsmiUltrasonicDistanceSensor });
+            toolStripMenuItem4.Name = "toolStripMenuItem4";
+            toolStripMenuItem4.Size = new System.Drawing.Size(192, 22);
+            toolStripMenuItem4.Text = "Digital Input Modes";
             // 
             // tsmiDebounce
             // 
-            this.tsmiDebounce.Name = "tsmiDebounce";
-            this.tsmiDebounce.Size = new System.Drawing.Size(208, 22);
-            this.tsmiDebounce.Text = "Debounce";
+            tsmiDebounce.Name = "tsmiDebounce";
+            tsmiDebounce.Size = new System.Drawing.Size(208, 22);
+            tsmiDebounce.Text = "Debounce";
             // 
             // highSpeedCounterToolStripMenuItem1
             // 
-            this.highSpeedCounterToolStripMenuItem1.Name = "highSpeedCounterToolStripMenuItem1";
-            this.highSpeedCounterToolStripMenuItem1.Size = new System.Drawing.Size(208, 22);
-            this.highSpeedCounterToolStripMenuItem1.Text = "High Speed Counter";
-            this.highSpeedCounterToolStripMenuItem1.Click += new System.EventHandler(this.highSpeedCounterToolStripMenuItem_Click);
+            highSpeedCounterToolStripMenuItem1.Name = "highSpeedCounterToolStripMenuItem1";
+            highSpeedCounterToolStripMenuItem1.Size = new System.Drawing.Size(208, 22);
+            highSpeedCounterToolStripMenuItem1.Text = "High Speed Counter";
+            highSpeedCounterToolStripMenuItem1.Click += highSpeedCounterToolStripMenuItem_Click;
             // 
             // tsmiMatrixKeypad
             // 
-            this.tsmiMatrixKeypad.Name = "tsmiMatrixKeypad";
-            this.tsmiMatrixKeypad.Size = new System.Drawing.Size(208, 22);
-            this.tsmiMatrixKeypad.Text = "Matrix Keypad";
+            tsmiMatrixKeypad.Name = "tsmiMatrixKeypad";
+            tsmiMatrixKeypad.Size = new System.Drawing.Size(208, 22);
+            tsmiMatrixKeypad.Text = "Matrix Keypad";
             // 
             // tsmiPulseTimer
             // 
-            this.tsmiPulseTimer.Name = "tsmiPulseTimer";
-            this.tsmiPulseTimer.Size = new System.Drawing.Size(208, 22);
-            this.tsmiPulseTimer.Text = "PulseTimer";
+            tsmiPulseTimer.Name = "tsmiPulseTimer";
+            tsmiPulseTimer.Size = new System.Drawing.Size(208, 22);
+            tsmiPulseTimer.Text = "PulseTimer";
             // 
             // tsmiQuadratureEncoder
             // 
-            this.tsmiQuadratureEncoder.Name = "tsmiQuadratureEncoder";
-            this.tsmiQuadratureEncoder.Size = new System.Drawing.Size(208, 22);
-            this.tsmiQuadratureEncoder.Text = "Quadrature Encoder";
+            tsmiQuadratureEncoder.Name = "tsmiQuadratureEncoder";
+            tsmiQuadratureEncoder.Size = new System.Drawing.Size(208, 22);
+            tsmiQuadratureEncoder.Text = "Quadrature Encoder";
             // 
             // tsmiUltrasonicDistanceSensor
             // 
-            this.tsmiUltrasonicDistanceSensor.Name = "tsmiUltrasonicDistanceSensor";
-            this.tsmiUltrasonicDistanceSensor.Size = new System.Drawing.Size(208, 22);
-            this.tsmiUltrasonicDistanceSensor.Text = "UltraSonicDistanceSensor";
+            tsmiUltrasonicDistanceSensor.Name = "tsmiUltrasonicDistanceSensor";
+            tsmiUltrasonicDistanceSensor.Size = new System.Drawing.Size(208, 22);
+            tsmiUltrasonicDistanceSensor.Text = "UltraSonicDistanceSensor";
             // 
             // toolStripMenuItem5
             // 
-            this.toolStripMenuItem5.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem3,
-            this.tsmiHBridge,
-            this.highSpeedClockToolStripMenuItem,
-            this.tsmiPWM,
-            this.tsmiPulseOnChange,
-            this.toolStripMenuItem1,
-            this.tsmiServo,
-            this.tsmiWatchdog});
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(192, 22);
-            this.toolStripMenuItem5.Text = "Digital Output Modes";
+            toolStripMenuItem5.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripMenuItem3, tsmiHBridge, highSpeedClockToolStripMenuItem, tsmiPWM, tsmiPulseOnChange, toolStripMenuItem1, tsmiServo, tsmiWatchdog });
+            toolStripMenuItem5.Name = "toolStripMenuItem5";
+            toolStripMenuItem5.Size = new System.Drawing.Size(192, 22);
+            toolStripMenuItem5.Text = "Digital Output Modes";
             // 
             // toolStripMenuItem3
             // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(182, 22);
-            this.toolStripMenuItem3.Text = "Frequency Output";
-            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
+            toolStripMenuItem3.Name = "toolStripMenuItem3";
+            toolStripMenuItem3.Size = new System.Drawing.Size(182, 22);
+            toolStripMenuItem3.Text = "Frequency Output";
+            toolStripMenuItem3.Click += toolStripMenuItem3_Click;
             // 
             // tsmiHBridge
             // 
-            this.tsmiHBridge.Name = "tsmiHBridge";
-            this.tsmiHBridge.Size = new System.Drawing.Size(182, 22);
-            this.tsmiHBridge.Text = "H Bridge";
+            tsmiHBridge.Name = "tsmiHBridge";
+            tsmiHBridge.Size = new System.Drawing.Size(182, 22);
+            tsmiHBridge.Text = "H Bridge";
             // 
             // highSpeedClockToolStripMenuItem
             // 
-            this.highSpeedClockToolStripMenuItem.Name = "highSpeedClockToolStripMenuItem";
-            this.highSpeedClockToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.highSpeedClockToolStripMenuItem.Text = "High Speed Clock";
+            highSpeedClockToolStripMenuItem.Name = "highSpeedClockToolStripMenuItem";
+            highSpeedClockToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            highSpeedClockToolStripMenuItem.Text = "High Speed Clock";
             // 
             // tsmiPWM
             // 
-            this.tsmiPWM.Name = "tsmiPWM";
-            this.tsmiPWM.Size = new System.Drawing.Size(182, 22);
-            this.tsmiPWM.Text = "PWM";
+            tsmiPWM.Name = "tsmiPWM";
+            tsmiPWM.Size = new System.Drawing.Size(182, 22);
+            tsmiPWM.Text = "PWM";
             // 
             // tsmiPulseOnChange
             // 
-            this.tsmiPulseOnChange.Name = "tsmiPulseOnChange";
-            this.tsmiPulseOnChange.Size = new System.Drawing.Size(182, 22);
-            this.tsmiPulseOnChange.Text = "Pulse On Change";
+            tsmiPulseOnChange.Name = "tsmiPulseOnChange";
+            tsmiPulseOnChange.Size = new System.Drawing.Size(182, 22);
+            tsmiPulseOnChange.Text = "Pulse On Change";
             // 
             // toolStripMenuItem1
             // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(182, 22);
-            this.toolStripMenuItem1.Text = "QueuedPulseOutput";
+            toolStripMenuItem1.Name = "toolStripMenuItem1";
+            toolStripMenuItem1.Size = new System.Drawing.Size(182, 22);
+            toolStripMenuItem1.Text = "QueuedPulseOutput";
             // 
             // tsmiServo
             // 
-            this.tsmiServo.Name = "tsmiServo";
-            this.tsmiServo.Size = new System.Drawing.Size(182, 22);
-            this.tsmiServo.Text = "Servo";
+            tsmiServo.Name = "tsmiServo";
+            tsmiServo.Size = new System.Drawing.Size(182, 22);
+            tsmiServo.Text = "Servo";
             // 
             // tsmiWatchdog
             // 
-            this.tsmiWatchdog.Name = "tsmiWatchdog";
-            this.tsmiWatchdog.Size = new System.Drawing.Size(182, 22);
-            this.tsmiWatchdog.Text = "Watchdog";
+            tsmiWatchdog.Name = "tsmiWatchdog";
+            tsmiWatchdog.Size = new System.Drawing.Size(182, 22);
+            tsmiWatchdog.Text = "Watchdog";
             // 
             // toolStripMenuItem6
             // 
-            this.toolStripMenuItem6.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmiLiquidCrystal,
-            this.tmsiTM1637,
-            this.toolStripMenuItem2,
-            this.tsmiWS2812});
-            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(192, 22);
-            this.toolStripMenuItem6.Text = "Display Modes";
+            toolStripMenuItem6.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { tsmiLiquidCrystal, tmsiTM1637, toolStripMenuItem2, tsmiWS2812 });
+            toolStripMenuItem6.Name = "toolStripMenuItem6";
+            toolStripMenuItem6.Size = new System.Drawing.Size(192, 22);
+            toolStripMenuItem6.Text = "Display Modes";
             // 
             // tsmiLiquidCrystal
             // 
-            this.tsmiLiquidCrystal.Name = "tsmiLiquidCrystal";
-            this.tsmiLiquidCrystal.Size = new System.Drawing.Size(143, 22);
-            this.tsmiLiquidCrystal.Text = "LiquidCrystal";
+            tsmiLiquidCrystal.Name = "tsmiLiquidCrystal";
+            tsmiLiquidCrystal.Size = new System.Drawing.Size(143, 22);
+            tsmiLiquidCrystal.Text = "LiquidCrystal";
             // 
             // tmsiTM1637
             // 
-            this.tmsiTM1637.Name = "tmsiTM1637";
-            this.tmsiTM1637.Size = new System.Drawing.Size(143, 22);
-            this.tmsiTM1637.Text = "TM1637";
+            tmsiTM1637.Name = "tmsiTM1637";
+            tmsiTM1637.Size = new System.Drawing.Size(143, 22);
+            tmsiTM1637.Text = "TM1637";
             // 
             // toolStripMenuItem2
             // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(143, 22);
-            this.toolStripMenuItem2.Text = "SW18ABVGA";
+            toolStripMenuItem2.Name = "toolStripMenuItem2";
+            toolStripMenuItem2.Size = new System.Drawing.Size(143, 22);
+            toolStripMenuItem2.Text = "SW18ABVGA";
             // 
             // tsmiWS2812
             // 
-            this.tsmiWS2812.Name = "tsmiWS2812";
-            this.tsmiWS2812.Size = new System.Drawing.Size(143, 22);
-            this.tsmiWS2812.Text = "WS2812";
+            tsmiWS2812.Name = "tsmiWS2812";
+            tsmiWS2812.Size = new System.Drawing.Size(143, 22);
+            tsmiWS2812.Text = "WS2812";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(12, 15);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "-";
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(19, 23);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(12, 15);
+            label1.TabIndex = 1;
+            label1.Text = "-";
+            // 
+            // iRRxToolStripMenuItem
+            // 
+            iRRxToolStripMenuItem.Name = "iRRxToolStripMenuItem";
+            iRRxToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            iRRxToolStripMenuItem.Text = "IR Rx";
+            iRRxToolStripMenuItem.Click += iRRxToolStripMenuItem_Click;
             // 
             // GraphicPinSelectorControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.Controls.Add(this.groupBox1);
-            this.Name = "GraphicPinSelectorControl";
-            this.Size = new System.Drawing.Size(276, 509);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            AutoSize = true;
+            Controls.Add(groupBox1);
+            Name = "GraphicPinSelectorControl";
+            Size = new System.Drawing.Size(276, 509);
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            contextMenuStrip1.ResumeLayout(false);
+            ResumeLayout(false);
 
         }
 
@@ -420,5 +404,7 @@
         private System.Windows.Forms.ToolStripMenuItem tmsiTM1637;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem tsmiWS2812;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem7;
+        private System.Windows.Forms.ToolStripMenuItem iRRxToolStripMenuItem;
     }
 }

@@ -20,7 +20,7 @@ namespace SerialWombatWindowsFormsLibrary
             SerialWombatChip = serialWombatChip;
             Pin = pin;
             InitializeComponent();
-            Text = $"Pin {pin} Pulse On Change";
+            Text = $"Pin {pin} Pulse On Change {serialWombatChip.description}";
             pulseOnChangeControl1.begin(serialWombatChip, pin);
             pulseOnChangeControl1.Name = $"Pin{pin}_PulseOnChange";
         }

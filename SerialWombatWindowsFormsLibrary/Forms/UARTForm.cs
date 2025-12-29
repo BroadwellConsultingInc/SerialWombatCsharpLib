@@ -19,7 +19,7 @@ namespace SerialWombatWindowsFormsLibrary
             InitializeComponent();
             StartPosition = FormStartPosition.CenterParent;
             uartControl1.begin(serialWombatChip, pin);
-            Text = $"Pin {pin} UART mode";
+            Text = $"Pin {pin} UART mode {serialWombatChip.description}";
         }
 
         private void UARTForm_FormClosing(object sender, FormClosingEventArgs e)

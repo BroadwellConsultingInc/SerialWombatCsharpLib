@@ -19,7 +19,7 @@ namespace SerialWombatWindowsFormsLibrary.Forms
         {
             this.SerialWombatChip = serialWombatChip;
             Pin = pin;
-            this.Text = $"Pin {pin} VGA";
+            this.Text = $"Pin {pin} VGA {serialWombatChip.description}";
             InitializeComponent();
             if (pin != 18)
             {

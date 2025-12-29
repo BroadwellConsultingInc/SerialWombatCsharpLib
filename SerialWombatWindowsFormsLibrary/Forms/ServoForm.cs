@@ -23,10 +23,10 @@ namespace SerialWombatWindowsFormsLibrary
             InitializeComponent();
             Pin = pin;
             SerialWombatChip = serialWombatChip;
-            this.Text = $"Servo on pin {pin} on Serial Wombat Chip on {serialWombatChip.Serial.Port.PortName}";
+            this.Text = $"Pin {pin} Servo {serialWombatChip.description}";
 
 
-            if (serialWombatChip.ModelEnum == SerialWombatModel.SerialWombat18AB)
+            if (serialWombatChip.ModelEnum == SerialWombatModel.SerialWombat18AB || serialWombatChip.ModelEnum == SerialWombatModel.SerialWombat8B)
             {
              
                 this.AutoSize = true;
@@ -65,7 +65,7 @@ namespace SerialWombatWindowsFormsLibrary
                 servoControl1.Name = sltef.outputString;
                 if (scaledOutputControl != null)
                 {
-                    scaledOutputControl.Name = sltef.outputString;
+                    scaledOutputControl.SetPinName(sltef.outputString);
                 }
             }
         }

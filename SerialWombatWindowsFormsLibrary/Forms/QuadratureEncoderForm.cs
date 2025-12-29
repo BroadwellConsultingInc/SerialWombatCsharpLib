@@ -27,7 +27,7 @@ namespace SerialWombatWindowsFormsLibrary
         {
             InitializeComponent();
             Pin = pin;
-            Text = $"QuadratureEncoder Pins {Pin}, {Pin + 1} ";
+            Text = $"{Pin}, {Pin + 1} QuadratureEncoder Pin {serialWombatChip.description}  ";
             SerialWombatChip = serialWombatChip;
             cbAction.SelectedIndex = 4;
             cbPullUpDown.SelectedIndex = 1;

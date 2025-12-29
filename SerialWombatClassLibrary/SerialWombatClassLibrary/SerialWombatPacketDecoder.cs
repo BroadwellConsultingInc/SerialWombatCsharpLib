@@ -36,8 +36,6 @@ namespace SerialWombat
 
 
         static byte[] dataList = { 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55 };
-        static int dataCount = 0;
-        static int address_byte = 0;
         static bool isResponse = true;
 
 

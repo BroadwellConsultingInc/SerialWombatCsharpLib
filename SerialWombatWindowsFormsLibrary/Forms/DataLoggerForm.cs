@@ -22,7 +22,7 @@ namespace SerialWombatWindowsFormsLibrary
         {
             this.serialWombatChip = serialWombatChip;
             InitializeComponent();
-            Text = $"Data Logger";
+            Text = $"Data Logger {serialWombatChip.description}";
             dataLoggerControl1.begin(serialWombatChip);
         }
     }
